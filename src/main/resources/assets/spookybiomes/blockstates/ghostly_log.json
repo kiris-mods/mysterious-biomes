@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":  { "model": "spookybiomes:ghostly_log" },
+    "axis=z":   { "model": "spookybiomes:ghostly_log", "x": 90 },
+    "axis=x":   { "model": "spookybiomes:ghostly_log", "x": 90, "y": 90 },
+    "axis=none": { "model": "spookybiomes:ghostly_bark" }
+  }
+}

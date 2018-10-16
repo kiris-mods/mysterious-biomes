@@ -1,0 +1,82 @@
+#Creative Tab
+itemGroup.spookybiomes=Spooky Biomes
+
+#Blocks
+
+#Witchwood stuff
+tile.spookybiomes.witchwood_log.name=Witchwood Log
+tile.spookybiomes.witchwood_leaves.name=Witchwood Leaves
+tile.spookybiomes.witchwood_planks.name=Witchwood Planks
+tile.spookybiomes.witchwood_sapling.name=Witchwood Sapling
+tile.spookybiomes.witchwood_gate.name=Witchwood Gate
+tile.spookybiomes.witchwood_door.name=Witchwood Door
+tile.spookybiomes.witchwood_trapdoor.name=Witchwood Trapdoor
+tile.spookybiomes.witchwood_stairs.name=Witchwood Stairs
+tile.spookybiomes.witchwood_fence.name=Witchwood Fence
+tile.spookybiomes.witchwood_slab.name=Witchwood Slab
+
+#Ghostly stuff
+tile.spookybiomes.ghostly_log.name=Ghostly Log
+tile.spookybiomes.ghostly_leaves.name=Ghostly Leaves
+tile.spookybiomes.ghostly_planks.name=Ghostly Planks
+tile.spookybiomes.ghostly_sapling.name=Ghostly Sapling
+tile.spookybiomes.ghostly_gate.name=Ghostly Gate
+tile.spookybiomes.ghostly_door.name=Ghostly Door
+tile.spookybiomes.ghostly_trapdoor.name=Ghostly Trapdoor
+tile.spookybiomes.ghostly_stairs.name=Ghostly Stairs
+tile.spookybiomes.ghostly_fence.name=Ghostly Fence
+tile.spookybiomes.ghostly_slab.name=Ghostly Slab
+
+#Oozing stuff
+tile.spookybiomes.oozing_log.name=Oozing Log
+tile.spookybiomes.oozing_leaves.name=Oozing Leaves
+tile.spookybiomes.oozing_planks.name=Oozing Planks
+tile.spookybiomes.oozing_sapling.name=Oozing Sapling
+tile.spookybiomes.oozing_gate.name=Oozing Gate
+tile.spookybiomes.oozing_door.name=Oozing Door
+tile.spookybiomes.oozing_trapdoor.name=Oozing Trapdoor
+tile.spookybiomes.oozing_stairs.name=Oozing Stairs
+tile.spookybiomes.oozing_fence.name=Oozing Fence
+tile.spookybiomes.oozing_slab.name=Oozing Slab
+
+#Blood stuff
+tile.spookybiomes.blood_log.name=Blood Log
+tile.spookybiomes.blood_leaves.name=Blood Leaves
+tile.spookybiomes.blood_planks.name=Blood Planks
+tile.spookybiomes.blood_sapling.name=Blood Sapling
+tile.spookybiomes.blood_gate.name=Blood Gate
+tile.spookybiomes.blood_door.name=Blood Door
+tile.spookybiomes.blood_trapdoor.name=Blood Trapdoor
+tile.spookybiomes.blood_stairs.name=Blood Stairs
+tile.spookybiomes.blood_fence.name=Blood Fence
+tile.spookybiomes.blood_slab.name=Blood Slab
+
+#Items
+
+#Witchwood stuff
+item.spookybiomes.witchwood_door.name=Witchwood Door
+
+#Ghostly stuff
+item.spookybiomes.ghostly_door.name=Ghostly Door
+
+#Oozing stuff
+item.spookybiomes.oozing_door.name=Oozing Door
+
+#Blood stuff
+item.spookybiomes.blood_door.name=Blood Door
+
+#Entitys
+entity.spookybiomes.the_forgotten_warlock.name=The Forgotten Warlock
+
+#Config stuff
+biomeGeneration=Biome Generation
+spookybiomes.config.biomeGeneration=Biome Generation
+spookybiomes.config.biomeGeneration.tooltip=Biome settings for Spooky Biomes
+spookybiomes.config.ghostlyBiomeWeight=Ghostly Biome Weight
+spookybiomes.config.witchwoodBiomeWeight=Witchwood Biome Weight
+
+treeGeneration=Tree Generation
+spookybiomes.config.treeGeneration=Tree Generation
+spookybiomes.config.treeGeneration.tooltip=Tree generation settings for Spooky Biomes trees
+spookybiomes.config.ghostlyOnHills=Ghostly Trees on hills
+spookybiomes.config.witchwoodOnHills=Witchwood Trees on hills

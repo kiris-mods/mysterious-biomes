@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "normal": { "model": "spookybiomes:ghostly_leaves" }
+  ,"check_decay=true,decayable=false": { "model": "spookybiomes:ghostly_leaves" },"check_decay=true,decayable=true": { "model": "spookybiomes:ghostly_leaves" },"check_decay=false,decayable=false": { "model": "spookybiomes:ghostly_leaves" },"check_decay=false,decayable=true": { "model": "spookybiomes:ghostly_leaves" }    }
+}

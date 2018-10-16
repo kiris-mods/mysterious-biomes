@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "spookybiomes:witchwood_log" },
+        "axis=z":   { "model": "spookybiomes:witchwood_log", "x": 90 },
+        "axis=x":   { "model": "spookybiomes:witchwood_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "spookybiomes:witchwood_bark" }
+    }
+}

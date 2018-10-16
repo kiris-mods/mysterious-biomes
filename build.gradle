@@ -1,0 +1,82 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = 'gradle'
+            url = 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.11'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'com.matthewprenger.cursegradle'
+
+version = "${project.mod_version}"
+group = project.group
+archivesBaseName = "${project.mod_name}-${project.mc_version}"
+sourceCompatibility = targetCompatibility = "1.8"
+
+minecraft {
+    version = "${project.mc_version}-${project.forge_version}"
+    runDir = "run"
+    mappings = project.mcp_mappings
+    replace '@mod_id@', project.mod_id
+    replace '@mod_name@', project.mod_name
+    replace '@version@', project.mod_version
+    replace '@mc_version@', project.mc_version
+    replace '@update_json@', project.update_json
+    replace '@fingerprint@', project.fingerprint
+    makeObfSourceJar = false
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+task signJar(type: SignJar, dependsOn: reobfJar) {
+    onlyIf {
+        project.hasProperty('keyStore')
+    }
+    keyStore = project.keyStore
+    alias = project.keyStoreAlias
+    storePass = project.keyStorePass
+    keyPass = project.keyStoreKeyPass
+    inputFile = jar.archivePath
+    outputFile = jar.archivePath
+}
+build.dependsOn signJar
+
+curseforge {
+    apiKey = project.curse_api_key
+    project {
+        id = project.project_id
+        releaseType = project.release_type.toLowerCase()
+        changelog = project.changelog
+        addGameVersion project.mc_version
+    }
+}
+
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+
+artifacts {
+    archives deobfJar
+}

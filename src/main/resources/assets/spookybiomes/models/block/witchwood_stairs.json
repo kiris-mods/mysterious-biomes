@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "spookybiomes:blocks/witchwood_planks",
+    "top": "spookybiomes:blocks/witchwood_planks",
+    "side": "spookybiomes:blocks/witchwood_planks"
+  }
+}

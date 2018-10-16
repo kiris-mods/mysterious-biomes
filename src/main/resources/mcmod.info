@@ -1,0 +1,16 @@
+[
+{
+  "modid": "spookybiomes",
+  "name": "Spooky Biomes",
+  "description": "A SpookyJam mod made during the first two week of October for a Modded Minecraft Development community event. (SpookyJam) May contain Spookyness...",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://minecraft.curseforge.com/projects/Spooky-Biomes/files",
+  "updateUrl": "https://raw.githubusercontent.com/proxyneko/Spooky-Biomes/master/update.json",
+  "authorList": ["ProxyNeko"],
+  "credits": "ProxyNeko",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

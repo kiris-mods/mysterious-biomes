@@ -1,0 +1,6 @@
+{
+  "parent": "block/leaves",
+  "textures": {
+    "all": "spookybiomes:blocks/ghostly_leaves"
+  }
+}

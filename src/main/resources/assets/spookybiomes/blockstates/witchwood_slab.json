@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "spookybiomes:witchwood_half_slab" },
+        "half=top,variant=default": { "model": "spookybiomes:witchwood_upper_slab" }
+    }
+}

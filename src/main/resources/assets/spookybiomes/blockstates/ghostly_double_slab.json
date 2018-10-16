@@ -1,0 +1,7 @@
+{
+  "variants": {
+
+    "normal": { "model": "spookybiomes:ghostly_planks" },
+    "variant=default": { "model": "spookybiomes:ghostly_planks" }
+  }
+}
