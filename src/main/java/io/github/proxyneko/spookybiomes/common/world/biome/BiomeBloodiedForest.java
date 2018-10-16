@@ -1,4 +1,4 @@
-package io.github.proxyneko.spookybiomes.server.world.biome;
+package io.github.proxyneko.spookybiomes.common.world.biome;
 
 import io.github.proxyneko.spookybiomes.api.world.biome.SpookyBiome;
 import net.minecraft.entity.monster.EntityVex;

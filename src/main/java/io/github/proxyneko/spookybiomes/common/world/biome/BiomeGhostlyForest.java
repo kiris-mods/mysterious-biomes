@@ -1,9 +1,8 @@
-package io.github.proxyneko.spookybiomes.server.world.biome;
+package io.github.proxyneko.spookybiomes.common.world.biome;
 
 import io.github.proxyneko.spookybiomes.api.world.biome.SpookyBiome;
-import io.github.proxyneko.spookybiomes.server.entity.EntityTheForgottenWarlock;
-import io.github.proxyneko.spookybiomes.server.world.gen.features.WorldGenGhostlyTree;
-import io.github.proxyneko.spookybiomes.server.world.trees.WorldGenGhostlyTrees;
+import io.github.proxyneko.spookybiomes.common.entity.EntityTheForgottenWarlock;
+import io.github.proxyneko.spookybiomes.common.world.gen.features.WorldGenGhostlyTree;
 import net.minecraft.block.BlockTallGrass.EnumType;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityBat;

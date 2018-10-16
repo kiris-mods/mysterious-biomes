@@ -1,7 +1,7 @@
 package io.github.proxyneko.spookybiomes.api.blocks;
 
 import io.github.proxyneko.spookybiomes.SpookyBiomes;
-import io.github.proxyneko.spookybiomes.server.blocks.BaseDoor;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseDoor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraftforge.fml.common.registry.GameRegistry;

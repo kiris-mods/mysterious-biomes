@@ -2,9 +2,7 @@ package io.github.proxyneko.spookybiomes.init;
 
 import io.github.proxyneko.spookybiomes.SpookyBiomes;
 import io.github.proxyneko.spookybiomes.api.blocks.BlocksSB;
-import io.github.proxyneko.spookybiomes.server.blocks.*;
-import io.github.proxyneko.spookybiomes.server.world.gen.features.WorldGenGhostlyTree;
-import io.github.proxyneko.spookybiomes.server.world.gen.features.WorldGenWitchwoodTree;
+import io.github.proxyneko.spookybiomes.common.blocks.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.gen.feature.WorldGenBigTree;

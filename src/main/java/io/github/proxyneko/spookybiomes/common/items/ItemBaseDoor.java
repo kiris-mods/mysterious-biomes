@@ -1,6 +1,6 @@
-package io.github.proxyneko.spookybiomes.server.items;
+package io.github.proxyneko.spookybiomes.common.items;
 
-import io.github.proxyneko.spookybiomes.server.blocks.BaseDoor;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseDoor;
 import net.minecraft.item.ItemDoor;
 
 public class ItemBaseDoor extends ItemDoor {

@@ -2,16 +2,15 @@ package io.github.proxyneko.spookybiomes.init;
 
 import io.github.proxyneko.spookybiomes.SpookyBiomes;
 import io.github.proxyneko.spookybiomes.api.world.biome.SpookyBiome;
-import io.github.proxyneko.spookybiomes.server.world.biome.BiomeBloodiedForest;
-import io.github.proxyneko.spookybiomes.server.world.biome.BiomeGhostlyForest;
-import io.github.proxyneko.spookybiomes.server.world.biome.BiomeOozingHills;
-import io.github.proxyneko.spookybiomes.server.world.biome.BiomeWitchwoodForest;
+import io.github.proxyneko.spookybiomes.common.world.biome.BiomeBloodiedForest;
+import io.github.proxyneko.spookybiomes.common.world.biome.BiomeGhostlyForest;
+import io.github.proxyneko.spookybiomes.common.world.biome.BiomeOozingHills;
+import io.github.proxyneko.spookybiomes.common.world.biome.BiomeWitchwoodForest;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = SpookyBiomes.MODID)
 public class BiomeRegistry {

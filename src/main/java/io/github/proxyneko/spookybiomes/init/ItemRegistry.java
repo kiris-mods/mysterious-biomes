@@ -2,8 +2,8 @@ package io.github.proxyneko.spookybiomes.init;
 
 import io.github.proxyneko.spookybiomes.SpookyBiomes;
 import io.github.proxyneko.spookybiomes.api.blocks.BlocksSB;
-import io.github.proxyneko.spookybiomes.server.items.ItemBaseDoor;
-import io.github.proxyneko.spookybiomes.server.items.ItemBaseSlab;
+import io.github.proxyneko.spookybiomes.common.items.ItemBaseDoor;
+import io.github.proxyneko.spookybiomes.common.items.ItemBaseSlab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

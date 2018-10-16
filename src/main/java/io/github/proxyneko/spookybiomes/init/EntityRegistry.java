@@ -1,7 +1,7 @@
 package io.github.proxyneko.spookybiomes.init;
 
 import io.github.proxyneko.spookybiomes.SpookyBiomes;
-import io.github.proxyneko.spookybiomes.server.entity.EntityTheForgottenWarlock;
+import io.github.proxyneko.spookybiomes.common.entity.EntityTheForgottenWarlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;

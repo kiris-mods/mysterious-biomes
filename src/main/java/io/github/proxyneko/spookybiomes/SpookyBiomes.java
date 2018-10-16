@@ -14,10 +14,10 @@ public class SpookyBiomes {
 
     public static final String MODID = "spookybiomes";
     public static final String NAME = "Spooky Biomes";
-    public static final String VERSION = "@version@";
-    public static final String MCVERSION = "@mc_version@";
-    public static final String FINGERPRINT = "@fingerprint@";
-    public static final String UPDATEJSON = "@update_json@";
+    public static final String VERSION = "@VERSION@";
+    public static final String MCVERSION = "@MC_VERSIONB@";
+    public static final String FINGERPRINT = "@FINGERPRINT@";
+    public static final String UPDATEJSON = "@UPDATE_JSON@";
     public static final Logger NEKO_LOGGER = LogManager.getLogger(NAME);
 
     public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(MODID) {
@@ -51,7 +51,7 @@ public class SpookyBiomes {
         //TODO Enable once tree generation is fixed. Spawns random trees in certain areas. - Proxy
         //GameRegistry.registerWorldGenerator(new SpookyWorldGenerator(), 10);
 
-        //TODO Create this and move it somewhere else as this is for the client not the server. - Proxy
+        //TODO Create this and move it somewhere else as this is for the client not the common. - Proxy
         //MinecraftForge.EVENT_BUS.register(new FogHandler());
     }
 

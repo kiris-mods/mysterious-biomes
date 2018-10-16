@@ -2,7 +2,7 @@ package io.github.proxyneko.spookybiomes.client.rendering;
 
 import io.github.proxyneko.spookybiomes.SpookyBiomes;
 import io.github.proxyneko.spookybiomes.client.model.ModelTheForgottenWarlock;
-import io.github.proxyneko.spookybiomes.server.entity.EntityTheForgottenWarlock;
+import io.github.proxyneko.spookybiomes.common.entity.EntityTheForgottenWarlock;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;

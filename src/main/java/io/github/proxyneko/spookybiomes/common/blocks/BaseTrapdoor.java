@@ -1,4 +1,4 @@
-package io.github.proxyneko.spookybiomes.server.blocks;
+package io.github.proxyneko.spookybiomes.common.blocks;
 
 import net.minecraft.block.BlockTrapDoor;
 import net.minecraft.block.SoundType;

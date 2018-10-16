@@ -1,12 +1,8 @@
-package io.github.proxyneko.spookybiomes.server.world.gen.features;
+package io.github.proxyneko.spookybiomes.common.world.gen.features;
 
 import io.github.proxyneko.spookybiomes.api.blocks.BlocksSB;
-import io.github.proxyneko.spookybiomes.server.blocks.BaseSapling;
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;

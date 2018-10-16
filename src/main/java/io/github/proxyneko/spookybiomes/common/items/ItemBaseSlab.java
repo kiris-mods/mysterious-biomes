@@ -1,4 +1,4 @@
-package io.github.proxyneko.spookybiomes.server.items;
+package io.github.proxyneko.spookybiomes.common.items;
 
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;

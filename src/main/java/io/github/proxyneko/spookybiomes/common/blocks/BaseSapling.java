@@ -1,9 +1,7 @@
-package io.github.proxyneko.spookybiomes.server.blocks;
+package io.github.proxyneko.spookybiomes.common.blocks;
 
-import io.github.proxyneko.spookybiomes.server.world.gen.features.WorldGenGhostlyTree;
-import io.github.proxyneko.spookybiomes.server.world.gen.features.WorldGenWitchwoodTree;
-import io.github.proxyneko.spookybiomes.server.world.trees.WorldGenGhostlyTrees;
-import io.github.proxyneko.spookybiomes.server.world.trees.WorldGenWitchwoodTrees;
+import io.github.proxyneko.spookybiomes.common.world.gen.features.WorldGenGhostlyTree;
+import io.github.proxyneko.spookybiomes.common.world.gen.features.WorldGenWitchwoodTree;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;

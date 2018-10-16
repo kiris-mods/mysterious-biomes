@@ -1,4 +1,4 @@
-package io.github.proxyneko.spookybiomes.server.entity;
+package io.github.proxyneko.spookybiomes.common.entity;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;

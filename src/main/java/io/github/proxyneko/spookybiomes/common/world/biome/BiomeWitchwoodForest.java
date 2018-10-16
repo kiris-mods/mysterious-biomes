@@ -1,8 +1,8 @@
-package io.github.proxyneko.spookybiomes.server.world.biome;
+package io.github.proxyneko.spookybiomes.common.world.biome;
 
 import io.github.proxyneko.spookybiomes.api.world.biome.SpookyBiome;
-import io.github.proxyneko.spookybiomes.server.entity.EntityTheForgottenWarlock;
-import io.github.proxyneko.spookybiomes.server.world.gen.features.WorldGenWitchwoodTree;
+import io.github.proxyneko.spookybiomes.common.entity.EntityTheForgottenWarlock;
+import io.github.proxyneko.spookybiomes.common.world.gen.features.WorldGenWitchwoodTree;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.util.math.BlockPos;

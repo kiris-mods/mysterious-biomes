@@ -1,6 +1,6 @@
 package io.github.proxyneko.spookybiomes.client.rendering;
 
-import io.github.proxyneko.spookybiomes.server.entity.EntityTheForgottenWarlock;
+import io.github.proxyneko.spookybiomes.common.entity.EntityTheForgottenWarlock;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
