@@ -22,7 +22,7 @@ public class RecipeRegistry {
         registerRecipe(event, new ItemStack(ItemsSB.WITCHWOOD_DOOR), "##", "##", "##", '#', BlocksSB.WITCHWOOD_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.WITCHWOOD_TRAPDOOR, 2), "###", "###", '#', BlocksSB.WITCHWOOD_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.WITCHWOOD_STAIRS, 4), "#  ", "## ", "###", '#', BlocksSB.WITCHWOOD_PLANKS);
-        registerRecipe(event, new ItemStack(BlocksSB.WITCHWOOD_FENCE, 3),"#s#", "#s#", '#', BlocksSB.WITCHWOOD_PLANKS, 's', Items.STICK);
+        registerRecipe(event, new ItemStack(BlocksSB.WITCHWOOD_FENCE, 3), "#s#", "#s#", '#', BlocksSB.WITCHWOOD_PLANKS, 's', Items.STICK);
         registerRecipe(event, new ItemStack(BlocksSB.WITCHWOOD_SLAB, 6), "###", '#', BlocksSB.WITCHWOOD_PLANKS);
         //TODO Broken
         registerRecipe(event, new ItemStack(Items.STICK, 4), "#", "#", '#', BlocksSB.WITCHWOOD_PLANKS);
@@ -33,7 +33,7 @@ public class RecipeRegistry {
         registerRecipe(event, new ItemStack(ItemsSB.GHOSTLY_DOOR), "##", "##", "##", '#', BlocksSB.GHOSTLY_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.GHOSTLY_TRAPDOOR, 2), "###", "###", '#', BlocksSB.GHOSTLY_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.GHOSTLY_STAIRS, 4), "#  ", "## ", "###", '#', BlocksSB.GHOSTLY_PLANKS);
-        registerRecipe(event, new ItemStack(BlocksSB.GHOSTLY_FENCE, 3),"#s#", "#s#", '#', BlocksSB.GHOSTLY_PLANKS, 's', Items.STICK);
+        registerRecipe(event, new ItemStack(BlocksSB.GHOSTLY_FENCE, 3), "#s#", "#s#", '#', BlocksSB.GHOSTLY_PLANKS, 's', Items.STICK);
         registerRecipe(event, new ItemStack(BlocksSB.GHOSTLY_SLAB, 6), "###", '#', BlocksSB.GHOSTLY_PLANKS);
         //TODO Broken
         registerRecipe(event, new ItemStack(Items.STICK, 4), "#", "#", '#', BlocksSB.GHOSTLY_PLANKS);
@@ -44,7 +44,7 @@ public class RecipeRegistry {
         registerRecipe(event, new ItemStack(ItemsSB.OOZING_DOOR), "##", "##", "##", '#', BlocksSB.OOZING_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.OOZING_TRAPDOOR, 2), "###", "###", '#', BlocksSB.OOZING_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.OOZING_STAIRS, 4), "#  ", "## ", "###", '#', BlocksSB.OOZING_PLANKS);
-        registerRecipe(event, new ItemStack(BlocksSB.OOZING_FENCE, 3),"#s#", "#s#", '#', BlocksSB.OOZING_PLANKS, 's', Items.STICK);
+        registerRecipe(event, new ItemStack(BlocksSB.OOZING_FENCE, 3), "#s#", "#s#", '#', BlocksSB.OOZING_PLANKS, 's', Items.STICK);
         registerRecipe(event, new ItemStack(BlocksSB.OOZING_SLAB, 6), "###", '#', BlocksSB.OOZING_PLANKS);
         //TODO Broken
         registerRecipe(event, new ItemStack(Items.STICK, 4), "#", "#", '#', BlocksSB.OOZING_PLANKS);
@@ -55,7 +55,7 @@ public class RecipeRegistry {
         registerRecipe(event, new ItemStack(ItemsSB.BLOOD_DOOR), "##", "##", "##", '#', BlocksSB.BLOOD_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.BLOOD_TRAPDOOR, 2), "###", "###", '#', BlocksSB.BLOOD_PLANKS);
         registerRecipe(event, new ItemStack(BlocksSB.BLOOD_STAIRS, 4), "#  ", "## ", "###", '#', BlocksSB.BLOOD_PLANKS);
-        registerRecipe(event, new ItemStack(BlocksSB.BLOOD_FENCE, 3),"#s#", "#s#", '#', BlocksSB.BLOOD_PLANKS, 's', Items.STICK);
+        registerRecipe(event, new ItemStack(BlocksSB.BLOOD_FENCE, 3), "#s#", "#s#", '#', BlocksSB.BLOOD_PLANKS, 's', Items.STICK);
         registerRecipe(event, new ItemStack(BlocksSB.BLOOD_SLAB, 6), "###", '#', BlocksSB.BLOOD_PLANKS);
         //TODO Broken
         registerRecipe(event, new ItemStack(Items.STICK, 4), "#", "#", '#', BlocksSB.BLOOD_PLANKS);

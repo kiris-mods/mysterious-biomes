@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": {
+      "model": "spookybiomes:blood_planks"
+    },
+    "variant=default": {
+      "model": "spookybiomes:blood_planks"
+    }
+  }
+}

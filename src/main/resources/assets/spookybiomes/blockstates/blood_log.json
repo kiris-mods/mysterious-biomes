@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "spookybiomes:blood_log"
+    },
+    "axis=z": {
+      "model": "spookybiomes:blood_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "spookybiomes:blood_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=none": {
+      "model": "spookybiomes:blood_bark"
+    }
+  }
+}

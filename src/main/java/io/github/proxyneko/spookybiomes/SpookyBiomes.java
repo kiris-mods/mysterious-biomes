@@ -5,11 +5,23 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.common.event.FMLConstructionEvent;
+import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = SpookyBiomes.MODID, name = SpookyBiomes.NAME, version = SpookyBiomes.VERSION, acceptedMinecraftVersions = SpookyBiomes.MCVERSION, certificateFingerprint = SpookyBiomes.FINGERPRINT, updateJSON = SpookyBiomes.UPDATEJSON)
+@Mod
+        (
+                modid = SpookyBiomes.MODID,
+                name = SpookyBiomes.NAME,
+                version = SpookyBiomes.VERSION,
+                acceptedMinecraftVersions = SpookyBiomes.MCVERSION,
+                certificateFingerprint = SpookyBiomes.FINGERPRINT,
+                updateJSON = SpookyBiomes.UPDATEJSON
+        )
 public class SpookyBiomes {
 
     public static final String MODID = "spookybiomes";

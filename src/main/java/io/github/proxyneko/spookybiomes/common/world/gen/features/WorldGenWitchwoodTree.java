@@ -1,7 +1,7 @@
 package io.github.proxyneko.spookybiomes.common.world.gen.features;
 
 import io.github.proxyneko.spookybiomes.api.blocks.BlocksSB;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;

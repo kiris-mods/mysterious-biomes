@@ -1,19 +1,19 @@
 {
   "variants": {
     "normal": {
-      "model": "spookybiomes:witchwood_leaves"
+      "model": "spookybiomes:blood_leaves"
     },
     "check_decay=true,decayable=false": {
-      "model": "spookybiomes:witchwood_leaves"
+      "model": "spookybiomes:blood_leaves"
     },
     "check_decay=true,decayable=true": {
-      "model": "spookybiomes:witchwood_leaves"
+      "model": "spookybiomes:blood_leaves"
     },
     "check_decay=false,decayable=false": {
-      "model": "spookybiomes:witchwood_leaves"
+      "model": "spookybiomes:blood_leaves"
     },
     "check_decay=false,decayable=true": {
-      "model": "spookybiomes:witchwood_leaves"
+      "model": "spookybiomes:blood_leaves"
     }
   }
 }

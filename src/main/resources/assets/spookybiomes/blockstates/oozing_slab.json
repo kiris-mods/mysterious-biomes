@@ -1,10 +1,10 @@
 {
   "variants": {
     "half=bottom,variant=default": {
-      "model": "spookybiomes:ghostly_half_slab"
+      "model": "spookybiomes:oozing_half_slab"
     },
     "half=top,variant=default": {
-      "model": "spookybiomes:ghostly_upper_slab"
+      "model": "spookybiomes:oozing_upper_slab"
     }
   }
 }

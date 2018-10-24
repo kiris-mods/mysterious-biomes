@@ -2,7 +2,16 @@ package io.github.proxyneko.spookybiomes.init;
 
 import io.github.proxyneko.spookybiomes.SpookyBiomes;
 import io.github.proxyneko.spookybiomes.api.blocks.BlocksSB;
-import io.github.proxyneko.spookybiomes.common.blocks.*;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseDoor;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseFence;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseGate;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseLeaves;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseLog;
+import io.github.proxyneko.spookybiomes.common.blocks.BasePlanks;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseSapling;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseSlab;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseStairs;
+import io.github.proxyneko.spookybiomes.common.blocks.BaseTrapdoor;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.gen.feature.WorldGenBigTree;

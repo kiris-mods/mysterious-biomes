@@ -15,11 +15,11 @@ public class ConfigHandler {
 
     @Config.LangKey(LANG + "treeGeneration")
     @Config.Comment({"Tree gen settings."})
-    public static ConfigTreeGeneration treeGeneration = new ConfigTreeGeneration();
+    public static final ConfigTreeGeneration treeGeneration = new ConfigTreeGeneration();
 
     @Config.LangKey(LANG + "biomeGeneration")
     @Config.Comment({"Biome gen settings."})
-    public static ConfigBiomeGeneration biomeGeneration = new ConfigBiomeGeneration();
+    public static final ConfigBiomeGeneration biomeGeneration = new ConfigBiomeGeneration();
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {

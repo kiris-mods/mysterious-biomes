@@ -1,7 +1,10 @@
 {
   "variants": {
-
-    "normal": { "model": "spookybiomes:witchwood_planks" },
-    "variant=default": { "model": "spookybiomes:witchwood_planks" }
+    "normal": {
+      "model": "spookybiomes:witchwood_planks"
+    },
+    "variant=default": {
+      "model": "spookybiomes:witchwood_planks"
+    }
   }
 }

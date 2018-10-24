@@ -1,8 +1,8 @@
 package io.github.proxyneko.spookybiomes.common.world.gen;
 
-import io.github.proxyneko.spookybiomes.init.ConfigHandler;
 import io.github.proxyneko.spookybiomes.common.world.biome.BiomeGhostlyForest;
 import io.github.proxyneko.spookybiomes.common.world.biome.BiomeWitchwoodForest;
+import io.github.proxyneko.spookybiomes.init.ConfigHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
