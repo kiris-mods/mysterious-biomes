@@ -1,9 +1,9 @@
 package io.github.proxyneko.spookybiomes;
 
+import com.mcmoddev.lib.data.SharedStrings;
 import io.github.proxyneko.spookybiomes.api.blocks.BlocksSB;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLFingerprintViolationEvent;
@@ -13,25 +13,29 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod
-        (
+@Mod(
                 modid = SpookyBiomes.MODID,
                 name = SpookyBiomes.NAME,
                 version = SpookyBiomes.VERSION,
                 acceptedMinecraftVersions = SpookyBiomes.MCVERSION,
                 certificateFingerprint = SpookyBiomes.FINGERPRINT,
-                updateJSON = SpookyBiomes.UPDATEJSON
+                updateJSON = SpookyBiomes.UPDATEJSON,
+                dependencies = "required-after:mmdlib"
         )
 public class SpookyBiomes {
 
-    public static final String MODID = "spookybiomes";
-    public static final String NAME = "Spooky Biomes";
-    public static final String VERSION = "@VERSION@";
-    public static final String MCVERSION = "@MC_VERSIONB@";
-    public static final String FINGERPRINT = "@FINGERPRINT@";
-    public static final String UPDATEJSON = "@UPDATE_JSON@";
-    public static final Logger NEKO_LOGGER = LogManager.getLogger(NAME);
+    //TODO Ore dict stuff
 
+    @Mod.Instance(value = SpookyBiomes.MODID)
+    public static SpookyBiomes instance;
+
+    public static final String NAME = "Spooky Biomes";
+    public static final String MODID = "spookybiomes";
+    public static final String VERSION = "2.0.0";
+    public static final String UPDATEJSON = "https://raw.githubusercontent.com/ProxyNeko/Spooky-Biomes/master/update.json";
+    public static final String FINGERPRINT = "@fingerprint@";
+    public static final String MCVERSION = "1.12.2";
+    public static final Logger NEKO_LOGGER = LogManager.getLogger(NAME);
     public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(MODID) {
         @Override
         public ItemStack createIcon() {
@@ -39,12 +43,9 @@ public class SpookyBiomes {
         }
     };
 
-    @Mod.Instance(MODID)
-    public static SpookyBiomes instance;
-
     @Mod.EventHandler
     public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
-        FMLLog.bigWarning("Invalid fingerprint detected! The file " + event.getSource().getName() + " may have been tampered with. This version will NOT be supported by Proxy!");
+        NEKO_LOGGER.warn(SharedStrings.INVALID_FINGERPRINT + "This build will not be supported by ProxyNeko! Please download from CurseForge for a signed version.");
     }
 
     @Mod.EventHandler
