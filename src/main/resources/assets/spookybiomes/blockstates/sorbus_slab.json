@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=bottom,variant=default": {
+      "model": "spookybiomes:sorbus_half_slab"
+    },
+    "half=top,variant=default": {
+      "model": "spookybiomes:sorbus_upper_slab"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=bottom,variant=default": {
+      "model": "spookybiomes:bloodwood_half_slab"
+    },
+    "half=top,variant=default": {
+      "model": "spookybiomes:bloodwood_upper_slab"
+    }
+  }
+}

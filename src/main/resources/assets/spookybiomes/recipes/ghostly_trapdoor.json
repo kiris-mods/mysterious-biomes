@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "spookybiomes:ghostly_trapdoor",
+    "count": 2
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:ghostly_planks"
+    }
+  }
+}

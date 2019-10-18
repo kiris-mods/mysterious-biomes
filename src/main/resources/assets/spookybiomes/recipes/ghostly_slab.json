@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "spookybiomes:ghostly_slab", "data": 0,
+    "count": 6
+  },
+  "pattern": [
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:ghostly_planks"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "normal": {
+      "model": "spookybiomes:sorbus_planks"
+    },
+    "variant=default": {
+      "model": "spookybiomes:sorbus_planks"
+    }
+  }
+}

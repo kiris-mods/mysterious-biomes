@@ -3,17 +3,17 @@ itemGroup.spookybiomes=Spooky Biomes
 
 #Blocks
 
-#Witchwood stuff
-tile.spookybiomes.witchwood_log.name=Witchwood Log
-tile.spookybiomes.witchwood_leaves.name=Witchwood Leaves
-tile.spookybiomes.witchwood_planks.name=Witchwood Planks
-tile.spookybiomes.witchwood_sapling.name=Witchwood Sapling
-tile.spookybiomes.witchwood_gate.name=Witchwood Gate
-tile.spookybiomes.witchwood_door.name=Witchwood Door
-tile.spookybiomes.witchwood_trapdoor.name=Witchwood Trapdoor
-tile.spookybiomes.witchwood_stairs.name=Witchwood Stairs
-tile.spookybiomes.witchwood_fence.name=Witchwood Fence
-tile.spookybiomes.witchwood_slab.name=Witchwood Slab
+#Sorbus stuff
+tile.spookybiomes.sorbus_log.name=Sorbus Log
+tile.spookybiomes.sorbus_leaves.name=Sorbus Leaves
+tile.spookybiomes.sorbus_planks.name=Sorbus Planks
+tile.spookybiomes.sorbus_sapling.name=Sorbus Sapling
+tile.spookybiomes.sorbus_gate.name=Sorbus Gate
+tile.spookybiomes.sorbus_door.name=Sorbus Door
+tile.spookybiomes.sorbus_trapdoor.name=Sorbus Trapdoor
+tile.spookybiomes.sorbus_stairs.name=Sorbus Stairs
+tile.spookybiomes.sorbus_fence.name=Sorbus Fence
+tile.spookybiomes.sorbus_slab.name=Sorbus Slab
 
 #Ghostly stuff
 tile.spookybiomes.ghostly_log.name=Ghostly Log
@@ -27,43 +27,43 @@ tile.spookybiomes.ghostly_stairs.name=Ghostly Stairs
 tile.spookybiomes.ghostly_fence.name=Ghostly Fence
 tile.spookybiomes.ghostly_slab.name=Ghostly Slab
 
-#Oozing stuff
-tile.spookybiomes.oozing_log.name=Oozing Log
-tile.spookybiomes.oozing_leaves.name=Oozing Leaves
-tile.spookybiomes.oozing_planks.name=Oozing Planks
-tile.spookybiomes.oozing_sapling.name=Oozing Sapling
-tile.spookybiomes.oozing_gate.name=Oozing Gate
-tile.spookybiomes.oozing_door.name=Oozing Door
-tile.spookybiomes.oozing_trapdoor.name=Oozing Trapdoor
-tile.spookybiomes.oozing_stairs.name=Oozing Stairs
-tile.spookybiomes.oozing_fence.name=Oozing Fence
-tile.spookybiomes.oozing_slab.name=Oozing Slab
+#Seeping stuff
+tile.spookybiomes.seeping_log.name=Seeping Log
+tile.spookybiomes.seeping_leaves.name=Seeping Leaves
+tile.spookybiomes.seeping_planks.name=Seeping Planks
+tile.spookybiomes.seeping_sapling.name=Seeping Sapling
+tile.spookybiomes.seeping_gate.name=Seeping Gate
+tile.spookybiomes.seeping_door.name=Seeping Door
+tile.spookybiomes.seeping_trapdoor.name=Seeping Trapdoor
+tile.spookybiomes.seeping_stairs.name=Seeping Stairs
+tile.spookybiomes.seeping_fence.name=Seeping Fence
+tile.spookybiomes.seeping_slab.name=Seeping Slab
 
 #Blood stuff
-tile.spookybiomes.blood_log.name=Blood Log
-tile.spookybiomes.blood_leaves.name=Blood Leaves
-tile.spookybiomes.blood_planks.name=Blood Planks
-tile.spookybiomes.blood_sapling.name=Blood Sapling
-tile.spookybiomes.blood_gate.name=Blood Gate
-tile.spookybiomes.blood_door.name=Blood Door
-tile.spookybiomes.blood_trapdoor.name=Blood Trapdoor
-tile.spookybiomes.blood_stairs.name=Blood Stairs
-tile.spookybiomes.blood_fence.name=Blood Fence
-tile.spookybiomes.blood_slab.name=Blood Slab
+tile.spookybiomes.bloodwood_log.name=Blood Log
+tile.spookybiomes.bloodwood_leaves.name=Blood Leaves
+tile.spookybiomes.bloodwood_planks.name=Blood Planks
+tile.spookybiomes.bloodwood_sapling.name=Blood Sapling
+tile.spookybiomes.bloodwood_gate.name=Blood Gate
+tile.spookybiomes.bloodwood_door.name=Blood Door
+tile.spookybiomes.bloodwood_trapdoor.name=Blood Trapdoor
+tile.spookybiomes.bloodwood_stairs.name=Blood Stairs
+tile.spookybiomes.bloodwood_fence.name=Blood Fence
+tile.spookybiomes.bloodwood_slab.name=Blood Slab
 
 #Items
 
-#Witchwood stuff
-item.spookybiomes.witchwood_door.name=Witchwood Door
+#Sorbus stuff
+item.spookybiomes.sorbus_door.name=Sorbus Door
 
 #Ghostly stuff
 item.spookybiomes.ghostly_door.name=Ghostly Door
 
-#Oozing stuff
-item.spookybiomes.oozing_door.name=Oozing Door
+#Seeping stuff
+item.spookybiomes.seeping_door.name=Seeping Door
 
 #Blood stuff
-item.spookybiomes.blood_door.name=Blood Door
+item.spookybiomes.bloodwood_door.name=Blood Door
 
 #Entitys
 entity.spookybiomes.the_forgotten_warlock.name=The Forgotten Warlock
@@ -73,10 +73,10 @@ biomeGeneration=Biome Generation
 spookybiomes.config.biomeGeneration=Biome Generation
 spookybiomes.config.biomeGeneration.tooltip=Biome settings for Spooky Biomes
 spookybiomes.config.ghostlyBiomeWeight=Ghostly Biome Weight
-spookybiomes.config.witchwoodBiomeWeight=Witchwood Biome Weight
+spookybiomes.config.sorbusBiomeWeight=Sorbus Biome Weight
 
 treeGeneration=Tree Generation
 spookybiomes.config.treeGeneration=Tree Generation
 spookybiomes.config.treeGeneration.tooltip=Tree generation settings for Spooky Biomes trees
 spookybiomes.config.ghostlyOnHills=Ghostly Trees on hills
-spookybiomes.config.witchwoodOnHills=Witchwood Trees on hills
+spookybiomes.config.sorbusOnHills=Sorbus Trees on hills

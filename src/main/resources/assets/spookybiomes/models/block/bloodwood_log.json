@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "spookybiomes:blocks/bloodwood_log_top",
+    "side": "spookybiomes:blocks/bloodwood_log"
+  }
+}

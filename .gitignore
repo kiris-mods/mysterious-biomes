@@ -1,27 +1,23 @@
-#Eclipse
+# eclipse
 bin
 *.launch
 .settings
-.settings/*
 .metadata
 .classpath
 .project
-eclipse
 
-#IDEA
+# idea
 out
 *.ipr
 *.iws
 *.iml
-.idea/*
+.idea
 
-#Gradle
-build/*
-.gradle/*
-radle-version/*
+# gradle
+build
+.gradle
 
-#Other
-run/*
-classes/*
-info/*
-.DS_Store
+# other
+eclipse
+run
+libs/*

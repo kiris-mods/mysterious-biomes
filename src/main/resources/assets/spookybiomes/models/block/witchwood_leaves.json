@@ -1,6 +1,0 @@
-{
-  "parent": "block/leaves",
-  "textures": {
-    "all": "spookybiomes:blocks/witchwood_leaves"
-  }
-}

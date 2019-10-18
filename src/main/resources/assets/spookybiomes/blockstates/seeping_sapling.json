@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "spookybiomes:seeping_sapling"
+    },
+    "stage=1": {
+      "model": "spookybiomes:seeping_sapling"
+    }
+  }
+}
