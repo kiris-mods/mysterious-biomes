@@ -1,5 +1,5 @@
 {
-  "parent": "block/stairs",
+  "parent": "block/half_slab",
   "textures": {
     "bottom": "spookybiomes:blocks/sorbus_planks",
     "top": "spookybiomes:blocks/sorbus_planks",

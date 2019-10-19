@@ -1,5 +1,5 @@
 {
-  "parent": "block/stairs",
+  "parent": "block/outer_stairs",
   "textures": {
     "bottom": "spookybiomes:blocks/ghostly_planks",
     "top": "spookybiomes:blocks/ghostly_planks",
