@@ -1,0 +1,82 @@
+#Creative Tab
+itemGroup.spookybiomes=Spooky Biomes
+
+#Blocks
+
+#Sorbus stuff
+tile.spookybiomes.sorbus_log.name=Log o' Sorbus
+tile.spookybiomes.sorbus_leaves.name=Leaves o' Sorbus
+tile.spookybiomes.sorbus_planks.name=Planks o' Sorbus
+tile.spookybiomes.sorbus_sapling.name=Sorbus Shrub
+tile.spookybiomes.sorbus_gate.name=Picket Gate o' Sorbus
+tile.spookybiomes.sorbus_door.name=Door o' Sorbus
+tile.spookybiomes.sorbus_trapdoor.name=Hatch o' Sorbus
+tile.spookybiomes.sorbus_stairs.name=Stairs o' Sorbus
+tile.spookybiomes.sorbus_fence.name=Picket o' Sorbus
+tile.spookybiomes.sorbus_slab.name=Slab o' Sorbus
+
+#Ghostly stuff
+tile.spookybiomes.ghostly_log.name=Log o' Ghosts
+tile.spookybiomes.ghostly_leaves.name=Leaves o' Ghosts
+tile.spookybiomes.ghostly_planks.name=Planks o' Ghosts
+tile.spookybiomes.ghostly_sapling.name=Ghostly Shrub
+tile.spookybiomes.ghostly_gate.name=Picket Gate o' Ghosts
+tile.spookybiomes.ghostly_door.name=Door o' Ghosts
+tile.spookybiomes.ghostly_trapdoor.name=Hatch o' Ghosts
+tile.spookybiomes.ghostly_stairs.name=Stairs o' Ghosts
+tile.spookybiomes.ghostly_fence.name=Picket o' Ghosts
+tile.spookybiomes.ghostly_slab.name=Slab o' Ghosts
+
+#Seeping stuff
+tile.spookybiomes.seeping_log.name=Log o' Seeping
+tile.spookybiomes.seeping_leaves.name=Leaves o' Seeping
+tile.spookybiomes.seeping_planks.name=Planks o' Seeping
+tile.spookybiomes.seeping_sapling.name=Seeping Shrub
+tile.spookybiomes.seeping_gate.name=Picket Gate o' Seeping
+tile.spookybiomes.seeping_door.name=Door o' Seeping
+tile.spookybiomes.seeping_trapdoor.name=Hatch o' Seeping
+tile.spookybiomes.seeping_stairs.name=Stairs o' Seeping
+tile.spookybiomes.seeping_fence.name=Picket o' Seeping
+tile.spookybiomes.seeping_slab.name=Slab o' Seeping
+
+#Blood stuff
+tile.spookybiomes.bloodwood_log.name=Log o' Blood
+tile.spookybiomes.bloodwood_leaves.name=Leaves o' Blood
+tile.spookybiomes.bloodwood_planks.name=Planks o' Blood
+tile.spookybiomes.bloodwood_sapling.name=Bloody Shrub
+tile.spookybiomes.bloodwood_gate.name=Picket Gate o' Blood
+tile.spookybiomes.bloodwood_door.name=Door o' Blood
+tile.spookybiomes.bloodwood_trapdoor.name=Hatch o' Blood
+tile.spookybiomes.bloodwood_stairs.name=Stairs o' Blood
+tile.spookybiomes.bloodwood_fence.name=Picket o' Blood
+tile.spookybiomes.bloodwood_slab.name=Slab o' Blood
+
+#Items
+
+#Sorbus stuff
+item.spookybiomes.sorbus_door.name=Door o' Sorbus
+
+#Ghostly stuff
+item.spookybiomes.ghostly_door.name=Door o' Ghosts
+
+#Seeping stuff
+item.spookybiomes.seeping_door.name=Door o' Seeping
+
+#Blood stuff
+item.spookybiomes.bloodwood_door.name=Door o' Blood
+
+#Entitys
+entity.spookybiomes.the_forgotten_warlock.name=The Forgotten Warlock
+
+#Config stuff
+biomeGeneration=Biome Generation
+spookybiomes.config.biomeGeneration=Biome Generation
+spookybiomes.config.biomeGeneration.tooltip=Biome settings for Spooky Biomes
+spookybiomes.config.ghostlyBiomeWeight=Ghostly Biome Weight
+spookybiomes.config.sorbusBiomeWeight=Sorbus Biome Weight
+
+treeGeneration=Tree Generation
+spookybiomes.config.treeGeneration=Tree Generation
+spookybiomes.config.treeGeneration.tooltip=Tree generation settings for Spooky Biomes trees
+spookybiomes.config.ghostlyOnHills=Ghostly Trees on hills
+spookybiomes.config.sorbusOnHills=Sorbus Trees on hills
