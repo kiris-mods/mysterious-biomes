@@ -1,0 +1,82 @@
+#Creative Tab
+itemGroup.spookybiomes=Spooky Biomes
+
+#Blocks
+
+#Sorbus stuff
+tile.spookybiomes.sorbus_log.name=Madeira de Tramazeira
+tile.spookybiomes.sorbus_leaves.name=Folhas de Tramazeira
+tile.spookybiomes.sorbus_planks.name=Tábuas de Madeira de Tramazeira
+tile.spookybiomes.sorbus_sapling.name=Rebento de Tramazeira
+tile.spookybiomes.sorbus_gate.name=Portão de Madeira de Tramazeira
+tile.spookybiomes.sorbus_door.name=Porta de Madeira de Tramazeira
+tile.spookybiomes.sorbus_trapdoor.name=Alçapão de Madeira de Tramazeira
+tile.spookybiomes.sorbus_stairs.name=Escadas de Madeira de Tramazeira
+tile.spookybiomes.sorbus_fence.name=Cerca de Madeira de Tramazeira
+tile.spookybiomes.sorbus_slab.name=Degrau de Madeira de Tramazeira
+
+#Fantasmagórico stuff
+tile.spookybiomes.ghostly_log.name=Madeira Fantasmagórica
+tile.spookybiomes.ghostly_leaves.name=Folhas Fantasmagóricas
+tile.spookybiomes.ghostly_planks.name=Tábuas de Madeira Fantasmagórica
+tile.spookybiomes.ghostly_sapling.name=Rebento Fantasmagórico
+tile.spookybiomes.ghostly_gate.name=Portão de Madeira Fantasmagórica
+tile.spookybiomes.ghostly_door.name=Porta de Madeira Fantasmagórica
+tile.spookybiomes.ghostly_trapdoor.name=Alçapão de Madeira Fantasmagórica
+tile.spookybiomes.ghostly_stairs.name=Escadas de Madeira Fantasmagórica
+tile.spookybiomes.ghostly_fence.name=Cerca de Madeira Fantasmagórica
+tile.spookybiomes.ghostly_slab.name=Degrau de Madeira Fantasmagórica
+
+#Embebida stuff
+tile.spookybiomes.seeping_log.name=Madeira Embebida
+tile.spookybiomes.seeping_leaves.name=Folhas Embebida
+tile.spookybiomes.seeping_planks.name=Tábuas de Madeira Embebida
+tile.spookybiomes.seeping_sapling.name=Rebento Embebido
+tile.spookybiomes.seeping_gate.name=Portão de Madeira Embebida
+tile.spookybiomes.seeping_door.name=Porta de Madeira Embebida
+tile.spookybiomes.seeping_trapdoor.name=Alçapão de Madeira Embebida
+tile.spookybiomes.seeping_stairs.name=Escadas de Madeira Embebida
+tile.spookybiomes.seeping_fence.name=Cerca de Madeira Embebida
+tile.spookybiomes.seeping_slab.name=Degrau de Madeira Embebida
+
+#Blood stuff
+tile.spookybiomes.bloodwood_log.name=Madeira Sangrenta
+tile.spookybiomes.bloodwood_leaves.name=Folhas Sangrentas
+tile.spookybiomes.bloodwood_planks.name=Tábuas de Madeira Sangrenta
+tile.spookybiomes.bloodwood_sapling.name=Rebento Sangrento
+tile.spookybiomes.bloodwood_gate.name=Portão de Madeira Sangrenta
+tile.spookybiomes.bloodwood_door.name=Porta de Madeira Sangrenta
+tile.spookybiomes.bloodwood_trapdoor.name=Alçapão de Madeira Sangrenta
+tile.spookybiomes.bloodwood_stairs.name=Escadas de Madeira Sangrenta
+tile.spookybiomes.bloodwood_fence.name=Cerca de Madeira Sangrenta
+tile.spookybiomes.bloodwood_slab.name=Degrau de Madeira Sangrenta
+
+#Items
+
+#Tramazeira stuff
+item.spookybiomes.sorbus_door.name=Porta de Madeira de Tramazeira
+
+#Fantasmagórico stuff
+item.spookybiomes.ghostly_door.name=Porta de Madeira Fantasmagórica
+
+#Embebida stuff
+item.spookybiomes.seeping_door.name=Porta de Madeira Embebida
+
+#Blood stuff
+item.spookybiomes.bloodwood_door.name=Porta de Madeira Sangrenta
+
+#Entitys
+entity.spookybiomes.the_forgotten_warlock.name=O Feiticeiro Esquecido
+
+#Config stuff
+biomeGeneration=Geração de Biomes
+spookybiomes.config.biomeGeneration=Geração de Biomes
+spookybiomes.config.biomeGeneration.tooltip=Definições de Biomes para Spooky Biomes
+spookybiomes.config.ghostlyBiomeWeight=Peso de geração de Ghostly Biome
+spookybiomes.config.sorbusBiomeWeight=Peso de geração de Sorbus Biome
+
+treeGeneration=Geração de Árvores
+spookybiomes.config.treeGeneration=Geração de Árvores
+spookybiomes.config.treeGeneration.tooltip=Definições de geração de árvores para as árvores de Spooky Biomes
+spookybiomes.config.ghostlyOnHills=Árvores Fantasmagóricas em elevações
+spookybiomes.config.sorbusOnHills=Árvores de Tramazeira em elevações
