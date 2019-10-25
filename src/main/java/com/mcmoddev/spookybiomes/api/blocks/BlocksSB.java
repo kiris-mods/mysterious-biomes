@@ -60,4 +60,6 @@ public class BlocksSB {
     public static final Block BLOODWOOD_FENCE = null;
     public static final BlockSlab BLOODWOOD_SLAB = null;
     public static final BlockSlab BLOODWOOD_DOUBLE_SLAB = null;
+    public static final Block BLOODIED_GRASS = null;
+    public static final Block BLOODIED_DIRT = null;
 }

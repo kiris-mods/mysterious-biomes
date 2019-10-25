@@ -19,7 +19,9 @@ import org.apache.logging.log4j.Logger;
         version = SpookyBiomes.VERSION,
         updateJSON = "https://raw.githubusercontent.com/MinecraftModDevelopmentMods/Spooky-Biomes/master/update.json",
         certificateFingerprint = "@FINGERPRINT@",
-        acceptedMinecraftVersions = "[1.12, 1.12.2]")
+        acceptedMinecraftVersions = "[1.12, 1.12.2]",
+        dependencies = "required-after:proxyslib@[1.2.0,);"
+)
 public class SpookyBiomes {
 
     public static final String NAME = "Spooky Biomes";

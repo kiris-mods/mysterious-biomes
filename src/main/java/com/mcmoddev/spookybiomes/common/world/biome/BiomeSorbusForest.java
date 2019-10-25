@@ -24,8 +24,8 @@ public class BiomeSorbusForest extends MistyBiome {
         decorator.treesPerChunk = 4;
         decorator.grassPerChunk = 4;
         decorator.generateFalls = true;
-        fogColor = 0xff5605;
-        fogDensity = 0.500F;
+        mistColor = 0xb00000;
+        mistDensity = 0.45F;
     }
 
     @Override

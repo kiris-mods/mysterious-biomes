@@ -60,5 +60,13 @@ public class ConfigHandler {
         @Config.RangeInt(min = 0, max = 100)
         @Config.Comment({"Set the gen weight of Bloodied Hills biome."})
         public int bloodiedBiomeWeight = 35;
+
+        @Config.LangKey(LANG + "enableBloodGrassSpread")
+        @Config.Comment("Sets if BloodiedGrass can spread to vanilla grass. If true spreads throughout the world.")
+        public boolean bloodiedGrassSpreadToGrass = true;
+
+        @Config.LangKey(LANG + "enableBloodGrassDirtSpread")
+        @Config.Comment({"Sets if Bloodied Grass can spread to vanilla dirt. If true spreads throughout the world."})
+        public boolean bloodiedGrassSpreadToDirt = false;
     }
 }

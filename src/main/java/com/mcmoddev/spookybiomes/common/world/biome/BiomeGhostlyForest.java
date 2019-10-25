@@ -19,7 +19,7 @@ public class BiomeGhostlyForest extends MistyBiome {
     public static final WorldGenGhostlyTree NATURAL_GEN = new WorldGenGhostlyTree(false);
 
     public BiomeGhostlyForest() {
-        super(new BiomeProperties("Ghostly Forest").setTemperature(0.25F).setRainfall(0.9F).setBaseHeight(0.05F).setHeightVariation(0.45F));
+        super(new BiomeProperties("Ghostly Forest").setTemperature(0.25F).setRainfall(0.9F).setBaseHeight(0.05F).setHeightVariation(0.35F));
         setRegistryName("ghostly_forest");
         spawnableCreatureList.clear();
         spawnableCreatureList.add(new SpawnListEntry(EntityBat.class, 2, 2, 2));
@@ -28,8 +28,8 @@ public class BiomeGhostlyForest extends MistyBiome {
         decorator.treesPerChunk = 3;
         decorator.grassPerChunk = 5;
         decorator.generateFalls = true;
-        fogColor = 0xedfffd;
-        fogDensity = 0.150F;
+        mistColor = 0xedfffd;
+        mistDensity = 0.05F;
     }
 
     @Override

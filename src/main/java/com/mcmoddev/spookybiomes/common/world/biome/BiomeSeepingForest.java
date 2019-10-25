@@ -15,8 +15,8 @@ public class BiomeSeepingForest extends MistyBiome {
         decorator.treesPerChunk = 3;
         decorator.grassPerChunk = 4;
         decorator.generateFalls = true;
-        fogColor = 0x00ff8c;
-        fogDensity = 0.500F;
+        mistColor = 0x00ff8c;
+        mistDensity = 0.50F;
     }
 
     @Override
