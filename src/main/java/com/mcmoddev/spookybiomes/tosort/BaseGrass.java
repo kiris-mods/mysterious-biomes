@@ -18,6 +18,8 @@ import net.minecraftforge.common.IPlantable;
 import java.util.Random;
 
 public class BaseGrass extends BlockGrass {
+    private final static int MIN_LIGHT_LVL = 4;
+    private final static int MAX_LIGHT_OPACITY = 2;
 
     public BaseGrass() {
         setSoundType(SoundType.PLANT);
@@ -31,31 +33,33 @@ public class BaseGrass extends BlockGrass {
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if (!worldIn.isRemote) {
-            if (!worldIn.isAreaLoaded(pos, 3)) {
-                return;
-            }
+        // TODO Move these into the config file
+        // Average number of ticks to spread to a single block
+        int spreadSpeed = 1; // Default is 10
+        int grassSpreadToDirtMinChance = 25; // Default is 25
 
-            if (worldIn.getLightFromNeighbors(pos.up()) < 4 && worldIn.getBlockState(pos.up()).getBlock().getLightOpacity(worldIn.getBlockState(pos.up()), worldIn, pos.up()) > 2) {
-                worldIn.setBlockState(pos, BlocksSB.BLOODIED_DIRT.getDefaultState());
-            } else {
-                for (int i = 0; i < 4; ++i) {
+        if (!worldIn.isRemote) {
+            if (worldIn.isAreaLoaded(pos, 3)) {
+                if (worldIn.getLightFromNeighbors(pos.up()) < MIN_LIGHT_LVL && worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > MAX_LIGHT_OPACITY) {
+                    worldIn.setBlockState(pos, BlocksSB.BLOODIED_DIRT.getDefaultState());
+                }
+                Random r = new Random(worldIn.getSeed());
+                if (r.nextInt(100) < (100 / spreadSpeed)) {
                     BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-                    Block block = worldIn.getBlockState(blockpos.up()).getBlock();
                     IBlockState iblockstate = worldIn.getBlockState(blockpos);
 
-                    if ((iblockstate.getBlock() == Blocks.GRASS && ConfigHandler.biomeGeneration.bloodiedGrassSpreadToGrass ||
-                            iblockstate.getBlock() == BlocksSB.BLOODIED_DIRT ||
-                            iblockstate.getBlock() == Blocks.DIRT && iblockstate.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT &&
-                                    ConfigHandler.biomeGeneration.bloodiedGrassSpreadToGrass) && block.getLightOpacity(worldIn.getBlockState(blockpos.up()),
-                            worldIn, blockpos.up()) <= 2) {
-                        worldIn.setBlockState(blockpos, BlocksSB.BLOODIED_GRASS.getDefaultState());
-                    } else {
-                        if (ConfigHandler.biomeGeneration.bloodiedGrassSpreadToDirt && iblockstate.getBlock() == Blocks.DIRT &&
-                                iblockstate.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT &&
-                                worldIn.isSideSolid(blockpos, EnumFacing.UP) &&
-                                !worldIn.getBlockState(blockpos.up()).getMaterial().isLiquid()) {
-                            worldIn.setBlockState(blockpos, BlocksSB.BLOODIED_DIRT.getDefaultState());
+                    boolean canBloodify = ConfigHandler.biomeGeneration.bloodiedGrassSpreadToGrass;
+                    boolean canSpreadToDirt = iblockstate.getBlock() == Blocks.DIRT && iblockstate.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT;
+                    boolean canSpreadToGrass = iblockstate.getBlock() == Blocks.GRASS;
+
+                    if (canBloodify) {
+                        if (canSpreadToDirt || worldIn.isSideSolid(blockpos, EnumFacing.UP) && !worldIn.getBlockState(blockpos.up()).getMaterial().isLiquid()) {
+                            if (new Random(worldIn.getSeed()).nextInt(100) > grassSpreadToDirtMinChance) {
+                                worldIn.setBlockState(blockpos, BlocksSB.BLOODIED_DIRT.getDefaultState());
+                            }
+                        }
+                        if (canSpreadToGrass) {
+                            worldIn.setBlockState(blockpos, BlocksSB.BLOODIED_GRASS.getDefaultState());
                         }
                     }
                 }
