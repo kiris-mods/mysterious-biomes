@@ -1,7 +1,6 @@
 package com.mcmoddev.spookybiomes.tosort;
 
 import com.mcmoddev.spookybiomes.api.blocks.BlocksSB;
-import com.mcmoddev.spookybiomes.init.ConfigHandler;
 import net.minecraft.block.*;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -15,15 +14,27 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class BaseGrass extends BlockGrass {
-    private final static int MIN_LIGHT_LVL = 4;
-    private final static int MAX_LIGHT_OPACITY = 2;
+    private SpreadableBlockHelper spreadableBlockHelper;
 
     public BaseGrass() {
         setSoundType(SoundType.PLANT);
         setHarvestLevel("shovel", 0);
+    }
+
+    public SpreadableBlockHelper getSpreadableBlockHelper() {
+        if (this.spreadableBlockHelper == null) {
+            Map<Block, Integer> spreadInto = new HashMap<>();
+            spreadInto.put(Blocks.GRASS, 100);
+            spreadInto.put(Blocks.DIRT, 25);
+
+            spreadableBlockHelper = new SpreadableBlockHelper(4, 2, 1, BlocksSB.BLOODIED_GRASS, spreadInto, BlocksSB.BLOODIED_DIRT);
+        }
+        return spreadableBlockHelper;
     }
 
     @Override
@@ -33,38 +44,7 @@ public class BaseGrass extends BlockGrass {
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        // TODO Move these into the config file
-        // Average number of ticks to spread to a single block
-        int spreadSpeed = 1; // Default is 10
-        int grassSpreadToDirtMinChance = 25; // Default is 25
-
-        if (!worldIn.isRemote) {
-            if (worldIn.isAreaLoaded(pos, 3)) {
-                if (worldIn.getLightFromNeighbors(pos.up()) < MIN_LIGHT_LVL && worldIn.getBlockState(pos.up()).getLightOpacity(worldIn, pos.up()) > MAX_LIGHT_OPACITY) {
-                    worldIn.setBlockState(pos, BlocksSB.BLOODIED_DIRT.getDefaultState());
-                }
-                Random r = new Random(worldIn.getSeed());
-                if (r.nextInt(100) < (100 / spreadSpeed)) {
-                    BlockPos blockpos = pos.add(rand.nextInt(3) - 1, rand.nextInt(5) - 3, rand.nextInt(3) - 1);
-                    IBlockState iblockstate = worldIn.getBlockState(blockpos);
-
-                    boolean canBloodify = ConfigHandler.biomeGeneration.bloodiedGrassSpreadToGrass;
-                    boolean canSpreadToDirt = iblockstate.getBlock() == Blocks.DIRT && iblockstate.getValue(BlockDirt.VARIANT) == BlockDirt.DirtType.DIRT;
-                    boolean canSpreadToGrass = iblockstate.getBlock() == Blocks.GRASS;
-
-                    if (canBloodify) {
-                        if (canSpreadToDirt || worldIn.isSideSolid(blockpos, EnumFacing.UP) && !worldIn.getBlockState(blockpos.up()).getMaterial().isLiquid()) {
-                            if (new Random(worldIn.getSeed()).nextInt(100) > grassSpreadToDirtMinChance) {
-                                worldIn.setBlockState(blockpos, BlocksSB.BLOODIED_DIRT.getDefaultState());
-                            }
-                        }
-                        if (canSpreadToGrass) {
-                            worldIn.setBlockState(blockpos, BlocksSB.BLOODIED_GRASS.getDefaultState());
-                        }
-                    }
-                }
-            }
-        }
+        this.getSpreadableBlockHelper().updateTick(worldIn, pos, state, rand);
     }
 
     @Override
