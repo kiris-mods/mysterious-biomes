@@ -8,10 +8,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import javax.annotation.Nonnull;
+
 @SideOnly(Side.CLIENT)
 public class RenderTheForgottenWarlock extends RenderLiving<EntityTheForgottenWarlock> {
 
-    private static final ResourceLocation resourceLocation = new ResourceLocation(SpookyBiomes.MODID, "textures/entity/the_forgotten_warlock.png");
+    private static final ResourceLocation resourceLocation = new ResourceLocation(SpookyBiomes.MODID,
+            "textures/entity/the_forgotten_warlock.png");
 
     public RenderTheForgottenWarlock(RenderManager renderManager) {
         super(renderManager, new TheForgottenWarlockModel(), 0.5F);
@@ -23,7 +26,7 @@ public class RenderTheForgottenWarlock extends RenderLiving<EntityTheForgottenWa
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityTheForgottenWarlock entity) {
+    protected ResourceLocation getEntityTexture(@Nonnull EntityTheForgottenWarlock entity) {
         return resourceLocation;
     }
 }

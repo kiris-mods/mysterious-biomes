@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "spookybiomes:witchwood_stairs",
+    "item": "spookybiomes:sorbus_stairs",
     "count": 4
   },
   "pattern": [
@@ -11,7 +11,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "spookybiomes:witchwood_planks"
+      "item": "spookybiomes:sorbus_planks"
     }
   }
 }

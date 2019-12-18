@@ -4,7 +4,13 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIAttackRanged;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
@@ -15,15 +21,16 @@ import net.minecraft.init.SoundEvents;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.pathfinding.PathNavigate;
-import net.minecraft.pathfinding.PathNavigateClimber;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+
 public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttackMob {
 
-    private static final DataParameter<Byte> CLIMBING = EntityDataManager.createKey(EntityTheForgottenWarlock.class, DataSerializers.BYTE);
+    private static final DataParameter<Byte> CLIMBING =
+            EntityDataManager.createKey(EntityTheForgottenWarlock.class, DataSerializers.BYTE);
 
     public EntityTheForgottenWarlock(World world) {
         super(world);
@@ -42,10 +49,6 @@ public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttac
         targetTasks.addTask(3, new AITheForgottenWarlockTarget<>(this, EntitySkeleton.class));
         targetTasks.addTask(3, new AITheForgottenWarlockTarget<>(this, EntityZombie.class));
         isImmuneToFire = true;
-    }
-
-    protected PathNavigate getNavigator(World world) {
-        return new PathNavigateClimber(this, world);
     }
 
     @Override
@@ -67,7 +70,10 @@ public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttac
         super.onLivingUpdate();
         if (world.isRemote) {
             for (int i = 0; i < 2; ++i) {
-                world.spawnParticle(EnumParticleTypes.PORTAL, posX + (rand.nextDouble() - 0.5D) * (double) width, posY + rand.nextDouble() * (double) height, posZ + (rand.nextDouble() - 0.5D) * (double) width, (rand.nextDouble() - 0.5D) * 2.0D, -this.rand.nextDouble(), (rand.nextDouble() - 0.5D) * 2.0D);
+                world.spawnParticle(EnumParticleTypes.PORTAL, posX + (rand.nextDouble() - 0.5D) * (double)
+                        width, posY + rand.nextDouble() * (double) height, posZ
+                        + (rand.nextDouble() - 0.5D) * (double) width, (rand.nextDouble() - 0.5D)
+                        * 2.0D, -this.rand.nextDouble(), (rand.nextDouble() - 0.5D) * 2.0D);
             }
         }
     }
@@ -85,6 +91,7 @@ public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttac
         return isBesideClimbableBlock();
     }
 
+    @Nonnull
     @Override
     public EnumCreatureAttribute getCreatureAttribute() {
         return EnumCreatureAttribute.UNDEAD;
@@ -97,8 +104,10 @@ public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttac
         double d1 = target.getEntityBoundingBox().minY + (double) (target.height / 3.0F) - arrow.posY;
         double d2 = target.posZ - posZ;
         double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
-        arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float) (14 - world.getDifficulty().getId() * 4));
-        arrow.setDamage((double) (p_82196_2_ * 2.0F) + rand.nextGaussian() * 0.25D + (double) ((float) world.getDifficulty().getId() * 0.11F));
+        arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float) (14 -
+                world.getDifficulty().getId() * 4));
+        arrow.setDamage((double) (p_82196_2_ * 2.0F) + rand.nextGaussian() * 0.25D
+                + (double) ((float) world.getDifficulty().getId() * 0.11F));
         playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (getRNG().nextFloat() * 0.4F + 0.8F));
         world.spawnEntity(arrow);
     }
@@ -124,15 +133,13 @@ public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttac
 
     public static class AITheForgottenWarlockAttack extends EntityAIAttackRanged {
 
-        private final EntityTheForgottenWarlock theForgottenWarlock;
-
         public AITheForgottenWarlockAttack(EntityTheForgottenWarlock theForgottenWarlock) {
             super(theForgottenWarlock, 0.25D, 40, 10.0F);
-            this.theForgottenWarlock = theForgottenWarlock;
         }
     }
 
-    public static class AITheForgottenWarlockTarget<T extends EntityLivingBase> extends EntityAINearestAttackableTarget<T> {
+    public static class AITheForgottenWarlockTarget<T extends EntityLivingBase>
+            extends EntityAINearestAttackableTarget<T> {
 
         public AITheForgottenWarlockTarget(EntityTheForgottenWarlock theForgottenWarlock, Class<T> classTarget) {
             super(theForgottenWarlock, classTarget, true);

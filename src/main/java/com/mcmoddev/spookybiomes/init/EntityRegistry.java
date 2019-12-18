@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 public class EntityRegistry {
 
     @SubscribeEvent
+    @SuppressWarnings("unused")
     public static void onRegister(RegistryEvent.Register<EntityEntry> event) {
         event.getRegistry().registerAll(
                 EntityEntryBuilder.create()

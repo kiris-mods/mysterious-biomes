@@ -21,6 +21,10 @@ public class ConfigHandler {
     @Config.Comment({"Biome gen settings."})
     public static final ConfigBiomeGeneration biomeGeneration = new ConfigBiomeGeneration();
 
+    @Config.LangKey(LANG + "misc")
+    @Config.Comment({"A random assortment that didn't fit into the other categories."})
+    public static final ConfigMisc misc = new ConfigMisc();
+
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
         if (event.getModID().equals(SpookyBiomes.MODID)) {
@@ -38,6 +42,13 @@ public class ConfigHandler {
         @Config.RangeInt(min = 0, max = 100)
         @Config.Comment({"Specify the gen rate of Ghostly Trees on hills. If 0, Ghostly Trees will be not generated there."})
         public int ghostlyOnHills = 5;
+    }
+
+    public static class ConfigMisc {
+        @Config.LangKey(LANG + "disableBiomeMist")
+        @Config.Comment({"If true disables the mist effect in all of this mods biomes (Requires restart)"})
+        @Config.RequiresMcRestart
+        public boolean disableBiomeMist = false;
     }
 
     public static class ConfigBiomeGeneration {
@@ -61,6 +72,8 @@ public class ConfigHandler {
         @Config.Comment({"Set the gen weight of Bloodied Hills biome."})
         public int bloodiedBiomeWeight = 35;
 
+        //TODO Enable these when the feature is complete.
+        /*
         @Config.LangKey(LANG + "enableBloodGrassSpread")
         @Config.Comment("Sets if BloodiedGrass can spread to vanilla grass. If true spreads throughout the world.")
         public boolean bloodiedGrassSpreadToGrass = true;
@@ -68,5 +81,6 @@ public class ConfigHandler {
         @Config.LangKey(LANG + "enableBloodGrassDirtSpread")
         @Config.Comment({"Sets if Bloodied Grass can spread to vanilla dirt. If true spreads throughout the world."})
         public boolean bloodiedGrassSpreadToDirt = false;
+         */
     }
 }

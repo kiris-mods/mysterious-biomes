@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "spookybiomes:sorbus_fence",
+    "count": 3
+  },
+  "pattern": [
+    "#s#",
+    "#s#"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:sorbus_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

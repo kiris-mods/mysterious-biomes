@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "spookybiomes:seeping_fence",
+    "count": 3
+  },
+  "pattern": [
+    "#s#",
+    "#s#"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:seeping_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

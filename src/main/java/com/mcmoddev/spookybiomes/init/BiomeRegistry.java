@@ -22,6 +22,7 @@ public class BiomeRegistry {
     private static final MistyBiome BLOODIED_HILLS = new BiomeBloodiedHills();
 
     @SubscribeEvent
+    @SuppressWarnings("unused")
     public static void onRegisterBiomes(RegistryEvent.Register<Biome> event) {
         event.getRegistry().registerAll(
                 SORBUS_FOREST,
@@ -32,10 +33,14 @@ public class BiomeRegistry {
     }
 
     public static void registerBiomeTypes() {
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(SORBUS_FOREST, ConfigHandler.biomeGeneration.sorbusBiomeWeight));
-        BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(GHOSTLY_FOREST, ConfigHandler.biomeGeneration.ghostlyBiomeWeight));
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(SEEPING_FOREST, ConfigHandler.biomeGeneration.seepingBiomeWeight));
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(BLOODIED_HILLS, ConfigHandler.biomeGeneration.bloodiedBiomeWeight));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM,
+                new BiomeManager.BiomeEntry(SORBUS_FOREST, ConfigHandler.biomeGeneration.sorbusBiomeWeight));
+        BiomeManager.addBiome(BiomeManager.BiomeType.COOL,
+                new BiomeManager.BiomeEntry(GHOSTLY_FOREST, ConfigHandler.biomeGeneration.ghostlyBiomeWeight));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM,
+                new BiomeManager.BiomeEntry(SEEPING_FOREST, ConfigHandler.biomeGeneration.seepingBiomeWeight));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM,
+                new BiomeManager.BiomeEntry(BLOODIED_HILLS, ConfigHandler.biomeGeneration.bloodiedBiomeWeight));
 
         BiomeManager.addSpawnBiome(SORBUS_FOREST);
         BiomeManager.addSpawnBiome(GHOSTLY_FOREST);
@@ -47,9 +52,13 @@ public class BiomeRegistry {
         BiomeManager.addStrongholdBiome(SEEPING_FOREST);
         BiomeManager.addStrongholdBiome(BLOODIED_HILLS);
 
-        BiomeDictionary.addTypes(SORBUS_FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.WET);
-        BiomeDictionary.addTypes(GHOSTLY_FOREST, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.DEAD);
-        BiomeDictionary.addTypes(SEEPING_FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.WET);
-        BiomeDictionary.addTypes(BLOODIED_HILLS, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET);
+        BiomeDictionary.addTypes(SORBUS_FOREST,
+                BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.WET);
+        BiomeDictionary.addTypes(GHOSTLY_FOREST,
+                BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.DEAD);
+        BiomeDictionary.addTypes(SEEPING_FOREST,
+                BiomeDictionary.Type.HILLS, BiomeDictionary.Type.WET);
+        BiomeDictionary.addTypes(BLOODIED_HILLS,
+                BiomeDictionary.Type.FOREST, BiomeDictionary.Type.WET);
     }
 }

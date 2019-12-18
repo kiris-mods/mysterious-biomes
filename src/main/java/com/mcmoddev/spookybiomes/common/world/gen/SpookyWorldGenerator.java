@@ -18,7 +18,9 @@ import java.util.Random;
 public class SpookyWorldGenerator implements IWorldGenerator {
 
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+    @SuppressWarnings("deprecation")
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
+                         IChunkProvider chunkProvider) {
         switch (world.provider.getDimension()) {
             case -1:
                 generateNether(world, random, chunkX * 16, chunkZ * 16);
@@ -31,10 +33,12 @@ public class SpookyWorldGenerator implements IWorldGenerator {
                 break;
         }
 
-        if (ConfigHandler.treeGeneration.sorbusOnHills > 0 && BiomeDictionary.hasType(world.getBiome(new BlockPos(chunkX, 0, chunkZ)), Type.HILLS)) {
+        if (ConfigHandler.treeGeneration.sorbusOnHills > 0 &&
+                BiomeDictionary.hasType(world.getBiome(new BlockPos(chunkX, 0, chunkZ)), Type.HILLS)) {
             for (int i = 0; i < ConfigHandler.treeGeneration.sorbusOnHills; ++i) {
                 if (random.nextInt(10) == 0) {
-                    BlockPos blockpos = world.getHeight(new BlockPos(chunkX, 0, chunkZ).add(random.nextInt(15) + 8, 0, random.nextInt(15) + 8));
+                    BlockPos blockpos = world.getHeight(new BlockPos(chunkX, 0, chunkZ)
+                            .add(random.nextInt(15) + 8, 0, random.nextInt(15) + 8));
 
                     if (TerrainGen.decorate(world, random, blockpos, EventType.TREE)) {
                         BiomeSorbusForest.NATURAL_GEN.generate(world, random, blockpos);
@@ -43,10 +47,12 @@ public class SpookyWorldGenerator implements IWorldGenerator {
             }
         }
 
-        if (ConfigHandler.treeGeneration.ghostlyOnHills > 0 && BiomeDictionary.hasType(world.getBiome(new BlockPos(chunkX, 0, chunkZ)), Type.HILLS)) {
+        if (ConfigHandler.treeGeneration.ghostlyOnHills > 0 &&
+                BiomeDictionary.hasType(world.getBiome(new BlockPos(chunkX, 0, chunkZ)), Type.HILLS)) {
             for (int i = 0; i < ConfigHandler.treeGeneration.ghostlyOnHills; ++i) {
                 if (random.nextInt(10) == 0) {
-                    BlockPos blockpos = world.getHeight(new BlockPos(chunkX, 0, chunkZ).add(random.nextInt(15) + 8, 0, random.nextInt(15) + 8));
+                    BlockPos blockpos = world.getHeight(new BlockPos(chunkX, 0, chunkZ)
+                            .add(random.nextInt(15) + 8, 0, random.nextInt(15) + 8));
 
                     if (TerrainGen.decorate(world, random, blockpos, EventType.TREE)) {
                         BiomeGhostlyForest.NATURAL_GEN.generate(world, random, blockpos);
@@ -56,12 +62,15 @@ public class SpookyWorldGenerator implements IWorldGenerator {
         }
     }
 
+    @SuppressWarnings("unused")
     private void generateNether(World world, Random random, int chunkX, int chunkZ) {
     }
 
+    @SuppressWarnings("unused")
     private void generateOverworld(World world, Random random, int chunkX, int chunkZ) {
     }
 
+    @SuppressWarnings("unused")
     private void generateEnd(World world, Random random, int chunkX, int chunkZ) {
     }
 }

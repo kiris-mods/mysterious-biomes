@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "spookybiomes:blood_stairs",
+    "count": 4
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:blood_planks"
+    }
+  }
+}

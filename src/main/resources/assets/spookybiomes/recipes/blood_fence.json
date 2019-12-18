@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "spookybiomes:blood_fence",
+    "count": 3
+  },
+  "pattern": [
+    "#s#",
+    "#s#"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:blood_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

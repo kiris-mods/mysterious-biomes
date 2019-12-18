@@ -1,6 +1,6 @@
 package com.mcmoddev.spookybiomes;
 
-import com.mcmoddev.spookybiomes.api.blocks.BlocksSB;
+import com.mcmoddev.spookybiomes.api.blocks.SpookyBlockObjects;
 import com.mcmoddev.spookybiomes.common.world.gen.SpookyWorldGenerator;
 import com.mcmoddev.spookybiomes.init.BiomeRegistry;
 import com.mcmoddev.spookybiomes.init.OreDictRegistry;
@@ -32,14 +32,15 @@ public class SpookyBiomes {
     public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(MODID) {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(BlocksSB.GHOSTLY_SAPLING);
+            return new ItemStack(SpookyBlockObjects.GHOSTLY_SAPLING);
         }
     };
 
     @Mod.EventHandler
     public void onFingerprintViolation(FMLFingerprintViolationEvent event) {
         LOGGER.error("Invalid fingerprint detected! The file " + event.getSource().getName() +
-                " may have been tampered with. This version will NOT be supported! Please download the mod from CurseForge for a supported and signed version of the mod.");
+                " may have been tampered with. This version will NOT be supported! "
+                + "Please download the mod from CurseForge for a supported and signed version of the mod.");
     }
 
     @Mod.EventHandler

@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "spookybiomes:witchwood_slab", "data": 0,
+    "item": "spookybiomes:seeping_slab", "data": 0,
     "count": 6
   },
   "pattern": [
@@ -9,7 +9,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "spookybiomes:witchwood_planks"
+      "item": "spookybiomes:seeping_planks"
     }
   }
 }

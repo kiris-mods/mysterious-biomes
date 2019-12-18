@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(SpookyBiomes.MODID)
-public class ItemsSB {
+public class SpookyItemObjects {
 
     public static final Item SORBUS_DOOR = null;
     public static final Item GHOSTLY_DOOR = null;

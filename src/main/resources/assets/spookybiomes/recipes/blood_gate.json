@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "spookybiomes:witchwood_gate"
+    "item": "spookybiomes:blood_gate"
   },
   "pattern": [
     "s#s",
@@ -9,7 +9,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "spookybiomes:witchwood_planks"
+      "item": "spookybiomes:blood_planks"
     },
     "s": {
       "item": "minecraft:stick"

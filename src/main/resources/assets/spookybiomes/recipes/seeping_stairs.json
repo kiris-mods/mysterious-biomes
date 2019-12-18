@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "spookybiomes:seeping_stairs",
+    "count": 4
+  },
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:seeping_planks"
+    }
+  }
+}

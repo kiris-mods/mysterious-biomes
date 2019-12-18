@@ -1,0 +1,17 @@
+{
+  "result": {
+    "item": "spookybiomes:seeping_door",
+    "count": 3
+  },
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:seeping_planks"
+    }
+  }
+}

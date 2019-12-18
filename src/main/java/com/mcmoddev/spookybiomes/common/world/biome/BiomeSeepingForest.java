@@ -1,6 +1,7 @@
 package com.mcmoddev.spookybiomes.common.world.biome;
 
 import com.mcmoddev.proxyslib.world.biome.MistyBiome;
+import com.mcmoddev.spookybiomes.init.ConfigHandler;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -8,15 +9,21 @@ import net.minecraft.world.biome.Biome;
 public class BiomeSeepingForest extends MistyBiome {
 
     public BiomeSeepingForest() {
-        super(new Biome.BiomeProperties("Seeping Forest").setTemperature(0.25F).setRainfall(0.9F).setBaseHeight(0.05F).setHeightVariation(0.65F));
+        super(new Biome.BiomeProperties("Seeping Forest")
+                .setTemperature(0.25F).setRainfall(0.9F)
+                .setBaseHeight(0.05F).setHeightVariation(0.65F));
         setRegistryName("seeping_forest");
-        spawnableCreatureList.clear();
-        spawnableCreatureList.add(new Biome.SpawnListEntry(EntitySlime.class, 5, 1, 4));
+        spawnableCreatureList.add(new Biome.SpawnListEntry(
+                EntitySlime.class, 5, 1, 4));
         decorator.treesPerChunk = 3;
         decorator.grassPerChunk = 4;
         decorator.generateFalls = true;
         mistColor = 0x00ff8c;
-        mistDensity = 0.50F;
+        if (ConfigHandler.misc.disableBiomeMist) {
+            mistDensity = 1.0F;
+        } else {
+            mistDensity = 0.50F;
+        }
     }
 
     @Override

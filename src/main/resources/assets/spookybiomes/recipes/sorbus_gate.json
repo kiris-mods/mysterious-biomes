@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "spookybiomes:sorbus_gate"
+  },
+  "pattern": [
+    "s#s",
+    "s#s"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "spookybiomes:sorbus_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  }
+}

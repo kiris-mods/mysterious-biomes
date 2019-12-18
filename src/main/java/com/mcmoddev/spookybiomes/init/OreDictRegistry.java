@@ -1,50 +1,46 @@
 package com.mcmoddev.spookybiomes.init;
 
-import com.mcmoddev.spookybiomes.api.blocks.BlocksSB;
-import com.mcmoddev.spookybiomes.api.items.ItemsSB;
+import com.mcmoddev.spookybiomes.api.blocks.SpookyBlockObjects;
+import com.mcmoddev.spookybiomes.api.items.SpookyItemObjects;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class OreDictRegistry {
 
     public static void init() {
-        //Witchwood stuff
-        OreDictionary.registerOre("logWood", BlocksSB.SORBUS_LOG);
-        OreDictionary.registerOre("treeLeaves", BlocksSB.SORBUS_LEAVES);
-        OreDictionary.registerOre("plankWood", BlocksSB.SORBUS_PLANKS);
-        OreDictionary.registerOre("treeSapling", BlocksSB.SORBUS_SAPLING);
-        OreDictionary.registerOre("fenceGateWood", BlocksSB.SORBUS_GATE);
-        OreDictionary.registerOre("doorWood", ItemsSB.SORBUS_DOOR);
-        OreDictionary.registerOre("stairWood", BlocksSB.SORBUS_STAIRS);
-        OreDictionary.registerOre("fenceWood", BlocksSB.SORBUS_FENCE);
+        OreDictionary.registerOre("logWood", SpookyBlockObjects.SORBUS_LOG);
+        OreDictionary.registerOre("treeLeaves", SpookyBlockObjects.SORBUS_LEAVES);
+        OreDictionary.registerOre("plankWood", SpookyBlockObjects.SORBUS_PLANKS);
+        OreDictionary.registerOre("treeSapling", SpookyBlockObjects.SORBUS_SAPLING);
+        OreDictionary.registerOre("fenceGateWood", SpookyBlockObjects.SORBUS_GATE);
+        OreDictionary.registerOre("doorWood", SpookyItemObjects.SORBUS_DOOR);
+        OreDictionary.registerOre("stairWood", SpookyBlockObjects.SORBUS_STAIRS);
+        OreDictionary.registerOre("fenceWood", SpookyBlockObjects.SORBUS_FENCE);
 
-        //Ghostly stuff
-        OreDictionary.registerOre("logWood", BlocksSB.GHOSTLY_LOG);
-        OreDictionary.registerOre("treeLeaves", BlocksSB.GHOSTLY_LEAVES);
-        OreDictionary.registerOre("plankWood", BlocksSB.GHOSTLY_PLANKS);
-        OreDictionary.registerOre("treeSapling", BlocksSB.GHOSTLY_SAPLING);
-        OreDictionary.registerOre("fenceGateWood", BlocksSB.GHOSTLY_GATE);
-        OreDictionary.registerOre("doorWood", ItemsSB.GHOSTLY_DOOR);
-        OreDictionary.registerOre("stairWood", BlocksSB.GHOSTLY_STAIRS);
-        OreDictionary.registerOre("fenceWood", BlocksSB.GHOSTLY_FENCE);
+        OreDictionary.registerOre("logWood", SpookyBlockObjects.GHOSTLY_LOG);
+        OreDictionary.registerOre("treeLeaves", SpookyBlockObjects.GHOSTLY_LEAVES);
+        OreDictionary.registerOre("plankWood", SpookyBlockObjects.GHOSTLY_PLANKS);
+        OreDictionary.registerOre("treeSapling", SpookyBlockObjects.GHOSTLY_SAPLING);
+        OreDictionary.registerOre("fenceGateWood", SpookyBlockObjects.GHOSTLY_GATE);
+        OreDictionary.registerOre("doorWood", SpookyItemObjects.GHOSTLY_DOOR);
+        OreDictionary.registerOre("stairWood", SpookyBlockObjects.GHOSTLY_STAIRS);
+        OreDictionary.registerOre("fenceWood", SpookyBlockObjects.GHOSTLY_FENCE);
 
-        //Seeping stuff
-        OreDictionary.registerOre("logWood", BlocksSB.SEEPING_LOG);
-        OreDictionary.registerOre("treeLeaves", BlocksSB.SEEPING_LEAVES);
-        OreDictionary.registerOre("plankWood", BlocksSB.SEEPING_PLANKS);
-        OreDictionary.registerOre("treeSapling", BlocksSB.SEEPING_SAPLING);
-        OreDictionary.registerOre("fenceGateWood", BlocksSB.SEEPING_GATE);
-        OreDictionary.registerOre("doorWood", ItemsSB.SEEPING_DOOR);
-        OreDictionary.registerOre("stairWood", BlocksSB.SEEPING_STAIRS);
-        OreDictionary.registerOre("fenceWood", BlocksSB.SEEPING_FENCE);
+        OreDictionary.registerOre("logWood", SpookyBlockObjects.SEEPING_LOG);
+        OreDictionary.registerOre("treeLeaves", SpookyBlockObjects.SEEPING_LEAVES);
+        OreDictionary.registerOre("plankWood", SpookyBlockObjects.SEEPING_PLANKS);
+        OreDictionary.registerOre("treeSapling", SpookyBlockObjects.SEEPING_SAPLING);
+        OreDictionary.registerOre("fenceGateWood", SpookyBlockObjects.SEEPING_GATE);
+        OreDictionary.registerOre("doorWood", SpookyItemObjects.SEEPING_DOOR);
+        OreDictionary.registerOre("stairWood", SpookyBlockObjects.SEEPING_STAIRS);
+        OreDictionary.registerOre("fenceWood", SpookyBlockObjects.SEEPING_FENCE);
 
-        //Bloodwood stuff
-        OreDictionary.registerOre("logWood", BlocksSB.BLOODWOOD_LOG);
-        OreDictionary.registerOre("treeLeaves", BlocksSB.BLOODWOOD_LEAVES);
-        OreDictionary.registerOre("plankWood", BlocksSB.BLOODWOOD_PLANKS);
-        OreDictionary.registerOre("treeSapling", BlocksSB.BLOODWOOD_SAPLING);
-        OreDictionary.registerOre("fenceGateWood", BlocksSB.BLOODWOOD_GATE);
-        OreDictionary.registerOre("doorWood", ItemsSB.BLOODWOOD_DOOR);
-        OreDictionary.registerOre("stairWood", BlocksSB.BLOODWOOD_STAIRS);
-        OreDictionary.registerOre("fenceWood", BlocksSB.BLOODWOOD_FENCE);
+        OreDictionary.registerOre("logWood", SpookyBlockObjects.BLOODWOOD_LOG);
+        OreDictionary.registerOre("treeLeaves", SpookyBlockObjects.BLOODWOOD_LEAVES);
+        OreDictionary.registerOre("plankWood", SpookyBlockObjects.BLOODWOOD_PLANKS);
+        OreDictionary.registerOre("treeSapling", SpookyBlockObjects.BLOODWOOD_SAPLING);
+        OreDictionary.registerOre("fenceGateWood", SpookyBlockObjects.BLOODWOOD_GATE);
+        OreDictionary.registerOre("doorWood", SpookyItemObjects.BLOODWOOD_DOOR);
+        OreDictionary.registerOre("stairWood", SpookyBlockObjects.BLOODWOOD_STAIRS);
+        OreDictionary.registerOre("fenceWood", SpookyBlockObjects.BLOODWOOD_FENCE);
     }
 }

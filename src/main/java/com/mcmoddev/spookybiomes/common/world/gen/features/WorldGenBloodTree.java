@@ -1,6 +1,6 @@
 package com.mcmoddev.spookybiomes.common.world.gen.features;
 
-import com.mcmoddev.spookybiomes.api.blocks.BlocksSB;
+import com.mcmoddev.spookybiomes.api.blocks.SpookyBlockObjects;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.block.state.IBlockState;
@@ -75,7 +75,7 @@ public class WorldGenBloodTree extends WorldGenAbstractTree {
                                     BlockPos blockpos = new BlockPos(i3, i2, k1);
                                     IBlockState state2 = worldIn.getBlockState(blockpos);
                                     if (state2.getBlock().isAir(state2, worldIn, blockpos) || state2.getBlock().isAir(state2, worldIn, blockpos)) {
-                                        setBlockAndNotifyAdequately(worldIn, blockpos, BlocksSB.BLOODWOOD_LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false));
+                                        setBlockAndNotifyAdequately(worldIn, blockpos, SpookyBlockObjects.BLOODWOOD_LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false));
                                     }
                                 }
                             }
@@ -86,7 +86,7 @@ public class WorldGenBloodTree extends WorldGenAbstractTree {
                         BlockPos upN = position.up(j2);
                         IBlockState state2 = worldIn.getBlockState(upN);
                         if (state2.getBlock().isAir(state2, worldIn, upN) || state2.getBlock().isLeaves(state2, worldIn, upN)) {
-                            setBlockAndNotifyAdequately(worldIn, position.up(j2), BlocksSB.BLOODWOOD_LOG.getDefaultState());
+                            setBlockAndNotifyAdequately(worldIn, position.up(j2), SpookyBlockObjects.BLOODWOOD_LOG.getDefaultState());
                         }
                     }
                     return true;

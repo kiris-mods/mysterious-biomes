@@ -1,16 +1,15 @@
 {
   "result": {
-    "item": "spookybiomes:witchwood_fence",
-    "count": 3
+    "item": "spookybiomes:seeping_gate"
   },
   "pattern": [
-    "#s#",
-    "#s#"
+    "s#s",
+    "s#s"
   ],
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "spookybiomes:witchwood_planks"
+      "item": "spookybiomes:seeping_planks"
     },
     "s": {
       "item": "minecraft:stick"

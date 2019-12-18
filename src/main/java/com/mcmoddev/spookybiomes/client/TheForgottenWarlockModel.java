@@ -81,7 +81,8 @@ public class TheForgottenWarlockModel extends ModelBase {
     }
 
     @Override
-    public void render(Entity entity, float f, float limbSwing, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+    public void render(Entity entity, float f, float limbSwing, float ageInTicks, float netHeadYaw, float headPitch,
+                       float scale) {
         GlStateManager.pushMatrix();
         GlStateManager.scale(1.0D / modelScale[0], 1.0D / modelScale[1], 1.0D / modelScale[2]);
         head.render(scale);
@@ -94,12 +95,14 @@ public class TheForgottenWarlockModel extends ModelBase {
     }
 
     @Override
-    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
+                                  float headPitch, float scaleFactor, Entity entityIn) {
         head.rotateAngleY = netHeadYaw * 0.017453292F;
         head.rotateAngleX = headPitch * 0.017453292F;
         body.rotateAngleY = 0.0F;
         float f = 1.0F;
-        rightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
+        rightArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F
+                + (float) Math.PI) * 2.0F * limbSwingAmount * 0.5F / f;
         leftArm.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F / f;
         rightArm.rotateAngleZ = 0.0F;
         leftArm.rotateAngleZ = 0.0F;
@@ -139,7 +142,8 @@ public class TheForgottenWarlockModel extends ModelBase {
             f1 = 1.0F - f1;
             float f2 = MathHelper.sin(f1 * (float) Math.PI);
             float f3 = MathHelper.sin(swingProgress * (float) Math.PI) * -(head.rotateAngleX - 0.7F) * 0.75F;
-            modelrenderer.rotateAngleX = (float) ((double) modelrenderer.rotateAngleX - ((double) f2 * 1.2D + (double) f3));
+            modelrenderer.rotateAngleX = (float) ((double) modelrenderer.rotateAngleX - ((double) f2 * 1.2D
+                    + (double) f3));
             modelrenderer.rotateAngleY += body.rotateAngleY * 2.0F;
             modelrenderer.rotateAngleZ += MathHelper.sin(swingProgress * (float) Math.PI) * -0.4F;
         }

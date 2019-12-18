@@ -51,6 +51,10 @@ tile.spookybiomes.bloodwood_stairs.name=Blood Stairs
 tile.spookybiomes.bloodwood_fence.name=Blood Fence
 tile.spookybiomes.bloodwood_slab.name=Blood Slab
 
+#Grass stuff
+tile.spookybiomes.bloodied_dirt.name=Bloodied Dirt
+tile.spookybiomes.bloodied_grass.name=Bloodied Grass
+
 #Items
 
 #Sorbus stuff
