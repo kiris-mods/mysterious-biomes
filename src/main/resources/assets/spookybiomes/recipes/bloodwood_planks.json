@@ -1,11 +1,11 @@
 {
   "result": {
-    "item": "spookybiomes:blood_planks",
+    "item": "spookybiomes:bloodwood_planks",
     "count": 4
   },
   "ingredients": [
     {
-      "item": "spookybiomes:blood_log"
+      "item": "spookybiomes:bloodwood_log"
     }
   ],
   "type": "minecraft:crafting_shapeless"

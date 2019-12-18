@@ -1,6 +1,6 @@
 {
   "result": {
-    "item": "spookybiomes:blood_door",
+    "item": "spookybiomes:bloodwood_door",
     "count": 3
   },
   "pattern": [
@@ -11,7 +11,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "#": {
-      "item": "spookybiomes:blood_planks"
+      "item": "spookybiomes:bloodwood_planks"
     }
   }
 }
