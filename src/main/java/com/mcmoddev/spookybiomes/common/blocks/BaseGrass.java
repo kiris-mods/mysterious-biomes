@@ -24,6 +24,8 @@ public class BaseGrass extends BlockGrass {
     public BaseGrass() {
         setSoundType(SoundType.PLANT);
         setHarvestLevel("shovel", 0);
+        setResistance(3);
+        setHardness(0.6F);
     }
 
     @Nonnull

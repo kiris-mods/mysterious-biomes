@@ -19,6 +19,8 @@ public class BaseDirt extends Block {
         super(material, MapColor.RED);
         setSoundType(SoundType.GROUND);
         setHarvestLevel("shovel", 0);
+        setResistance(3);
+        setHardness(0.5F);
     }
 
     @Override
