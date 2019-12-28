@@ -1,6 +1,6 @@
 ##1.12.2##
 
-**Version: 1.2.0.9**
+**Version: 1.2.0.10**
 - Fixed grass and dirt being instantly breakable.
 
 **Version: 1.2.0**
