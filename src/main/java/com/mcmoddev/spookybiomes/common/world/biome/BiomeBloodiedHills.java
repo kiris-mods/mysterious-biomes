@@ -15,10 +15,8 @@ import java.util.Random;
 
 public class BiomeBloodiedHills extends MistyBiome {
 
-    protected static final WorldGenBloodTree NORMAL_TREE =
-            new WorldGenBloodTree(false, false);
-    protected static final WorldGenBloodTree BIG_TREE =
-            new WorldGenBloodTree(false, true);
+    protected static final WorldGenBloodTree NORMAL_TREE = new WorldGenBloodTree(false);
+    protected static final WorldGenBloodTree BIG_TREE = new WorldGenBloodTree(false);
 
     public BiomeBloodiedHills() {
         super(new Biome.BiomeProperties("Bloodied Hills")

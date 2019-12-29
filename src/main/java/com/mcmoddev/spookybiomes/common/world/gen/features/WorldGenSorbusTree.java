@@ -16,15 +16,14 @@ import java.util.Random;
 
 public class WorldGenSorbusTree extends WorldGenAbstractTree {
 
-    public WorldGenSorbusTree(boolean notify) {
-        super(notify);
+    public WorldGenSorbusTree(boolean notifyWorld) {
+        super(notifyWorld);
     }
 
-    public boolean generate(World worldIn, Random rand, BlockPos position) {
+    public boolean generate(World world, Random random, BlockPos position) {
         int i;
 
-        for (i = rand.nextInt(4) + 5; worldIn.getBlockState(position.down()).getMaterial() == Material.WATER; position = position.down()) {
-            ;
+        for (i = random.nextInt(6) + 5; world.getBlockState(position.down()).getMaterial() == Material.WATER; position = position.down()) {
         }
 
         boolean flag = true;
@@ -46,10 +45,10 @@ public class WorldGenSorbusTree extends WorldGenAbstractTree {
                 for (int l = position.getX() - k; l <= position.getX() + k && flag; ++l) {
                     for (int i1 = position.getZ() - k; i1 <= position.getZ() + k && flag; ++i1) {
                         if (j >= 0 && j < 256) {
-                            IBlockState iblockstate = worldIn.getBlockState(blockpos$mutableblockpos.setPos(l, j, i1));
+                            IBlockState iblockstate = world.getBlockState(blockpos$mutableblockpos.setPos(l, j, i1));
                             Block block = iblockstate.getBlock();
 
-                            if (!iblockstate.getBlock().isAir(iblockstate, worldIn, blockpos$mutableblockpos.setPos(l, j, i1)) && !iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(l, j, i1))) {
+                            if (!iblockstate.getBlock().isAir(iblockstate, world, blockpos$mutableblockpos.setPos(l, j, i1)) && !iblockstate.getBlock().isLeaves(iblockstate, world, blockpos$mutableblockpos.setPos(l, j, i1))) {
                                 if (block != Blocks.WATER && block != Blocks.FLOWING_WATER) {
                                     flag = false;
                                 } else if (j > position.getY()) {
@@ -67,11 +66,11 @@ public class WorldGenSorbusTree extends WorldGenAbstractTree {
                 return false;
             } else {
                 BlockPos down = position.down();
-                IBlockState state = worldIn.getBlockState(down);
-                boolean isSoil = state.getBlock().canSustainPlant(state, worldIn, down, EnumFacing.UP, ((BlockSapling) Blocks.SAPLING));
+                IBlockState state = world.getBlockState(down);
+                boolean isSoil = state.getBlock().canSustainPlant(state, world, down, EnumFacing.UP, ((BlockSapling) Blocks.SAPLING));
 
-                if (isSoil && position.getY() < worldIn.getHeight() - i - 1) {
-                    state.getBlock().onPlantGrow(state, worldIn, position.down(), position);
+                if (isSoil && position.getY() < world.getHeight() - i - 1) {
+                    state.getBlock().onPlantGrow(state, world, position.down(), position);
 
                     for (int k1 = position.getY() - 3 + i; k1 <= position.getY() + i; ++k1) {
                         int j2 = k1 - (position.getY() + i);
@@ -83,12 +82,12 @@ public class WorldGenSorbusTree extends WorldGenAbstractTree {
                             for (int i4 = position.getZ() - l2; i4 <= position.getZ() + l2; ++i4) {
                                 int j1 = i4 - position.getZ();
 
-                                if (Math.abs(k3) != l2 || Math.abs(j1) != l2 || rand.nextInt(2) != 0 && j2 != 0) {
+                                if (Math.abs(k3) != l2 || Math.abs(j1) != l2 || random.nextInt(2) != 0 && j2 != 0) {
                                     BlockPos blockpos = new BlockPos(j3, k1, i4);
-                                    state = worldIn.getBlockState(blockpos);
+                                    state = world.getBlockState(blockpos);
 
-                                    if (state.getBlock().canBeReplacedByLeaves(state, worldIn, blockpos)) {
-                                        setBlockAndNotifyAdequately(worldIn, blockpos, SpookyBlockObjects.SORBUS_LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false));
+                                    if (state.getBlock().canBeReplacedByLeaves(state, world, blockpos)) {
+                                        setBlockAndNotifyAdequately(world, blockpos, SpookyBlockObjects.SORBUS_LEAVES.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, false));
                                     }
                                 }
                             }
@@ -97,11 +96,11 @@ public class WorldGenSorbusTree extends WorldGenAbstractTree {
 
                     for (int l1 = 0; l1 < i; ++l1) {
                         BlockPos upN = position.up(l1);
-                        IBlockState iblockstate1 = worldIn.getBlockState(upN);
+                        IBlockState iblockstate1 = world.getBlockState(upN);
                         Block block2 = iblockstate1.getBlock();
 
-                        if (block2.isAir(iblockstate1, worldIn, upN) || block2.isLeaves(iblockstate1, worldIn, upN) || block2 == Blocks.FLOWING_WATER || block2 == Blocks.WATER) {
-                            this.setBlockAndNotifyAdequately(worldIn, position.up(l1), SpookyBlockObjects.SORBUS_LOG.getDefaultState());
+                        if (block2.isAir(iblockstate1, world, upN) || block2.isLeaves(iblockstate1, world, upN) || block2 == Blocks.FLOWING_WATER || block2 == Blocks.WATER) {
+                            this.setBlockAndNotifyAdequately(world, position.up(l1), SpookyBlockObjects.SORBUS_LOG.getDefaultState());
                         }
                     }
                     return true;

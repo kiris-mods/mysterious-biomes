@@ -109,7 +109,7 @@ public class BlockRegistry {
                         "bloodwood_leaves", SpookyBiomes.CREATIVE_TAB),
                 RegistryUtils.nameBlock(new Block(Material.WOOD), SpookyBiomes.MODID,
                         "bloodwood_planks", SpookyBiomes.CREATIVE_TAB),
-                RegistryUtils.nameBlock(new BaseSapling(new WorldGenBloodTree(true, false)),
+                RegistryUtils.nameBlock(new BaseSapling(new WorldGenBloodTree(true)),
                         SpookyBiomes.MODID, "bloodwood_sapling", SpookyBiomes.CREATIVE_TAB),
                 RegistryUtils.nameBlock(new BaseGate(), SpookyBiomes.MODID,
                         "bloodwood_gate", SpookyBiomes.CREATIVE_TAB),

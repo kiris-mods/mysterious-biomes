@@ -35,11 +35,45 @@ public class BaseGrass extends BlockGrass {
         return MapColor.RED;
     }
 
-    /*
-    Disabled this for now until we get it working.
-    //TODO Grass and snow textures.
-    //TODO Get grass to spread properly.
+    /**
+     * Change bloodied dirt to bloodied grass when the light level is above 4.
+     * This is a temporary block until the feature in the commented out block below is finished.
      */
+    @Override
+    public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
+        if (!world.isRemote) {
+            if (!world.isAreaLoaded(pos, 3))
+                return; // Forge: prevent loading unloaded chunks when checking neighbor's light and spreading
+            if (world.getLightFromNeighbors(pos.up()) < 4 &&
+                    world.getBlockState(pos.up()).getLightOpacity(world, pos.up()) > 2) {
+                world.setBlockState(pos, SpookyBlockObjects.BLOODIED_DIRT.getDefaultState());
+            } else {
+                if (world.getLightFromNeighbors(pos.up()) >= 9) {
+                    for (int i = 0; i < 4; ++i) {
+                        BlockPos blockpos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3,
+                                random.nextInt(3) - 1);
+
+                        if (blockpos.getY() >= 0 && blockpos.getY() < 256 && !world.isBlockLoaded(blockpos)) {
+                            return;
+                        }
+
+                        IBlockState iblockstate = world.getBlockState(blockpos.up());
+                        IBlockState iblockstate1 = world.getBlockState(blockpos);
+
+                        if (iblockstate1.getBlock() == SpookyBlockObjects.BLOODIED_DIRT &&
+                                world.getLightFromNeighbors(blockpos.up()) >= 4 &&
+                                iblockstate.getLightOpacity(world, pos.up()) <= 2) {
+                            world.setBlockState(blockpos, SpookyBlockObjects.BLOODIED_GRASS.getDefaultState());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+     * Disabled this for now until we get it working.
+     * //TODO Get grass to spread properly.
     /*
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {

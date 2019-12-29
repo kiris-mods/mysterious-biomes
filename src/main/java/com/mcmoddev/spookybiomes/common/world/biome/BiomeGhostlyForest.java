@@ -32,8 +32,8 @@ public class BiomeGhostlyForest extends MistyBiome {
                 EntityEnderman.class, 4, 1, 3));
         spawnableMonsterList.add(new SpawnListEntry(
                 EntityTheForgottenWarlock.class, 5, 1, 2));
-        decorator.treesPerChunk = 3;
-        decorator.grassPerChunk = 5;
+        decorator.treesPerChunk = 6;
+        decorator.grassPerChunk = 6;
         decorator.generateFalls = true;
         mistColor = 0xedfffd;
         if (ConfigHandler.misc.disableBiomeMist) {

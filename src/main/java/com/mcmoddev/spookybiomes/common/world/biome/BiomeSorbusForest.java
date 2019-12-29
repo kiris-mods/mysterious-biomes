@@ -14,7 +14,6 @@ import java.util.Random;
 
 public class BiomeSorbusForest extends MistyBiome {
 
-    public static final WorldGenSorbusTree TREE_GEN = new WorldGenSorbusTree(true);
     public static final WorldGenSorbusTree NATURAL_GEN = new WorldGenSorbusTree(false);
 
     public BiomeSorbusForest() {
@@ -31,7 +30,7 @@ public class BiomeSorbusForest extends MistyBiome {
         decorator.treesPerChunk = 4;
         decorator.grassPerChunk = 4;
         decorator.generateFalls = true;
-        mistColor = 0xb00000;
+        mistColor = 0xd6e35f;
         if (ConfigHandler.misc.disableBiomeMist) {
             mistDensity = 1.0F;
         } else {
@@ -42,22 +41,27 @@ public class BiomeSorbusForest extends MistyBiome {
     @Nonnull
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
-        return (TREE_GEN);
+        return (NATURAL_GEN);
+    }
+
+    @Override
+    public int getSkyColorByTemp(float currentTemperature) {
+        return 0xf1ffcf;
     }
 
     @Override
     public int getGrassColorAtPos(BlockPos pos) {
-        return 0xbf9200;
+        return 0xa2bf00;
     }
 
     @Override
     public int getFoliageColorAtPos(BlockPos pos) {
-        return 0x706300;
+        return 0x849c00;
     }
 
     @Override
     public int getWaterColorMultiplier() {
-        return 0xdccaff;
+        return 0xcbff8f;
     }
 
     @Override
