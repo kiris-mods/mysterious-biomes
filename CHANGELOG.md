@@ -1,5 +1,10 @@
 ##1.12.2##
 
+**Version: 1.2.0.15**
+- Fixed tree generation for 1.12.2
+- Fixed Bloodied grass not spreading to bloodied dirt when it's light enough.
+- Fixed crash caused by Ghostly Trees. (Closes issue #9 Game crashes on load/while exploring.)
+
 **Version: 1.2.0.10**
 - Fixed grass and dirt being instantly breakable.
 
