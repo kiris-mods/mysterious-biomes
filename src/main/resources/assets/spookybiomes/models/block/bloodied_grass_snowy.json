@@ -4,6 +4,6 @@
     "particle": "spookybiomes:blocks/bloodied_dirt",
     "bottom": "spookybiomes:blocks/bloodied_dirt",
     "top": "spookybiomes:blocks/bloodied_grass_top",
-    "side": "spookybiomes:blocks/bloodied_grass_sides_snowy"
+    "side": "spookybiomes:blocks/bloodied_grass_snowy"
   }
 }

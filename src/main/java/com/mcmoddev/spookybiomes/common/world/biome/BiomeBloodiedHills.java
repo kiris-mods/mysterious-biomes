@@ -27,9 +27,9 @@ public class BiomeBloodiedHills extends MistyBiome {
         fillerBlock = SpookyBlockObjects.BLOODIED_DIRT.getDefaultState();
         spawnableCreatureList.clear();
         spawnableCreatureList.add(new Biome.SpawnListEntry(
-                EntityVex.class, 1, 1, 1));
+                EntityVex.class, 1, 1, 2));
         spawnableCreatureList.add(new Biome.SpawnListEntry(
-                EntityTheForgottenWarlock.class, 1, 1, 1));
+                EntityTheForgottenWarlock.class, 1, 1, 2));
         decorator.treesPerChunk = 6;
         decorator.grassPerChunk = 3;
         decorator.generateFalls = true;
@@ -37,7 +37,7 @@ public class BiomeBloodiedHills extends MistyBiome {
         if (ConfigHandler.misc.disableBiomeMist) {
             mistDensity = 1.0F;
         } else {
-            mistDensity = 0.05F;
+            mistDensity = 0.07F;
         }
     }
 
