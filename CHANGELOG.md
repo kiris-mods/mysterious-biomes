@@ -1,5 +1,9 @@
 ##1.12.2##
 
+**Version: 1.2.1.19**
+- Fixed missing texture for snowed on Bloodied Grass.
+- Fixed missing animated textures for Seeping Log.
+
 **Version: 1.2.0.15**
 - Fixed tree generation for 1.12.2
 - Fixed Bloodied grass not spreading to bloodied dirt when it's light enough.
