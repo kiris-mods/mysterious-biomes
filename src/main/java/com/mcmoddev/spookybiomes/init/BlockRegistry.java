@@ -22,7 +22,6 @@ import com.mcmoddev.spookybiomes.common.world.gen.features.WorldGenSorbusTree;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

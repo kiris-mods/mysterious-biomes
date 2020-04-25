@@ -294,7 +294,7 @@ dependencies {
     }
     annotationProcessor group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
 
-    compile 'com.mcmoddev:proxys-lib:1.12.2-1.2.0.5'
+    compile 'com.mcmoddev:proxys-lib:' + project.mc_version + '-' + project.proxys_lib_version
 }
 
 processResources {
