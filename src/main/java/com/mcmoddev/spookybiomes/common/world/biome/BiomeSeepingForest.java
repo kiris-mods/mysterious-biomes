@@ -2,7 +2,6 @@ package com.mcmoddev.spookybiomes.common.world.biome;
 
 import com.mcmoddev.proxyslib.world.biome.MistyBiome;
 import com.mcmoddev.spookybiomes.common.world.gen.features.WorldGenSeepingTree;
-import com.mcmoddev.spookybiomes.init.ConfigHandler;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -26,11 +25,8 @@ public class BiomeSeepingForest extends MistyBiome {
         decorator.grassPerChunk = 4;
         decorator.generateFalls = true;
         mistColor = 0x98ad92;
-        if (ConfigHandler.misc.disableBiomeMist) {
-            mistDensity = 1.0F;
-        } else {
-            mistDensity = 0.50F;
-        }
+        mistDensity = 0.50F;
+
     }
 
     @Nonnull

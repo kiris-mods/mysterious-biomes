@@ -3,7 +3,6 @@ package com.mcmoddev.spookybiomes.common.world.biome;
 import com.mcmoddev.proxyslib.world.biome.MistyBiome;
 import com.mcmoddev.spookybiomes.common.entity.EntityTheForgottenWarlock;
 import com.mcmoddev.spookybiomes.common.world.gen.features.WorldGenSorbusTree;
-import com.mcmoddev.spookybiomes.init.ConfigHandler;
 import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.util.math.BlockPos;
@@ -31,11 +30,7 @@ public class BiomeSorbusForest extends MistyBiome {
         decorator.grassPerChunk = 4;
         decorator.generateFalls = true;
         mistColor = 0xd6e35f;
-        if (ConfigHandler.misc.disableBiomeMist) {
-            mistDensity = 1.0F;
-        } else {
-            mistDensity = 0.45F;
-        }
+        mistDensity = 0.45F;
     }
 
     @Nonnull

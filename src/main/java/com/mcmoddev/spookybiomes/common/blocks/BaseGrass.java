@@ -31,7 +31,7 @@ public class BaseGrass extends BlockGrass {
     @Nonnull
     @Override
     @SuppressWarnings("deprecation")
-    public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+    public MapColor getMapColor(IBlockState state) {
         return MapColor.RED;
     }
 

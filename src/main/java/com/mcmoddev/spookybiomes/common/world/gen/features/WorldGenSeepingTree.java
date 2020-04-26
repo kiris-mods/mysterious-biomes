@@ -48,8 +48,8 @@ public class WorldGenSeepingTree extends WorldGenAbstractTree {
 
                 for (int j2 = 0; j2 < i; ++j2) {
                     if (j2 >= i1 && j1 > 0) {
-                        k1 += enumfacing.getXOffset();
-                        l1 += enumfacing.getZOffset();
+                        k1 += enumfacing.getFrontOffsetX();
+                        l1 += enumfacing.getFrontOffsetZ();
                         --j1;
                     }
 

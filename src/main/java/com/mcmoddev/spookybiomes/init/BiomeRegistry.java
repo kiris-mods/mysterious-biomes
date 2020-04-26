@@ -16,19 +16,19 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = SpookyBiomes.MODID)
 public class BiomeRegistry {
 
-    private static final MistyBiome SORBUS_FOREST = new BiomeSorbusForest();
-    private static final MistyBiome GHOSTLY_FOREST = new BiomeGhostlyForest();
-    private static final MistyBiome SEEPING_FOREST = new BiomeSeepingForest();
-    private static final MistyBiome BLOODIED_HILLS = new BiomeBloodiedHills();
+    private static MistyBiome SORBUS_FOREST = null;
+    private static MistyBiome GHOSTLY_FOREST = null;
+    private static MistyBiome SEEPING_FOREST = null;
+    private static MistyBiome BLOODIED_HILLS = null;
 
     @SubscribeEvent
     @SuppressWarnings("unused")
     public static void onRegisterBiomes(RegistryEvent.Register<Biome> event) {
         event.getRegistry().registerAll(
-                SORBUS_FOREST,
-                GHOSTLY_FOREST,
-                SEEPING_FOREST,
-                BLOODIED_HILLS
+                SORBUS_FOREST = new BiomeSorbusForest(),
+                GHOSTLY_FOREST = new BiomeGhostlyForest(),
+                SEEPING_FOREST = new BiomeSeepingForest(),
+                BLOODIED_HILLS = new BiomeBloodiedHills()
         );
     }
 

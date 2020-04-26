@@ -61,7 +61,7 @@ public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttac
     public void onUpdate() {
         super.onUpdate();
         if (!world.isRemote) {
-            setBesideClimbableBlock(collidedHorizontally);
+            setBesideClimbableBlock(isCollidedHorizontally);
         }
     }
 
@@ -104,16 +104,12 @@ public class EntityTheForgottenWarlock extends EntityMob implements IRangedAttac
         double d1 = target.getEntityBoundingBox().minY + (double) (target.height / 3.0F) - arrow.posY;
         double d2 = target.posZ - posZ;
         double d3 = MathHelper.sqrt(d0 * d0 + d2 * d2);
-        arrow.shoot(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float) (14 -
-                world.getDifficulty().getId() * 4));
+        arrow.setThrowableHeading(d0, d1 + d3 * 0.20000000298023224D, d2, 1.6F, (float) (14 -
+                world.getDifficulty().getDifficultyId() * 4));
         arrow.setDamage((double) (p_82196_2_ * 2.0F) + rand.nextGaussian() * 0.25D
-                + (double) ((float) world.getDifficulty().getId() * 0.11F));
+                + (double) ((float) world.getDifficulty().getDifficultyId() * 0.11F));
         playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (getRNG().nextFloat() * 0.4F + 0.8F));
         world.spawnEntity(arrow);
-    }
-
-    @Override
-    public void setSwingingArms(boolean swingingArms) {
     }
 
     public boolean isBesideClimbableBlock() {

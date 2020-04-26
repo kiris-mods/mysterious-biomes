@@ -4,7 +4,6 @@ import com.mcmoddev.proxyslib.world.biome.MistyBiome;
 import com.mcmoddev.spookybiomes.api.blocks.SpookyBlockObjects;
 import com.mcmoddev.spookybiomes.common.entity.EntityTheForgottenWarlock;
 import com.mcmoddev.spookybiomes.common.world.gen.features.WorldGenBloodTree;
-import com.mcmoddev.spookybiomes.init.ConfigHandler;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -34,11 +33,7 @@ public class BiomeBloodiedHills extends MistyBiome {
         decorator.grassPerChunk = 3;
         decorator.generateFalls = true;
         mistColor = 0x5F021F;
-        if (ConfigHandler.misc.disableBiomeMist) {
-            mistDensity = 1.0F;
-        } else {
-            mistDensity = 0.07F;
-        }
+        mistDensity = 0.07F;
     }
 
     @Nonnull

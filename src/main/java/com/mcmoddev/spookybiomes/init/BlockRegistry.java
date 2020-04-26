@@ -49,7 +49,7 @@ public class BlockRegistry {
                         "sorbus_trapdoor", SpookyBiomes.CREATIVE_TAB),
                 RegistryUtils.nameBlock(new BaseStairs(new BasePlanks(Material.WOOD)), SpookyBiomes.MODID,
                         "sorbus_stairs", SpookyBiomes.CREATIVE_TAB),
-                RegistryUtils.nameBlock(new BaseFence(Material.WOOD, MapColor.ORANGE_STAINED_HARDENED_CLAY),
+                RegistryUtils.nameBlock(new BaseFence(Material.WOOD, MapColor.ADOBE),
                         SpookyBiomes.MODID, "sorbus_fence", SpookyBiomes.CREATIVE_TAB),
                 RegistryUtils.nameBlock(new BaseSlab.Half(Material.WOOD), SpookyBiomes.MODID,
                         "sorbus_slab", SpookyBiomes.CREATIVE_TAB),

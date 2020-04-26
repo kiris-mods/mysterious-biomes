@@ -3,7 +3,6 @@ package com.mcmoddev.spookybiomes.common.world.biome;
 import com.mcmoddev.proxyslib.world.biome.MistyBiome;
 import com.mcmoddev.spookybiomes.common.entity.EntityTheForgottenWarlock;
 import com.mcmoddev.spookybiomes.common.world.gen.features.WorldGenGhostlyTree;
-import com.mcmoddev.spookybiomes.init.ConfigHandler;
 import net.minecraft.block.BlockTallGrass.EnumType;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.passive.EntityBat;
@@ -36,11 +35,7 @@ public class BiomeGhostlyForest extends MistyBiome {
         decorator.grassPerChunk = 6;
         decorator.generateFalls = true;
         mistColor = 0xedfffd;
-        if (ConfigHandler.misc.disableBiomeMist) {
-            mistDensity = 1.0F;
-        } else {
-            mistDensity = 0.05F;
-        }
+        mistDensity = 0.05F;
     }
 
     @Nonnull
