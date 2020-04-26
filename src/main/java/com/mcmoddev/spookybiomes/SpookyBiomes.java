@@ -4,6 +4,7 @@ import com.mcmoddev.spookybiomes.api.blocks.SpookyBlockObjects;
 import com.mcmoddev.spookybiomes.common.world.gen.SpookyWorldGenerator;
 import com.mcmoddev.spookybiomes.init.BiomeRegistry;
 import com.mcmoddev.spookybiomes.init.OreDictRegistry;
+import com.mcmoddev.spookybiomes.init.RecipeRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -48,5 +49,6 @@ public class SpookyBiomes {
         BiomeRegistry.registerBiomeTypes();
         GameRegistry.registerWorldGenerator(new SpookyWorldGenerator(), 10);
         OreDictRegistry.init();
+        RecipeRegistry.registerRecipes();
     }
 }
