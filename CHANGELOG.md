@@ -30,3 +30,8 @@
 
 **Version: 1.0.0**
 - Changelog did not exist.
+
+##1.11.2##
+
+**Version: 1.2.1**
+- Back ported the mod to 1.11.2
