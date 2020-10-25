@@ -1,9 +1,23 @@
-[![](https://img.shields.io/badge/Discord-MMD-green.svg?style=flat-square&logo=Discord)](https://discord.mcmoddev.com)
-[![](http://cf.way2muchnoise.eu/full_spooky-biomes_downloads.svg)](http://minecraft.curseforge.com/projects/spooky-biomes)
-[![](http://cf.way2muchnoise.eu/versions/Minecraft_spooky-biomes_all.svg)](http://minecraft.curseforge.com/projects/spooky-biomes)
-[![Build Status](https://ci.mcmoddev.com/view/ProxyNeko/job/ProxyNeko/job/Spooky%20Biomes/badge/icon?style=flat-square)](https://ci.mcmoddev.com/view/ProxyNeko/job/ProxyNeko/job/Spooky%20Biomes/)
+<h1 align="center">Spooky Biomes</h1>  
+<h5 align="center">Visit https://tophat.cat/swtxt/ for more information.</h5>
+    
+<p align="center">
+<a href="https://discord.tophat.cat">
+    <img src="https://img.shields.io/badge/Discord-TopHatCat-green.svg?style=flat&logo=Discord"/>
+</a>  
 
-# Spooky-Biomes
+<a href="https://www.curseforge.com/minecraft/mc-mods/spooky-biomes">
+    <img src="http://cf.way2muchnoise.eu/full_spooky-biomes_downloads.svg"/>
+</a>
+
+<a href="https://www.curseforge.com/minecraft/mc-mods/spooky-biomes">
+    <img src="http://cf.way2muchnoise.eu/versions/Minecraft_spooky-biomes_all.svg"/>
+</a>  
+
+<a href="https://github.com/tophatcats-mods/spooky-biomes/commits/master">
+    <img src="https://img.shields.io/github/last-commit/tophatcats-mods/spooky-biomes.svg">
+</a>  
+</p>
 
 ### Ideas for future updates:
 - Add some pools of blood to the Bloodied Hills biome.
