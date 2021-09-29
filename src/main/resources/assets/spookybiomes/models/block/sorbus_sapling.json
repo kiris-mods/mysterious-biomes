@@ -1,6 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "spookybiomes:blocks/sorbus_sapling"
-  }
-}

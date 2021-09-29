@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_column",
-  "textures": {
-    "end": "spookybiomes:blocks/sorbus_log_top",
-    "side": "spookybiomes:blocks/sorbus_log"
-  }
-}

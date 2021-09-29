@@ -1,8 +1,0 @@
-{
-  "parent": "block/upper_slab",
-  "textures": {
-    "bottom": "spookybiomes:blocks/ghostly_planks",
-    "top": "spookybiomes:blocks/ghostly_planks",
-    "side": "spookybiomes:blocks/ghostly_planks"
-  }
-}

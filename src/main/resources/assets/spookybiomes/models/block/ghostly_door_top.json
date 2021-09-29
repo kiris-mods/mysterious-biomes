@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_top",
-  "textures": {
-    "bottom": "spookybiomes:blocks/ghostly_door_lower",
-    "top": "spookybiomes:blocks/ghostly_door_upper"
-  }
-}

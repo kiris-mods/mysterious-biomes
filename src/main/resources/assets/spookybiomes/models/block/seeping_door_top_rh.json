@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_top_rh",
-  "textures": {
-    "bottom": "spookybiomes:blocks/seeping_door_lower",
-    "top": "spookybiomes:blocks/seeping_door_upper"
-  }
-}

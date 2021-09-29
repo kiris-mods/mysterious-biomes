@@ -1,0 +1,84 @@
+{
+    "_comment": "Creative Tab",
+    "itemGroup.spookybiomes": "Spooky Biomes",
+
+    "_comment": "Blocks",
+
+    "_comment": "Sorbus stuff",
+    "block.spookybiomes.sorbus_log": "Log o' Sorbus",
+    "block.spookybiomes.sorbus_leaves": "Leaves o' Sorbus",
+    "block.spookybiomes.sorbus_planks": "Planks o' Sorbus",
+    "block.spookybiomes.sorbus_sapling": "Sorbus Shrub",
+    "block.spookybiomes.sorbus_gate": "Picket Gate o' Sorbus",
+    "block.spookybiomes.sorbus_door": "Door o' Sorbus",
+    "block.spookybiomes.sorbus_trapdoor": "Hatch o' Sorbus",
+    "block.spookybiomes.sorbus_stairs": "Stairs o' Sorbus",
+    "block.spookybiomes.sorbus_fence": "Picket o' Sorbus",
+    "block.spookybiomes.sorbus_slab": "Slab o' Sorbus",
+
+    "_comment": "Ghostly stuff",
+    "block.spookybiomes.ghostly_log": "Log o' Ghosts",
+    "block.spookybiomes.ghostly_leaves": "Leaves o' Ghosts",
+    "block.spookybiomes.ghostly_planks": "Planks o' Ghosts",
+    "block.spookybiomes.ghostly_sapling": "Ghostly Shrub",
+    "block.spookybiomes.ghostly_gate": "Picket Gate o' Ghosts",
+    "block.spookybiomes.ghostly_door": "Door o' Ghosts",
+    "block.spookybiomes.ghostly_trapdoor": "Hatch o' Ghosts",
+    "block.spookybiomes.ghostly_stairs": "Stairs o' Ghosts",
+    "block.spookybiomes.ghostly_fence": "Picket o' Ghosts",
+    "block.spookybiomes.ghostly_slab": "Slab o' Ghosts",
+
+    "_comment": "Seeping stuff",
+    "block.spookybiomes.seeping_log": "Log o' Seeping",
+    "block.spookybiomes.seeping_leaves": "Leaves o' Seeping",
+    "block.spookybiomes.seeping_planks": "Planks o' Seeping",
+    "block.spookybiomes.seeping_sapling": "Seeping Shrub",
+    "block.spookybiomes.seeping_gate": "Picket Gate o' Seeping",
+    "block.spookybiomes.seeping_door": "Door o' Seeping",
+    "block.spookybiomes.seeping_trapdoor": "Hatch o' Seeping",
+    "block.spookybiomes.seeping_stairs": "Stairs o' Seeping",
+    "block.spookybiomes.seeping_fence": "Picket o' Seeping",
+    "block.spookybiomes.seeping_slab": "Slab o' Seeping",
+
+    "_comment": "Blood stuff",
+    "block.spookybiomes.bloodwood_log": "Log o' Blood",
+    "block.spookybiomes.bloodwood_leaves": "Leaves o' Blood",
+    "block.spookybiomes.bloodwood_planks": "Planks o' Blood",
+    "block.spookybiomes.bloodwood_sapling": "Bloody Shrub",
+    "block.spookybiomes.bloodwood_gate": "Picket Gate o' Blood",
+    "block.spookybiomes.bloodwood_door": "Door o' Blood",
+    "block.spookybiomes.bloodwood_trapdoor": "Hatch o' Blood",
+    "block.spookybiomes.bloodwood_stairs": "Stairs o' Blood",
+    "block.spookybiomes.bloodwood_fence": "Picket o' Blood",
+    "block.spookybiomes.bloodwood_slab": "Slab o' Blood",
+
+    "_comment": "Items",
+
+    "_comment": "Sorbus stuff",
+    "item.spookybiomes.sorbus_door": "Door o' Sorbus",
+
+    "_comment": "Ghostly stuff",
+    "item.spookybiomes.ghostly_door": "Door o' Ghosts",
+
+    "_comment": "Seeping stuff",
+    "item.spookybiomes.seeping_door": "Door o' Seeping",
+
+    "_comment": "Blood stuff",
+    "item.spookybiomes.bloodwood_door": "Door o' Blood",
+
+    "_comment": "Entitys",
+    "entity.spookybiomes.the_forgotten_warlock": "The Forgotten Warlock",
+
+    "_comment": "Config stuff",
+    "biomeGeneration": "Biome Generation",
+    "spookybiomes.config.biomeGeneration": "Biome Generation",
+    "spookybiomes.config.biomeGeneration.tooltip": "Biome settings for Spooky Biomes",
+    "spookybiomes.config.ghostlyBiomeWeight": "Ghostly Biome Weight",
+    "spookybiomes.config.sorbusBiomeWeight": "Sorbus Biome Weight",
+
+    "treeGeneration": "Tree Generation",
+    "spookybiomes.config.treeGeneration": "Tree Generation",
+    "spookybiomes.config.treeGeneration.tooltip": "Tree generation settings for Spooky Biomes trees",
+    "spookybiomes.config.ghostlyOnHills": "Ghostly Trees on hills",
+    "spookybiomes.config.sorbusOnHills": "Sorbus Trees on hills"
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "block/upper_slab",
-  "textures": {
-    "bottom": "spookybiomes:blocks/bloodwood_planks",
-    "top": "spookybiomes:blocks/bloodwood_planks",
-    "side": "spookybiomes:blocks/bloodwood_planks"
-  }
-}

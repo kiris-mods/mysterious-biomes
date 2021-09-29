@@ -1,8 +1,0 @@
-{
-  "parent": "block/upper_slab",
-  "textures": {
-    "bottom": "spookybiomes:blocks/seeping_planks",
-    "top": "spookybiomes:blocks/seeping_planks",
-    "side": "spookybiomes:blocks/seeping_planks"
-  }
-}

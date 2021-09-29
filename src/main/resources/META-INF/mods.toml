@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[37,)"
+license="LGPL-v2.1"
+updateJSONURL="https://tophatcat.dev/spooky-biomes/update.json"
+issueTrackerURL="https://github.com/tophatcats-mods/spooky-biomes/issues"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/spooky-biomes"
+#logoFile=""
+credits="ProxyNeko"
+authors="ProxyNeko"
+
+[[mods]]
+modId="spookybiomes"
+version="${file.jarVersion}"
+displayName="Spooky Biomes"
+description='''
+A SpookyJam mod made during the first two weeks of October for a Modded Minecraft Development community event. (SpookyJam 2017) May contain Spookyness.
+'''
+
+[[dependencies.spookybiomes]]
+modId="forge"
+mandatory=true
+versionRange="[37,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.spookybiomes]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.17.1]"
+ordering="NONE"
+side="BOTH"

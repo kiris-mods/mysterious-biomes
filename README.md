@@ -1,9 +1,13 @@
 <h1 align="center">Spooky Biomes</h1>  
-<h5 align="center">Visit https://tophat.cat/swtxt/ for more information.</h5>
+<h5 align="center">A medium sized mod that was created during SpookyJam 2017 in the first two weeks of October adding two biomes with two trees and a few blocks by the end of the event.</h5>
     
 <p align="center">
-<a href="https://discord.tophat.cat">
-    <img src="https://img.shields.io/badge/Discord-TopHatCat-green.svg?style=flat&logo=Discord"/>
+<a href="https://discord.tophatcat.dev">
+    <img src="https://img.shields.io/badge/Discord-MMD-brightgreen.svg?style=flat&logo=Discord"/>
+</a>
+
+<a href="https://tophatcat.dev/">
+    <img src="https://img.shields.io/badge/Website-tophatcat.dev-brightgreen.svg?style=flat"/>
 </a>  
 
 <a href="https://www.curseforge.com/minecraft/mc-mods/spooky-biomes">
@@ -38,7 +42,7 @@
 - Ghost mist essence. Can be dropped from Ghosts or as a rare drop from ghostly leaves. (1 in 15)
 - Mist essence can be crafted into a charm that the user can carry that should dispel the mist of the biome a little making it habitable.
 
-##### Biome specific mobs that only spawn in it's respective biome: (Might make that a config option.)
+##### Biome specific mobs that only spawn in its respective biome: (Might make that a config option.)
 - Bloodied hills biome mob: Vampires. Attacks other living type mobs and only comes out at night, can transform into a bat to fly away if it's health is low. Is also quite fast and burns in sunlight.
-- Ghostly Forest biome mob: Ghosts. Don't attack without reason. Will call friends nearby to help like pigmen. (May improve this in future to make them attack on a full moon) Vanish during the day or when looked at.
-- Seeping Forest biome mob: Seeping Slimes. They drop the green slime like droplets that the trees seep, see seeping armour for it's uses. 
+- Ghostly Forest biome mob: Ghosts. Don't attack without reason. Will call friends nearby to help like pigmen. (I may improve this in future to make them attack on a full moon) Vanish during the day or when looked at.
+- Seeping Forest biome mob: Seeping Slimes. They drop the green slime like droplets that the trees seep, see seeping armour for its uses. 

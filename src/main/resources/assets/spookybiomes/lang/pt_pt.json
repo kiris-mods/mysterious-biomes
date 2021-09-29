@@ -1,0 +1,84 @@
+{
+    "_comment": "Creative Tab",
+    "itemGroup.spookybiomes": "Spooky Biomes",
+
+    "_comment": "Blocks",
+
+    "_comment": "Sorbus stuff",
+    "block.spookybiomes.sorbus_log": "Madeira de Tramazeira",
+    "block.spookybiomes.sorbus_leaves": "Folhas de Tramazeira",
+    "block.spookybiomes.sorbus_planks": "Tábuas de Madeira de Tramazeira",
+    "block.spookybiomes.sorbus_sapling": "Rebento de Tramazeira",
+    "block.spookybiomes.sorbus_gate": "Portão de Madeira de Tramazeira",
+    "block.spookybiomes.sorbus_door": "Porta de Madeira de Tramazeira",
+    "block.spookybiomes.sorbus_trapdoor": "Alçapão de Madeira de Tramazeira",
+    "block.spookybiomes.sorbus_stairs": "Escadas de Madeira de Tramazeira",
+    "block.spookybiomes.sorbus_fence": "Cerca de Madeira de Tramazeira",
+    "block.spookybiomes.sorbus_slab": "Degrau de Madeira de Tramazeira",
+
+    "_comment": "Fantasmagórico stuff",
+    "block.spookybiomes.ghostly_log": "Madeira Fantasmagórica",
+    "block.spookybiomes.ghostly_leaves": "Folhas Fantasmagóricas",
+    "block.spookybiomes.ghostly_planks": "Tábuas de Madeira Fantasmagórica",
+    "block.spookybiomes.ghostly_sapling": "Rebento Fantasmagórico",
+    "block.spookybiomes.ghostly_gate": "Portão de Madeira Fantasmagórica",
+    "block.spookybiomes.ghostly_door": "Porta de Madeira Fantasmagórica",
+    "block.spookybiomes.ghostly_trapdoor": "Alçapão de Madeira Fantasmagórica",
+    "block.spookybiomes.ghostly_stairs": "Escadas de Madeira Fantasmagórica",
+    "block.spookybiomes.ghostly_fence": "Cerca de Madeira Fantasmagórica",
+    "block.spookybiomes.ghostly_slab": "Degrau de Madeira Fantasmagórica",
+
+    "_comment": "Embebida stuff",
+    "block.spookybiomes.seeping_log": "Madeira Embebida",
+    "block.spookybiomes.seeping_leaves": "Folhas Embebida",
+    "block.spookybiomes.seeping_planks": "Tábuas de Madeira Embebida",
+    "block.spookybiomes.seeping_sapling": "Rebento Embebido",
+    "block.spookybiomes.seeping_gate": "Portão de Madeira Embebida",
+    "block.spookybiomes.seeping_door": "Porta de Madeira Embebida",
+    "block.spookybiomes.seeping_trapdoor": "Alçapão de Madeira Embebida",
+    "block.spookybiomes.seeping_stairs": "Escadas de Madeira Embebida",
+    "block.spookybiomes.seeping_fence": "Cerca de Madeira Embebida",
+    "block.spookybiomes.seeping_slab": "Degrau de Madeira Embebida",
+
+    "_comment": "Blood stuff",
+    "block.spookybiomes.bloodwood_log": "Madeira Sangrenta",
+    "block.spookybiomes.bloodwood_leaves": "Folhas Sangrentas",
+    "block.spookybiomes.bloodwood_planks": "Tábuas de Madeira Sangrenta",
+    "block.spookybiomes.bloodwood_sapling": "Rebento Sangrento",
+    "block.spookybiomes.bloodwood_gate": "Portão de Madeira Sangrenta",
+    "block.spookybiomes.bloodwood_door": "Porta de Madeira Sangrenta",
+    "block.spookybiomes.bloodwood_trapdoor": "Alçapão de Madeira Sangrenta",
+    "block.spookybiomes.bloodwood_stairs": "Escadas de Madeira Sangrenta",
+    "block.spookybiomes.bloodwood_fence": "Cerca de Madeira Sangrenta",
+    "block.spookybiomes.bloodwood_slab": "Degrau de Madeira Sangrenta",
+
+    "_comment": "Items",
+
+    "_comment": "Tramazeira stuff",
+    "item.spookybiomes.sorbus_door": "Porta de Madeira de Tramazeira",
+
+    "_comment": "Fantasmagórico stuff",
+    "item.spookybiomes.ghostly_door": "Porta de Madeira Fantasmagórica",
+
+    "_comment": "Embebida stuff",
+    "item.spookybiomes.seeping_door": "Porta de Madeira Embebida",
+
+    "_comment": "Blood stuff",
+    "item.spookybiomes.bloodwood_door": "Porta de Madeira Sangrenta",
+
+    "_comment": "Entitys",
+    "entity.spookybiomes.the_forgotten_warlock": "O Feiticeiro Esquecido",
+
+    "_comment": "Config stuff",
+    "biomeGeneration": "Geração de Biomes",
+    "spookybiomes.config.biomeGeneration": "Geração de Biomes",
+    "spookybiomes.config.biomeGeneration.tooltip": "Definições de Biomes para Spooky Biomes",
+    "spookybiomes.config.ghostlyBiomeWeight": "Peso de geração de Ghostly Biome",
+    "spookybiomes.config.sorbusBiomeWeight": "Peso de geração de Sorbus Biome",
+
+    "treeGeneration": "Geração de Árvores",
+    "spookybiomes.config.treeGeneration": "Geração de Árvores",
+    "spookybiomes.config.treeGeneration.tooltip": "Definições de geração de árvores para as árvores de Spooky Biomes",
+    "spookybiomes.config.ghostlyOnHills": "Árvores Fantasmagóricas em elevações",
+    "spookybiomes.config.sorbusOnHills": "Árvores de Tramazeira em elevações"
+}
