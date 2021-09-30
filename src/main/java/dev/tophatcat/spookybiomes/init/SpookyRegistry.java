@@ -3,6 +3,7 @@ package dev.tophatcat.spookybiomes.init;
 import dev.tophatcat.spookybiomes.RegistrationHelpers;
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import dev.tophatcat.spookybiomes.common.blocks.BloodiedGrass;
+import dev.tophatcat.spookybiomes.common.blocks.BloodiedTreeGrower;
 import dev.tophatcat.spookybiomes.common.entity.TheForgottenWarlock;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -220,7 +221,7 @@ public class SpookyRegistry {
 
     public static final RegistryObject<SaplingBlock> BLOODWOOD_SAPLING
             = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, ITEMS, "bloodwood_sapling",
-            () -> new SaplingBlock(new OakTreeGrower(),
+            () -> new SaplingBlock(new BloodiedTreeGrower(),
                     Block.Properties.of(Material.GRASS).sound(SoundType.GRASS)));
 
     public static final RegistryObject<Block> BLOODWOOD_GATE
