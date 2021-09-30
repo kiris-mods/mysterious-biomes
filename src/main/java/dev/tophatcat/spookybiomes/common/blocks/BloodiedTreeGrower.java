@@ -12,12 +12,6 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BloodiedTreeGrower extends SpookyBiomeTreeGrower {
-    @Nullable
-    @Override
-    protected ConfiguredFeature<TreeConfiguration, ?> getConfiguredFeature(Random random, boolean alternative) {
-        return null;
-    }
-
     @Override
     protected ConfiguredFeature<?, ?> getDynamicConfiguredFeature(Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry, Random random, boolean alternative) {
         if (random.nextInt(10) == 0) {
