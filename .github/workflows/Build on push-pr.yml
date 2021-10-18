@@ -8,7 +8,7 @@ on:
       - 'extras/**'
       - 'src/main/resources/**'
 
-    pull_request:
+  pull_request:
       paths-ignore:
         - '*.md'
         - '.github/**'
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clean the workspace
-        run ./gradlew clean
+        run: ./gradlew clean
 
       - uses: actions/checkout@v2
       - name: Setup JDK 16
