@@ -1,6 +1,7 @@
 package dev.tophatcat.spookybiomes.common.blocks;
 
-import dev.tophatcat.spookybiomes.init.SpookyRegistry;
+import dev.tophatcat.spookybiomes.init.SpookyBlocks;
+import dev.tophatcat.spookybiomes.init.SpookyItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -82,17 +83,17 @@ public class BloodiedGrass extends GrassBlock {
 
             if (!canBeGrass(state, world, pos)) {
                 //Block is covered, turn it into bloodied dirt.
-                world.setBlockAndUpdate(pos, SpookyRegistry.BLOODIED_DIRT.get().defaultBlockState());
+                world.setBlockAndUpdate(pos, SpookyBlocks.BLOODIED_DIRT.get().defaultBlockState());
             } else {
                 if (world.getMaxLocalRawBrightness(pos.above()) >= 9) {
                     //Attempt to spread grass onto neighboring bloodied dirt.
-                    BlockState replacementBlock = SpookyRegistry.BLOODIED_GRASS.get().defaultBlockState();
+                    BlockState replacementBlock = SpookyBlocks.BLOODIED_GRASS.get().defaultBlockState();
 
                     for (int i = 0; i < 4; ++i) {
                         BlockPos blockpos = pos.offset(random.nextInt(3)
                                 - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
 
-                        if (world.getBlockState(blockpos).getBlock() == SpookyRegistry.BLOODIED_DIRT.get()
+                        if (world.getBlockState(blockpos).getBlock() == SpookyBlocks.BLOODIED_DIRT.get()
                                 && canPropagate(replacementBlock, world, blockpos)) {
                             world.setBlockAndUpdate(blockpos, replacementBlock.setValue(SNOWY,
                                     world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));

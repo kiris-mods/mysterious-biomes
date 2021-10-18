@@ -19,23 +19,22 @@ public class RegistrationHelpers {
 
     public static <BLOCK extends Block, ITEM extends BlockItem>
     Pair<RegistryObject<BLOCK>, RegistryObject<ITEM>> registerBlockAndItem(
-            DeferredRegister<Block> blocks,
-            DeferredRegister<Item> items,
-            String name,
-            Supplier<BLOCK> blockFactory,
-            Function<? super BLOCK, ITEM> itemFactory) {
+        DeferredRegister<Block> blocks,
+        DeferredRegister<Item> items,
+        String name,
+        Supplier<BLOCK> blockFactory,
+        Function<? super BLOCK, ITEM> itemFactory) {
         RegistryObject<BLOCK> block = blocks.register(name, blockFactory);
         RegistryObject<ITEM> item = items.register(name, () -> itemFactory.apply(block.get()));
         return Pair.of(block, item);
     }
 
     public static <BLOCK extends Block> RegistryObject<BLOCK> registerBlockAndStandardItem(
-            DeferredRegister<Block> blocks,
-            DeferredRegister<Item> items,
-            String name,
-            Supplier<BLOCK> blockFactory) {
-        return registerBlockAndItem(blocks, items, name, blockFactory,
-                block -> new BlockItem(block, new Item.Properties().tab(SpookyBiomes.CREATIVE_TAB)))
-                .getFirst();
+        DeferredRegister<Block> blocks,
+        DeferredRegister<Item> items,
+        String name,
+        Supplier<BLOCK> blockFactory) {
+        return registerBlockAndItem(blocks, items, name, blockFactory, block
+            -> new BlockItem(block, new Item.Properties().tab(SpookyBiomes.CREATIVE_TAB))).getFirst();
     }
 }

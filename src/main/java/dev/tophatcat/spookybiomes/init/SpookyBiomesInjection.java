@@ -6,13 +6,9 @@ import net.minecraft.data.worldgen.biome.VanillaBiomes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraftforge.common.BiomeManager;
-import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.util.function.Supplier;
 
 public class SpookyBiomesInjection {
     public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, SpookyBiomes.MOD_ID);
@@ -25,20 +21,20 @@ public class SpookyBiomesInjection {
         BIOMES.register("sorbus_forest", VanillaBiomes::theVoidBiome);
 
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL,
-                new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
-                        new ResourceLocation(SpookyBiomes.MOD_ID, "bloodied_hills")),
-                        5));
+            new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
+                new ResourceLocation(SpookyBiomes.MOD_ID, "bloodied_hills")),
+                5));
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL,
-                new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
-                        new ResourceLocation(SpookyBiomes.MOD_ID, "ghostly_forest")),
-                        5));
+            new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
+                new ResourceLocation(SpookyBiomes.MOD_ID, "ghostly_forest")),
+                5));
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL,
-                new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
-                        new ResourceLocation(SpookyBiomes.MOD_ID, "seeping_forest")),
-                        5));
+            new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
+                new ResourceLocation(SpookyBiomes.MOD_ID, "seeping_forest")),
+                5));
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL,
-                new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
-                        new ResourceLocation(SpookyBiomes.MOD_ID, "sorbus_forest")),
-                        5));
+            new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
+                new ResourceLocation(SpookyBiomes.MOD_ID, "sorbus_forest")),
+                5));
     }
 }

@@ -1,7 +1,9 @@
 package dev.tophatcat.spookybiomes;
 
 import dev.tophatcat.spookybiomes.init.SpookyBiomesInjection;
-import dev.tophatcat.spookybiomes.init.SpookyRegistry;
+import dev.tophatcat.spookybiomes.init.SpookyBlocks;
+import dev.tophatcat.spookybiomes.init.SpookyEntities;
+import dev.tophatcat.spookybiomes.init.SpookyItems;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -24,20 +26,19 @@ public class SpookyBiomes {
 
     public SpookyBiomes() {
         IEventBus mod = FMLJavaModLoadingContext.get().getModEventBus(), forge = MinecraftForge.EVENT_BUS;
-        SpookyRegistry.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        SpookyRegistry.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        SpookyRegistry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        SpookyEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        SpookyBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        SpookyItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        mod.addListener(SpookyRegistry::registerSpookyContent);
-        mod.addListener(SpookyRegistry::addEntityAttributes);
-        //DistExecutor.unsafeCallWhenOn(Dist.CLIENT, () -> () -> mod.addListener(SpookyRendering::init));
+        mod.addListener(SpookyEntities::registerSpookyContent);
+        mod.addListener(SpookyEntities::addEntityAttributes);
     }
 
     public static final CreativeModeTab CREATIVE_TAB = new CreativeModeTab(MOD_ID) {
         @Nonnull
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(SpookyRegistry.GHOSTLY_SAPLING.get());
+            return new ItemStack(SpookyBlocks.GHOSTLY_SAPLING.get());
         }
     };
 }

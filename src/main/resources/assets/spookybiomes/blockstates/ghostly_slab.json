@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "spookybiomes:block/ghostly_slab_top"
+    },
+    "type=bottom": {
+      "model": "spookybiomes:block/ghostly_slab"
+    },
+    "type=double": {
+      "model": "spookybiomes:block/ghostly_planks"
+    }
+  }
+}

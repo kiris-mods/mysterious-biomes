@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "spookybiomes:block/bloodied_grass_top",
+    "bottom": "spookybiomes:block/bloodied_dirt",
+    "side": "spookybiomes:block/bloodied_grass_snowy",
+    "particle": "minecraft:block/dirt"
+  }
+}
