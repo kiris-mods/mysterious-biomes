@@ -1,11 +1,11 @@
 {
   "result": {
-    "item": "spookybiomes:ghostly_planks",
+    "item": "spookybiomes:sorbus_planks",
     "count": 4
   },
   "ingredients": [
     {
-      "item": "spookybiomes:ghostly_log"
+      "item": "spookybiomes:sorbus_log"
     }
   ],
   "type": "minecraft:crafting_shapeless"

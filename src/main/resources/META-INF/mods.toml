@@ -4,9 +4,9 @@ license="LGPL-v2.1"
 updateJSONURL="https://tophatcat.dev/spooky-biomes/update.json"
 issueTrackerURL="https://github.com/tophatcats-mods/spooky-biomes/issues"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/spooky-biomes"
+credits="KiriCattus"
+authors="KiriCattus"
 #logoFile=""
-credits="ProxyNeko"
-authors="ProxyNeko"
 
 [[mods]]
 modId="spookybiomes"

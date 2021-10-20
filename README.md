@@ -45,4 +45,4 @@
 ##### Biome specific mobs that only spawn in its respective biome: (Might make that a config option.)
 - Bloodied hills biome mob: Vampires. Attacks other living type mobs and only comes out at night, can transform into a bat to fly away if it's health is low. Is also quite fast and burns in sunlight.
 - Ghostly Forest biome mob: Ghosts. Don't attack without reason. Will call friends nearby to help like pigmen. (I may improve this in future to make them attack on a full moon) Vanish during the day or when looked at.
-- Seeping Forest biome mob: Seeping Slimes. They drop the green slime like droplets that the trees seep, see seeping armour for its uses. 
+- Seeping Forest biome mob: Seeping Slimes. They drop the green slime like droplets that the trees seep, see seeping armour for its uses.
