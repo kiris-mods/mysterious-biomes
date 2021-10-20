@@ -18,7 +18,7 @@
     <img src="http://cf.way2muchnoise.eu/versions/Minecraft_spooky-biomes_all.svg"/>
 </a>  
 
-<a href="https://github.com/tophatcats-mods/spooky-biomes/commits/master">
+<a href="https://github.com/tophatcats-mods/spooky-biomes/commits/dev">
     <img src="https://img.shields.io/github/last-commit/tophatcats-mods/spooky-biomes.svg">
 </a>  
 </p>
