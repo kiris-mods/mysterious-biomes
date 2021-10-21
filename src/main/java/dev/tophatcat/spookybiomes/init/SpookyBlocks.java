@@ -54,7 +54,7 @@ public class SpookyBlocks {
 
     SORBUS_SAPLING = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "sorbus_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
-            .sound(SoundType.GRASS))),
+            .sound(SoundType.GRASS).noCollission().noOcclusion().randomTicks())),
 
     SORBUS_GATE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "sorbus_gate",
         () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -91,7 +91,7 @@ public class SpookyBlocks {
 
     GHOSTLY_SAPLING = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "ghostly_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
-            .sound(SoundType.GRASS))),
+            .sound(SoundType.GRASS).noCollission().noOcclusion().randomTicks())),
 
     GHOSTLY_GATE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "ghostly_gate",
         () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -129,7 +129,7 @@ public class SpookyBlocks {
 
     SEEPING_SAPLING = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "seeping_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
-            .sound(SoundType.GRASS))),
+            .sound(SoundType.GRASS).noCollission().noOcclusion().randomTicks())),
 
     SEEPING_GATE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "seeping_gate",
         () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -168,8 +168,8 @@ public class SpookyBlocks {
 
     BLOODWOOD_SAPLING
         = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_sapling",
-        () -> new SaplingBlock(new BloodiedTreeGrower(),
-            Block.Properties.of(Material.GRASS).sound(SoundType.GRASS).noOcclusion())),
+        () -> new SaplingBlock(new BloodiedTreeGrower(), Block.Properties.of(Material.GRASS)
+            .sound(SoundType.GRASS).randomTicks().noCollission().noOcclusion())),
 
     BLOODWOOD_GATE
         = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_gate",

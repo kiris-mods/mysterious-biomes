@@ -41,6 +41,5 @@ public class SpookyRendering {
     public static void registerLayerDefinition(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION,
             TheForgottenWarlockModel::createBodyLayer);
-
     }
 }
