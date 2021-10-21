@@ -1,6 +1,7 @@
 package dev.tophatcat.spookybiomes;
 
 import com.mojang.datafixers.util.Pair;
+import dev.tophatcat.spookybiomes.common.items.BurnableBlockItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -36,5 +37,15 @@ public class RegistrationHelpers {
         Supplier<BLOCK> blockFactory) {
         return registerBlockAndItem(blocks, items, name, blockFactory, block
             -> new BlockItem(block, new Item.Properties().tab(SpookyBiomes.CREATIVE_TAB))).getFirst();
+    }
+
+    public static <BLOCK extends Block> RegistryObject<BLOCK> registerBlockAndBurnableItem(
+        DeferredRegister<Block> blocks,
+        DeferredRegister<Item> items,
+        String name,
+        Supplier<BLOCK> blockFactory,
+        int burnTime) {
+        return registerBlockAndItem(blocks, items, name, blockFactory, block
+            -> new BurnableBlockItem(block, burnTime, new Item.Properties().tab(SpookyBiomes.CREATIVE_TAB))).getFirst();
     }
 }

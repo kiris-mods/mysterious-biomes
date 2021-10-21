@@ -55,8 +55,8 @@ public class SpookyBlocks {
             "sorbus_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
                 .sound(SoundType.GRASS))),
 
-    SORBUS_GATE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "sorbus_gate",
-        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+    SORBUS_GATE = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "sorbus_gate",
+        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     SORBUS_DOOR = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "sorbus_door",
         () -> new DoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -68,8 +68,8 @@ public class SpookyBlocks {
         () -> new StairBlock(() -> SORBUS_PLANKS.get().defaultBlockState(), Block.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD))),
 
-    SORBUS_FENCE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "sorbus_fence",
-        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+    SORBUS_FENCE = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "sorbus_fence",
+        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     SORBUS_SLAB = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "sorbus_slab",
         () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -92,8 +92,8 @@ public class SpookyBlocks {
         "ghostly_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
             .sound(SoundType.GRASS))),
 
-    GHOSTLY_GATE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "ghostly_gate",
-        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+    GHOSTLY_GATE = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "ghostly_gate",
+        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     GHOSTLY_DOOR = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "ghostly_door",
         () -> new DoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion())),
@@ -106,8 +106,8 @@ public class SpookyBlocks {
         () -> new StairBlock(() -> SORBUS_PLANKS.get().defaultBlockState(), Block.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD))),
 
-    GHOSTLY_FENCE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "ghostly_fence",
-        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+    GHOSTLY_FENCE = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "ghostly_fence",
+        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     GHOSTLY_SLAB = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "ghostly_slab",
         () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -130,8 +130,8 @@ public class SpookyBlocks {
         "seeping_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
             .sound(SoundType.GRASS))),
 
-    SEEPING_GATE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "seeping_gate",
-        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+    SEEPING_GATE = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "seeping_gate",
+        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     SEEPING_DOOR = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "seeping_door",
         () -> new DoorBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -143,8 +143,8 @@ public class SpookyBlocks {
         () -> new StairBlock(() -> SORBUS_PLANKS.get().defaultBlockState(), Block.Properties.of(Material.WOOD)
                 .sound(SoundType.WOOD))),
 
-    SEEPING_FENCE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "seeping_fence",
-        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+    SEEPING_FENCE = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "seeping_fence",
+        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     SEEPING_SLAB = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "seeping_slab",
         () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -171,8 +171,8 @@ public class SpookyBlocks {
             Block.Properties.of(Material.GRASS).sound(SoundType.GRASS).noOcclusion())),
 
     BLOODWOOD_GATE
-        = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_gate",
-        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+        = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_gate",
+        () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     BLOODWOOD_DOOR
         = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_door",
@@ -188,8 +188,8 @@ public class SpookyBlocks {
             Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
 
     BLOODWOOD_FENCE
-        = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_fence",
-        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+        = RegistrationHelpers.registerBlockAndBurnableItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_fence",
+        () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD)), 300),
 
     BLOODWOOD_SLAB
         = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "bloodwood_slab",
