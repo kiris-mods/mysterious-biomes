@@ -1,6 +1,6 @@
 {   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "minecraft:block/dirt",
+    "particle": "spookybiomes:block/bloodied_dirt",
     "bottom": "spookybiomes:block/bloodied_dirt",
     "top": "spookybiomes:block/bloodied_grass_top",
     "side": "spookybiomes:block/bloodied_grass_sides"

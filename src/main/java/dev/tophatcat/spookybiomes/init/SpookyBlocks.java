@@ -31,29 +31,30 @@ public class SpookyBlocks {
     public static final RegistryObject<Block>
     //Misc blocks
     BLOODIED_GRASS = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
-        "bloodied_grass", () -> new BloodiedGrass(Properties.of(Material.DIRT).sound(SoundType.GRAVEL))),
+        "bloodied_grass", () -> new BloodiedGrass(Properties.of(Material.DIRT).sound(SoundType.GRAVEL)
+            .randomTicks())),
 
     BLOODIED_DIRT = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
-            "bloodied_dirt", () -> new Block(Block.Properties.of(Material.DIRT).sound(SoundType.GRAVEL))),
+        "bloodied_dirt", () -> new Block(Block.Properties.of(Material.DIRT).sound(SoundType.GRAVEL))),
 
     //Sorbus blocks
-    SORBUS_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS,SpookyItems.ITEMS,
+    SORBUS_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "sorbus_log_stripped", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD))),
 
     SORBUS_LOG = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
-            "sorbus_log", () -> new RotatedPillarBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+        "sorbus_log", () -> new RotatedPillarBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
 
     SORBUS_LEAVES = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
-            "sorbus_leaves", () -> new LeavesBlock(Block.Properties.of(Material.LEAVES)
-                .sound(SoundType.GRASS).noOcclusion())),
+        "sorbus_leaves", () -> new LeavesBlock(Block.Properties.of(Material.LEAVES)
+            .sound(SoundType.GRASS).noOcclusion())),
 
     SORBUS_PLANKS = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
-            "sorbus_planks", () -> new Block(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
+        "sorbus_planks", () -> new Block(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
 
     SORBUS_SAPLING = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
-            "sorbus_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
-                .sound(SoundType.GRASS))),
+        "sorbus_sapling", () -> new SaplingBlock(new OakTreeGrower(), Block.Properties.of(Material.GRASS)
+            .sound(SoundType.GRASS))),
 
     SORBUS_GATE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "sorbus_gate",
         () -> new FenceGateBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -75,7 +76,7 @@ public class SpookyBlocks {
         () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
 
     //Ghostly blocks
-    GHOSTLY_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS,SpookyItems.ITEMS,
+    GHOSTLY_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "ghostly_log_stripped", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD))),
 
@@ -113,7 +114,7 @@ public class SpookyBlocks {
         () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
 
     //Seeping blocks
-    SEEPING_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS,SpookyItems.ITEMS,
+    SEEPING_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "seeping_log_stripped", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD))),
 
@@ -141,7 +142,7 @@ public class SpookyBlocks {
 
     SEEPING_STAIRS = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "seeping_stairs",
         () -> new StairBlock(() -> SORBUS_PLANKS.get().defaultBlockState(), Block.Properties.of(Material.WOOD)
-                .sound(SoundType.WOOD))),
+            .sound(SoundType.WOOD))),
 
     SEEPING_FENCE = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS, "seeping_fence",
         () -> new FenceBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
@@ -150,7 +151,7 @@ public class SpookyBlocks {
         () -> new SlabBlock(Block.Properties.of(Material.WOOD).sound(SoundType.WOOD))),
 
     //Bloodwood blocks
-    BLOODWOOD_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS,SpookyItems.ITEMS,
+    BLOODWOOD_LOG_STRIPPED = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "bloodwood_log_stripped", () -> new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD)
             .sound(SoundType.WOOD))),
 
