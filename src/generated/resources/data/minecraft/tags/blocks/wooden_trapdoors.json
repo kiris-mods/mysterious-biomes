@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spookybiomes:sorbus_trapdoor",
+    "spookybiomes:ghostly_trapdoor",
+    "spookybiomes:seeping_trapdoor",
+    "spookybiomes:bloodwood_trapdoor"
+  ]
+}

@@ -1,5 +1,6 @@
 package dev.tophatcat.spookybiomes;
 
+import dev.tophatcat.spookybiomes.data.SpookyDataProviders;
 import dev.tophatcat.spookybiomes.init.SpookyBiomesInjection;
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import dev.tophatcat.spookybiomes.init.SpookyEntities;
@@ -32,6 +33,7 @@ public class SpookyBiomes {
         SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
         mod.addListener(SpookyEntities::registerSpookyContent);
         mod.addListener(SpookyEntities::addEntityAttributes);
+        mod.addListener(SpookyDataProviders::addProviders);
     }
 
     public static final CreativeModeTab CREATIVE_TAB = new CreativeModeTab(MOD_ID) {

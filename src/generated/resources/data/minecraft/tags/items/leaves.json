@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spookybiomes:sorbus_leaves",
+    "spookybiomes:ghostly_leaves",
+    "spookybiomes:seeping_leaves",
+    "spookybiomes:bloodwood_leaves"
+  ]
+}
