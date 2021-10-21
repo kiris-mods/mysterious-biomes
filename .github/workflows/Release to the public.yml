@@ -12,18 +12,17 @@ jobs:
       discordWebhook: ${{ secrets.DISCORD_WEBHOOK }}
     runs-on: ubuntu-latest
     steps:
-      - name: Clean the workspace
-        run: ./gradlew clean
-
-      - uses: actions/checkout@v2
       - name: Setup JDK 16
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
           java-version: '16'
 
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
       - name: Setup Build
-        run: chmod 777 gradlew
+        run: chmod +x gradlew
         
       - name: Push to CurseForge
         run: ./gradlew curseforge
