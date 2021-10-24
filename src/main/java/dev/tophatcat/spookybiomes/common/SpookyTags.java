@@ -59,9 +59,9 @@ public class SpookyTags {
     /**
      * Binds a tag via its name. The name is appended with the modid.
      *
-     * @param name the name of the tag
+     * @param name    the name of the tag
      * @param tagBind the binding function to create the tag
-     * @param <T> the type of the elements of the tag
+     * @param <T>     the type of the elements of the tag
      * @return a new named tag
      */
     private static <T> Tag.Named<T> genericTag(final String name, final Function<String, Tag.Named<T>> tagBind) {

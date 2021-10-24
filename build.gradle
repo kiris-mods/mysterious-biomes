@@ -4,14 +4,20 @@ buildscript {
             name = 'Minecraft Forge Maven'
             url = 'https://maven.minecraftforge.net'
         }
+        maven {
+            name = 'Parchment'
+            url = 'https://maven.parchmentmc.org'
+        }
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: project.forgegradle_version, changing: true
+        classpath 'org.parchmentmc:librarian:1.+'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
@@ -23,7 +29,7 @@ archivesBaseName = project.mod_id
 java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
 minecraft {
-    mappings channel: project.mapping_channel, version: project.minecraft_version
+    mappings channel: project.mapping_channel, version: project.mapping_version
 
     runs {
         client {

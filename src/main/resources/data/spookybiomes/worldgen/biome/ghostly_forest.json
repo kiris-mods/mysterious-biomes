@@ -82,7 +82,7 @@
     ]
   ],
   "starts": [],
-  "creature_spawn_probability": 0.1,
+  "creature_spawn_probability": 0.4,
   "spawn_costs": {},
   "spawners": {
     "monster": [

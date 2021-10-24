@@ -19,11 +19,12 @@ public class SpookyItemTags extends ItemTagsProvider {
     /**
      * A simple constructor.
      *
-     * @param generator the generator to generate the data
-     * @param blockTags the provider to copy the block tag data from
+     * @param generator          the generator to generate the data
+     * @param blockTags          the provider to copy the block tag data from
      * @param existingFileHelper a helper to validate any existing tags
      */
-    public SpookyItemTags(final DataGenerator generator, final BlockTagsProvider blockTags, @Nullable final ExistingFileHelper existingFileHelper) {
+    public SpookyItemTags(final DataGenerator generator, final BlockTagsProvider blockTags,
+                          @Nullable final ExistingFileHelper existingFileHelper) {
         super(generator, blockTags, SpookyBiomes.MOD_ID, existingFileHelper);
     }
 

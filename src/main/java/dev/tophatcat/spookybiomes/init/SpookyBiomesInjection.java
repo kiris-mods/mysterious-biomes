@@ -11,7 +11,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class SpookyBiomesInjection {
-    public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, SpookyBiomes.MOD_ID);
+
+    public static final DeferredRegister<Biome> BIOMES
+        = DeferredRegister.create(ForgeRegistries.BIOMES, SpookyBiomes.MOD_ID);
 
     // Dummy biomes to make BiomeManager not blow up and for the json biomes to overwrite biome in world.
     static {

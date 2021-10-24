@@ -12,11 +12,11 @@ import javax.annotation.Nonnull;
 public class RenderTheForgottenWarlock extends MobRenderer<TheForgottenWarlock, EntityModel<TheForgottenWarlock>> {
 
     private static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(SpookyBiomes.MOD_ID,
-            "textures/entity/the_forgotten_warlock.png");
+        "textures/entity/the_forgotten_warlock.png");
 
     public RenderTheForgottenWarlock(EntityRendererProvider.Context renderManager) {
         super(renderManager, new TheForgottenWarlockModel<>(
-                renderManager.bakeLayer(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
+            renderManager.bakeLayer(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
     }
 
     @Nonnull

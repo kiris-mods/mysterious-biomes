@@ -1,4 +1,4 @@
-package dev.tophatcat.spookybiomes.common.blocks;
+package dev.tophatcat.spookybiomes.common.generation;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;

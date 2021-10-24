@@ -1,6 +1,5 @@
 package dev.tophatcat.spookybiomes.common.entity;
 
-import dev.tophatcat.spookybiomes.SpookyBiomes;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -35,7 +34,7 @@ import javax.annotation.Nonnull;
 public class TheForgottenWarlock extends Monster implements RangedAttackMob {
 
     private static final EntityDataAccessor<Byte> CLIMBING
-            = SynchedEntityData.defineId(TheForgottenWarlock.class, EntityDataSerializers.BYTE);
+        = SynchedEntityData.defineId(TheForgottenWarlock.class, EntityDataSerializers.BYTE);
 
     public TheForgottenWarlock(EntityType<? extends TheForgottenWarlock> type, Level world) {
         super(type, world);
@@ -51,11 +50,11 @@ public class TheForgottenWarlock extends Monster implements RangedAttackMob {
         goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
         targetSelector.addGoal(6, new TheForgottenWarlockAttackGoal(this));
         targetSelector.addGoal(7, new TheForgottenWarlockTargetGoal<>(this,
-                Player.class));
+            Player.class));
         targetSelector.addGoal(8, new TheForgottenWarlockTargetGoal<>(this,
-                AbstractSkeleton.class));
+            AbstractSkeleton.class));
         targetSelector.addGoal(9, new TheForgottenWarlockTargetGoal<>(this,
-                Zombie.class));
+            Zombie.class));
         fireImmune();
     }
 
@@ -66,9 +65,9 @@ public class TheForgottenWarlock extends Monster implements RangedAttackMob {
      */
     public static AttributeSupplier.Builder prepareAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 25.0D)
-                .add(Attributes.ATTACK_DAMAGE, 7.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.25D);
+            .add(Attributes.MAX_HEALTH, 25.0D)
+            .add(Attributes.ATTACK_DAMAGE, 7.0D)
+            .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
     @Override
@@ -91,10 +90,10 @@ public class TheForgottenWarlock extends Monster implements RangedAttackMob {
         if (level.isClientSide) {
             for (int i = 0; i < 2; ++i) {
                 level.addParticle(ParticleTypes.PORTAL, getX() + (random.nextDouble()
-                                - 0.5D) * (double) getBbWidth(), getY() + random.nextDouble()
-                                * (double) getBbHeight(), getZ() + (random.nextDouble() - 0.5D)
-                                * (double) getBbWidth(), (random.nextDouble() - 0.5D) * 2.0D,
-                        -random.nextDouble(), (random.nextDouble() - 0.5D) * 2.0D);
+                        - 0.5D) * (double) getBbWidth(), getY() + random.nextDouble()
+                        * (double) getBbHeight(), getZ() + (random.nextDouble() - 0.5D)
+                        * (double) getBbWidth(), (random.nextDouble() - 0.5D) * 2.0D,
+                    -random.nextDouble(), (random.nextDouble() - 0.5D) * 2.0D);
             }
         }
     }
@@ -150,7 +149,7 @@ public class TheForgottenWarlock extends Monster implements RangedAttackMob {
     }
 
     public static class TheForgottenWarlockTargetGoal<T extends LivingEntity>
-            extends NearestAttackableTargetGoal<T> {
+        extends NearestAttackableTargetGoal<T> {
 
         public TheForgottenWarlockTargetGoal(TheForgottenWarlock theForgottenWarlock, Class<T> classTarget) {
             super(theForgottenWarlock, classTarget, true);

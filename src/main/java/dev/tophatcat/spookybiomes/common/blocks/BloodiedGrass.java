@@ -1,7 +1,6 @@
 package dev.tophatcat.spookybiomes.common.blocks;
 
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
-import dev.tophatcat.spookybiomes.init.SpookyItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -11,7 +10,6 @@ import net.minecraft.world.level.block.GrassBlock;
 import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.lighting.BlockLightEngine;
-import net.minecraft.world.level.material.Material;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
@@ -40,14 +38,14 @@ public class BloodiedGrass extends GrassBlock {
         BlockPos blockpos = pos.above();
         BlockState blockstate = world.getBlockState(blockpos);
 
-        if (blockstate.getBlock() == Blocks.SNOW && state.getValue(SnowLayerBlock.LAYERS) == 1) {
+        if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
             return true;
         } else {
-            if (blockstate.getMaterial() != Material.AIR) {
+            if (blockstate.getFluidState().getAmount() == 8) {
                 return false;
             } else {
                 int i = BlockLightEngine.getLightBlockInto(world, state, pos, blockstate, blockpos, Direction.UP,
-                        blockstate.getLightBlock(world, blockpos));
+                    blockstate.getLightBlock(world, blockpos));
                 return i < world.getMaxLightLevel();
             }
         }
@@ -91,12 +89,12 @@ public class BloodiedGrass extends GrassBlock {
 
                     for (int i = 0; i < 4; ++i) {
                         BlockPos blockpos = pos.offset(random.nextInt(3)
-                                - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
+                            - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
 
                         if (world.getBlockState(blockpos).getBlock() == SpookyBlocks.BLOODIED_DIRT.get()
-                                && canPropagate(replacementBlock, world, blockpos)) {
+                            && canPropagate(replacementBlock, world, blockpos)) {
                             world.setBlockAndUpdate(blockpos, replacementBlock.setValue(SNOWY,
-                                    world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));
+                                world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));
                         }
                     }
                 }

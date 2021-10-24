@@ -24,7 +24,7 @@ public class SpookyBlockTags extends BlockTagsProvider {
     /**
      * A simple constructor.
      *
-     * @param generator the generator to generate the data
+     * @param generator          the generator to generate the data
      * @param existingFileHelper a helper to validate any existing tags
      */
     public SpookyBlockTags(final DataGenerator generator, @Nullable final ExistingFileHelper existingFileHelper) {

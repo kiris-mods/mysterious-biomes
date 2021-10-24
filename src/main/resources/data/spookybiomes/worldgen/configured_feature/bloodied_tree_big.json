@@ -5,7 +5,7 @@
     "force_dirt": false,
     "dirt_provider": {
       "state": {
-        "Name": "minecraft:dirt"
+        "Name": "spookybiomes:bloodied_dirt"
       },
       "type": "minecraft:simple_state_provider"
     },
