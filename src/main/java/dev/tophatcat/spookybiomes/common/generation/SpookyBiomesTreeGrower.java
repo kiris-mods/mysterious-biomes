@@ -23,7 +23,7 @@ public abstract class SpookyBiomesTreeGrower extends AbstractTreeGrower {
     }
 
     protected abstract ConfiguredFeature<?, ?> getDynamicConfiguredFeature(Registry<ConfiguredFeature<?, ?>>
-                                                   configuredFeatureRegistry, Random random, boolean alternative);
+                                                                               configuredFeatureRegistry, Random random, boolean alternative);
 
     @Override
     public boolean growTree(ServerLevel serverLevel, @Nonnull ChunkGenerator chunkGenerator, @Nonnull BlockPos blockPos,
