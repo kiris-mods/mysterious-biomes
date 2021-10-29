@@ -92,7 +92,7 @@ public class SpookyBlocks {
 
     GHOSTLY_LOG = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "ghostly_log", () -> new RotatedPillarBlock(Block.Properties.of(Material.WOOD)
-            .sound(SoundType.WOOD))),
+            .strength(2.0F, 5.0F).sound(SoundType.WOOD))),
 
     GHOSTLY_LEAVES = RegistrationHelpers.registerBlockAndStandardItem(BLOCKS, SpookyItems.ITEMS,
         "ghostly_leaves", () -> new LeavesBlock(Block.Properties.of(Material.LEAVES)

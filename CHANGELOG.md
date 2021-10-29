@@ -1,3 +1,8 @@
+##1.17.1##
+**Version: 3.0.0**
+- Initial port to 1.17.1. Almost everything works except setting wood and leaf type blocks on fire when placed in the world.
+- Another quick bugfix update is coming soon to fix three of the trees generation shape.
+
 ##1.12.2##
 
 **Version: 1.2.1.19**

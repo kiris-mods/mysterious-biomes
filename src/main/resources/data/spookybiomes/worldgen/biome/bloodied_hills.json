@@ -87,7 +87,13 @@
   "spawners": {
     "monster": [
       {
-        "type": "minecraft:vex",
+        "type": "minecraft:zombie",
+        "weight": 2,
+        "minCount": 1,
+        "maxCount": 1
+      },
+      {
+        "type": "minecraft:skeleton",
         "weight": 2,
         "minCount": 1,
         "maxCount": 1

@@ -10,8 +10,8 @@ import java.util.Random;
 public class BloodiedTreeGrower extends SpookyBiomesTreeGrower {
 
     @Override
-                                          configuredFeatureRegistry, Random random, boolean alternative) {
     protected ConfiguredFeature<?, ?> getDynamicConfiguredFeature(final Registry<ConfiguredFeature<?, ?>>
+        configuredFeatureRegistry, Random random, boolean alternative) {
         if (random.nextInt(10) == 0) {
             return configuredFeatureRegistry.get(new ResourceLocation(SpookyBiomes.MOD_ID,
                 "bloodied_tree_big"));
