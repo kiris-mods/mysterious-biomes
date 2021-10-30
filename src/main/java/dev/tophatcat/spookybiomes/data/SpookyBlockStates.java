@@ -7,15 +7,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -44,17 +35,18 @@ public class SpookyBlockStates extends BlockStateProvider {
 
         bloodiedGrass();
 
-        SpookyBlockFamily[] families = new SpookyBlockFamily[]{SORBUS, GHOSTLY, SEEPING, BLOODWOOD};
+        SpookyBlockFamily[] families = new SpookyBlockFamily[]{SpookyBlockFamily.SORBUS, SpookyBlockFamily.GHOSTLY,
+            SpookyBlockFamily.SEEPING, SpookyBlockFamily.BLOODWOOD};
         for (SpookyBlockFamily family : families) {
             final Block planks = family.planks().get();
             final ResourceLocation planksTexture = blockTexture(planks);
 
-            both(family.planks(), this::simpleBlock, this::itemFromBlock);
-            both(family.slab(), b -> slabBlock(b, planksTexture, planksTexture), this::itemFromBlock);
-            both(family.stairs(), b -> stairsBlock(b, planksTexture), this::itemFromBlock);
+            both(family.planks(), this::simpleBlock, this::inheritingBlockItem);
+            both(family.slab(), b -> slabBlock(b, planksTexture, planksTexture), this::inheritingBlockItem);
+            both(family.stairs(), b -> stairsBlock(b, planksTexture), this::inheritingBlockItem);
             both(family.fence(), b -> fenceBlock(b, planksTexture),
                 b -> simpleBlockItem(b, models().fenceInventory(path(b) + "_inventory", planksTexture)));
-            both(family.fenceGate(), b -> fenceGateBlock(b, planksTexture), this::itemFromBlock);
+            both(family.fenceGate(), b -> fenceGateBlock(b, planksTexture), this::inheritingBlockItem);
             both(family.door(), b -> {
                     final ResourceLocation doorTexture = blockTexture(b);
                     doorBlock(b, suffix(doorTexture, "_lower"), suffix(doorTexture, "_upper"));
@@ -63,10 +55,10 @@ public class SpookyBlockStates extends BlockStateProvider {
                     modLoc(ModelProvider.ITEM_FOLDER + "/" + path(b))));
             both(family.trapdoor(), b -> trapdoorBlock(b, planksTexture, true),
                 b -> itemModels().withExistingParent(path(b), suffix(blockTexture(b), "_bottom")));
-            both(family.log(), this::logBlock, this::itemFromBlock);
-            both(family.strippedLog(), this::logBlock, this::itemFromBlock);
-            both(family.leaves(), this::simpleBlock, this::itemFromBlock);
-            both(family.sapling(), b -> simpleBlock(b, cross(b)), this::singleTextureBlockItem);
+            both(family.log(), this::logBlock, this::inheritingBlockItem);
+            both(family.strippedLog(), this::logBlock, this::inheritingBlockItem);
+            both(family.leaves(), this::simpleBlock, this::inheritingBlockItem);
+            both(family.sapling(), b -> simpleBlock(b, cross(b)), b -> singleTextureBlockItem(b, blockTexture(b)));
         }
     }
 
@@ -103,106 +95,64 @@ public class SpookyBlockStates extends BlockStateProvider {
         itemModels().getBuilder("bloodied_grass").parent(regularModel);
     }
 
-    public ResourceLocation suffix(ResourceLocation name, String suffix) {
-        return new ResourceLocation(name.getNamespace(), name.getPath() + suffix);
-    }
-
-    public ItemModelBuilder itemFromBlock(Block b) {
+    protected ItemModelBuilder inheritingBlockItem(Block b) {
         return itemModels().withExistingParent(path(b), blockTexture(b));
     }
 
-    public ItemModelBuilder singleTextureBlockItem(Block b) {
-        return singleTextureBlockItem(b, blockTexture(b));
-    }
-
-    public ItemModelBuilder singleTextureBlockItem(Block b, ResourceLocation texture) {
+    protected ItemModelBuilder singleTextureBlockItem(Block b, ResourceLocation texture) {
         return itemModels().singleTexture(path(b), mcLoc("item/generated"), "layer0", texture);
     }
 
-    public BlockModelBuilder cross(Block b) {
+    protected BlockModelBuilder cross(Block b) {
         return models().cross(path(b), blockTexture(b));
     }
 
-    public <T> void both(Supplier<T> thingSupplier, Consumer<T> one, Consumer<T> two) {
-        T thing = thingSupplier.get();
-        one.accept(thing);
-        two.accept(thing);
-    }
-
-    public String path(IForgeRegistryEntry<?> entry) {
+    /**
+     * Returns the {@linkplain ResourceLocation#getPath() path} of the registry name for the given registry entry. This
+     * is a convenience method which checks if the registry name of the entry exists, to avoid linting warnings about
+     * the nullability of the {@linkplain IForgeRegistryEntry#getRegistryName() entry's registry name}.
+     *
+     * @param entry the registry entry
+     * @return the path of the registry name of the given entry
+     * @throws NullPointerException if the entry does not have a registry name
+     */
+    protected static String path(IForgeRegistryEntry<?> entry) {
         return Objects.requireNonNull(entry.getRegistryName(), "Registry name").getPath();
     }
 
-    public ResourceLocation modBlockTexture(String path) {
+    /**
+     * Returns a location of the given texture under the {@linkplain ModelProvider#BLOCK_FOLDER {@code blocks} folder}
+     * with the same namespace of this block state provider.
+     *
+     * @param path the path to the texture
+     * @return a resource location to the specified texture, relative to the {@code blocks} folder
+     */
+    protected ResourceLocation modBlockTexture(String path) {
         return modLoc(ModelProvider.BLOCK_FOLDER + "/" + path);
     }
 
-    static record SpookyBlockFamily(Supplier<Block> planks,
-                                    Supplier<? extends SlabBlock> slab,
-                                    Supplier<? extends StairBlock> stairs,
-                                    Supplier<? extends FenceBlock> fence,
-                                    Supplier<? extends FenceGateBlock> fenceGate,
-                                    Supplier<? extends DoorBlock> door,
-                                    Supplier<? extends TrapDoorBlock> trapdoor,
-                                    Supplier<? extends RotatedPillarBlock> log,
-                                    Supplier<? extends RotatedPillarBlock> strippedLog,
-                                    Supplier<? extends LeavesBlock> leaves,
-                                    Supplier<? extends SaplingBlock> sapling) {
+    /**
+     * Appends the given suffix to the path of the given resource location.
+     *
+     * @param name   the resource location to modify
+     * @param suffix the suffix
+     * @return the modified resource location with the suffix
+     */
+    protected static ResourceLocation suffix(ResourceLocation name, String suffix) {
+        return new ResourceLocation(name.getNamespace(), name.getPath() + suffix);
     }
 
-    static SpookyBlockFamily SORBUS = new SpookyBlockFamily(
-        SpookyBlocks.SORBUS_PLANKS,
-        SpookyBlocks.SORBUS_SLAB,
-        SpookyBlocks.SORBUS_STAIRS,
-        SpookyBlocks.SORBUS_FENCE,
-        SpookyBlocks.SORBUS_GATE,
-        SpookyBlocks.SORBUS_DOOR,
-        SpookyBlocks.SORBUS_TRAPDOOR,
-        SpookyBlocks.SORBUS_LOG,
-        SpookyBlocks.SORBUS_LOG_STRIPPED,
-        SpookyBlocks.SORBUS_LEAVES,
-        SpookyBlocks.SORBUS_SAPLING
-    );
-
-    static SpookyBlockFamily GHOSTLY = new SpookyBlockFamily(
-        SpookyBlocks.GHOSTLY_PLANKS,
-        SpookyBlocks.GHOSTLY_SLAB,
-        SpookyBlocks.GHOSTLY_STAIRS,
-        SpookyBlocks.GHOSTLY_FENCE,
-        SpookyBlocks.GHOSTLY_GATE,
-        SpookyBlocks.GHOSTLY_DOOR,
-        SpookyBlocks.GHOSTLY_TRAPDOOR,
-        SpookyBlocks.GHOSTLY_LOG,
-        SpookyBlocks.GHOSTLY_LOG_STRIPPED,
-        SpookyBlocks.GHOSTLY_LEAVES,
-        SpookyBlocks.GHOSTLY_SAPLING
-    );
-
-    static SpookyBlockFamily SEEPING = new SpookyBlockFamily(
-        SpookyBlocks.SEEPING_PLANKS,
-        SpookyBlocks.SEEPING_SLAB,
-        SpookyBlocks.SEEPING_STAIRS,
-        SpookyBlocks.SEEPING_FENCE,
-        SpookyBlocks.SEEPING_GATE,
-        SpookyBlocks.SEEPING_DOOR,
-        SpookyBlocks.SEEPING_TRAPDOOR,
-        SpookyBlocks.SEEPING_LOG,
-        SpookyBlocks.SEEPING_LOG_STRIPPED,
-        SpookyBlocks.SEEPING_LEAVES,
-        SpookyBlocks.SEEPING_SAPLING
-    );
-
-    static SpookyBlockFamily BLOODWOOD = new SpookyBlockFamily(
-        SpookyBlocks.BLOODWOOD_PLANKS,
-        SpookyBlocks.BLOODWOOD_SLAB,
-        SpookyBlocks.BLOODWOOD_STAIRS,
-        SpookyBlocks.BLOODWOOD_FENCE,
-        SpookyBlocks.BLOODWOOD_GATE,
-        SpookyBlocks.BLOODWOOD_DOOR,
-        SpookyBlocks.BLOODWOOD_TRAPDOOR,
-        SpookyBlocks.BLOODWOOD_LOG,
-        SpookyBlocks.BLOODWOOD_LOG_STRIPPED,
-        SpookyBlocks.BLOODWOOD_LEAVES,
-        SpookyBlocks.BLOODWOOD_SAPLING
-    );
+    /**
+     * Gets a value from the given supplier and passes it to both consumers in order.
+     *
+     * @param supplier a supplier of values
+     * @param one      the first value consumer
+     * @param two      the second value consumer
+     * @param <T>      the type of the value
+     */
+    protected static <T> void both(Supplier<T> supplier, Consumer<T> one, Consumer<T> two) {
+        T thing = supplier.get();
+        one.accept(thing);
+        two.accept(thing);
+    }
 }
