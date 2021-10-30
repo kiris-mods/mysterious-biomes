@@ -6,12 +6,13 @@ import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
@@ -21,6 +22,11 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.IForgeRegistryEntry;
+
+import java.util.Objects;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class SpookyBlockStates extends BlockStateProvider {
     public SpookyBlockStates(final DataGenerator gen, final ExistingFileHelper exFileHelper) {
@@ -40,36 +46,30 @@ public class SpookyBlockStates extends BlockStateProvider {
 
         // The casts are needed because the blocks are stored in RegistryObject<Block> fields
 
-        // Sorbus blocks
-        logBlock((RotatedPillarBlock) SpookyBlocks.SORBUS_LOG_STRIPPED.get());
-        itemFromBlock(SpookyBlocks.SORBUS_LOG_STRIPPED.get());
-        logBlock((RotatedPillarBlock) SpookyBlocks.SORBUS_LOG.get());
-        itemFromBlock(SpookyBlocks.SORBUS_LOG.get());
-        simpleBlock(SpookyBlocks.SORBUS_LEAVES.get());
-        itemFromBlock(SpookyBlocks.SORBUS_LEAVES.get());
-        simpleBlock(SpookyBlocks.SORBUS_PLANKS.get());
-        itemFromBlock(SpookyBlocks.SORBUS_PLANKS.get());
-        simpleBlock(SpookyBlocks.SORBUS_SAPLING.get(), cross(SpookyBlocks.SORBUS_SAPLING.get()));
-        singleTextureBlockItem(SpookyBlocks.SORBUS_SAPLING.get());
-        fenceGateBlock((FenceGateBlock) SpookyBlocks.SORBUS_GATE.get(), blockTexture(SpookyBlocks.SORBUS_PLANKS.get()));
-        itemFromBlock(SpookyBlocks.SORBUS_GATE.get());
-        doorBlock((DoorBlock) SpookyBlocks.SORBUS_DOOR.get(),
-            suffix(blockTexture(SpookyBlocks.SORBUS_DOOR.get()), "_lower"),
-            suffix(blockTexture(SpookyBlocks.SORBUS_DOOR.get()), "_upper"));
-        itemModels().singleTexture(SpookyBlocks.SORBUS_DOOR.get().getRegistryName().getPath(),
-            mcLoc("item/generated"), "layer0",
-            modLoc(ModelProvider.ITEM_FOLDER + "/" + SpookyBlocks.SORBUS_DOOR.get().getRegistryName().getPath()));
-        trapdoorBlock((TrapDoorBlock) SpookyBlocks.SORBUS_TRAPDOOR.get(), blockTexture(SpookyBlocks.SORBUS_PLANKS.get()), true);
-        itemModels().withExistingParent(SpookyBlocks.SORBUS_TRAPDOOR.get().getRegistryName().getPath(),
-            suffix(blockTexture(SpookyBlocks.SORBUS_TRAPDOOR.get()), "_bottom"));
-        stairsBlock((StairBlock) SpookyBlocks.SORBUS_STAIRS.get(), blockTexture(SpookyBlocks.SORBUS_PLANKS.get()));
-        itemFromBlock(SpookyBlocks.SORBUS_STAIRS.get());
-        fenceBlock((FenceBlock) SpookyBlocks.SORBUS_FENCE.get(), blockTexture(SpookyBlocks.SORBUS_PLANKS.get()));
-        simpleBlockItem(SpookyBlocks.SORBUS_FENCE.get(),
-            models().fenceInventory(SpookyBlocks.SORBUS_FENCE.get().getRegistryName().getPath() + "_inventory",
-                blockTexture(SpookyBlocks.SORBUS_PLANKS.get())));
-        slabBlock((SlabBlock) SpookyBlocks.SORBUS_SLAB.get(), blockTexture(SpookyBlocks.SORBUS_PLANKS.get()), blockTexture(SpookyBlocks.SORBUS_PLANKS.get()));
-        itemFromBlock(SpookyBlocks.SORBUS_SLAB.get());
+        SpookyBlockFamily[] families = new SpookyBlockFamily[]{SORBUS};
+        for (SpookyBlockFamily family : families) {
+            final Block planks = family.planks().get();
+            final ResourceLocation planksTexture = blockTexture(planks);
+
+            both(family.planks(), this::simpleBlock, this::itemFromBlock);
+            both(family.slab(), b -> slabBlock(b, planksTexture, planksTexture), this::itemFromBlock);
+            both(family.stairs(), b -> stairsBlock(b, planksTexture), this::itemFromBlock);
+            both(family.fence(), b -> fenceBlock(b, planksTexture),
+                b -> simpleBlockItem(b, models().fenceInventory(path(b) + "_inventory", planksTexture)));
+            both(family.fenceGate(), b -> fenceGateBlock(b, planksTexture), this::itemFromBlock);
+            both(family.door(), b -> {
+                    final ResourceLocation doorTexture = blockTexture(b);
+                    doorBlock(b, suffix(doorTexture, "_lower"), suffix(doorTexture, "_upper"));
+                },
+                b -> itemModels().singleTexture(path(b), mcLoc("item/generated"), "layer0",
+                    modLoc(ModelProvider.ITEM_FOLDER + "/" + path(b))));
+            both(family.trapdoor(), b -> trapdoorBlock(b, planksTexture, true),
+                b -> itemModels().withExistingParent(path(b), suffix(blockTexture(b), "_bottom")));
+            both(family.log(), this::logBlock, this::itemFromBlock);
+            both(family.strippedLog(), this::logBlock, this::itemFromBlock);
+            both(family.leaves(), this::simpleBlock, this::itemFromBlock);
+            both(family.sapling(), b -> simpleBlock(b, cross(b)), this::singleTextureBlockItem);
+        }
     }
 
     private void bloodiedGrass() {
@@ -110,7 +110,7 @@ public class SpookyBlockStates extends BlockStateProvider {
     }
 
     public ItemModelBuilder itemFromBlock(Block b) {
-        return itemModels().withExistingParent(b.getRegistryName().getPath(), blockTexture(b));
+        return itemModels().withExistingParent(path(b), blockTexture(b));
     }
 
     public ItemModelBuilder singleTextureBlockItem(Block b) {
@@ -118,14 +118,52 @@ public class SpookyBlockStates extends BlockStateProvider {
     }
 
     public ItemModelBuilder singleTextureBlockItem(Block b, ResourceLocation texture) {
-        return itemModels().singleTexture(b.getRegistryName().getPath(), mcLoc("item/generated"), "layer0", texture);
+        return itemModels().singleTexture(path(b), mcLoc("item/generated"), "layer0", texture);
     }
 
     public BlockModelBuilder cross(Block b) {
-        return models().cross(b.getRegistryName().getPath(), blockTexture(b));
+        return models().cross(path(b), blockTexture(b));
+    }
+
+    public <T> void both(Supplier<T> thingSupplier, Consumer<T> one, Consumer<T> two) {
+        T thing = thingSupplier.get();
+        one.accept(thing);
+        two.accept(thing);
+    }
+
+    public String path(IForgeRegistryEntry<?> entry) {
+        return Objects.requireNonNull(entry.getRegistryName(), "Registry name").getPath();
     }
 
     public ResourceLocation modBlockTexture(String path) {
         return modLoc(ModelProvider.BLOCK_FOLDER + "/" + path);
     }
+
+    static record SpookyBlockFamily(Supplier<Block> planks,
+                                    Supplier<? extends SlabBlock> slab,
+                                    Supplier<? extends StairBlock> stairs,
+                                    Supplier<? extends FenceBlock> fence,
+                                    Supplier<? extends FenceGateBlock> fenceGate,
+                                    Supplier<? extends DoorBlock> door,
+                                    Supplier<? extends TrapDoorBlock> trapdoor,
+                                    Supplier<? extends RotatedPillarBlock> log,
+                                    Supplier<? extends RotatedPillarBlock> strippedLog,
+                                    Supplier<? extends LeavesBlock> leaves,
+                                    Supplier<? extends SaplingBlock> sapling) {
+    }
+
+    // TODO: change SpookyBlocks so fields have their correct generic types
+    static SpookyBlockFamily SORBUS = new SpookyBlockFamily(
+        SpookyBlocks.SORBUS_PLANKS,
+        () -> (SlabBlock) SpookyBlocks.SORBUS_SLAB.get(),
+        () -> (StairBlock) SpookyBlocks.SORBUS_STAIRS.get(),
+        () -> (FenceBlock) SpookyBlocks.SORBUS_FENCE.get(),
+        () -> (FenceGateBlock) SpookyBlocks.SORBUS_GATE.get(),
+        () -> (DoorBlock) SpookyBlocks.SORBUS_DOOR.get(),
+        () -> (TrapDoorBlock) SpookyBlocks.SORBUS_TRAPDOOR.get(),
+        () -> (RotatedPillarBlock) SpookyBlocks.SORBUS_LOG.get(),
+        () -> (RotatedPillarBlock) SpookyBlocks.SORBUS_LOG_STRIPPED.get(),
+        () -> (LeavesBlock) SpookyBlocks.SORBUS_LEAVES.get(),
+        () -> (SaplingBlock) SpookyBlocks.SORBUS_SAPLING.get()
+    );
 }
