@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:ghostly_door"
+    ]
+  },
+  "criteria": {
+    "has_ghostly_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "spookybiomes:ghostly_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:ghostly_door"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ghostly_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

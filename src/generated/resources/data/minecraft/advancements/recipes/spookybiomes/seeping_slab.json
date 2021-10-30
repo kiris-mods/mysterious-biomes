@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:seeping_slab"
+    ]
+  },
+  "criteria": {
+    "has_seeping_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "spookybiomes:seeping_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:seeping_slab"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_seeping_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

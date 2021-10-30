@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "spookybiomes:seeping_planks"
+    }
+  },
+  "result": {
+    "item": "spookybiomes:seeping_trapdoor",
+    "count": 2
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#s#",
+    "#s#"
+  ],
+  "key": {
+    "#": {
+      "item": "spookybiomes:bloodwood_planks"
+    },
+    "s": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "spookybiomes:bloodwood_fence",
+    "count": 3
+  }
+}

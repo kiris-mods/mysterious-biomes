@@ -33,6 +33,7 @@ public class SpookyDataProviders {
             final SpookyBlockTags blockTags = new SpookyBlockTags(generator, fileHelper);
             generator.addProvider(blockTags);
             generator.addProvider(new SpookyItemTags(generator, blockTags, fileHelper));
+            generator.addProvider(new SpookyRecipes(generator));
         }
     }
 }

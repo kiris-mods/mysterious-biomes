@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "spookybiomes:seeping_logs"
+    }
+  ],
+  "result": {
+    "item": "spookybiomes:seeping_planks",
+    "count": 4
+  }
+}

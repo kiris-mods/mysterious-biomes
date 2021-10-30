@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "minecraft:bloodwood_planks"
+    ]
+  },
+  "criteria": {
+    "has_bloodwood_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "spookybiomes:bloodwood_logs"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "minecraft:bloodwood_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bloodwood_log",
+      "has_the_recipe"
+    ]
+  ]
+}

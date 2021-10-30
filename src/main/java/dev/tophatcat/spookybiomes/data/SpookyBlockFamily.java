@@ -1,7 +1,10 @@
 package dev.tophatcat.spookybiomes.data;
 
 import com.google.common.collect.ImmutableList;
+import dev.tophatcat.spookybiomes.common.SpookyTags;
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
+import net.minecraft.tags.Tag;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 
 import java.util.Collection;
@@ -23,14 +26,17 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
                          Supplier<? extends RotatedPillarBlock> log,
                          Supplier<? extends RotatedPillarBlock> strippedLog,
                          Supplier<? extends LeavesBlock> leaves,
-                         Supplier<? extends SaplingBlock> sapling) {
+                         Supplier<? extends SaplingBlock> sapling,
+                         Tag.Named<Block> logsBlockTag,
+                         Tag.Named<Item> logsItemTag) {
     public static final SpookyBlockFamily SORBUS = new SpookyBlockFamily(
         SpookyBlocks.SORBUS_PLANKS,
         SpookyBlocks.SORBUS_SLAB, SpookyBlocks.SORBUS_STAIRS,
         SpookyBlocks.SORBUS_FENCE, SpookyBlocks.SORBUS_GATE,
         SpookyBlocks.SORBUS_DOOR, SpookyBlocks.SORBUS_TRAPDOOR,
         SpookyBlocks.SORBUS_LOG, SpookyBlocks.SORBUS_LOG_STRIPPED,
-        SpookyBlocks.SORBUS_LEAVES, SpookyBlocks.SORBUS_SAPLING
+        SpookyBlocks.SORBUS_LEAVES, SpookyBlocks.SORBUS_SAPLING,
+        SpookyTags.Blocks.SORBUS_LOGS, SpookyTags.Items.SORBUS_LOGS
     );
 
     public static final SpookyBlockFamily GHOSTLY = new SpookyBlockFamily(
@@ -39,7 +45,8 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
         SpookyBlocks.GHOSTLY_FENCE, SpookyBlocks.GHOSTLY_GATE,
         SpookyBlocks.GHOSTLY_DOOR, SpookyBlocks.GHOSTLY_TRAPDOOR,
         SpookyBlocks.GHOSTLY_LOG, SpookyBlocks.GHOSTLY_LOG_STRIPPED,
-        SpookyBlocks.GHOSTLY_LEAVES, SpookyBlocks.GHOSTLY_SAPLING
+        SpookyBlocks.GHOSTLY_LEAVES, SpookyBlocks.GHOSTLY_SAPLING,
+        SpookyTags.Blocks.GHOSTLY_LOGS, SpookyTags.Items.GHOSTLY_LOGS
     );
 
     public static final SpookyBlockFamily SEEPING = new SpookyBlockFamily(
@@ -48,7 +55,8 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
         SpookyBlocks.SEEPING_FENCE, SpookyBlocks.SEEPING_GATE,
         SpookyBlocks.SEEPING_DOOR, SpookyBlocks.SEEPING_TRAPDOOR,
         SpookyBlocks.SEEPING_LOG, SpookyBlocks.SEEPING_LOG_STRIPPED,
-        SpookyBlocks.SEEPING_LEAVES, SpookyBlocks.SEEPING_SAPLING
+        SpookyBlocks.SEEPING_LEAVES, SpookyBlocks.SEEPING_SAPLING,
+        SpookyTags.Blocks.SEEPING_LOGS, SpookyTags.Items.SEEPING_LOGS
     );
 
     public static final SpookyBlockFamily BLOODWOOD = new SpookyBlockFamily(
@@ -57,7 +65,8 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
         SpookyBlocks.BLOODWOOD_FENCE, SpookyBlocks.BLOODWOOD_GATE,
         SpookyBlocks.BLOODWOOD_DOOR, SpookyBlocks.BLOODWOOD_TRAPDOOR,
         SpookyBlocks.BLOODWOOD_LOG, SpookyBlocks.BLOODWOOD_LOG_STRIPPED,
-        SpookyBlocks.BLOODWOOD_LEAVES, SpookyBlocks.BLOODWOOD_SAPLING
+        SpookyBlocks.BLOODWOOD_LEAVES, SpookyBlocks.BLOODWOOD_SAPLING,
+        SpookyTags.Blocks.BLOODWOOD_LOGS, SpookyTags.Items.BLOODWOOD_LOGS
     );
 
     public static final Collection<SpookyBlockFamily> FAMILIES = ImmutableList.of(SORBUS, GHOSTLY, SEEPING, BLOODWOOD);
