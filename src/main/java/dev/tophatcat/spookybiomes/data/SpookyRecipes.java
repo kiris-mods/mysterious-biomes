@@ -24,7 +24,7 @@ public class SpookyRecipes extends RecipeProvider {
     protected void buildCraftingRecipes(@Nonnull final Consumer<FinishedRecipe> consumer) {
         for (SpookyBlockFamily family : SpookyBlockFamily.FAMILIES) {
             final Block planks = family.planks().get();
-            final String planksTriggerName = "has_" + path(planks);
+            final String planksTriggerName = "has_planks";
             final InventoryChangeTrigger.TriggerInstance planksTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(planks);
 
             // Door
@@ -33,6 +33,7 @@ public class SpookyRecipes extends RecipeProvider {
                 .pattern("##")
                 .pattern("##")
                 .define('#', planks)
+                .group("wooden_door")
                 .unlockedBy(planksTriggerName, planksTrigger)
                 .save(consumer, path(family.door().get()));
 
@@ -42,6 +43,7 @@ public class SpookyRecipes extends RecipeProvider {
                 .pattern("#s#")
                 .define('#', planks)
                 .define('s', Tags.Items.RODS_WOODEN)
+                .group("wooden_fence")
                 .unlockedBy(planksTriggerName, planksTrigger)
                 .save(consumer, path(family.fence().get()));
 
@@ -51,12 +53,14 @@ public class SpookyRecipes extends RecipeProvider {
                 .pattern("s#s")
                 .define('#', planks)
                 .define('s', Tags.Items.RODS_WOODEN)
+                .group("wooden_fence_gate")
                 .unlockedBy(planksTriggerName, planksTrigger)
                 .save(consumer, path(family.fenceGate().get()));
 
             // Planks
             ShapelessRecipeBuilder.shapeless(planks, 4)
                 .requires(family.logsItemTag())
+                .group("planks")
                 .unlockedBy("has_" + path(family.log().get()),
                     InventoryChangeTrigger.TriggerInstance.hasItems(item().of(family.logsItemTag()).build()))
                 .save(consumer, path(planks));
@@ -65,6 +69,7 @@ public class SpookyRecipes extends RecipeProvider {
             ShapedRecipeBuilder.shaped(family.slab().get(), 6)
                 .pattern("###")
                 .define('#', planks)
+                .group("wooden_slab")
                 .unlockedBy(planksTriggerName, planksTrigger)
                 .save(consumer, path(family.slab().get()));
 
@@ -74,6 +79,7 @@ public class SpookyRecipes extends RecipeProvider {
                 .pattern("## ")
                 .pattern("###")
                 .define('#', planks)
+                .group("wooden_stairs")
                 .unlockedBy(planksTriggerName, planksTrigger)
                 .save(consumer, path(family.stairs().get()));
 
@@ -82,6 +88,7 @@ public class SpookyRecipes extends RecipeProvider {
                 .pattern("###")
                 .pattern("###")
                 .define('#', planks)
+                .group("wooden_trapdoor")
                 .unlockedBy(planksTriggerName, planksTrigger)
                 .save(consumer, path(family.trapdoor().get()));
         }
