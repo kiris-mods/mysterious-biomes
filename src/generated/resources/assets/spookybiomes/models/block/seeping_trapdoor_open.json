@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_open",
   "textures": {
-    "texture": "spookybiomes:block/seeping_trapdoor"
+    "texture": "spookybiomes:block/seeping_planks"
   }
 }

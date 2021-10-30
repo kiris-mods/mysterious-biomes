@@ -46,7 +46,7 @@ public class SpookyBlockStates extends BlockStateProvider {
 
         // The casts are needed because the blocks are stored in RegistryObject<Block> fields
 
-        SpookyBlockFamily[] families = new SpookyBlockFamily[]{SORBUS, GHOSTLY};
+        SpookyBlockFamily[] families = new SpookyBlockFamily[]{SORBUS, GHOSTLY, SEEPING};
         for (SpookyBlockFamily family : families) {
             final Block planks = family.planks().get();
             final ResourceLocation planksTexture = blockTexture(planks);
@@ -178,5 +178,19 @@ public class SpookyBlockStates extends BlockStateProvider {
         SpookyBlocks.GHOSTLY_LOG_STRIPPED,
         SpookyBlocks.GHOSTLY_LEAVES,
         SpookyBlocks.GHOSTLY_SAPLING
+    );
+
+    static SpookyBlockFamily SEEPING = new SpookyBlockFamily(
+        SpookyBlocks.SEEPING_PLANKS,
+        SpookyBlocks.SEEPING_SLAB,
+        SpookyBlocks.SEEPING_STAIRS,
+        SpookyBlocks.SEEPING_FENCE,
+        SpookyBlocks.SEEPING_GATE,
+        SpookyBlocks.SEEPING_DOOR,
+        SpookyBlocks.SEEPING_TRAPDOOR,
+        SpookyBlocks.SEEPING_LOG,
+        SpookyBlocks.SEEPING_LOG_STRIPPED,
+        SpookyBlocks.SEEPING_LEAVES,
+        SpookyBlocks.SEEPING_SAPLING
     );
 }
