@@ -1,7 +1,6 @@
 package dev.tophatcat.spookybiomes.data;
 
 import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.common.SpookyTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -32,10 +31,9 @@ public class SpookyItemTags extends ItemTagsProvider {
     protected void addTags() {
         // Copy existing tag data
         this.copy(BlockTags.LEAVES, ItemTags.LEAVES);
-        this.copy(SpookyTags.Blocks.SORBUS_LOGS, SpookyTags.Items.SORBUS_LOGS);
-        this.copy(SpookyTags.Blocks.GHOSTLY_LOGS, SpookyTags.Items.GHOSTLY_LOGS);
-        this.copy(SpookyTags.Blocks.SEEPING_LOGS, SpookyTags.Items.SEEPING_LOGS);
-        this.copy(SpookyTags.Blocks.BLOODWOOD_LOGS, SpookyTags.Items.BLOODWOOD_LOGS);
+        for (SpookyBlockFamily family : SpookyBlockFamily.FAMILIES) {
+            this.copy(family.logsBlockTag(), family.logsItemTag());
+        }
         this.copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
         this.copy(BlockTags.PLANKS, ItemTags.PLANKS);
         this.copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);

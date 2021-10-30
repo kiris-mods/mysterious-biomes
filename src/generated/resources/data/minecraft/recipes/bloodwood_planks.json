@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "spookybiomes:bloodwood_logs"
+    }
+  ],
+  "result": {
+    "item": "spookybiomes:bloodwood_planks",
+    "count": 4
+  }
+}

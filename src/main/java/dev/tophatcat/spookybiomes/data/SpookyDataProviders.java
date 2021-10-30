@@ -22,11 +22,19 @@ public class SpookyDataProviders {
         final DataGenerator generator = event.getGenerator();
         final ExistingFileHelper fileHelper = event.getExistingFileHelper();
 
+        // Asset Providers
+        if (event.includeClient()) {
+            generator.addProvider(new SpookyBlockStates(generator, fileHelper));
+            generator.addProvider(new SpookyEnglishLanguage(generator));
+        }
+
         // Server Providers
         if (event.includeServer()) {
             final SpookyBlockTags blockTags = new SpookyBlockTags(generator, fileHelper);
             generator.addProvider(blockTags);
             generator.addProvider(new SpookyItemTags(generator, blockTags, fileHelper));
+            generator.addProvider(new SpookyRecipes(generator));
+            generator.addProvider(new SpookyLootTables(generator));
         }
     }
 }
