@@ -24,6 +24,7 @@ public class SpookyDataProviders {
 
         // Asset Providers
         if (event.includeClient()) {
+            generator.addProvider(new SpookyBlockStates(generator, fileHelper));
             generator.addProvider(new SpookyEnglishLanguage(generator));
         }
 
