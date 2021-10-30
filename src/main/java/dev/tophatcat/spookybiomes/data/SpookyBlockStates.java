@@ -152,18 +152,17 @@ public class SpookyBlockStates extends BlockStateProvider {
                                     Supplier<? extends SaplingBlock> sapling) {
     }
 
-    // TODO: change SpookyBlocks so fields have their correct generic types
     static SpookyBlockFamily SORBUS = new SpookyBlockFamily(
         SpookyBlocks.SORBUS_PLANKS,
-        () -> (SlabBlock) SpookyBlocks.SORBUS_SLAB.get(),
-        () -> (StairBlock) SpookyBlocks.SORBUS_STAIRS.get(),
-        () -> (FenceBlock) SpookyBlocks.SORBUS_FENCE.get(),
-        () -> (FenceGateBlock) SpookyBlocks.SORBUS_GATE.get(),
-        () -> (DoorBlock) SpookyBlocks.SORBUS_DOOR.get(),
-        () -> (TrapDoorBlock) SpookyBlocks.SORBUS_TRAPDOOR.get(),
-        () -> (RotatedPillarBlock) SpookyBlocks.SORBUS_LOG.get(),
-        () -> (RotatedPillarBlock) SpookyBlocks.SORBUS_LOG_STRIPPED.get(),
-        () -> (LeavesBlock) SpookyBlocks.SORBUS_LEAVES.get(),
-        () -> (SaplingBlock) SpookyBlocks.SORBUS_SAPLING.get()
+        SpookyBlocks.SORBUS_SLAB,
+        SpookyBlocks.SORBUS_STAIRS,
+        SpookyBlocks.SORBUS_FENCE,
+        SpookyBlocks.SORBUS_GATE,
+        SpookyBlocks.SORBUS_DOOR,
+        SpookyBlocks.SORBUS_TRAPDOOR,
+        SpookyBlocks.SORBUS_LOG,
+        SpookyBlocks.SORBUS_LOG_STRIPPED,
+        SpookyBlocks.SORBUS_LEAVES,
+        SpookyBlocks.SORBUS_SAPLING
     );
 }
