@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/fence_inventory",
+  "parent": "minecraft:block/template_orientable_trapdoor_bottom",
   "textures": {
     "texture": "spookybiomes:block/ghostly_planks"
   }
