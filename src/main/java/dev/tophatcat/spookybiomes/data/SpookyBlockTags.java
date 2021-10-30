@@ -2,7 +2,6 @@ package dev.tophatcat.spookybiomes.data;
 
 import com.google.common.collect.ImmutableSet;
 import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.common.SpookyTags;
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
@@ -38,87 +37,19 @@ public class SpookyBlockTags extends BlockTagsProvider {
             SpookyBlocks.BLOODIED_DIRT,
             SpookyBlocks.BLOODIED_GRASS);
 
-        // Leaves
-        this.addToTags(ImmutableSet.of(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE),
-            SpookyBlocks.SORBUS_LEAVES,
-            SpookyBlocks.GHOSTLY_LEAVES,
-            SpookyBlocks.SEEPING_LEAVES,
-            SpookyBlocks.BLOODWOOD_LEAVES);
-
-        // Logs
-        this.addToTag(SpookyTags.Blocks.SORBUS_LOGS,
-            SpookyBlocks.SORBUS_LOG,
-            SpookyBlocks.SORBUS_LOG_STRIPPED);
-        this.addToTag(SpookyTags.Blocks.GHOSTLY_LOGS,
-            SpookyBlocks.GHOSTLY_LOG,
-            SpookyBlocks.GHOSTLY_LOG_STRIPPED);
-        this.addToTag(SpookyTags.Blocks.SEEPING_LOGS,
-            SpookyBlocks.SEEPING_LOG,
-            SpookyBlocks.SEEPING_LOG_STRIPPED);
-        this.addToTag(SpookyTags.Blocks.BLOODWOOD_LOGS,
-            SpookyBlocks.BLOODWOOD_LOG,
-            SpookyBlocks.BLOODWOOD_LOG_STRIPPED);
-        this.addToTag(BlockTags.LOGS_THAT_BURN,
-            SpookyTags.Blocks.SORBUS_LOGS,
-            SpookyTags.Blocks.GHOSTLY_LOGS,
-            SpookyTags.Blocks.SEEPING_LOGS,
-            SpookyTags.Blocks.BLOODWOOD_LOGS);
-
-        // Planks
-        this.addToTag(BlockTags.PLANKS,
-            SpookyBlocks.SORBUS_PLANKS,
-            SpookyBlocks.GHOSTLY_PLANKS,
-            SpookyBlocks.SEEPING_PLANKS,
-            SpookyBlocks.BLOODWOOD_PLANKS);
-
-        // Saplings
-        this.addToTag(BlockTags.SAPLINGS,
-            SpookyBlocks.SORBUS_SAPLING,
-            SpookyBlocks.GHOSTLY_SAPLING,
-            SpookyBlocks.SEEPING_SAPLING,
-            SpookyBlocks.BLOODWOOD_SAPLING);
-
-        // Fence Gates
-        this.addToTag(BlockTags.FENCE_GATES,
-            SpookyBlocks.SORBUS_GATE,
-            SpookyBlocks.GHOSTLY_GATE,
-            SpookyBlocks.SEEPING_GATE,
-            SpookyBlocks.BLOODWOOD_GATE);
-
-        // Doors
-        this.addToTag(BlockTags.WOODEN_DOORS,
-            SpookyBlocks.SORBUS_DOOR,
-            SpookyBlocks.GHOSTLY_DOOR,
-            SpookyBlocks.SEEPING_DOOR,
-            SpookyBlocks.BLOODWOOD_DOOR);
-
-        // Trapdoors
-        this.addToTag(BlockTags.WOODEN_TRAPDOORS,
-            SpookyBlocks.SORBUS_TRAPDOOR,
-            SpookyBlocks.GHOSTLY_TRAPDOOR,
-            SpookyBlocks.SEEPING_TRAPDOOR,
-            SpookyBlocks.BLOODWOOD_TRAPDOOR);
-
-        // Stairs
-        this.addToTag(BlockTags.WOODEN_STAIRS,
-            SpookyBlocks.SORBUS_STAIRS,
-            SpookyBlocks.GHOSTLY_STAIRS,
-            SpookyBlocks.SEEPING_STAIRS,
-            SpookyBlocks.BLOODWOOD_STAIRS);
-
-        // Fences
-        this.addToTag(BlockTags.WOODEN_FENCES,
-            SpookyBlocks.SORBUS_FENCE,
-            SpookyBlocks.GHOSTLY_FENCE,
-            SpookyBlocks.SEEPING_FENCE,
-            SpookyBlocks.BLOODWOOD_FENCE);
-
-        // Slabs
-        this.addToTag(BlockTags.WOODEN_SLABS,
-            SpookyBlocks.SORBUS_SLAB,
-            SpookyBlocks.GHOSTLY_SLAB,
-            SpookyBlocks.SEEPING_SLAB,
-            SpookyBlocks.BLOODWOOD_SLAB);
+        for (SpookyBlockFamily family : SpookyBlockFamily.FAMILIES) {
+            this.addToTags(Set.of(BlockTags.LEAVES, BlockTags.MINEABLE_WITH_HOE), family.leaves());
+            this.addToTag(family.logsBlockTag(), family.log(), family.strippedLog());
+            this.addToTag(BlockTags.LOGS_THAT_BURN, family.logsBlockTag());
+            this.addToTag(BlockTags.PLANKS, family.planks());
+            this.addToTag(BlockTags.SAPLINGS, family.sapling());
+            this.addToTag(BlockTags.FENCE_GATES, family.fenceGate());
+            this.addToTag(BlockTags.WOODEN_DOORS, family.door());
+            this.addToTag(BlockTags.WOODEN_TRAPDOORS, family.trapdoor());
+            this.addToTag(BlockTags.WOODEN_STAIRS, family.stairs());
+            this.addToTag(BlockTags.WOODEN_FENCES, family.fence());
+            this.addToTag(BlockTags.WOODEN_SLABS, family.slab());
+        }
     }
 
     @SafeVarargs
