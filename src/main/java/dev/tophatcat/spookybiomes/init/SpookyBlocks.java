@@ -2,6 +2,7 @@ package dev.tophatcat.spookybiomes.init;
 
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import dev.tophatcat.spookybiomes.common.blocks.BloodiedGrass;
+import dev.tophatcat.spookybiomes.common.blocks.SpookyLogBlock;
 import dev.tophatcat.spookybiomes.common.generation.BloodiedTreeGrower;
 import dev.tophatcat.spookybiomes.common.generation.GhostlyTreeGrower;
 import dev.tophatcat.spookybiomes.common.generation.SeepingTreeGrower;
@@ -46,9 +47,9 @@ public class SpookyBlocks {
         "sorbus_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
             .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
 
-    public static final RegistryObject<RotatedPillarBlock> SORBUS_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
-        "sorbus_log", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
-            .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<SpookyLogBlock> SORBUS_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "sorbus_log", () -> new SpookyLogBlock(Properties.of(Material.WOOD)
+            .strength(2.0F, 5.0F).sound(SoundType.WOOD), SORBUS_LOG_STRIPPED));
 
     public static final RegistryObject<LeavesBlock> SORBUS_LEAVES = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "sorbus_leaves", () -> new LeavesBlock(Properties.of(Material.LEAVES)
@@ -91,9 +92,9 @@ public class SpookyBlocks {
         "ghostly_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
             .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
 
-    public static final RegistryObject<RotatedPillarBlock> GHOSTLY_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
-        "ghostly_log", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
-            .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<SpookyLogBlock> GHOSTLY_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "ghostly_log", () -> new SpookyLogBlock(Properties.of(Material.WOOD)
+            .strength(2.0F, 5.0F).sound(SoundType.WOOD), GHOSTLY_LOG_STRIPPED));
 
     public static final RegistryObject<LeavesBlock> GHOSTLY_LEAVES = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "ghostly_leaves", () -> new LeavesBlock(Properties.of(Material.LEAVES)
@@ -136,9 +137,9 @@ public class SpookyBlocks {
         "seeping_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
             .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
 
-    public static final RegistryObject<RotatedPillarBlock> SEEPING_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
-        "seeping_log", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
-            .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<SpookyLogBlock> SEEPING_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "seeping_log", () -> new SpookyLogBlock(Properties.of(Material.WOOD)
+            .strength(2.0F, 5.0F).sound(SoundType.WOOD), SEEPING_LOG_STRIPPED));
 
     public static final RegistryObject<LeavesBlock> SEEPING_LEAVES = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "seeping_leaves", () -> new LeavesBlock(Properties.of(Material.LEAVES)
@@ -181,9 +182,9 @@ public class SpookyBlocks {
         "bloodwood_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
             .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
 
-    public static final RegistryObject<RotatedPillarBlock> BLOODWOOD_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
-        "bloodwood_log", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
-            .strength(2.0F, 5.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<SpookyLogBlock> BLOODWOOD_LOG = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "bloodwood_log", () -> new SpookyLogBlock(Properties.of(Material.WOOD)
+            .strength(2.0F, 5.0F).sound(SoundType.WOOD), BLOODWOOD_LOG_STRIPPED));
 
     public static final RegistryObject<LeavesBlock> BLOODWOOD_LEAVES = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "bloodwood_leaves", () -> new LeavesBlock(Properties.of(Material.LEAVES)
