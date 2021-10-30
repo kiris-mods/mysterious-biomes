@@ -13,7 +13,6 @@ import javax.annotation.Nonnull;
 import java.util.function.Consumer;
 
 import static dev.tophatcat.spookybiomes.data.SpookyBlockStates.path;
-import static net.minecraft.advancements.critereon.ItemPredicate.Builder.item;
 
 public class SpookyRecipes extends RecipeProvider {
     public SpookyRecipes(final DataGenerator dataGenerator) {
@@ -25,7 +24,7 @@ public class SpookyRecipes extends RecipeProvider {
         for (SpookyBlockFamily family : SpookyBlockFamily.FAMILIES) {
             final Block planks = family.planks().get();
             final String planksTriggerName = "has_planks";
-            final InventoryChangeTrigger.TriggerInstance planksTrigger = InventoryChangeTrigger.TriggerInstance.hasItems(planks);
+            final InventoryChangeTrigger.TriggerInstance planksTrigger = has(planks);
 
             // Door
             ShapedRecipeBuilder.shaped(family.door().get(), 3)
@@ -61,8 +60,7 @@ public class SpookyRecipes extends RecipeProvider {
             ShapelessRecipeBuilder.shapeless(planks, 4)
                 .requires(family.logsItemTag())
                 .group("planks")
-                .unlockedBy("has_" + path(family.log().get()),
-                    InventoryChangeTrigger.TriggerInstance.hasItems(item().of(family.logsItemTag()).build()))
+                .unlockedBy("has_" + path(family.log().get()), has(family.logsItemTag()))
                 .save(consumer, path(planks));
 
             // Slab
