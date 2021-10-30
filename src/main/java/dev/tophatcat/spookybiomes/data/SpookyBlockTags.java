@@ -49,6 +49,7 @@ public class SpookyBlockTags extends BlockTagsProvider {
             this.addToTag(BlockTags.WOODEN_STAIRS, family.stairs());
             this.addToTag(BlockTags.WOODEN_FENCES, family.fence());
             this.addToTag(BlockTags.WOODEN_SLABS, family.slab());
+            this.addToTag(BlockTags.WOODEN_PRESSURE_PLATES, family.pressurePlate());
         }
     }
 
