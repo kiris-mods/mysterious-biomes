@@ -35,9 +35,7 @@ public class SpookyBlockStates extends BlockStateProvider {
 
         bloodiedGrass();
 
-        SpookyBlockFamily[] families = new SpookyBlockFamily[]{SpookyBlockFamily.SORBUS, SpookyBlockFamily.GHOSTLY,
-            SpookyBlockFamily.SEEPING, SpookyBlockFamily.BLOODWOOD};
-        for (SpookyBlockFamily family : families) {
+        for (SpookyBlockFamily family : SpookyBlockFamily.FAMILIES) {
             final Block planks = family.planks().get();
             final ResourceLocation planksTexture = blockTexture(planks);
 
