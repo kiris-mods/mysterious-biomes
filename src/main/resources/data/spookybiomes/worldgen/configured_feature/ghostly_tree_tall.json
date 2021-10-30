@@ -12,7 +12,7 @@
     "minimum_size": {
       "limit": 1,
       "lower_size": 0,
-      "upper_size": 1,
+      "upper_size": 2,
       "type": "minecraft:two_layers_feature_size"
     },
     "foliage_provider": {
@@ -35,10 +35,9 @@
       "type": "minecraft:simple_state_provider"
     },
     "foliage_placer": {
-      "radius": 2,
+      "radius": 3,
       "offset": 0,
-      "height": 3,
-      "type": "minecraft:blob_foliage_placer"
+      "type": "minecraft:acacia_foliage_placer"
     },
     "trunk_provider": {
       "state": {
@@ -50,10 +49,10 @@
       "type": "minecraft:simple_state_provider"
     },
     "trunk_placer": {
-      "base_height": 5,
+      "base_height": 8,
       "height_rand_a": 2,
-      "height_rand_b": 6,
-      "type": "minecraft:straight_trunk_placer"
+      "height_rand_b": 3,
+      "type": "minecraft:forking_trunk_placer"
     }
   },
   "type": "minecraft:tree"

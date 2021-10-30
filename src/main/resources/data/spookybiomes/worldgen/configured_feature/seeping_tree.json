@@ -10,10 +10,12 @@
       "type": "minecraft:simple_state_provider"
     },
     "minimum_size": {
+      "middle_size": 2,
+      "upper_size": 3,
       "limit": 1,
+      "upper_limit": 1,
       "lower_size": 0,
-      "upper_size": 1,
-      "type": "minecraft:two_layers_feature_size"
+      "type": "minecraft:three_layers_feature_size"
     },
     "foliage_provider": {
       "state": {
@@ -35,10 +37,10 @@
       "type": "minecraft:simple_state_provider"
     },
     "foliage_placer": {
-      "radius": 2,
+      "radius": 1,
       "offset": 0,
-      "height": 3,
-      "type": "minecraft:blob_foliage_placer"
+      "height": 2,
+      "type": "minecraft:dark_oak_foliage_placer"
     },
     "trunk_provider": {
       "state": {
@@ -50,10 +52,10 @@
       "type": "minecraft:simple_state_provider"
     },
     "trunk_placer": {
-      "base_height": 5,
+      "base_height": 6,
       "height_rand_a": 2,
-      "height_rand_b": 0,
-      "type": "minecraft:straight_trunk_placer"
+      "height_rand_b": 3,
+      "type": "minecraft:dark_oak_trunk_placer"
     }
   },
   "type": "minecraft:tree"
