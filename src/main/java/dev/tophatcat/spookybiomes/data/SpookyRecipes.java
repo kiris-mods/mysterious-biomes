@@ -26,6 +26,13 @@ public class SpookyRecipes extends RecipeProvider {
             final String planksTriggerName = "has_planks";
             final InventoryChangeTrigger.TriggerInstance planksTrigger = has(planks);
 
+            // Button
+            ShapelessRecipeBuilder.shapeless(family.button().get())
+                .requires(planks)
+                .group("wooden_button")
+                .unlockedBy(planksTriggerName, planksTrigger)
+                .save(consumer, path(family.button().get()));
+
             // Door
             ShapedRecipeBuilder.shaped(family.door().get(), 3)
                 .pattern("##")

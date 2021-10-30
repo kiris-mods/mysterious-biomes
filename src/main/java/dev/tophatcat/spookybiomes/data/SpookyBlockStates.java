@@ -43,6 +43,8 @@ public class SpookyBlockStates extends BlockStateProvider {
             both(family.slab(), b -> slabBlock(b, planksTexture, planksTexture), this::inheritingBlockItem);
             both(family.stairs(), b -> stairsBlock(b, planksTexture), this::inheritingBlockItem);
             both(family.pressurePlate(), b -> pressurePlateBlock(b, planksTexture), this::inheritingBlockItem);
+            both(family.button(), b -> buttonBlock(b, planksTexture),
+                b -> simpleBlockItem(b, models().buttonInventory(path(b) + "_inventory", planksTexture)));
             both(family.fence(), b -> fenceBlock(b, planksTexture),
                 b -> simpleBlockItem(b, models().fenceInventory(path(b) + "_inventory", planksTexture)));
             both(family.fenceGate(), b -> fenceGateBlock(b, planksTexture), this::inheritingBlockItem);

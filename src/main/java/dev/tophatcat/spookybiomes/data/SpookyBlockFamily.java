@@ -6,6 +6,7 @@ import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -30,6 +31,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
                          Supplier<? extends SlabBlock> slab,
                          Supplier<? extends StairBlock> stairs,
                          Supplier<? extends PressurePlateBlock> pressurePlate,
+                         Supplier<? extends ButtonBlock> button,
                          Supplier<? extends FenceBlock> fence,
                          Supplier<? extends FenceGateBlock> fenceGate,
                          Supplier<? extends DoorBlock> door,
@@ -43,7 +45,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
     public static final SpookyBlockFamily SORBUS = new SpookyBlockFamily(
         SpookyBlocks.SORBUS_PLANKS,
         SpookyBlocks.SORBUS_SLAB, SpookyBlocks.SORBUS_STAIRS,
-        SpookyBlocks.SORBUS_PRESSURE_PLATE,
+        SpookyBlocks.SORBUS_PRESSURE_PLATE, SpookyBlocks.SORBUS_BUTTON,
         SpookyBlocks.SORBUS_FENCE, SpookyBlocks.SORBUS_GATE,
         SpookyBlocks.SORBUS_DOOR, SpookyBlocks.SORBUS_TRAPDOOR,
         SpookyBlocks.SORBUS_LOG, SpookyBlocks.SORBUS_LOG_STRIPPED,
@@ -54,7 +56,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
     public static final SpookyBlockFamily GHOSTLY = new SpookyBlockFamily(
         SpookyBlocks.GHOSTLY_PLANKS,
         SpookyBlocks.GHOSTLY_SLAB, SpookyBlocks.GHOSTLY_STAIRS,
-        SpookyBlocks.GHOSTLY_PRESSURE_PLATE,
+        SpookyBlocks.GHOSTLY_PRESSURE_PLATE, SpookyBlocks.GHOSTLY_BUTTON,
         SpookyBlocks.GHOSTLY_FENCE, SpookyBlocks.GHOSTLY_GATE,
         SpookyBlocks.GHOSTLY_DOOR, SpookyBlocks.GHOSTLY_TRAPDOOR,
         SpookyBlocks.GHOSTLY_LOG, SpookyBlocks.GHOSTLY_LOG_STRIPPED,
@@ -65,7 +67,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
     public static final SpookyBlockFamily SEEPING = new SpookyBlockFamily(
         SpookyBlocks.SEEPING_PLANKS,
         SpookyBlocks.SEEPING_SLAB, SpookyBlocks.SEEPING_STAIRS,
-        SpookyBlocks.SEEPING_PRESSURE_PLATE,
+        SpookyBlocks.SEEPING_PRESSURE_PLATE, SpookyBlocks.SEEPING_BUTTON,
         SpookyBlocks.SEEPING_FENCE, SpookyBlocks.SEEPING_GATE,
         SpookyBlocks.SEEPING_DOOR, SpookyBlocks.SEEPING_TRAPDOOR,
         SpookyBlocks.SEEPING_LOG, SpookyBlocks.SEEPING_LOG_STRIPPED,
@@ -76,7 +78,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
     public static final SpookyBlockFamily BLOODWOOD = new SpookyBlockFamily(
         SpookyBlocks.BLOODWOOD_PLANKS,
         SpookyBlocks.BLOODWOOD_SLAB, SpookyBlocks.BLOODWOOD_STAIRS,
-        SpookyBlocks.BLOODWOOD_PRESSURE_PLATE,
+        SpookyBlocks.BLOODWOOD_PRESSURE_PLATE, SpookyBlocks.BLOODWOOD_BUTTON,
         SpookyBlocks.BLOODWOOD_FENCE, SpookyBlocks.BLOODWOOD_GATE,
         SpookyBlocks.BLOODWOOD_DOOR, SpookyBlocks.BLOODWOOD_TRAPDOOR,
         SpookyBlocks.BLOODWOOD_LOG, SpookyBlocks.BLOODWOOD_LOG_STRIPPED,

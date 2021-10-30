@@ -8,6 +8,7 @@ import dev.tophatcat.spookybiomes.common.generation.GhostlyTreeGrower;
 import dev.tophatcat.spookybiomes.common.generation.SeepingTreeGrower;
 import dev.tophatcat.spookybiomes.common.generation.SorbusTreeGrower;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WoodButtonBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.material.Material;
@@ -94,6 +96,10 @@ public class SpookyBlocks {
             Properties.of(Material.WOOD, SORBUS_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F)
                 .sound(SoundType.WOOD)));
 
+    public static final RegistryObject<ButtonBlock> SORBUS_BUTTON = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "sorbus_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().strength(0.5F).sound(SoundType.WOOD)));
+
     //Ghostly blocks
     public static final RegistryObject<RotatedPillarBlock> GHOSTLY_LOG_STRIPPED = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "ghostly_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
@@ -143,6 +149,10 @@ public class SpookyBlocks {
         "ghostly_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
             Properties.of(Material.WOOD, GHOSTLY_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F)
                 .sound(SoundType.WOOD)));
+
+    public static final RegistryObject<ButtonBlock> GHOSTLY_BUTTON = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "ghostly_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().strength(0.5F).sound(SoundType.WOOD)));
 
     //Seeping blocks
     public static final RegistryObject<RotatedPillarBlock> SEEPING_LOG_STRIPPED = registerBlockAndStandardItem(BLOCKS, ITEMS,
@@ -194,6 +204,10 @@ public class SpookyBlocks {
             Properties.of(Material.WOOD, SORBUS_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F)
                 .sound(SoundType.WOOD)));
 
+    public static final RegistryObject<ButtonBlock> SEEPING_BUTTON = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "seeping_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().strength(0.5F).sound(SoundType.WOOD)));
+
     //Bloodwood blocks
     public static final RegistryObject<RotatedPillarBlock> BLOODWOOD_LOG_STRIPPED = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "bloodwood_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
@@ -243,4 +257,8 @@ public class SpookyBlocks {
         "bloodwood_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING,
             Properties.of(Material.WOOD, SORBUS_PLANKS.get().defaultMaterialColor()).noCollission().strength(0.5F)
                 .sound(SoundType.WOOD)));
+
+    public static final RegistryObject<ButtonBlock> BLOODWOOD_BUTTON = registerBlockAndStandardItem(BLOCKS, ITEMS,
+        "bloodwood_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+            .noCollission().strength(0.5F).sound(SoundType.WOOD)));
 }
