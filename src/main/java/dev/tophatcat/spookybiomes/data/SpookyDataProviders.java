@@ -34,6 +34,7 @@ public class SpookyDataProviders {
             generator.addProvider(blockTags);
             generator.addProvider(new SpookyItemTags(generator, blockTags, fileHelper));
             generator.addProvider(new SpookyRecipes(generator));
+            generator.addProvider(new SpookyLootTables(generator));
         }
     }
 }
