@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spookybiomes:sorbus_wall_sign",
+    "spookybiomes:ghostly_wall_sign",
+    "spookybiomes:seeping_wall_sign",
+    "spookybiomes:bloodwood_wall_sign"
+  ]
+}

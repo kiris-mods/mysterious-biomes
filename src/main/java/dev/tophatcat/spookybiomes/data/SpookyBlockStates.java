@@ -7,6 +7,8 @@ import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -60,6 +62,11 @@ public class SpookyBlockStates extends BlockStateProvider {
             both(family.strippedLog(), this::logBlock, this::inheritingBlockItem);
             both(family.leaves(), this::simpleBlock, this::inheritingBlockItem);
             both(family.sapling(), b -> simpleBlock(b, cross(b)), b -> singleTextureBlockItem(b, blockTexture(b)));
+
+            final StandingSignBlock standingSign = family.standingSign().get();
+            final WallSignBlock wallSign = family.wallSign().get();
+            signBlock(standingSign, wallSign, planksTexture);
+            singleTextureBlockItem(standingSign, modLoc(ModelProvider.ITEM_FOLDER + "/" + path(standingSign)));
         }
     }
 

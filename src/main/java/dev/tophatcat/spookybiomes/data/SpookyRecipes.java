@@ -78,6 +78,17 @@ public class SpookyRecipes extends RecipeProvider {
                 .unlockedBy(planksTriggerName, planksTrigger)
                 .save(consumer, path(family.pressurePlate().get()));
 
+            // Sign
+            ShapedRecipeBuilder.shaped(family.standingSign().get(), 3)
+                .group("sign")
+                .define('#', planks)
+                .define('X', Tags.Items.RODS_WOODEN)
+                .pattern("###")
+                .pattern("###")
+                .pattern(" X ")
+                .unlockedBy(planksTriggerName, planksTrigger)
+                .save(consumer, path(family.standingSign().get()));
+
             // Slab
             ShapedRecipeBuilder.shaped(family.slab().get(), 6)
                 .pattern("###")

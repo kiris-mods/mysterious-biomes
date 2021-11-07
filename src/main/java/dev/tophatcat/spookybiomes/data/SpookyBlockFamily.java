@@ -16,7 +16,9 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallSignBlock;
 
 import java.util.Collection;
 import java.util.function.Supplier;
@@ -36,6 +38,8 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
                          Supplier<? extends FenceGateBlock> fenceGate,
                          Supplier<? extends DoorBlock> door,
                          Supplier<? extends TrapDoorBlock> trapdoor,
+                         Supplier<? extends StandingSignBlock> standingSign,
+                         Supplier<? extends WallSignBlock> wallSign,
                          Supplier<? extends RotatedPillarBlock> log,
                          Supplier<? extends RotatedPillarBlock> strippedLog,
                          Supplier<? extends LeavesBlock> leaves,
@@ -48,6 +52,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
         SpookyBlocks.SORBUS_PRESSURE_PLATE, SpookyBlocks.SORBUS_BUTTON,
         SpookyBlocks.SORBUS_FENCE, SpookyBlocks.SORBUS_GATE,
         SpookyBlocks.SORBUS_DOOR, SpookyBlocks.SORBUS_TRAPDOOR,
+        SpookyBlocks.SORBUS_SIGN, SpookyBlocks.SORBUS_WALL_SIGN,
         SpookyBlocks.SORBUS_LOG, SpookyBlocks.SORBUS_LOG_STRIPPED,
         SpookyBlocks.SORBUS_LEAVES, SpookyBlocks.SORBUS_SAPLING,
         SpookyTags.Blocks.SORBUS_LOGS, SpookyTags.Items.SORBUS_LOGS
@@ -59,6 +64,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
         SpookyBlocks.GHOSTLY_PRESSURE_PLATE, SpookyBlocks.GHOSTLY_BUTTON,
         SpookyBlocks.GHOSTLY_FENCE, SpookyBlocks.GHOSTLY_GATE,
         SpookyBlocks.GHOSTLY_DOOR, SpookyBlocks.GHOSTLY_TRAPDOOR,
+        SpookyBlocks.GHOSTLY_SIGN, SpookyBlocks.GHOSTLY_WALL_SIGN,
         SpookyBlocks.GHOSTLY_LOG, SpookyBlocks.GHOSTLY_LOG_STRIPPED,
         SpookyBlocks.GHOSTLY_LEAVES, SpookyBlocks.GHOSTLY_SAPLING,
         SpookyTags.Blocks.GHOSTLY_LOGS, SpookyTags.Items.GHOSTLY_LOGS
@@ -70,6 +76,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
         SpookyBlocks.SEEPING_PRESSURE_PLATE, SpookyBlocks.SEEPING_BUTTON,
         SpookyBlocks.SEEPING_FENCE, SpookyBlocks.SEEPING_GATE,
         SpookyBlocks.SEEPING_DOOR, SpookyBlocks.SEEPING_TRAPDOOR,
+        SpookyBlocks.SEEPING_SIGN, SpookyBlocks.SEEPING_WALL_SIGN,
         SpookyBlocks.SEEPING_LOG, SpookyBlocks.SEEPING_LOG_STRIPPED,
         SpookyBlocks.SEEPING_LEAVES, SpookyBlocks.SEEPING_SAPLING,
         SpookyTags.Blocks.SEEPING_LOGS, SpookyTags.Items.SEEPING_LOGS
@@ -81,6 +88,7 @@ record SpookyBlockFamily(Supplier<? extends Block> planks,
         SpookyBlocks.BLOODWOOD_PRESSURE_PLATE, SpookyBlocks.BLOODWOOD_BUTTON,
         SpookyBlocks.BLOODWOOD_FENCE, SpookyBlocks.BLOODWOOD_GATE,
         SpookyBlocks.BLOODWOOD_DOOR, SpookyBlocks.BLOODWOOD_TRAPDOOR,
+        SpookyBlocks.BLOODWOOD_SIGN, SpookyBlocks.BLOODWOOD_WALL_SIGN,
         SpookyBlocks.BLOODWOOD_LOG, SpookyBlocks.BLOODWOOD_LOG_STRIPPED,
         SpookyBlocks.BLOODWOOD_LEAVES, SpookyBlocks.BLOODWOOD_SAPLING,
         SpookyTags.Blocks.BLOODWOOD_LOGS, SpookyTags.Items.BLOODWOOD_LOGS

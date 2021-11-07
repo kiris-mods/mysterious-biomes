@@ -25,6 +25,7 @@ public class SpookyBlockLoot extends BlockLoot {
             dropSelf(family.fenceGate().get());
             add(family.door().get(), BlockLoot::createDoorTable);
             dropSelf(family.trapdoor().get());
+            dropSelf(family.standingSign().get());
             dropSelf(family.log().get());
             dropSelf(family.strippedLog().get());
             dropSelf(family.sapling().get());
