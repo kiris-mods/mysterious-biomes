@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "spookybiomes:sorbus_planks"
+    }
+  ],
+  "result": {
+    "item": "spookybiomes:sorbus_button"
+  }
+}

@@ -3,6 +3,7 @@ package dev.tophatcat.spookybiomes.data;
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import dev.tophatcat.spookybiomes.init.SpookyEntities;
+import net.minecraft.Util;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -26,6 +27,12 @@ public class SpookyEnglishLanguage extends LanguageProvider {
         addBlock(SpookyBlocks.SORBUS_STAIRS, "Sorbus Stairs");
         addBlock(SpookyBlocks.SORBUS_FENCE, "Sorbus Fence");
         addBlock(SpookyBlocks.SORBUS_SLAB, "Sorbus Slab");
+        addBlock(SpookyBlocks.SORBUS_PRESSURE_PLATE, "Sorbus Pressure Plate");
+        addBlock(SpookyBlocks.SORBUS_BUTTON, "Sorbus Button");
+        addBlock(SpookyBlocks.SORBUS_SIGN, "Sorbus Sign");
+        // Just in case, we manually create the translation key for the wall sign block, even though nothing uses it,
+        // only because vanilla Minecraft provides the same translation keys
+        add(Util.makeDescriptionId("block", SpookyBlocks.SORBUS_WALL_SIGN.getId()), "Sorbus Wall Sign");
 
         addBlock(SpookyBlocks.GHOSTLY_LOG_STRIPPED, "Stripped Ghostly Log");
         addBlock(SpookyBlocks.GHOSTLY_LOG, "Ghostly Log");
@@ -38,6 +45,10 @@ public class SpookyEnglishLanguage extends LanguageProvider {
         addBlock(SpookyBlocks.GHOSTLY_STAIRS, "Ghostly Stairs");
         addBlock(SpookyBlocks.GHOSTLY_FENCE, "Ghostly Fence");
         addBlock(SpookyBlocks.GHOSTLY_SLAB, "Ghostly Slab");
+        addBlock(SpookyBlocks.GHOSTLY_PRESSURE_PLATE, "Ghostly Pressure Plate");
+        addBlock(SpookyBlocks.GHOSTLY_BUTTON, "Ghostly Button");
+        addBlock(SpookyBlocks.GHOSTLY_SIGN, "Ghostly Sign");
+        add(Util.makeDescriptionId("block", SpookyBlocks.GHOSTLY_WALL_SIGN.getId()), "Ghostly Wall Sign");
 
         addBlock(SpookyBlocks.SEEPING_LOG_STRIPPED, "Stripped Seeping Log");
         addBlock(SpookyBlocks.SEEPING_LOG, "Seeping Log");
@@ -50,6 +61,10 @@ public class SpookyEnglishLanguage extends LanguageProvider {
         addBlock(SpookyBlocks.SEEPING_STAIRS, "Seeping Stairs");
         addBlock(SpookyBlocks.SEEPING_FENCE, "Seeping Fence");
         addBlock(SpookyBlocks.SEEPING_SLAB, "Seeping Slab");
+        addBlock(SpookyBlocks.SEEPING_PRESSURE_PLATE, "Seeping Pressure Plate");
+        addBlock(SpookyBlocks.SEEPING_BUTTON, "Seeping Button");
+        addBlock(SpookyBlocks.SEEPING_SIGN, "Seeping Sign");
+        add(Util.makeDescriptionId("block", SpookyBlocks.SEEPING_WALL_SIGN.getId()), "Seeping Wall Sign");
 
         addBlock(SpookyBlocks.BLOODWOOD_LOG_STRIPPED, "Stripped Blood Log");
         addBlock(SpookyBlocks.BLOODWOOD_LOG, "Blood Log");
@@ -62,6 +77,10 @@ public class SpookyEnglishLanguage extends LanguageProvider {
         addBlock(SpookyBlocks.BLOODWOOD_STAIRS, "Blood Stairs");
         addBlock(SpookyBlocks.BLOODWOOD_FENCE, "Blood Fence");
         addBlock(SpookyBlocks.BLOODWOOD_SLAB, "Blood Slab");
+        addBlock(SpookyBlocks.BLOODWOOD_PRESSURE_PLATE, "Blood Pressure Plate");
+        addBlock(SpookyBlocks.BLOODWOOD_BUTTON, "Blood Button");
+        addBlock(SpookyBlocks.BLOODWOOD_SIGN, "Blood Sign");
+        add(Util.makeDescriptionId("block", SpookyBlocks.BLOODWOOD_WALL_SIGN.getId()), "Blood Wall Sign");
 
         addBlock(SpookyBlocks.BLOODIED_DIRT, "Bloodied Dirt");
         addBlock(SpookyBlocks.BLOODIED_GRASS, "Bloodied Grass");

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "spookybiomes:block/ghostly_pressure_plate"
+    },
+    "powered=true": {
+      "model": "spookybiomes:block/ghostly_pressure_plate_down"
+    }
+  }
+}

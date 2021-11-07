@@ -26,6 +26,13 @@ public class SpookyRecipes extends RecipeProvider {
             final String planksTriggerName = "has_planks";
             final InventoryChangeTrigger.TriggerInstance planksTrigger = has(planks);
 
+            // Button
+            ShapelessRecipeBuilder.shapeless(family.button().get())
+                .requires(planks)
+                .group("wooden_button")
+                .unlockedBy(planksTriggerName, planksTrigger)
+                .save(consumer, path(family.button().get()));
+
             // Door
             ShapedRecipeBuilder.shaped(family.door().get(), 3)
                 .pattern("##")
@@ -62,6 +69,25 @@ public class SpookyRecipes extends RecipeProvider {
                 .group("planks")
                 .unlockedBy("has_" + path(family.log().get()), has(family.logsItemTag()))
                 .save(consumer, path(planks));
+
+            // Pressure Plate
+            ShapedRecipeBuilder.shaped(family.pressurePlate().get())
+                .pattern("##")
+                .define('#', planks)
+                .group("wooden_pressure_plate")
+                .unlockedBy(planksTriggerName, planksTrigger)
+                .save(consumer, path(family.pressurePlate().get()));
+
+            // Sign
+            ShapedRecipeBuilder.shaped(family.standingSign().get(), 3)
+                .group("sign")
+                .define('#', planks)
+                .define('X', Tags.Items.RODS_WOODEN)
+                .pattern("###")
+                .pattern("###")
+                .pattern(" X ")
+                .unlockedBy(planksTriggerName, planksTrigger)
+                .save(consumer, path(family.standingSign().get()));
 
             // Slab
             ShapedRecipeBuilder.shaped(family.slab().get(), 6)
