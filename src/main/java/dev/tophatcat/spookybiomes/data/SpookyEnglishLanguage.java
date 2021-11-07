@@ -62,7 +62,7 @@ public class SpookyEnglishLanguage extends LanguageProvider {
         addBlock(SpookyBlocks.SEEPING_FENCE, "Seeping Fence");
         addBlock(SpookyBlocks.SEEPING_SLAB, "Seeping Slab");
         addBlock(SpookyBlocks.SEEPING_PRESSURE_PLATE, "Seeping Pressure Plate");
-        addBlock(SpookyBlocks.SEEPING_BUTTON, "Ghostly Button");
+        addBlock(SpookyBlocks.SEEPING_BUTTON, "Seeping Button");
         addBlock(SpookyBlocks.SEEPING_SIGN, "Seeping Sign");
         add(Util.makeDescriptionId("block", SpookyBlocks.SEEPING_WALL_SIGN.getId()), "Seeping Wall Sign");
 
