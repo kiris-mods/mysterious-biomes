@@ -3,6 +3,9 @@ package dev.tophatcat.spookybiomes.init;
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import dev.tophatcat.spookybiomes.common.blocks.BloodiedGrass;
 import dev.tophatcat.spookybiomes.common.blocks.SpookyLogBlock;
+import dev.tophatcat.spookybiomes.common.blocks.signs.SpookyStandingSignBlock;
+import dev.tophatcat.spookybiomes.common.blocks.signs.SpookyWallSignBlock;
+import dev.tophatcat.spookybiomes.common.blocks.tiles.SpookySignBlockEntity;
 import dev.tophatcat.spookybiomes.common.generation.BloodiedTreeGrower;
 import dev.tophatcat.spookybiomes.common.generation.GhostlyTreeGrower;
 import dev.tophatcat.spookybiomes.common.generation.SeepingTreeGrower;
@@ -100,6 +103,16 @@ public class SpookyBlocks {
         "sorbus_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().strength(0.5F).sound(SoundType.WOOD)));
 
+    public static final RegistryObject<SpookyStandingSignBlock> SORBUS_SIGN = BLOCKS.register(
+        "sorbus_sign", () -> new SpookyStandingSignBlock(Properties.of(Material.WOOD,
+            SORBUS_PLANKS.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD),
+            SpookyBiomes.SORBUS_WOOD_TYPE, SpookySignBlockEntity::new));
+
+    public static final RegistryObject<SpookyWallSignBlock> SORBUS_WALL_SIGN = BLOCKS.register(
+        "sorbus_wall_sign", () -> new SpookyWallSignBlock(Properties.of(Material.WOOD, SORBUS_PLANKS.get().defaultMaterialColor())
+            .noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(SORBUS_SIGN), SpookyBiomes.SORBUS_WOOD_TYPE,
+            SpookySignBlockEntity::new));
+
     //Ghostly blocks
     public static final RegistryObject<RotatedPillarBlock> GHOSTLY_LOG_STRIPPED = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "ghostly_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
@@ -153,6 +166,16 @@ public class SpookyBlocks {
     public static final RegistryObject<ButtonBlock> GHOSTLY_BUTTON = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "ghostly_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().strength(0.5F).sound(SoundType.WOOD)));
+
+    public static final RegistryObject<SpookyStandingSignBlock> GHOSTLY_SIGN = BLOCKS.register(
+        "ghostly_sign", () -> new SpookyStandingSignBlock(Properties.of(Material.WOOD,
+            GHOSTLY_PLANKS.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD),
+            SpookyBiomes.GHOSTLY_WOOD_TYPE, SpookySignBlockEntity::new));
+
+    public static final RegistryObject<SpookyWallSignBlock> GHOSTLY_WALL_SIGN = BLOCKS.register(
+        "ghostly_wall_sign", () -> new SpookyWallSignBlock(Properties.of(Material.WOOD, GHOSTLY_PLANKS.get().defaultMaterialColor())
+            .noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(GHOSTLY_SIGN), SpookyBiomes.GHOSTLY_WOOD_TYPE,
+            SpookySignBlockEntity::new));
 
     //Seeping blocks
     public static final RegistryObject<RotatedPillarBlock> SEEPING_LOG_STRIPPED = registerBlockAndStandardItem(BLOCKS, ITEMS,
@@ -208,6 +231,16 @@ public class SpookyBlocks {
         "seeping_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().strength(0.5F).sound(SoundType.WOOD)));
 
+    public static final RegistryObject<SpookyStandingSignBlock> SEEPING_SIGN = BLOCKS.register(
+        "seeping_sign", () -> new SpookyStandingSignBlock(Properties.of(Material.WOOD,
+            SEEPING_PLANKS.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD),
+            SpookyBiomes.SEEPING_WOOD_TYPE, SpookySignBlockEntity::new));
+
+    public static final RegistryObject<SpookyWallSignBlock> SEEPING_WALL_SIGN = BLOCKS.register(
+        "seeping_wall_sign", () -> new SpookyWallSignBlock(Properties.of(Material.WOOD, SEEPING_PLANKS.get().defaultMaterialColor())
+            .noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(SEEPING_SIGN), SpookyBiomes.SEEPING_WOOD_TYPE,
+            SpookySignBlockEntity::new));
+
     //Bloodwood blocks
     public static final RegistryObject<RotatedPillarBlock> BLOODWOOD_LOG_STRIPPED = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "bloodwood_log_stripped", () -> new RotatedPillarBlock(Properties.of(Material.WOOD)
@@ -261,4 +294,14 @@ public class SpookyBlocks {
     public static final RegistryObject<ButtonBlock> BLOODWOOD_BUTTON = registerBlockAndStandardItem(BLOCKS, ITEMS,
         "bloodwood_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION)
             .noCollission().strength(0.5F).sound(SoundType.WOOD)));
+
+    public static final RegistryObject<SpookyStandingSignBlock> BLOODWOOD_SIGN = BLOCKS.register(
+        "bloodwood_sign", () -> new SpookyStandingSignBlock(Properties.of(Material.WOOD,
+            BLOODWOOD_PLANKS.get().defaultMaterialColor()).noCollission().strength(1.0F).sound(SoundType.WOOD),
+            SpookyBiomes.BLOODWOOD_WOOD_TYPE, SpookySignBlockEntity::new));
+
+    public static final RegistryObject<SpookyWallSignBlock> BLOODWOOD_WALL_SIGN = BLOCKS.register(
+        "bloodwood_wall_sign", () -> new SpookyWallSignBlock(Properties.of(Material.WOOD, BLOODWOOD_PLANKS.get().defaultMaterialColor())
+            .noCollission().strength(1.0F).sound(SoundType.WOOD).lootFrom(BLOODWOOD_SIGN), SpookyBiomes.BLOODWOOD_WOOD_TYPE,
+            SpookySignBlockEntity::new));
 }

@@ -1,7 +1,7 @@
 package dev.tophatcat.spookybiomes.init;
 
 import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.common.blocks.tiles.SpookySignTileEntity;
+import dev.tophatcat.spookybiomes.common.blocks.tiles.SpookySignBlockEntity;
 import dev.tophatcat.spookybiomes.common.entity.TheForgottenWarlock;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -19,14 +19,18 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class SpookyEntities {
 
-    public static final DeferredRegister<BlockEntityType<?>> TILE_ENTITIES = DeferredRegister
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister
         .create(ForgeRegistries.BLOCK_ENTITIES, SpookyBiomes.MOD_ID);
 
     public static final DeferredRegister<EntityType<?>> ENTITIES
         = DeferredRegister.create(ForgeRegistries.ENTITIES, SpookyBiomes.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<SpookySignTileEntity>> SIGNS = TILE_ENTITIES.register(
-        "sign", () -> BlockEntityType.Builder.of(SpookySignTileEntity::new).build(null));
+    public static final RegistryObject<BlockEntityType<SpookySignBlockEntity>> SIGN = BLOCK_ENTITIES.register(
+        "sign", () -> BlockEntityType.Builder.of(SpookySignBlockEntity::new,
+            SpookyBlocks.SORBUS_SIGN.get(), SpookyBlocks.SORBUS_WALL_SIGN.get(),
+            SpookyBlocks.GHOSTLY_SIGN.get(), SpookyBlocks.GHOSTLY_WALL_SIGN.get(),
+            SpookyBlocks.SEEPING_SIGN.get(), SpookyBlocks.SEEPING_WALL_SIGN.get(),
+            SpookyBlocks.BLOODWOOD_SIGN.get(), SpookyBlocks.BLOODWOOD_WALL_SIGN.get()).build(null));
 
     public static void registerSpookyContent(final FMLCommonSetupEvent event) {
         event.enqueueWork(SpookyEntities::registerSpawnPlacements);
