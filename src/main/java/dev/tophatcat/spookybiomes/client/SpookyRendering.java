@@ -5,6 +5,8 @@ import dev.tophatcat.spookybiomes.init.SpookyBlocks;
 import dev.tophatcat.spookybiomes.init.SpookyEntities;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,12 +31,19 @@ public class SpookyRendering {
         ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SORBUS_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SORBUS_TRAPDOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SORBUS_DOOR.get(), RenderType.cutout());
+        event.enqueueWork(() -> {
+            Sheets.addWoodType(SpookyBiomes.SORBUS_WOOD_TYPE);
+            Sheets.addWoodType(SpookyBiomes.GHOSTLY_WOOD_TYPE);
+            Sheets.addWoodType(SpookyBiomes.SEEPING_WOOD_TYPE);
+            Sheets.addWoodType(SpookyBiomes.BLOODWOOD_WOOD_TYPE);
+        });
     }
 
     @SubscribeEvent
     public static void registerEntityModels(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(SpookyEntities.THE_FORGOTTEN_WARLOCK.get(),
             RenderTheForgottenWarlock::new);
+        event.registerBlockEntityRenderer(SpookyEntities.SIGN.get(), SignRenderer::new);
     }
 
     @SubscribeEvent
