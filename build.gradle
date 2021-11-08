@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 buildscript {
     repositories {
         maven {
@@ -16,6 +18,10 @@ buildscript {
     }
 }
 
+plugins {
+    id 'org.cadixdev.licenser' version '0.6.1'
+}
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'idea'
@@ -24,7 +30,7 @@ apply plugin: 'maven-publish'
 
 version = project.mod_version
 group = "${project.mod_group}.${project.mod_id}"
-archivesBaseName = project.mod_id
+archivesBaseName = "${project.mod_name}-${project.minecraft_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
@@ -66,6 +72,24 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
+}
+
+license {
+    header = project.file('LicenseHeader.md')
+    include '**/*.java'
+    include '**/*.kt'
+    exclude '**/package-info.java'
+    exclude '**/module-info.java'
+    newLine = false
+    properties {
+        year = currentCopyrightYear()
+    }
+}
+
+def currentCopyrightYear() {
+    def dateFormat = new SimpleDateFormat('yyyy')
+    dateFormat.setTimeZone(TimeZone.getTimeZone('UTC'))
+    return dateFormat.format(new Date())
 }
 
 jar {

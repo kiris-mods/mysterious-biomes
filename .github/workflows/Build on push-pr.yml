@@ -34,3 +34,7 @@ jobs:
       - name: Build with Gradle
         id: build
         run: ./gradlew build
+
+      - name: Check the license header exists (Run ./gradlew updateLicenses if it errors)
+        id: licenseCheck
+        run: ./gradlew licenseCheck

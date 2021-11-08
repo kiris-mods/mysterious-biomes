@@ -1,4 +1,8 @@
 ##1.17.1##
+**Version: 3.0.2**
+- Added Signs, Trapdoors and Pressure Plates
+**Version: 3.0.1**
+- Fixed tree generation shapes to match (close) the older tree style from 1.12
 **Version: 3.0.0**
 - Initial port to 1.17.1. Almost everything works except setting wood and leaf type blocks on fire when placed in the world.
 - Another quick bugfix update is coming soon to fix three of the trees generation shape.
