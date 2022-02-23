@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "bottom": "spookybiomes:block/seeping_door_lower",
+    "top": "spookybiomes:block/seeping_door_upper"
+  }
+}

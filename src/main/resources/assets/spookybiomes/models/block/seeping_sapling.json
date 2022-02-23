@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "spookybiomes:block/seeping_sapling"
+  }
+}

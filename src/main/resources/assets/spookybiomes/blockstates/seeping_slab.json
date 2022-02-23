@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "spookybiomes:block/seeping_slab_top"
+    },
+    "type=bottom": {
+      "model": "spookybiomes:block/seeping_slab"
+    },
+    "type=double": {
+      "model": "spookybiomes:block/seeping_planks"
+    }
+  }
+}
