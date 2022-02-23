@@ -1,8 +1,8 @@
 ---
 name: Issue report
-title: ''
+title: 'Issue:'
 lables: 
-assignees: 'ProxyNeko'
+assignees: 'KiriCattus'
 
 ---
 
@@ -17,7 +17,7 @@ assignees: 'ProxyNeko'
 
 **Mod Version:** {Mods version number, (DON'T PUT LATEST)}
 
-**Crash Logs:** {Link(s) to GitHub Gist with full latest.log and/or crash report}
+**Crash Logs:** {Link(s) to GitHub Gist with full latest.log and/or crash report (I won't download your crashlogs to read them.)}
 
 **Steps to Reproduce:**
  1. Start the game.

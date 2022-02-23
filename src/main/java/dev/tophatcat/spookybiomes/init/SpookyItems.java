@@ -1,6 +1,6 @@
 /*
- * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2021 <ProxyNeko>
+ * Spooky Biomes - https://tophatcat.dev/spooky-biomes
+ * Copyright (C) 2016-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -30,7 +30,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 /**
  * Register our Items to the game here.
  *
- * @author ProxyNeko
+ * @author KiriCattus
  */
 public class SpookyItems {
 

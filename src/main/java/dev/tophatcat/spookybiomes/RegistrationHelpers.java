@@ -1,6 +1,6 @@
 /*
- * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2021 <ProxyNeko>
+ * Spooky Biomes - https://tophatcat.dev/spooky-biomes
+ * Copyright (C) 2016-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,6 +23,7 @@ package dev.tophatcat.spookybiomes;
 import com.mojang.datafixers.util.Pair;
 import dev.tophatcat.spookybiomes.common.items.BurnableBlockItem;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fmllegacy.RegistryObject;
@@ -34,7 +35,7 @@ import java.util.function.Supplier;
 /**
  * Methods to assist in the registering of blocks without having lines full of duplicated code.
  *
- * @author ProxyNeko
+ * @author KiriCattus
  */
 public class RegistrationHelpers {
 
@@ -54,9 +55,10 @@ public class RegistrationHelpers {
         DeferredRegister<Block> blocks,
         DeferredRegister<Item> items,
         String name,
-        Supplier<BLOCK> blockFactory) {
+        Supplier<BLOCK> blockFactory,
+        CreativeModeTab tab) {
         return registerBlockAndItem(blocks, items, name, blockFactory, block
-            -> new BlockItem(block, new Item.Properties().tab(SpookyBiomes.CREATIVE_TAB))).getFirst();
+            -> new BlockItem(block, new Item.Properties().tab(tab))).getFirst();
     }
 
     public static <BLOCK extends Block> RegistryObject<BLOCK> registerBlockAndBurnableItem(
@@ -64,8 +66,9 @@ public class RegistrationHelpers {
         DeferredRegister<Item> items,
         String name,
         Supplier<BLOCK> blockFactory,
-        int burnTime) {
+        int burnTime,
+        CreativeModeTab tab) {
         return registerBlockAndItem(blocks, items, name, blockFactory, block
-            -> new BurnableBlockItem(block, burnTime, new Item.Properties().tab(SpookyBiomes.CREATIVE_TAB))).getFirst();
+            -> new BurnableBlockItem(block, burnTime, new Item.Properties().tab(tab))).getFirst();
     }
 }

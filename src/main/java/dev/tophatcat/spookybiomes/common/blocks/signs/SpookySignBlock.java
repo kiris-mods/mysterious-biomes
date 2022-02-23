@@ -1,6 +1,6 @@
 /*
- * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2021 <ProxyNeko>
+ * Spooky Biomes - https://tophatcat.dev/spooky-biomes
+ * Copyright (C) 2016-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -29,6 +29,7 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import java.util.function.BiFunction;
 
 public class SpookySignBlock extends SignBlock {
+
     private final BiFunction<BlockPos, BlockState, ? extends BlockEntity> blockEntityCreator;
 
     protected SpookySignBlock(final Properties properties, final WoodType woodType,
