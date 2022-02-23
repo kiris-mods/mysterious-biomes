@@ -1,5 +1,5 @@
-Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
-Copyright (C) 2016-${year} <ProxyNeko>
+Spooky Biomes - https://tophatcat.dev/spooky-biomes
+Copyright (C) 2016-${year} <KiriCattus>
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public

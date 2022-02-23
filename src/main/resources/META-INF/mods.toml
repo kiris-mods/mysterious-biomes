@@ -13,7 +13,7 @@ modId="spookybiomes"
 version="${file.jarVersion}"
 displayName="Spooky Biomes"
 description='''
-A SpookyJam mod made during the first two weeks of October for a Modded Minecraft Development community event. (SpookyJam 2017) May contain Spookyness.
+A SpookyJam mod entry made during the first two week of October 2017. May contain Spookyness...
 '''
 
 [[dependencies.spookybiomes]]

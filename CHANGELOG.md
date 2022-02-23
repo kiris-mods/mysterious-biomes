@@ -1,4 +1,8 @@
 ##1.17.1##
+**Version: 3.0.3**
+- Refactor code.
+- Redo build scripts.
+- Move some code back to my lib mod (Kiri's Lib)
 **Version: 3.0.2**
 - Added Signs, Trapdoors and Pressure Plates
 **Version: 3.0.1**

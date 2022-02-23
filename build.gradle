@@ -1,135 +1,133 @@
-import java.text.SimpleDateFormat
-
-buildscript {
-    repositories {
-        maven {
-            name = 'Minecraft Forge Maven'
-            url = 'https://maven.minecraftforge.net'
-        }
-        maven {
-            name = 'Parchment'
-            url = 'https://maven.parchmentmc.org'
-        }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: project.forgegradle_version, changing: true
-        classpath 'org.parchmentmc:librarian:1.+'
-    }
-}
+import net.minecraftforge.gradle.userdev.tasks.RenameJarInPlace
 
 plugins {
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
     id 'org.cadixdev.licenser' version '0.6.1'
-    id 'org.sonarqube' version '3.3'
 }
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
-apply plugin: 'idea'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+apply from: 'gradle/license.gradle'
+apply from: 'gradle/version.gradle'
 
-version = project.mod_version
-group = "${project.mod_group}.${project.mod_id}"
-archivesBaseName = "${project.mod_name}-${project.minecraft_version}"
+version = versions.getVersion()
+println "Mod version: $version"
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+// If you expect that you will ever need to publish releases for old Minecraft versions, set the custom prefix:
+//versions {
+//    customPrefix = mc_version // or some other variable/string which is the custom tag prefix
+//}
+
+sourceSets {
+    data
+    main.resources {
+        srcDirs += data.resources.srcDirs
+        exclude '.cache/'
+    }
+}
+
+print "Java: ${System.getProperty('java.version')}"
+print ", JVM: ${System.getProperty('java.vm.version')} (${System.getProperty('java.vendor')})"
+println ", Arch: ${System.getProperty('os.arch')}"
 
 minecraft {
-    mappings channel: project.mapping_channel, version: project.mapping_version
+    mappings channel: mappings_channel, version: mappings_version
 
     runs {
+        configureEach {
+            workingDirectory project.file('run/' + it.name) as File
+
+            property 'forge.logging.markers', logging_markers
+            property 'forge.logging.console.level', logging_console
+
+            ideaModule "$project.name}.main"
+            mods.register(modid as String) {
+                source sourceSets.main as SourceSet
+            }
+        }
+
         client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'info'
-            mods.create("${project.mod_id}").source(sourceSets.main)
         }
 
         server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'info'
-            mods.create("${project.mod_id}").source(sourceSets.main)
         }
 
         data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'info'
-            //Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', "${project.mod_id}", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-            mods.create("${project.mod_id}").source(sourceSets.main)
+            args '--mod', modid, '--all'
+            args '--output', sourceSets.data.resources.srcDirs[0].toString()
+            args '--existing', sourceSets.main.resources.srcDirs[0].toString()
+
+            ideaModule "${project.name}.data"
+            mods.named(modid as String) {
+                sources sourceSets.main as SourceSet, sourceSets.data as SourceSet
+            }
         }
     }
-}
-
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
-}
-
-repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+
+    dataImplementation sourceSets.main.output
 }
 
-sonarqube {
-    properties {
-        property "sonar.projectKey", "tophatcats-mods_spooky-biomes"
-        property "sonar.organization", "tophatcats-mods"
-        property "sonar.host.url", "https://sonarcloud.io"
+java {
+    archivesBaseName = "${project.name}-${mc_version}"
+    toolchain.languageVersion = JavaLanguageVersion.of(16)
+    withSourcesJar()
+}
+
+var manifestAttributes = [
+        'Specification-Title'      : modid,
+        'Specification-Vendor'     : author,
+        'Specification-Version'    : versions.getRawVersion(),
+        'Implementation-Title'     : project.name,
+        'Implementation-Version'   : versions.getVersion(),
+        'Implementation-Vendor'    : author,
+        "Implementation-Timestamp" : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+        "Git-Commit"            : versions.getCommitId(),
+        "Git-Commit-Timestamp"  : versions.getCommitTimestamp(),
+        'Built-On-Java'            : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+        'Built-On-Minecraft'       : mc_version,
+        'Built-On-Mappings-Version': "${mappings_channel}-${mc_version}"
+] as LinkedHashMap
+
+tasks.withType(Jar).configureEach {
+    manifest.attributes(manifestAttributes)
+    includeEmptyDirs false
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+
+    // Normalize line endings from CRLF to LF
+    filesMatching('META-INF/mods.toml') {
+        //noinspection UnnecessaryQualifiedReference
+        filter(org.apache.tools.ant.filters.FixCrLfFilter.class,
+                eol: org.apache.tools.ant.filters.FixCrLfFilter.CrLf.newInstance('lf'))
     }
 }
 
-license {
-    header = project.file('LicenseHeader.md')
-    include '**/*.java'
-    include '**/*.kt'
-    exclude '**/package-info.java'
-    exclude '**/module-info.java'
-    newLine = false
-    properties {
-        year = currentCopyrightYear()
-    }
+tasks.named('jar', Jar).configure {
+    finalizedBy 'reobfJar'
 }
 
-def currentCopyrightYear() {
-    def dateFormat = new SimpleDateFormat('yyyy')
-    dateFormat.setTimeZone(TimeZone.getTimeZone('UTC'))
-    return dateFormat.format(new Date())
+// noinspection UnnecessaryQualifiedReference
+tasks.withType(net.minecraftforge.gradle.userdev.tasks.RenameJarInPlace).configureEach {
+    args.add('--stable')
 }
-
-jar {
-    manifest {
-        attributes(
-                "Specification-Title"      : project.mod_id,
-                "Specification-Vendor"     : project.mod_vendor,
-                "Specification-Version"    : "1", // We are version 1 of ourselves
-                "Implementation-Title"     : project.mod_name,
-                "Implementation-Version"   : project.jar.archiveVersion,
-                "Implementation-Vendor"    : project.mod_vendor,
-                "Implementation-Timestamp" : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'Built-On-Java'            : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-                'Built-On-Minecraft'       : project.minecraft_version,
-                'Built-On-Forge-Version'   : "${project.forge_version}",
-                'Built-On-Mappings-Version': "${project.mapping_channel}-${project.minecraft_version}",
-        )
-    }
-}
-
-jar.finalizedBy('reobfJar')
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
+    publications.create('mavenJava', MavenPublication) {
+        from components.java
+
+        it.artifactId = project.name
+        it.version = "$mc_version-${versions.getRawVersion()}${versions.isSnapshot() ? '-SNAPSHOT' : ''}"
     }
+
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            name 'projectLocal'
+            url "file://${project.file('repo').absolutePath}"
         }
     }
 }
