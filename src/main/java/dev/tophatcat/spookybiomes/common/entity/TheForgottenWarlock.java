@@ -1,11 +1,11 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2021 <ProxyNeko>
+ * Copyright (C) 2016-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * License as published by the Free Software Foundation;
+ * Specifically version 2.1 of the License.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -61,7 +61,6 @@ public class TheForgottenWarlock extends Monster implements RangedAttackMob {
     }
 
     @Override
-    //TODO Fix priorities
     protected void registerGoals() {
         goalSelector.addGoal(1, new FloatGoal(this));
         goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -69,8 +68,7 @@ public class TheForgottenWarlock extends Monster implements RangedAttackMob {
         goalSelector.addGoal(4, new HurtByTargetGoal(this));
         goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
         targetSelector.addGoal(6, new TheForgottenWarlockAttackGoal(this));
-        targetSelector.addGoal(7, new TheForgottenWarlockTargetGoal<>(this,
-            Player.class));
+        targetSelector.addGoal(7, new TheForgottenWarlockTargetGoal<>(this, Player.class));
         targetSelector.addGoal(8, new TheForgottenWarlockTargetGoal<>(this,
             AbstractSkeleton.class));
         targetSelector.addGoal(9, new TheForgottenWarlockTargetGoal<>(this,

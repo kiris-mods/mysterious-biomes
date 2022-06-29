@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "side": "spookybiomes:block/seeping_planks",
-    "bottom": "spookybiomes:block/seeping_planks",
-    "top": "spookybiomes:block/seeping_planks"
-  }
-}

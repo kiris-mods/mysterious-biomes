@@ -2,7 +2,6 @@
 bin
 *.launch
 .settings
-.settings/*
 .metadata
 .classpath
 .project
@@ -12,7 +11,8 @@ out
 *.ipr
 *.iws
 *.iml
-.idea
+.idea/*
+!.idea/scopes
 
 # gradle
 build
@@ -21,4 +21,7 @@ build
 # other
 eclipse
 run
-libs/*
+extras
+libs
+screenshots
+mcmodsrepo

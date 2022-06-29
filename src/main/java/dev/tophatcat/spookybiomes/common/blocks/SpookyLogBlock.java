@@ -1,11 +1,11 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2021 <ProxyNeko>
+ * Copyright (C) 2016-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * License as published by the Free Software Foundation;
+ * Specifically version 2.1 of the License.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -43,7 +43,8 @@ public class SpookyLogBlock extends RotatedPillarBlock {
 
     @Nullable
     @Override
-    public BlockState getToolModifiedState(final BlockState state, final Level world, final BlockPos pos, final Player player, final ItemStack stack, final ToolAction toolAction) {
+    public BlockState getToolModifiedState(final BlockState state, final Level world, final BlockPos pos,
+                                           final Player player, final ItemStack stack, final ToolAction toolAction) {
         if (stack.canPerformAction(toolAction) && ToolActions.AXE_STRIP.equals(toolAction)) {
             return strippedLogBlock.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
         }

@@ -1,11 +1,11 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2021 <ProxyNeko>
+ * Copyright (C) 2016-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
+ * License as published by the Free Software Foundation;
+ * Specifically version 2.1 of the License.
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -22,7 +22,7 @@ package dev.tophatcat.spookybiomes.init;
 
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import net.minecraft.core.Registry;
-import net.minecraft.data.worldgen.biome.VanillaBiomes;
+import net.minecraft.data.worldgen.biome.OverworldBiomes;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
@@ -37,10 +37,10 @@ public class SpookyBiomesInjection {
 
     // Dummy biomes to make BiomeManager not blow up and for the json biomes to overwrite biome in world.
     static {
-        BIOMES.register("bloodied_hills", VanillaBiomes::theVoidBiome);
-        BIOMES.register("ghostly_forest", VanillaBiomes::theVoidBiome);
-        BIOMES.register("seeping_forest", VanillaBiomes::theVoidBiome);
-        BIOMES.register("sorbus_forest", VanillaBiomes::theVoidBiome);
+        BIOMES.register("bloodied_hills", OverworldBiomes::theVoid);
+        BIOMES.register("ghostly_forest", OverworldBiomes::theVoid);
+        BIOMES.register("seeping_forest", OverworldBiomes::theVoid);
+        BIOMES.register("sorbus_forest", OverworldBiomes::theVoid);
 
         BiomeManager.addBiome(BiomeManager.BiomeType.COOL,
             new BiomeManager.BiomeEntry(ResourceKey.create(Registry.BIOME_REGISTRY,
