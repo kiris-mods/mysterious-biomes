@@ -243,7 +243,7 @@ license {
 }
 
 task publishToCurseForge(type: TaskPublishCurseForge) {
-    apiToken = curseforge_api_token ?: "invalid/no CurseForge API token found!"
+    apiToken = project.findProperty("curseforge_api_token") ?: "invalid/no CurseForge API token found!"
 
     def mainFile = upload(curseforge_project_id, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
 
@@ -260,7 +260,7 @@ task publishToCurseForge(type: TaskPublishCurseForge) {
 
 tasks.publishToCurseForge.dependsOn(tasks.assemble)
 
-if (discord_webhook) {
+if (project.findProperty("discord_webhook")) {
     tasks.publish.dependsOn(tasks.publishToCurseForge)
 }
 
@@ -281,7 +281,7 @@ tasks.getByName("publishToCurseForge").doLast {
         webhook.sendMessage(message);
     }
 
-    catch (IOException e) {
+    catch (IOException exception) {
         println 'Failed to push to the Discord webhook.'
     }
 }
