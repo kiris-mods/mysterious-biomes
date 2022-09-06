@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "side": "spookybiomes:block/sorbus_log_stripped",
-    "end": "spookybiomes:block/sorbus_log_stripped_top"
-  }
-}

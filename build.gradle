@@ -1,133 +1,287 @@
-import net.minecraftforge.gradle.userdev.tasks.RenameJarInPlace
+import java.time.OffsetDateTime
+import java.time.ZoneOffset
+import com.diluv.schoomp.Webhook
+import com.diluv.schoomp.message.Message
+import com.diluv.schoomp.message.embed.Embed
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
 
-plugins {
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-    id 'org.spongepowered.mixin' version '0.7.+'
-    id 'org.cadixdev.licenser' version '0.6.1'
-}
-
-apply from: 'gradle/license.gradle'
-apply from: 'gradle/version.gradle'
-
-version = versions.getVersion()
-println "Mod version: $version"
-
-// If you expect that you will ever need to publish releases for old Minecraft versions, set the custom prefix:
-//versions {
-//    customPrefix = mc_version // or some other variable/string which is the custom tag prefix
-//}
-
-sourceSets {
-    data
-    main.resources {
-        srcDirs += data.resources.srcDirs
-        exclude '.cache/'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.diluv.schoomp:Schoomp:1.2.6")
     }
 }
 
-print "Java: ${System.getProperty('java.version')}"
-print ", JVM: ${System.getProperty('java.vm.version')} (${System.getProperty('java.vendor')})"
-println ", Arch: ${System.getProperty('os.arch')}"
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'org.cadixdev.licenser' version '0.6.1'
+    id 'net.darkhax.curseforgegradle' version '1.0.11'
+}
 
+version = "${mod_version}"
+group = "${mod_group}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "${mod_name}-Forge-${minecraft_version}"
+
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(16)
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: mappings_channel, version: mappings_version
+    // The mappings can be changed at any time and must be in the following format.
+    // Channel:   Version:
+    // official   MCVersion             Official field/method names from Mojang mapping files
+    // parchment  YYYY.MM.DD-MCVersion  Open community-sourced parameter names and javadocs layered on top of official
+    //
+    // You must be aware of the Mojang license when using the 'official' or 'parchment' mappings.
+    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
+    //
+    // Parchment is an unofficial project maintained by ParchmentMC, separate from MinecraftForge
+    // Additional setup is needed to use their mappings: https://github.com/ParchmentMC/Parchment/wiki/Getting-Started
+    //
+    // Use non-default mappings at your own risk. They may not always work.
+    // Simply re-run your setup task after changing the mappings to update your workspace.
+    mappings channel: 'official', version: minecraft_version
 
+    if (project.forge_ats_enabled) {
+        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
+        project.logger.debug("Forge Access Transformers are enabled for the project ${mod_name}.")
+    }
+    // Default run configurations.
+    // These can be tweaked, removed, or duplicated as needed.
     runs {
-        configureEach {
-            workingDirectory project.file('run/' + it.name) as File
-
-            property 'forge.logging.markers', logging_markers
-            property 'forge.logging.console.level', logging_console
-
-            ideaModule "$project.name}.main"
-            mods.register(modid as String) {
-                source sourceSets.main as SourceSet
-            }
-        }
-
         client {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            // The markers can be added/remove as needed separated by commas.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
+            property 'forge.logging.console.level', 'debug'
+
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            //property 'forge.enabledGameTestNamespaces', mod_id
+
+            // These arguments allow for optional authentication with Mojang servers.
+            // If you want to authenticate, put these properties in GRADLE_HOME/gradle.properties.
+            // By default, this is C:\Users\<your username>\.gradle\gradle.properties on Windows or ~/.gradle/gradle.properties on Linux/MacOS.
+            if (project.hasProperty('mc_uuid')) {
+                // Your UUID, trimmed / without the dashes
+                args '--uuid', project.getProperty('mc_uuid')
+            }
+
+            if (project.hasProperty('mc_username')) {
+                // Your Minecraft in-game username, not email
+                args '--username', project.getProperty('mc_username')
+            }
+
+            mods.create("${mod_id}").source(sourceSets.main)
         }
 
         server {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            args '--singleplayer', "yes", '--nogui', "true"
+
+            //property 'forge.enabledGameTestNamespaces', mod_id
+
+            mods.create("${mod_id}").source(sourceSets.main)
+        }
+
+        // This run config launches GameTestServer and runs all registered gametests, then exits.
+        // By default, the server will crash when no gametests are provided.
+        // The gametest system is also enabled by default for other run configs under the /test command.
+        gameTestServer {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            args '--singleplayer', "yes", '--nogui', "true"
+
+            //property 'forge.enabledGameTestNamespaces', mod_id
+
+            mods.create("${mod_id}").source(sourceSets.main)
         }
 
         data {
-            args '--mod', modid, '--all'
-            args '--output', sourceSets.data.resources.srcDirs[0].toString()
-            args '--existing', sourceSets.main.resources.srcDirs[0].toString()
+            workingDirectory project.file('run')
 
-            ideaModule "${project.name}.data"
-            mods.named(modid as String) {
-                sources sourceSets.main as SourceSet, sourceSets.data as SourceSet
-            }
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods.create("${mod_id}").source(sourceSets.main)
         }
     }
+}
+
+// Include resources generated by data generators.
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+repositories {
+    // Put repositories for dependencies here
+    // ForgeGradle automatically adds the Forge maven and Maven Central for you
+
+    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
+    // flatDir {
+    //     dir 'libs'
+    // }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft', it is assumed
+    // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
+    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    dataImplementation sourceSets.main.output
+    // Real mod deobf dependency examples - these get remapped to your current mappings
+    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
+    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
+    // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
+
+    // Examples using mod jars from ./libs
+    // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
+
+    // For more info...
+    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
+    // http://www.gradle.org/docs/current/userguide/dependency_management.html
 }
 
-java {
-    archivesBaseName = "${project.name}-${mc_version}"
-    toolchain.languageVersion = JavaLanguageVersion.of(16)
-    withSourcesJar()
+processResources {
+    def buildProps = project.properties.clone()
+
+    // Replaces FML's magic file.jarVersion string with the correct version at build time.
+    buildProps.put('file', [jarVersion: mod_version])
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand buildProps
+    }
 }
 
 var manifestAttributes = [
-        'Specification-Title'      : modid,
-        'Specification-Vendor'     : author,
-        'Specification-Version'    : versions.getRawVersion(),
-        'Implementation-Title'     : project.name,
-        'Implementation-Version'   : versions.getVersion(),
-        'Implementation-Vendor'    : author,
+        "Specification-Title"      : mod_name,
+        "Specification-Vendor"     : mod_author,
+        "Specification-Version"    : "1", // We are version 1 of ourselves
+        "Implementation-Title"     : mod_name,
+        "Implementation-Version"   : project.jar.archiveVersion,
+        "Implementation-Vendor"    : mod_author,
         "Implementation-Timestamp" : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-        "Git-Commit"            : versions.getCommitId(),
-        "Git-Commit-Timestamp"  : versions.getCommitTimestamp(),
-        'Built-On-Java'            : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-        'Built-On-Minecraft'       : mc_version,
-        'Built-On-Mappings-Version': "${mappings_channel}-${mc_version}"
-] as LinkedHashMap
+        "Built-On-Java"            : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+        "Build-On-Minecraft"       : minecraft_version
+]
 
-tasks.withType(Jar).configureEach {
-    manifest.attributes(manifestAttributes)
-    includeEmptyDirs false
-    preserveFileTimestamps = false
-    reproducibleFileOrder = true
+jar {
+    from("LICENSE.txt") {
+        rename {
+            "LICENSE_${archiveBaseName.get()}"
+        }
 
-    // Normalize line endings from CRLF to LF
-    filesMatching('META-INF/mods.toml') {
-        //noinspection UnnecessaryQualifiedReference
-        filter(org.apache.tools.ant.filters.FixCrLfFilter.class,
-                eol: org.apache.tools.ant.filters.FixCrLfFilter.CrLf.newInstance('lf'))
+        manifest.attributes(manifestAttributes)
+        includeEmptyDirs false
+        preserveFileTimestamps = false
+        reproducibleFileOrder = true
     }
 }
 
-tasks.named('jar', Jar).configure {
-    finalizedBy 'reobfJar'
-}
-
-// noinspection UnnecessaryQualifiedReference
-tasks.withType(net.minecraftforge.gradle.userdev.tasks.RenameJarInPlace).configureEach {
-    args.add('--stable')
-}
+// Example configuration to allow publishing using the maven-publish plugin
+// This is the preferred method to reobfuscate your jar file
+jar.finalizedBy('reobfJar')
+// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
+// publish.dependsOn('reobfJar')
 
 publishing {
-    publications.create('mavenJava', MavenPublication) {
-        from components.java
-
-        it.artifactId = project.name
-        it.version = "$mc_version-${versions.getRawVersion()}${versions.isSnapshot() ? '-SNAPSHOT' : ''}"
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
     }
-
     repositories {
         maven {
-            name 'projectLocal'
-            url "file://${project.file('repo').absolutePath}"
+            url "file://${project.projectDir}/mcmodsrepo"
         }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+final var actualDateTime = OffsetDateTime.now(ZoneOffset.UTC).withNano(0)
+
+license {
+    ignoreFailures = false
+    header = project.file('LicenseHeader.txt')
+    include '**/*.java'
+    include '**/*.kt'
+    exclude '**/package-info.java'
+    exclude '**/module-info.java'
+    newLine = false
+    properties {
+        year = actualDateTime.getYear()
+        name = mod_name
+        source = mod_source
+        author = mod_author
+    }
+}
+
+task publishToCurseForge(type: TaskPublishCurseForge) {
+    apiToken = project.findProperty("curseforge_api_token") ?: "invalid/no CurseForge API token found!"
+
+    def mainFile = upload(curseforge_project_id, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
+
+    mainFile.displayName = "${archivesBaseName}-${version}"
+    mainFile.releaseType = curseforge_release_type
+    mainFile.addModLoader(curseforge_mod_loader)
+    mainFile.addGameVersion(minecraft_version)
+    mainFile.addJavaVersion(curseforge_java_version)
+
+    //mainFile.addRequirement('fabric-api') //Fabric API slug
+    //mainFile.addEmbedded('cloth-config') //Cloth Config slug
+    mainFile.changelog = mod_changelog_url
+}
+
+tasks.publishToCurseForge.dependsOn(tasks.assemble)
+
+if (project.findProperty("discord_webhook")) {
+    tasks.publish.dependsOn(tasks.publishToCurseForge)
+}
+
+tasks.getByName("publishToCurseForge").doLast {
+    try {
+        def webhook = new Webhook(discord_webhook, "${mod_name} Gradle Upload");
+
+        def message = new Message();
+        message.setUsername("Mod Update: ${mod_name}");
+        message.setContent("${mod_name} ${mod_version} for Minecraft version ${minecraft_version} has been uploaded pending review!");
+
+        def embed = new Embed();
+        embed.addField('Download:', "${mod_homepage}/files/", false);
+        embed.addField('Change Log:', mod_changelog_url, false);
+        embed.setColor(0xFF8000);
+        message.addEmbed(embed);
+
+        webhook.sendMessage(message);
+    }
+
+    catch (IOException exception) {
+        println 'Failed to push to the Discord webhook.'
     }
 }
