@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "spookybiomes:block/seeping_log",
+    "end": "spookybiomes:block/seeping_log_top"
+  }
+}

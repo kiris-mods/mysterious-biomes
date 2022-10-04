@@ -23,3 +23,41 @@
 </a>  
 </p>
 
+Content:
+
+Wood Types: Sorbus, Seeping, Ghostly, Bloodwood  
+
+Blocks:  
+- Bloodied Dirt  
+- Bloodied Grass  
+- Logs
+- Stripped Logs
+- Saplings
+- Planks
+- Stairs
+- Leaves
+- Slabs
+- Fence
+- Buttons
+- Pressure Plates
+- Trapdoors
+- Doors
+- Gates
+- Signs  
+
+Biomes:  
+- Ghostly Forrest
+- Seeping Forrest
+- Sorbus Hills
+- Bloodwood Forrest  
+
+All biomes have a mist visual effect that hinders the players vision.  
+Some future biomes will have a poisonous effect if you don't wear  
+an item in a bauble like slot but that's a future idea.  
+
+Mob:  
+- The Forgotten Warlock.
+
+I'd advise looking at the 1.17.1 version of the mod to see how the biomes  
+look and feel, The Forgotten Warlock spawns in both the Ghostly Forrest  
+and the Bloodwood Forrest. TerraBlender is required for 1.18 and above!
