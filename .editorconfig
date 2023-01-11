@@ -1,20 +1,35 @@
 root = true
 
 [*]
+charset = utf-8
 end_of_line = lf
 insert_final_newline = true
+tab_width = 4
+trim_trailing_whitespace = true
+
+[*.gradle]
+indent_style = tab
 
 [*.java]
-charset = utf-8
 indent_style = space
 indent_size = 4
-max_line_length = 120
-ij_java_use_single_class_imports = true
-ij_java_names_count_to_use_import_on_demand = 999
-ij_java_class_count_to_use_import_on_demand = 999
-ij_java_packages_to_use_import_on_demand = 999
-ij_java_generate_final_parameters = true
-ij_java_generate_final_locals = true
 
-[*.md]
-trim_trailing_whitespace = false
+[*.json]
+indent_style = space
+indent_size = 2
+
+[quilt.mod.json]
+indent_style = tab
+tab_width = 2
+
+[*.toml]
+indent_style = tab
+tab_width = 2
+
+[*.properties]
+indent_style = space
+indent_size = 2
+
+[.editorconfig]
+indent_style = space
+indent_size = 4

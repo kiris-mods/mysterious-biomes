@@ -11,26 +11,16 @@ pluginManagement {
         }
 
         maven {
-
             name = 'Quilt (Release)'
             url = 'https://maven.quiltmc.org/repository/release'
         }
 
         maven {
-
             name = 'Quilt (Snapshot)'
             url = 'https://maven.quiltmc.org/repository/snapshot'
-        }
-
-        maven {
-            name = 'Cotton'
-            url = 'https://server.bbkr.space/artifactory/libs-release/'
         }
 
         mavenCentral()
         gradlePluginPortal()
     }
 }
-
-rootProject.name = 'spookybiomes'
-include("Common", "Forge", "Quilt")

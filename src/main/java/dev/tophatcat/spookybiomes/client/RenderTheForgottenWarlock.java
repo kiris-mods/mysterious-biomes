@@ -1,6 +1,6 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2022 <KiriCattus>
+ * Copyright (C) 2013-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,31 +22,30 @@ package dev.tophatcat.spookybiomes.client;
 
 import dev.tophatcat.spookybiomes.SpookyBiomes;
 import dev.tophatcat.spookybiomes.common.entity.TheForgottenWarlock;
-import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
+public class RenderTheForgottenWarlock extends MobEntityRenderer<TheForgottenWarlock, EntityModel<TheForgottenWarlock>> {
 
-public class RenderTheForgottenWarlock extends MobRenderer<TheForgottenWarlock, EntityModel<TheForgottenWarlock>> {
-
-    private static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(SpookyBiomes.MOD_ID,
+    private static final Identifier RESOURCE_LOCATION = new Identifier(SpookyBiomes.MOD_ID,
         "textures/entity/the_forgotten_warlock.png");
 
-    public RenderTheForgottenWarlock(EntityRendererProvider.Context renderManager) {
+    public RenderTheForgottenWarlock(EntityRendererFactory.Context renderManager) {
         super(renderManager, new TheForgottenWarlockModel<>(
-            renderManager.bakeLayer(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
+            renderManager.getPart(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
     }
 
-    @Nonnull
+    @NotNull
     @Override
-    public ResourceLocation getTextureLocation(@Nonnull TheForgottenWarlock theForgottenWarlock) {
+    public Identifier getTexture(@NotNull TheForgottenWarlock theForgottenWarlock) {
         return RESOURCE_LOCATION;
     }
 
     @Override
-    protected boolean shouldShowName(@Nonnull TheForgottenWarlock entity) {
-        return super.shouldShowName(entity);
+    protected boolean hasLabel(@NotNull TheForgottenWarlock entity) {
+        return super.hasLabel(entity);
     }
 }

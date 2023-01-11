@@ -1,6 +1,6 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2022 <KiriCattus>
+ * Copyright (C) 2013-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,55 +20,26 @@
  */
 package dev.tophatcat.spookybiomes.client;
 
-import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.init.SpookyBlocks;
-import dev.tophatcat.spookybiomes.init.SpookyEntities;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 
-@EventBusSubscriber(modid = SpookyBiomes.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
-public class SpookyRendering {
+public class SpookyRendering implements ClientModInitializer {
 
-    @SubscribeEvent
-    public static void clientSetup(FMLClientSetupEvent event) {
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.BLOODWOOD_SAPLING.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.BLOODWOOD_TRAPDOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.BLOODWOOD_DOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.GHOSTLY_SAPLING.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.GHOSTLY_TRAPDOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.GHOSTLY_DOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SEEPING_SAPLING.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SEEPING_TRAPDOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SEEPING_DOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SORBUS_SAPLING.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SORBUS_TRAPDOOR.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(SpookyBlocks.SORBUS_DOOR.get(), RenderType.cutout());
-        event.enqueueWork(() -> {
-            Sheets.addWoodType(SpookyBiomes.SORBUS_WOOD_TYPE);
-            Sheets.addWoodType(SpookyBiomes.GHOSTLY_WOOD_TYPE);
-            Sheets.addWoodType(SpookyBiomes.SEEPING_WOOD_TYPE);
-            Sheets.addWoodType(SpookyBiomes.BLOODWOOD_WOOD_TYPE);
-        });
-    }
-
-    @SubscribeEvent
-    public static void registerEntityModels(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(SpookyEntities.THE_FORGOTTEN_WARLOCK.get(),
-            RenderTheForgottenWarlock::new);
-        event.registerBlockEntityRenderer(SpookyEntities.SIGN.get(), SignRenderer::new);
-    }
-
-    @SubscribeEvent
-    public static void registerLayerDefinition(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION,
-            TheForgottenWarlockModel::createBodyLayer);
+    //event.registerBlockEntityRenderer(SpookyEntities.SIGN.get(), SignRenderer::new);
+    @Override
+    public void onInitializeClient(ModContainer mod) {
+        //EntityRendererRegistry.register(SpookyBiomes.THE_FORGOTTEN_WARLOCK, RenderTheForgottenWarlock::new);
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.BLOODWOOD.getSapling().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.BLOODWOOD.getTrapdoor().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.BLOODWOOD.getDoor().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.GHOSTLY.getSapling().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.GHOSTLY.getTrapdoor().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.GHOSTLY.getDoor().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.SEEPING.getSapling().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.SEEPING.getTrapdoor().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.SEEPING.getDoor().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.SORBUS.getSapling().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.SORBUS.getTrapdoor().get());
+        //BlockRenderLayerMap.put(RenderLayer.getCutout(), SpookyWoodTypes.SORBUS.getDoor().get());
     }
 }

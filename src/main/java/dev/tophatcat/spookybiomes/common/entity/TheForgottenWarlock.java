@@ -1,6 +1,6 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2022 <KiriCattus>
+ * Copyright (C) 2013-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,60 +20,47 @@
  */
 package dev.tophatcat.spookybiomes.common.entity;
 
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobType;
-import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
-import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.AbstractSkeleton;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.level.Level;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.RangedAttackMob;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.AbstractSkeletonEntity;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.ZombieEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
+public class TheForgottenWarlock extends HostileEntity implements RangedAttackMob {
 
-public class TheForgottenWarlock extends Monster implements RangedAttackMob {
+    private static final TrackedData<Byte> CLIMBING
+        = DataTracker.registerData(TheForgottenWarlock.class, TrackedDataHandlerRegistry.BYTE);
 
-    private static final EntityDataAccessor<Byte> CLIMBING
-        = SynchedEntityData.defineId(TheForgottenWarlock.class, EntityDataSerializers.BYTE);
-
-    public TheForgottenWarlock(EntityType<? extends TheForgottenWarlock> type, Level world) {
+    public TheForgottenWarlock(EntityType<? extends TheForgottenWarlock> type, World world) {
         super(type, world);
     }
 
     @Override
-    protected void registerGoals() {
-        goalSelector.addGoal(1, new FloatGoal(this));
-        goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        goalSelector.addGoal(3, new RandomLookAroundGoal(this));
-        goalSelector.addGoal(4, new HurtByTargetGoal(this));
-        goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
-        targetSelector.addGoal(6, new TheForgottenWarlockAttackGoal(this));
-        targetSelector.addGoal(7, new TheForgottenWarlockTargetGoal<>(this, Player.class));
-        targetSelector.addGoal(8, new TheForgottenWarlockTargetGoal<>(this,
-            AbstractSkeleton.class));
-        targetSelector.addGoal(9, new TheForgottenWarlockTargetGoal<>(this,
-            Zombie.class));
-        fireImmune();
+    protected void initGoals() {
+        goalSelector.add(1, new SwimGoal(this));
+        goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 8.0F));
+        goalSelector.add(3, new LookAroundGoal(this));
+        goalSelector.add(4, new RevengeGoal(this));
+        goalSelector.add(5, new WanderAroundGoal(this, 1.0D));
+        targetSelector.add(6, new TheForgottenWarlockAttackGoal(this));
+        targetSelector.add(7, new TheForgottenWarlockTargetGoal<>(this, PlayerEntity.class));
+        targetSelector.add(8, new TheForgottenWarlockTargetGoal<>(this, AbstractSkeletonEntity.class));
+        targetSelector.add(9, new TheForgottenWarlockTargetGoal<>(this, ZombieEntity.class));
+        isFireImmune();
     }
 
     /**
@@ -81,93 +68,96 @@ public class TheForgottenWarlock extends Monster implements RangedAttackMob {
      *
      * @return The attributes of the mob for setup.
      */
-    public static AttributeSupplier.Builder prepareAttributes() {
-        return Mob.createMobAttributes()
-            .add(Attributes.MAX_HEALTH, 25.0D)
-            .add(Attributes.ATTACK_DAMAGE, 7.0D)
-            .add(Attributes.MOVEMENT_SPEED, 0.25D);
+    public static DefaultAttributeContainer.Builder createHostileAttributes() {
+        return MobEntity.createMobAttributes()
+            .add(EntityAttributes.GENERIC_MAX_HEALTH, 25.0D)
+            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7.0D)
+            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D);
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(CLIMBING, (byte) 0);
+    protected void initDataTracker() {
+        super.initDataTracker();
+        dataTracker.set(CLIMBING, (byte) 0);
     }
 
     @Override
     public void tick() {
         super.tick();
-        if (!level.isClientSide) {
-            setClimbing(horizontalCollision);
+        if (!world.isClient) {
+            setClimbingWall(horizontalCollision);
         }
     }
 
     @Override
-    public void aiStep() {
-        super.aiStep();
-        if (level.isClientSide) {
+    public void tickMovement() {
+        super.tickMovement();
+        if (world.isClient) {
             for (int i = 0; i < 2; ++i) {
-                level.addParticle(ParticleTypes.PORTAL, getX() + (random.nextDouble()
-                        - 0.5D) * (double) getBbWidth(), getY() + random.nextDouble()
-                        * (double) getBbHeight(), getZ() + (random.nextDouble() - 0.5D)
-                        * (double) getBbWidth(), (random.nextDouble() - 0.5D) * 2.0D,
+                world.addParticle(ParticleTypes.PORTAL, getX() + (random.nextDouble()
+                        - 0.5D) * (double) getWidth(), getY() + random.nextDouble()
+                        * (double) getHeight(), getZ() + (random.nextDouble() - 0.5D)
+                        * (double) getWidth(), (random.nextDouble() - 0.5D) * 2.0D,
                     -random.nextDouble(), (random.nextDouble() - 0.5D) * 2.0D);
             }
         }
     }
 
     @Override
-    protected float getStandingEyeHeight(@Nonnull Pose pose, @Nonnull EntityDimensions dimensions) {
+    protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
         return 1.25F;
     }
 
-    @Nonnull
     @Override
-    public MobType getMobType() {
-        return MobType.UNDEAD;
+    public EntityGroup getGroup() {
+        return EntityGroup.UNDEAD;
     }
 
     @Override
-    public void performRangedAttack(@Nonnull LivingEntity target, float p_82196_2_) {
-        AbstractArrow arrow = new Arrow(level, this);
+    public void attack(@NotNull LivingEntity target, float p_82196_2_) {
+        PersistentProjectileEntity arrow = new ArrowEntity(world, this);
         double targetX = target.getX() - getX();
-        double targetY = target.getY(0.3333333333333333D) - arrow.getY();
+        double targetY = target.getBodyY(0.3333333333333333D) - arrow.getY();
         double targetZ = target.getZ() - getZ();
         double d0 = Math.sqrt(targetX * targetX + targetZ * targetZ) * 0.20000000298023224D;
-        arrow.shoot(targetX, targetY + d0, targetZ, 1.5F, 10.0F);
-        playSound(SoundEvents.SKELETON_SHOOT, 1.0F, 1.0F / (getRandom().nextFloat() * 0.4F + 0.8F));
-        level.addFreshEntity(arrow);
+        arrow.setVelocity(targetX, targetY + d0, targetZ, 1.5F, 10.0F);
+        playSound(SoundEvents.ENTITY_SKELETON_SHOOT, 1.0F, 1.0F / (getRandom().nextFloat() * 0.4F + 0.8F));
+        world.spawnEntity(arrow);
     }
 
     @Override
-    public boolean onClimbable() {
-        return isClimbing();
-    }
-
     public boolean isClimbing() {
-        return (entityData.get(CLIMBING) & 1) != 0;
+        return isClimbingWall();
     }
 
-    public void setClimbing(boolean climbing) {
-        byte value = entityData.get(CLIMBING);
+    public boolean isClimbingWall() {
+        return (dataTracker.get(CLIMBING) & 1) != 0;
+    }
+
+    public void setClimbingWall(boolean climbing) {
+        byte value = dataTracker.get(CLIMBING);
         if (climbing) {
             value |= 1;
         } else {
             value &= -2;
         }
 
-        entityData.set(CLIMBING, value);
+        dataTracker.set(CLIMBING, value);
     }
 
-    public static class TheForgottenWarlockAttackGoal extends RangedAttackGoal {
+    @Override
+    public boolean canFreeze() {
+        return false;
+    }
+
+    public static class TheForgottenWarlockAttackGoal extends ProjectileAttackGoal {
 
         public TheForgottenWarlockAttackGoal(TheForgottenWarlock theForgottenWarlock) {
             super(theForgottenWarlock, 0.25D, 40, 10.0F);
         }
     }
 
-    public static class TheForgottenWarlockTargetGoal<T extends LivingEntity>
-        extends NearestAttackableTargetGoal<T> {
+    public static class TheForgottenWarlockTargetGoal<T extends LivingEntity> extends TargetGoal<T> {
 
         public TheForgottenWarlockTargetGoal(TheForgottenWarlock theForgottenWarlock, Class<T> classTarget) {
             super(theForgottenWarlock, classTarget, true);

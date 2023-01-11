@@ -1,6 +1,6 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2022 <KiriCattus>
+ * Copyright (C) 2013-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,65 +20,63 @@
  */
 package dev.tophatcat.spookybiomes;
 
-import dev.tophatcat.spookybiomes.data.SpookyDataProviders;
-import dev.tophatcat.spookybiomes.init.SpookyBiomesInjection;
-import dev.tophatcat.spookybiomes.init.SpookyBlocks;
-import dev.tophatcat.spookybiomes.init.SpookyEntities;
-import dev.tophatcat.spookybiomes.init.SpookyItems;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import dev.tophatcat.spookybiomes.common.entity.TheForgottenWarlock;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.SpawnRestriction;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.tag.BiomeTags;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
+import org.quiltmc.qsl.item.group.api.QuiltItemGroup;
+import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
 
-import javax.annotation.Nonnull;
-
-@Mod(SpookyBiomes.MOD_ID)
-@EventBusSubscriber(bus = Bus.MOD)
-public class SpookyBiomes {
+public class SpookyBiomes implements ModInitializer {
 
     public static final String MOD_ID = "spookybiomes";
-    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+    public static final EntityType<TheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
+        Registry.ENTITY_TYPE, new Identifier(SpookyBiomes.MOD_ID, "the_forgotten_warlock"),
+        QuiltEntityTypeBuilder.<TheForgottenWarlock>createMob()
+            .spawnGroup(SpawnGroup.MONSTER)
+            .entityFactory(TheForgottenWarlock::new)
+            .defaultAttributes(TheForgottenWarlock.createHostileAttributes())
+            .setDimensions(EntityDimensions.fixed(0.65F, 1.45F))
+            .maxChunkTrackingRange(1)
+            .spawnRestriction(SpawnRestriction.Location.ON_GROUND,
+                Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn)
+            .build());
 
-    public static final WoodType SORBUS_WOOD_TYPE = WoodType.create(MOD_ID + ":sorbus");
-    public static final WoodType GHOSTLY_WOOD_TYPE = WoodType.create(MOD_ID + ":ghostly");
-    public static final WoodType SEEPING_WOOD_TYPE = WoodType.create(MOD_ID + ":seeping");
-    public static final WoodType BLOODWOOD_WOOD_TYPE = WoodType.create(MOD_ID + ":bloodwood");
+
+    //public static final SignType SORBUS_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":sorbus"));
+    //public static final SignType GHOSTLY_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":ghostly"));
+    //public static final SignType SEEPING_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":seeping"));
+    //public static final SignType BLOODWOOD_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":bloodwood"));
 
     public SpookyBiomes() {
-        IEventBus mod = FMLJavaModLoadingContext.get().getModEventBus(), forge = MinecraftForge.EVENT_BUS;
-        SpookyEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        SpookyEntities.BLOCK_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        SpookyBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        SpookyItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
-        mod.addListener(SpookyEntities::registerSpookyContent);
-        mod.addListener(SpookyEntities::addEntityAttributes);
-        mod.addListener(SpookyDataProviders::addProviders);
-        mod.addListener(SpookyBiomes::onCommonSetup);
+        //SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
-    static void onCommonSetup(FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            WoodType.register(SORBUS_WOOD_TYPE);
-            WoodType.register(GHOSTLY_WOOD_TYPE);
-            WoodType.register(SEEPING_WOOD_TYPE);
-            WoodType.register(BLOODWOOD_WOOD_TYPE);
-        });
-    }
+    //TODO Add signs and make them work.
+    //TODO Fix hardness/resistance of all blocks.
+    //TODO Block tags.
+    //TODO Convert to the new item group system in 1.19.3.
+    public static final ItemGroup ITEM_TAB = QuiltItemGroup.createWithIcon(
+        new Identifier(MOD_ID, "group"), () -> new ItemStack(Items.BEDROCK));
 
-    public static final CreativeModeTab CREATIVE_TAB = new CreativeModeTab(MOD_ID) {
-        @Nonnull
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(SpookyBlocks.GHOSTLY_SAPLING.get());
-        }
-    };
+    @Override
+    public void onInitialize(ModContainer mod) {
+        new SpookyContentRegistry();
+        SpookyContentRegistry.BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, block.get()));
+        SpookyContentRegistry.ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, item.get()));
+        BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().isIn(BiomeTags.IS_FOREST),
+            SpawnGroup.MONSTER, THE_FORGOTTEN_WARLOCK, 10, 1, 2);
+    }
 }

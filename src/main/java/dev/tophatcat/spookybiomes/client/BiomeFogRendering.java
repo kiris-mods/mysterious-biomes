@@ -1,6 +1,6 @@
 /*
  * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2016-2022 <KiriCattus>
+ * Copyright (C) 2013-2022 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,41 +20,19 @@
  */
 package dev.tophatcat.spookybiomes.client;
 
-import com.mojang.blaze3d.systems.RenderSystem;
-import com.mojang.math.Vector3d;
-import dev.tophatcat.spookybiomes.SpookyBiomes;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.Options;
-import net.minecraft.client.renderer.FogRenderer;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
-import net.minecraft.util.Mth;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-
-@Mod.EventBusSubscriber(modid = SpookyBiomes.MOD_ID, value = Dist.CLIENT)
 public class BiomeFogRendering {
+
     private static double mistX, mistZ;
     private static boolean mistInit;
     private static float mistFarPlaneDistance;
 
-    @SubscribeEvent
+    /**
     public static void onGetFogColor(EntityViewRenderEvent.FogColors event) {
-        Player player = Minecraft.getInstance().player;
-        Level level = player.level;
-        int x = Mth.floor(player.getX());
-        int y = Mth.floor(player.getY());
-        int z = Mth.floor(player.getZ());
+        PlayerEntity player = MinecraftClient.getInstance().player;
+        World level = player.world;
+        int x = MathHelper.floor(player.getX());
+        int y = MathHelper.floor(player.getY());
+        int z = MathHelper.floor(player.getZ());
         BlockState blockStateAtEyes = event.getInfo().getBlockAtCamera();
         if (blockStateAtEyes.getMaterial() == Material.LAVA) {
             return;
@@ -65,7 +43,7 @@ public class BiomeFogRendering {
         } else {
             mixedColor = getFogBlendColor(level, player, x, y, z, event.getRed(), event.getGreen(), event.getBlue(), event.getRenderPartialTicks());
         }
-        if (level.dimension() == Level.NETHER) {
+        if (level.dimension() == World.NETHER) {
             event.setRed((float) mixedColor.x * 20.5F);
             event.setGreen((float) mixedColor.y * 20.5F);
             event.setBlue((float) mixedColor.z * 20.5F);
@@ -76,12 +54,11 @@ public class BiomeFogRendering {
         }
     }
 
-    @SubscribeEvent
     public static void onRenderFog(EntityViewRenderEvent.RenderFogEvent event) {
-        Player entity = Minecraft.getInstance().player;
-        Level level = entity.level;
-        int playerX = Mth.floor(entity.getX());
-        int playerZ = Mth.floor(entity.getZ());
+        PlayerEntity entity = MinecraftClient.getInstance().player;
+        World level = entity.world;
+        int playerX = MathHelper.floor(entity.getX());
+        int playerZ = MathHelper.floor(entity.getZ());
 
         if (playerX == mistX && playerZ == mistZ && mistInit) {
             renderFog(event.getType(), mistFarPlaneDistance, 0.50f);
@@ -92,14 +69,14 @@ public class BiomeFogRendering {
         int distance = 20;
         float fpDistanceBiomeFog = 0F;
         float weightBiomeFog = 0;
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(0, 0, 0);
+        BlockPos.Mutable pos = new BlockPos.Mutable(0, 0, 0);
 
         for (int x = -distance; x <= distance; ++x) {
             for (int z = -distance; z <= distance; ++z) {
                 pos.set(playerX + x, 0, playerZ + z);
                 //@Nullable IMistyBiome biome = ProxysLib.getMistyBiome(Minecraft.getInstance().getConnection().func_239165_n_().getRegistry(Registry.BIOME_KEY).getKey(level.getBiome(pos)));
                 Biome biome = level.getBiome(pos);
-                if (Minecraft.getInstance().getConnection().registryAccess().registry(Registry.BIOME_REGISTRY).map(r -> r.getKey(biome).getNamespace().equals(SpookyBiomes.MOD_ID)).orElse(false)) {
+                if (MinecraftClient.getInstance().getConnection().registryAccess().registry(Registry.BIOME_KEY).map(r -> r.getKey(biome).getNamespace().equals(SpookyBiomes.MOD_ID)).orElse(false)) {
                     float distancePart = 0.1f; //biome.getMistDensity(pos); TODO: Make dynamic
                     float weightPart = 1;
 
@@ -145,7 +122,7 @@ public class BiomeFogRendering {
         renderFog(event.getType(), mistFarPlaneDistance, farPlaneDistanceScale);
     }
 
-    private static void renderFog(FogRenderer.FogMode type, float farPlaneDistance, float farPlaneDistanceScale) {
+    private static void renderFog(BackgroundRenderer.FogType type, float farPlaneDistance, float farPlaneDistanceScale) {
         if (type == FogRenderer.FogMode.FOG_SKY) {
             RenderSystem.setShaderFogStart(0.0F);
             RenderSystem.setShaderFogEnd(farPlaneDistance);
@@ -155,8 +132,8 @@ public class BiomeFogRendering {
         }
     }
 
-    private static Vector3d postProcessColor(Level level, LivingEntity player, double r, double g, double b, double renderPartialTicks) {
-        double darkScale = (player.yOld + (player.getY() - player.yOld) * renderPartialTicks) * 0.03125; //Hardcoded the void render fog as it doesn't exist anymore
+    private static Vector3d postProcessColor(World level, LivingEntity player, double r, double g, double b, double renderPartialTicks) {
+        double darkScale = (player.prevY + (player.getY() - player.prevY) * renderPartialTicks) * 0.03125; //Hardcoded the void render fog as it doesn't exist anymore
         if (player.hasEffect(MobEffects.BLINDNESS)) {
             int duration = player.getEffect(MobEffects.BLINDNESS).getDuration();
             darkScale *= (duration < 20) ? (1 - duration / 20f) : 0;
@@ -183,11 +160,11 @@ public class BiomeFogRendering {
         return new Vector3d(r, g, b);
     }
 
-    private static Vector3d getFogBlendColor(Level level, LivingEntity Player, int playerX, int playerY, int playerZ, float defR, float defG, float defB, double renderPartialTicks) {
-        Options settings = Minecraft.getInstance().options;
+    private static Vector3d getFogBlendColor(World level, LivingEntity Player, int playerX, int playerY, int playerZ, float defR, float defG, float defB, double renderPartialTicks) {
+        Options settings = MinecraftClient.getInstance().options;
         int[] ranges = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34};
         int distance = 6;
-        if (Minecraft.useFancyGraphics() && settings.renderDistance >= 0 && settings.renderDistance < ranges.length) {
+        if (MinecraftClient.isFancyGraphicsOrBetter() && settings.renderDistance >= 0 && settings.renderDistance < ranges.length) {
             distance = ranges[settings.renderDistance];
         }
 
@@ -195,7 +172,7 @@ public class BiomeFogRendering {
         double gBiomeFog = 0;
         double bBiomeFog = 0;
         double weightBiomeFog = 0;
-        BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(0, 0, 0);
+        BlockPos.Mutable pos = new BlockPos.Mutable(0, 0, 0);
 
         for (int x = -distance; x <= distance; ++x) {
             for (int z = -distance; z <= distance; ++z) {
@@ -203,7 +180,8 @@ public class BiomeFogRendering {
                 Biome biome = level.getBiome(pos);
                 //@Nullable IMistyBiome biome = ProxysLib.getMistyBiome(Minecraft.getInstance().getConnection().func_239165_n_().getRegistry(Registry.BIOME_KEY).getKey(level.getBiome(pos)));
 
-                if (Minecraft.getInstance().getConnection().registryAccess().registry(Registry.BIOME_REGISTRY).map(r -> r.getKey(biome).getNamespace().equals(SpookyBiomes.MOD_ID)).orElse(false)) {
+                if (Minecraft.getInstance().getConnection().registryAccess().registry(Registry.BIOME_KEY).map(r
+                    -> r.getKey(biome).getNamespace().equals(SpookyBiomes.MOD_ID)).orElse(false)) {
                     int mistColour = biome.getFogColor();
 
                     if (mistColour >= 0) {
@@ -261,20 +239,20 @@ public class BiomeFogRendering {
         gBiomeFog /= 255f;
         bBiomeFog /= 255f;
 
-        float celestialAngle = level.getSunAngle((float) renderPartialTicks);
-        float baseScale = Mth.clamp(Mth.cos(celestialAngle) * 2.0F + 0.5F, 0, 1);
+        float celestialAngle = level.getSkyAngle((float) renderPartialTicks);
+        float baseScale = MathHelper.clamp(MathHelper.cos(celestialAngle) * 2.0F + 0.5F, 0, 1);
         double rScale = baseScale * 0.94F + 0.06F;
         double gScale = baseScale * 0.94F + 0.06F;
         double bScale = baseScale * 0.91F + 0.09F;
 
-        float rainStrength = level.getRainLevel((float) renderPartialTicks);
+        float rainStrength = level.getRainGradient((float) renderPartialTicks);
         if (rainStrength > 0) {
             rScale *= 1 - rainStrength * 0.5f;
             gScale *= 1 - rainStrength * 0.5f;
             bScale *= 1 - rainStrength * 0.4f;
         }
 
-        float thunderStrength = level.getThunderLevel((float) renderPartialTicks);
+        float thunderStrength = level.getThunderGradient((float) renderPartialTicks);
         if (thunderStrength > 0) {
             rScale *= 1 - thunderStrength * 0.5f;
             gScale *= 1 - thunderStrength * 0.5f;
@@ -298,7 +276,8 @@ public class BiomeFogRendering {
         return new Vector3d(rFinal, gFinal, bFinal);
     }
 
-    private static Vector3d getFogBlendColorWater(Level level, LivingEntity Player, int playerX, int playerY, int playerZ, double renderPartialTicks) {
+    private static Vector3d getFogBlendColorWater(World level, LivingEntity Player, int playerX, int playerY,
+                                                  int playerZ, double renderPartialTicks) {
         byte distance = 2;
         float rBiomeFog = 0.0F;
         float gBiomeFog = 0.0F;
