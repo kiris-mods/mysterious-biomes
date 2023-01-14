@@ -78,7 +78,7 @@ public class TheForgottenWarlock extends HostileEntity implements RangedAttackMo
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
-        dataTracker.set(CLIMBING, (byte) 0);
+        dataTracker.startTracking(CLIMBING, (byte) 0);
     }
 
     @Override
@@ -131,18 +131,18 @@ public class TheForgottenWarlock extends HostileEntity implements RangedAttackMo
     }
 
     public boolean isClimbingWall() {
-        return (dataTracker.get(CLIMBING) & 1) != 0;
+        return (this.dataTracker.get(CLIMBING) & 1) != 0;
     }
 
     public void setClimbingWall(boolean climbing) {
-        byte value = dataTracker.get(CLIMBING);
+        byte b = this.dataTracker.get(CLIMBING);
         if (climbing) {
-            value |= 1;
+            b = (byte)(b | 1);
         } else {
-            value &= -2;
+            b = (byte)(b & -2);
         }
 
-        dataTracker.set(CLIMBING, value);
+        this.dataTracker.set(CLIMBING, b);
     }
 
     @Override

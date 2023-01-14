@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/stairs",
   "textures": {
-    "side": "spookybiomes:block/sorbus_planks",
     "bottom": "spookybiomes:block/sorbus_planks",
+    "side": "spookybiomes:block/sorbus_planks",
     "top": "spookybiomes:block/sorbus_planks"
   }
 }

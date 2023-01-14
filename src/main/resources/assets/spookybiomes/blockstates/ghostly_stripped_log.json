@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "spookybiomes:block/ghostly_stripped_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "spookybiomes:block/ghostly_stripped_log"
+    },
+    "axis=z": {
+      "model": "spookybiomes:block/ghostly_stripped_log_horizontal",
+      "x": 90
+    }
+  }
+}

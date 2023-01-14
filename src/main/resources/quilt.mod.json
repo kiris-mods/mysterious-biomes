@@ -33,7 +33,7 @@
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
-			"fabric-datagen": "dev.tophatcat.spookybiomes.DataGen",
+			"fabric-datagen": "dev.tophatcat.spookybiomes.datagen.DataGen",
       "init": "dev.tophatcat.spookybiomes.SpookyBiomes",
 			"client_init": "dev.tophatcat.spookybiomes.client.SpookyRendering"
     },

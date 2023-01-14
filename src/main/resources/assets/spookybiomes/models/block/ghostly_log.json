@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "side": "spookybiomes:block/ghostly_log",
-    "end": "spookybiomes:block/ghostly_log_top"
+    "end": "spookybiomes:block/ghostly_log_top",
+    "side": "spookybiomes:block/ghostly_log"
   }
 }

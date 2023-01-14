@@ -1,21 +1,7 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "spookybiomes:block/bloodied_dirt"
-      },
-      {
-        "model": "spookybiomes:block/bloodied_dirt",
-        "y": 90
-      },
-      {
-        "model": "spookybiomes:block/bloodied_dirt",
-        "y": 180
-      },
-      {
-        "model": "spookybiomes:block/bloodied_dirt",
-        "y": 270
-      }
-    ]
+    "": {
+      "model": "spookybiomes:block/bloodied_dirt"
+    }
   }
 }

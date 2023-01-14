@@ -31,19 +31,13 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 /**
- * Methods to assist in the registering of blocks without having lines full of duplicated code.
+ * Methods to assist in the registering of blocks, items and sounds without having lines full of duplicated code.
  *
  * @author KiriCattus
  */
+//TODO Move to Kiri's Lib.
 public class RegHelpers {
 
-    /**
-     * @param identifier The identifier of the mod and block together. e.g. new Identifier("kirislib", "test_block")
-     * @param block      The block class/Type, e.g. () new BigBadBlock()
-     * @param blockMap   The mods block map to store blocks ready for registration.
-     * @param <T>        .
-     * @return The block we are currently creating.
-     */
     public static <T extends Block> Supplier<T> createBlock(
         Identifier identifier, Supplier<T> block, Map<Identifier, Supplier<T>> blockMap) {
         var wrapped = Suppliers.memoize(block::get);
@@ -51,14 +45,6 @@ public class RegHelpers {
         return wrapped;
     }
 
-    /**
-     * @param identifier The identifier of the mod and block together. e.g. new Identifier("kirislib", "test_block")
-     * @param block      The block class/Type, e.g. () new BigBadBlock()
-     * @param blockMap   Your mods block map to store blocks ready for registration.
-     * @param itemMap    Your mods item map to store items ready for registration.
-     * @param <T>        .
-     * @return The block we are currently creating.
-     */
     public static <T extends Block> Supplier<T> createBlockWithItem(
         Identifier identifier, Supplier<T> block, Map<Identifier, Supplier<T>> blockMap,
         Map<Identifier, Supplier<Item>> itemMap) {
@@ -69,13 +55,6 @@ public class RegHelpers {
         return wrapped;
     }
 
-    /**
-     * @param identifier The identifier of the mod and item together. e.g. new Identifier("kirislib", "test_item")
-     * @param item       The item class/Type, e.g. () -> new BigBadHammerItem()
-     * @param itemMap    Your mods item map to store items ready for registration.
-     * @param <T>        .
-     * @return The item we are creating.
-     */
     public static <T extends Item> Supplier<T> createBasicItem(
         Identifier identifier, Supplier<T> item, Map<Identifier, Supplier<T>> itemMap) {
         var wrapped = Suppliers.memoize(item::get);
@@ -83,11 +62,6 @@ public class RegHelpers {
         return wrapped;
     }
 
-    /**
-     * @param identifier The mod and sound name together. e.g. new Identifier("kirislib", "test_sound")
-     * @param soundMap   Your mods soundMap to store your sounds ready for registration.
-     * @return The sound we are creating.
-     */
     public static SoundEvent createSound(Identifier identifier, Map<SoundEvent, Identifier> soundMap) {
         var soundEvent = new SoundEvent(identifier);
         soundMap.put(soundEvent, identifier);
