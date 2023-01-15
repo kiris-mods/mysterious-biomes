@@ -1,7 +1,7 @@
-package dev.tophatcat.spookybiomes.setup;
+package dev.tophatcat.mysteriousbiomes.setup;
 
-import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.common.entity.TheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -12,10 +12,10 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 
-public class SpookyEntitySetup {
+public class MysteriousEntitySetup {
 
     public static EntityType<TheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
-        Registry.ENTITY_TYPE, new Identifier(SpookyBiomes.MOD_ID, "the_forgotten_warlock"),
+        Registry.ENTITY_TYPE, new Identifier(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
         QuiltEntityTypeBuilder.<TheForgottenWarlock>createMob()
             .spawnGroup(SpawnGroup.MONSTER)
             .entityFactory(TheForgottenWarlock::new)
@@ -26,7 +26,7 @@ public class SpookyEntitySetup {
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn)
             .build());
 
-    public SpookyEntitySetup() {
+    public MysteriousEntitySetup() {
 
     }
 }

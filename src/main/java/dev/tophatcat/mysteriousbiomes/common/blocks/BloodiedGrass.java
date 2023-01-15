@@ -18,9 +18,9 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.spookybiomes.common.blocks;
+package dev.tophatcat.mysteriousbiomes.common.blocks;
 
-import dev.tophatcat.spookybiomes.setup.SpookyContentSetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.GrassBlock;
@@ -76,17 +76,17 @@ public class BloodiedGrass extends GrassBlock {
 
             if (!canBeGrass(state, world, pos)) {
                 //Block is covered, turn it into bloodied dirt.
-                world.setBlockState(pos, SpookyContentSetup.BLOODIED_DIRT.get().getDefaultState());
+                world.setBlockState(pos, MysteriousContentSetup.BLOODIED_DIRT.get().getDefaultState());
             } else {
                 if (world.getLightLevel(pos.up()) >= 9) {
                     //Attempt to spread grass onto neighboring bloodied dirt.
-                    BlockState replacementBlock = SpookyContentSetup.BLOODIED_GRASS.get().getDefaultState();
+                    BlockState replacementBlock = MysteriousContentSetup.BLOODIED_GRASS.get().getDefaultState();
 
                     for (int i = 0; i < 4; ++i) {
                         BlockPos blockpos = pos.add(random.nextInt(3)
                             - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
 
-                        if (world.getBlockState(blockpos).getBlock() == SpookyContentSetup.BLOODIED_DIRT.get()
+                        if (world.getBlockState(blockpos).getBlock() == MysteriousContentSetup.BLOODIED_DIRT.get()
                             && canPropagate(replacementBlock, world, blockpos)) {
                             world.setBlockState(blockpos, replacementBlock.with(SNOWY,
                                 world.getBlockState(blockpos.up()).getBlock() == Blocks.SNOW));

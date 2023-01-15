@@ -18,7 +18,7 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.spookybiomes.client;
+package dev.tophatcat.mysteriousbiomes.client;
 
 public class BiomeFogRendering {
 

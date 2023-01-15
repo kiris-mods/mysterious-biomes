@@ -18,7 +18,7 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.spookybiomes.common.entity;
+package dev.tophatcat.mysteriousbiomes.common.entity;
 
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;

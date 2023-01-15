@@ -18,11 +18,11 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.spookybiomes.client;
+package dev.tophatcat.mysteriousbiomes.client;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.common.entity.TheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
@@ -35,7 +35,7 @@ public class TheForgottenWarlockModel<T extends TheForgottenWarlock> extends Ent
     //This layer location should be baked with EntityRendererProvider.
     //Context in the entity renderer and passed into this model's constructor
     public static final EntityModelLayer THE_FORGOTTEN_WARLOCK_LOCATION = new EntityModelLayer(
-        new Identifier(SpookyBiomes.MOD_ID, "the_forgotten_warlock"), "main");
+        new Identifier(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"), "main");
     private final ModelPart root;
 
     public TheForgottenWarlockModel(ModelPart root) {

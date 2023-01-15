@@ -18,10 +18,10 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.spookybiomes.client;
+package dev.tophatcat.mysteriousbiomes.client;
 
-import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.common.entity.TheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
@@ -30,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class RenderTheForgottenWarlock extends MobEntityRenderer<TheForgottenWarlock, EntityModel<TheForgottenWarlock>> {
 
-    private static final Identifier RESOURCE_LOCATION = new Identifier(SpookyBiomes.MOD_ID,
+    private static final Identifier RESOURCE_LOCATION = new Identifier(MysteriousBiomes.MOD_ID,
         "textures/entity/the_forgotten_warlock.png");
 
     public RenderTheForgottenWarlock(EntityRendererFactory.Context renderManager) {

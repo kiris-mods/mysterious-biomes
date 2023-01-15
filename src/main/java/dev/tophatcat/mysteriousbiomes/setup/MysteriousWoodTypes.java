@@ -1,17 +1,17 @@
-package dev.tophatcat.spookybiomes.setup;
+package dev.tophatcat.mysteriousbiomes.setup;
 
 import net.minecraft.block.Block;
 
 import java.util.function.Supplier;
 
-public enum SpookyWoodTypes {
+public enum MysteriousWoodTypes {
 
     BLOODWOOD("bloodwood"),
     GHOSTLY("ghostly"),
     SORBUS("sorbus"),
     SEEPING("seeping");
 
-    SpookyWoodTypes(String name)  {
+    MysteriousWoodTypes(String name)  {
         this.name = name;
     }
 

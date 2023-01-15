@@ -1,8 +1,8 @@
-package dev.tophatcat.spookybiomes.datagen;
+package dev.tophatcat.mysteriousbiomes.datagen;
 
-import dev.tophatcat.spookybiomes.SpookyBiomes;
-import dev.tophatcat.spookybiomes.setup.SpookyContentSetup;
-import dev.tophatcat.spookybiomes.setup.SpookyWoodTypes;
+import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.data.server.BlockLootTableGenerator;
@@ -22,10 +22,10 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
     @Override
     public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
         var spookyWoodTypes = List.of(
-            SpookyWoodTypes.BLOODWOOD.getName(),
-            SpookyWoodTypes.GHOSTLY.getName(),
-            SpookyWoodTypes.SORBUS.getName(),
-            SpookyWoodTypes.SEEPING.getName());
+            MysteriousWoodTypes.BLOODWOOD.getName(),
+            MysteriousWoodTypes.GHOSTLY.getName(),
+            MysteriousWoodTypes.SORBUS.getName(),
+            MysteriousWoodTypes.SEEPING.getName());
         var spookyBlockTypes = List.of(
             "trapdoor", "slab", "stairs", "planks",
             "log", "stripped_log", "wood", "stripped_wood",
@@ -34,23 +34,23 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
         spookyWoodTypes.forEach(woodType -> {
 
             spookyBlockTypes.forEach(blockType -> {
-                var spookyIdentifier = new Identifier(SpookyBiomes.MOD_ID, woodType + "_" + blockType);
+                var spookyIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_" + blockType);
                 biConsumer.accept(new Identifier(spookyIdentifier.getNamespace(), "blocks/"
                     + spookyIdentifier.getPath()), BlockLootTableGenerator.drops(
-                    SpookyContentSetup.BLOCKS.get(spookyIdentifier).get().asItem()));
+                    MysteriousContentSetup.BLOCKS.get(spookyIdentifier).get().asItem()));
             });
 
-            var doorIdentifier = new Identifier(SpookyBiomes.MOD_ID, woodType + "_door");
+            var doorIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_door");
             biConsumer.accept(new Identifier(doorIdentifier.getNamespace(), "blocks/"
                 + doorIdentifier.getPath()), BlockLootTableGenerator.addDoorDrop(
-                SpookyContentSetup.BLOCKS.get(doorIdentifier).get()));
+                MysteriousContentSetup.BLOCKS.get(doorIdentifier).get()));
 
-            var leafIdentifier = new Identifier(SpookyBiomes.MOD_ID, woodType + "_leaves");
-            var saplingIdentifier = new Identifier(SpookyBiomes.MOD_ID, woodType + "_sapling");
+            var leafIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_leaves");
+            var saplingIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_sapling");
             biConsumer.accept(new Identifier(leafIdentifier.getNamespace(), "blocks/"
                 + leafIdentifier.getPath()), BlockLootTableGenerator.leavesDrop(
-                SpookyContentSetup.BLOCKS.get(leafIdentifier).get(),
-                SpookyContentSetup.BLOCKS.get(saplingIdentifier).get(),
+                MysteriousContentSetup.BLOCKS.get(leafIdentifier).get(),
+                MysteriousContentSetup.BLOCKS.get(saplingIdentifier).get(),
                 0.05F, 0.0625F, 0.083333336F, 0.1F));
         });
     }

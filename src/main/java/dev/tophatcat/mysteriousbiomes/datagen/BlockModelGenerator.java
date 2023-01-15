@@ -1,7 +1,7 @@
-package dev.tophatcat.spookybiomes.datagen;
+package dev.tophatcat.mysteriousbiomes.datagen;
 
-import dev.tophatcat.spookybiomes.setup.SpookyContentSetup;
-import dev.tophatcat.spookybiomes.setup.SpookyWoodTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.ItemModelGenerator;
@@ -10,10 +10,10 @@ import net.minecraft.data.family.BlockFamily;
 
 public class BlockModelGenerator extends FabricModelProvider {
 
-    private static final BlockFamily BLOODWOOD = fromWoodType(SpookyWoodTypes.BLOODWOOD);
-    private static final BlockFamily GHOSTLY = fromWoodType(SpookyWoodTypes.GHOSTLY);
-    private static final BlockFamily SORBUS = fromWoodType(SpookyWoodTypes.SORBUS);
-    private static final BlockFamily SEEPING = fromWoodType(SpookyWoodTypes.SEEPING);
+    private static final BlockFamily BLOODWOOD = fromWoodType(MysteriousWoodTypes.BLOODWOOD);
+    private static final BlockFamily GHOSTLY = fromWoodType(MysteriousWoodTypes.GHOSTLY);
+    private static final BlockFamily SORBUS = fromWoodType(MysteriousWoodTypes.SORBUS);
+    private static final BlockFamily SEEPING = fromWoodType(MysteriousWoodTypes.SEEPING);
 
     public BlockModelGenerator(FabricDataGenerator dataGenerator) {
         super(dataGenerator);
@@ -21,37 +21,37 @@ public class BlockModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator modelGen) {
-        makeWoodTypes(modelGen, SpookyWoodTypes.BLOODWOOD, BLOODWOOD);
-        makeWoodTypes(modelGen, SpookyWoodTypes.GHOSTLY, GHOSTLY);
-        makeWoodTypes(modelGen, SpookyWoodTypes.SORBUS, SORBUS);
-        makeWoodTypes(modelGen, SpookyWoodTypes.SEEPING, SEEPING);
-        modelGen.registerSimpleCubeAll(SpookyWoodTypes.BLOODWOOD.getLeaves().get());
-        modelGen.registerSimpleCubeAll(SpookyWoodTypes.GHOSTLY.getLeaves().get());
-        modelGen.registerSimpleCubeAll(SpookyWoodTypes.SORBUS.getLeaves().get());
-        modelGen.registerSimpleCubeAll(SpookyWoodTypes.SEEPING.getLeaves().get());
-        modelGen.registerTintableCross(SpookyWoodTypes.BLOODWOOD.getSapling().get(),
+        makeWoodTypes(modelGen, MysteriousWoodTypes.BLOODWOOD, BLOODWOOD);
+        makeWoodTypes(modelGen, MysteriousWoodTypes.GHOSTLY, GHOSTLY);
+        makeWoodTypes(modelGen, MysteriousWoodTypes.SORBUS, SORBUS);
+        makeWoodTypes(modelGen, MysteriousWoodTypes.SEEPING, SEEPING);
+        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.BLOODWOOD.getLeaves().get());
+        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.GHOSTLY.getLeaves().get());
+        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.SORBUS.getLeaves().get());
+        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.SEEPING.getLeaves().get());
+        modelGen.registerTintableCross(MysteriousWoodTypes.BLOODWOOD.getSapling().get(),
             BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(SpookyWoodTypes.GHOSTLY.getSapling().get(),
+        modelGen.registerTintableCross(MysteriousWoodTypes.GHOSTLY.getSapling().get(),
             BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(SpookyWoodTypes.SORBUS.getSapling().get(),
+        modelGen.registerTintableCross(MysteriousWoodTypes.SORBUS.getSapling().get(),
             BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(SpookyWoodTypes.SEEPING.getSapling().get(),
+        modelGen.registerTintableCross(MysteriousWoodTypes.SEEPING.getSapling().get(),
             BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerSimpleCubeAll(SpookyContentSetup.BLOODIED_DIRT.get());
+        modelGen.registerSimpleCubeAll(MysteriousContentSetup.BLOODIED_DIRT.get());
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
     }
 
-    private void makeWoodTypes(BlockStateModelGenerator generator, SpookyWoodTypes woodType, BlockFamily family) {
+    private void makeWoodTypes(BlockStateModelGenerator generator, MysteriousWoodTypes woodType, BlockFamily family) {
         generator.registerLog(woodType.getLog().get()).log(woodType.getLog().get()).wood(woodType.getWood().get());
         generator.registerLog(woodType.getStrippedLog().get()).log(woodType.getStrippedLog().get())
             .wood(woodType.getStrippedWood().get());
         generator.registerCubeAllModelTexturePool(woodType.getPlanks().get()).family(family);
     }
 
-    private static BlockFamily fromWoodType(SpookyWoodTypes woodTypes) {
+    private static BlockFamily fromWoodType(MysteriousWoodTypes woodTypes) {
         return new BlockFamily.Builder(woodTypes.getPlanks().get())
             .button(woodTypes.getButton().get())
             .door(woodTypes.getDoor().get())

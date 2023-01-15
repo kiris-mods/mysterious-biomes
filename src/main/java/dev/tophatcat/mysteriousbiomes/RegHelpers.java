@@ -18,12 +18,13 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.spookybiomes;
+package dev.tophatcat.mysteriousbiomes;
 
 import com.google.common.base.Suppliers;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.Identifier;
 
@@ -35,7 +36,8 @@ import java.util.function.Supplier;
  *
  * @author KiriCattus
  */
-//TODO Move to Kiri's Lib.
+//TODO Remove before releasing, leaving it here for Up to finish his work without trouble.
+@Deprecated
 public class RegHelpers {
 
     public static <T extends Block> Supplier<T> createBlock(
@@ -46,12 +48,12 @@ public class RegHelpers {
     }
 
     public static <T extends Block> Supplier<T> createBlockWithItem(
-        Identifier identifier, Supplier<T> block, Map<Identifier, Supplier<T>> blockMap,
+        Identifier identifier, ItemGroup group, Supplier<T> block, Map<Identifier, Supplier<T>> blockMap,
         Map<Identifier, Supplier<Item>> itemMap) {
         var wrapped = Suppliers.memoize(block::get);
         blockMap.put(identifier, wrapped);
         createBasicItem(identifier, () -> new BlockItem(wrapped.get(),
-            new Item.Settings().group(SpookyBiomes.ITEM_TAB)), itemMap);
+            new Item.Settings().group(group)), itemMap);
         return wrapped;
     }
 

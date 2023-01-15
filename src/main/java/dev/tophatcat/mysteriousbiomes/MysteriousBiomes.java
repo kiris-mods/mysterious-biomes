@@ -18,11 +18,11 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.spookybiomes;
+package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.spookybiomes.setup.SpookyContentSetup;
-import dev.tophatcat.spookybiomes.setup.SpookyEntitySetup;
-import dev.tophatcat.spookybiomes.setup.SpookyWoodTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntitySetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -36,8 +36,9 @@ import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
 
 //TODO Block tags.
 //TODO Sign stuff!
+//TODO Check for and replace previous mod name/id in code/resources.
 //TODO Convert to the new item group system in 1.19.3.
-public class SpookyBiomes implements ModInitializer {
+public class MysteriousBiomes implements ModInitializer {
 
     //public static final SignType SORBUS_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":sorbus"));
     //public static final SignType GHOSTLY_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":ghostly"));
@@ -45,16 +46,16 @@ public class SpookyBiomes implements ModInitializer {
     //public static final SignType BLOODWOOD_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":bloodwood"));
     //SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-    public static final String MOD_ID = "spookybiomes";
+    public static final String MOD_ID = "mysteriousbiomes";
     public static final ItemGroup ITEM_TAB = QuiltItemGroup.createWithIcon(new Identifier(MOD_ID, "group"),
-        () -> new ItemStack(SpookyWoodTypes.GHOSTLY.getSapling().get()));
+        () -> new ItemStack(MysteriousWoodTypes.GHOSTLY.getSapling().get()));
 
     @Override
     public void onInitialize(ModContainer mod) {
-        new SpookyContentSetup();
-        SpookyContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, block.get()));
-        SpookyContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, item.get()));
+        new MysteriousContentSetup();
+        MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, block.get()));
+        MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, item.get()));
         BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().isIn(BiomeTags.IS_FOREST),
-            SpawnGroup.MONSTER, SpookyEntitySetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
+            SpawnGroup.MONSTER, MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
     }
 }
