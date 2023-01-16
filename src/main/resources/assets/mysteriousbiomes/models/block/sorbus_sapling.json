@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "spookybiomes:block/sorbus_sapling"
+    "cross": "mysteriousbiomes:block/sorbus_sapling"
   }
 }

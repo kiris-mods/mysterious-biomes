@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/bloodied_dirt"
+      "model": "mysteriousbiomes:block/bloodied_dirt"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/sorbus_sapling"
+      "model": "mysteriousbiomes:block/sorbus_sapling"
     }
   }
 }

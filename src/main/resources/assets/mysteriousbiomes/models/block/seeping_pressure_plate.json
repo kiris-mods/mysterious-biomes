@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_up",
   "textures": {
-    "texture": "spookybiomes:block/seeping_planks"
+    "texture": "mysteriousbiomes:block/seeping_planks"
   }
 }

@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "spookybiomes:block/seeping_log_horizontal",
+      "model": "mysteriousbiomes:block/seeping_log_horizontal",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "spookybiomes:block/seeping_log"
+      "model": "mysteriousbiomes:block/seeping_log"
     },
     "axis=z": {
-      "model": "spookybiomes:block/seeping_log_horizontal",
+      "model": "mysteriousbiomes:block/seeping_log_horizontal",
       "x": 90
     }
   }

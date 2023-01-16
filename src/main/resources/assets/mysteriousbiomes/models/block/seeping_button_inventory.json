@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_inventory",
   "textures": {
-    "texture": "spookybiomes:block/seeping_planks"
+    "texture": "mysteriousbiomes:block/seeping_planks"
   }
 }

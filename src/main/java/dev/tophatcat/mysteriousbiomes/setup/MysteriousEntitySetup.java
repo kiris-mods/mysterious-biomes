@@ -14,7 +14,7 @@ import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 
 public class MysteriousEntitySetup {
 
-    public static EntityType<TheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
+    public static final EntityType<TheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
         Registry.ENTITY_TYPE, new Identifier(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
         QuiltEntityTypeBuilder.<TheForgottenWarlock>createMob()
             .spawnGroup(SpawnGroup.MONSTER)

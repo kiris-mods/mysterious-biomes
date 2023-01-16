@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:sorbus_button"
+          "name": "mysteriousbiomes:sorbus_button"
         }
       ],
       "rolls": 1.0

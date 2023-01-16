@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "bottom": "spookybiomes:block/seeping_planks",
-    "side": "spookybiomes:block/seeping_planks",
-    "top": "spookybiomes:block/seeping_planks"
+    "bottom": "mysteriousbiomes:block/seeping_planks",
+    "side": "mysteriousbiomes:block/seeping_planks",
+    "top": "mysteriousbiomes:block/seeping_planks"
   }
 }

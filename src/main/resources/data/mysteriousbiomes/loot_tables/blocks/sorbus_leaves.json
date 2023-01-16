@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "spookybiomes:sorbus_leaves"
+              "name": "mysteriousbiomes:sorbus_leaves"
             },
             {
               "type": "minecraft:item",
@@ -56,7 +56,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "spookybiomes:sorbus_sapling"
+              "name": "mysteriousbiomes:sorbus_sapling"
             }
           ]
         }

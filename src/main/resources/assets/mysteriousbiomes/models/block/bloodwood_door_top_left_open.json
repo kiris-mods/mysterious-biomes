@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_top_left_open",
   "textures": {
-    "bottom": "spookybiomes:block/bloodwood_door_bottom",
-    "top": "spookybiomes:block/bloodwood_door_top"
+    "bottom": "mysteriousbiomes:block/bloodwood_door_bottom",
+    "top": "mysteriousbiomes:block/bloodwood_door_top"
   }
 }

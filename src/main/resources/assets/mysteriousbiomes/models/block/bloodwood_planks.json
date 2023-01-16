@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "spookybiomes:block/bloodwood_planks"
+    "all": "mysteriousbiomes:block/bloodwood_planks"
   }
 }

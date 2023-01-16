@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/pressure_plate_down",
   "textures": {
-    "texture": "spookybiomes:block/sorbus_planks"
+    "texture": "mysteriousbiomes:block/sorbus_planks"
   }
 }

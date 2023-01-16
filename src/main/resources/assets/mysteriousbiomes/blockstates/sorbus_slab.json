@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "spookybiomes:block/sorbus_slab"
+      "model": "mysteriousbiomes:block/sorbus_slab"
     },
     "type=double": {
-      "model": "spookybiomes:block/sorbus_planks"
+      "model": "mysteriousbiomes:block/sorbus_planks"
     },
     "type=top": {
-      "model": "spookybiomes:block/sorbus_slab_top"
+      "model": "mysteriousbiomes:block/sorbus_slab_top"
     }
   }
 }

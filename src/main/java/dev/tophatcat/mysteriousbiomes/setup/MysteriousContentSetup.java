@@ -28,7 +28,8 @@ public class MysteriousContentSetup {
             MysteriousWoodTypes.BLOODWOOD,
             MysteriousWoodTypes.GHOSTLY,
             MysteriousWoodTypes.SORBUS,
-            MysteriousWoodTypes.SEEPING);
+            MysteriousWoodTypes.SEEPING,
+            MysteriousWoodTypes.SAKURA);
 
         spookyWoodTypes.forEach(woodType -> {
             woodType.log = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(), "_log");
@@ -56,6 +57,8 @@ public class MysteriousContentSetup {
         MysteriousWoodTypes.SORBUS.sapling = MysteriousSetupHelpers.setupSaplingBlock("sorbus_sapling",
             new OakSaplingGenerator());
         MysteriousWoodTypes.SEEPING.sapling = MysteriousSetupHelpers.setupSaplingBlock("seeping_sapling",
+            new OakSaplingGenerator());
+        MysteriousWoodTypes.SAKURA.sapling = MysteriousSetupHelpers.setupSaplingBlock("sakura_sapling",
             new OakSaplingGenerator());
 
         BLOODIED_GRASS = RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID, "bloodied_grass"),

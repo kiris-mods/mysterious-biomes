@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/fence_post",
   "textures": {
-    "texture": "spookybiomes:block/seeping_planks"
+    "texture": "mysteriousbiomes:block/seeping_planks"
   }
 }

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:seeping_wood"
+          "name": "mysteriousbiomes:seeping_wood"
         }
       ],
       "rolls": 1.0

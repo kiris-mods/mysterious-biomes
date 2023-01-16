@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_top_left",
   "textures": {
-    "bottom": "spookybiomes:block/sorbus_door_bottom",
-    "top": "spookybiomes:block/sorbus_door_top"
+    "bottom": "mysteriousbiomes:block/sorbus_door_bottom",
+    "top": "mysteriousbiomes:block/sorbus_door_top"
   }
 }

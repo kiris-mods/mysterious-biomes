@@ -2,23 +2,23 @@
   "variants": {
     "snowy=false": [
       {
-        "model": "spookybiomes:block/bloodied_grass"
+        "model": "mysteriousbiomes:block/bloodied_grass"
       },
       {
-        "model": "spookybiomes:block/bloodied_grass",
+        "model": "mysteriousbiomes:block/bloodied_grass",
         "y": 90
       },
       {
-        "model": "spookybiomes:block/bloodied_grass",
+        "model": "mysteriousbiomes:block/bloodied_grass",
         "y": 180
       },
       {
-        "model": "spookybiomes:block/bloodied_grass",
+        "model": "mysteriousbiomes:block/bloodied_grass",
         "y": 270
       }
     ],
     "snowy=true": {
-      "model": "spookybiomes:block/bloodied_grass_snow"
+      "model": "mysteriousbiomes:block/bloodied_grass_snow"
     }
   }
 }

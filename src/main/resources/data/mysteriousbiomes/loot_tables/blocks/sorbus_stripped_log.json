@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:sorbus_stripped_log"
+          "name": "mysteriousbiomes:sorbus_stripped_log"
         }
       ],
       "rolls": 1.0

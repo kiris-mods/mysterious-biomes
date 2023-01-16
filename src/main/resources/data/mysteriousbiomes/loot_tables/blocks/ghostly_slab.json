@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:ghostly_slab"
+          "name": "mysteriousbiomes:ghostly_slab"
         }
       ],
       "rolls": 1.0

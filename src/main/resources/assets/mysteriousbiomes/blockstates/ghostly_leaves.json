@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/ghostly_leaves"
+      "model": "mysteriousbiomes:block/ghostly_leaves"
     }
   }
 }

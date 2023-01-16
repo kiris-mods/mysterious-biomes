@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "spookybiomes:block/sorbus_log_top",
-    "side": "spookybiomes:block/sorbus_log"
+    "end": "mysteriousbiomes:block/sorbus_log_top",
+    "side": "mysteriousbiomes:block/sorbus_log"
   }
 }

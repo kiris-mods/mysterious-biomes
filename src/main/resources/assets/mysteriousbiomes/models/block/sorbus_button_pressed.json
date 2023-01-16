@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button_pressed",
   "textures": {
-    "texture": "spookybiomes:block/sorbus_planks"
+    "texture": "mysteriousbiomes:block/sorbus_planks"
   }
 }

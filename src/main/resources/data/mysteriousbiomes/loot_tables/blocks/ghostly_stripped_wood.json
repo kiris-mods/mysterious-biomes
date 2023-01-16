@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:ghostly_stripped_wood"
+          "name": "mysteriousbiomes:ghostly_stripped_wood"
         }
       ],
       "rolls": 1.0

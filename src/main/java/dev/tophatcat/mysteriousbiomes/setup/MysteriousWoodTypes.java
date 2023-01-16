@@ -9,7 +9,8 @@ public enum MysteriousWoodTypes {
     BLOODWOOD("bloodwood"),
     GHOSTLY("ghostly"),
     SORBUS("sorbus"),
-    SEEPING("seeping");
+    SEEPING("seeping"),
+    SAKURA("sakura");
 
     MysteriousWoodTypes(String name)  {
         this.name = name;

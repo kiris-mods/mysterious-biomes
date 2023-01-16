@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:seeping_stripped_log"
+          "name": "mysteriousbiomes:seeping_stripped_log"
         }
       ],
       "rolls": 1.0

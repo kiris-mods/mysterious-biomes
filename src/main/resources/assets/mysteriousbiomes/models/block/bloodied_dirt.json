@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "spookybiomes:block/bloodied_dirt"
+    "all": "mysteriousbiomes:block/bloodied_dirt"
   }
 }

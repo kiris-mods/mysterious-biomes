@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "spookybiomes:seeping_leaves"
+              "name": "mysteriousbiomes:seeping_leaves"
             },
             {
               "type": "minecraft:item",
@@ -56,7 +56,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "spookybiomes:seeping_sapling"
+              "name": "mysteriousbiomes:seeping_sapling"
             }
           ]
         }

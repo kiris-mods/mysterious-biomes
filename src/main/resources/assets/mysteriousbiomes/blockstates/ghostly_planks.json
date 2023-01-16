@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/ghostly_planks"
+      "model": "mysteriousbiomes:block/ghostly_planks"
     }
   }
 }

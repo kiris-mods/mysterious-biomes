@@ -25,14 +25,14 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
             MysteriousWoodTypes.BLOODWOOD.getName(),
             MysteriousWoodTypes.GHOSTLY.getName(),
             MysteriousWoodTypes.SORBUS.getName(),
-            MysteriousWoodTypes.SEEPING.getName());
+            MysteriousWoodTypes.SEEPING.getName(),
+            MysteriousWoodTypes.SAKURA.getName());
         var spookyBlockTypes = List.of(
             "trapdoor", "slab", "stairs", "planks",
             "log", "stripped_log", "wood", "stripped_wood",
             "gate", "fence", "button", "pressure_plate", "sapling");
 
         spookyWoodTypes.forEach(woodType -> {
-
             spookyBlockTypes.forEach(blockType -> {
                 var spookyIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_" + blockType);
                 biConsumer.accept(new Identifier(spookyIdentifier.getNamespace(), "blocks/"
@@ -53,5 +53,13 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
                 MysteriousContentSetup.BLOCKS.get(saplingIdentifier).get(),
                 0.05F, 0.0625F, 0.083333336F, 0.1F));
         });
+
+        var dirtIdentifier = new Identifier(MysteriousBiomes.MOD_ID, "bloodied_dirt");
+        biConsumer.accept(new Identifier(dirtIdentifier.getNamespace(), "blocks/" + dirtIdentifier.getPath()),
+            BlockLootTableGenerator.drops(MysteriousContentSetup.BLOCKS.get(dirtIdentifier).get().asItem()));
+
+        var grassIdentifier = new Identifier(MysteriousBiomes.MOD_ID, "bloodied_grass");
+        biConsumer.accept(new Identifier(grassIdentifier.getNamespace(), "blocks/" + grassIdentifier.getPath()),
+            BlockLootTableGenerator.dropsWithSilkTouch(MysteriousContentSetup.BLOCKS.get(grassIdentifier).get().asItem()));
     }
 }

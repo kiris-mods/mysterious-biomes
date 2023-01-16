@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "spookybiomes:block/seeping_slab"
+      "model": "mysteriousbiomes:block/seeping_slab"
     },
     "type=double": {
-      "model": "spookybiomes:block/seeping_planks"
+      "model": "mysteriousbiomes:block/seeping_planks"
     },
     "type=top": {
-      "model": "spookybiomes:block/seeping_slab_top"
+      "model": "mysteriousbiomes:block/seeping_slab_top"
     }
   }
 }

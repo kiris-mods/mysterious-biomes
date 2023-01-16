@@ -1,6 +1,9 @@
 {
   "block.mysteriousbiomes.bloodied_dirt": "Bloodied Dirt",
   "block.mysteriousbiomes.bloodied_grass": "Bloodied Grass",
+  "entity.mysteriousbiomes.the_forgotten_warlock": "The Forgotten Warlock",
+  "itemGroup.mysteriousbiomes.group": "Spooky Biomes",
+
   "block.mysteriousbiomes.bloodwood_button": "Blood Button",
   "block.mysteriousbiomes.bloodwood_door": "Blood Door",
   "block.mysteriousbiomes.bloodwood_fence": "Blood Fence",
@@ -18,6 +21,7 @@
   "block.mysteriousbiomes.bloodwood_stairs": "Blood Stairs",
   "block.mysteriousbiomes.bloodwood_trapdoor": "Blood Trapdoor",
   "block.mysteriousbiomes.bloodwood_wall_sign": "Blood Wall Sign",
+
   "block.mysteriousbiomes.ghostly_button": "Ghostly Button",
   "block.mysteriousbiomes.ghostly_door": "Ghostly Door",
   "block.mysteriousbiomes.ghostly_fence": "Ghostly Fence",
@@ -35,6 +39,7 @@
   "block.mysteriousbiomes.ghostly_stairs": "Ghostly Stairs",
   "block.mysteriousbiomes.ghostly_trapdoor": "Ghostly Trapdoor",
   "block.mysteriousbiomes.ghostly_wall_sign": "Ghostly Wall Sign",
+
   "block.mysteriousbiomes.seeping_button": "Seeping Button",
   "block.mysteriousbiomes.seeping_door": "Seeping Door",
   "block.mysteriousbiomes.seeping_fence": "Seeping Fence",
@@ -52,6 +57,7 @@
   "block.mysteriousbiomes.seeping_stairs": "Seeping Stairs",
   "block.mysteriousbiomes.seeping_trapdoor": "Seeping Trapdoor",
   "block.mysteriousbiomes.seeping_wall_sign": "Seeping Wall Sign",
+
   "block.mysteriousbiomes.sorbus_button": "Sorbus Button",
   "block.mysteriousbiomes.sorbus_door": "Sorbus Door",
   "block.mysteriousbiomes.sorbus_fence": "Sorbus Fence",
@@ -69,6 +75,22 @@
   "block.mysteriousbiomes.sorbus_stairs": "Sorbus Stairs",
   "block.mysteriousbiomes.sorbus_trapdoor": "Sorbus Trapdoor",
   "block.mysteriousbiomes.sorbus_wall_sign": "Sorbus Wall Sign",
-  "entity.mysteriousbiomes.the_forgotten_warlock": "The Forgotten Warlock",
-  "itemGroup.mysteriousbiomes.group": "Spooky Biomes"
+
+  "block.mysteriousbiomes.sakura_button": "Sakura Button",
+  "block.mysteriousbiomes.sakura_door": "Sakura Door",
+  "block.mysteriousbiomes.sakura_fence": "Sakura Fence",
+  "block.mysteriousbiomes.sakura_gate": "Sakura Gate",
+  "block.mysteriousbiomes.sakura_leaves": "Sakura Leaves",
+  "block.mysteriousbiomes.sakura_log": "Sakura Log",
+  "block.mysteriousbiomes.sakura_stripped_log": "Stripped Sakura Log",
+  "block.mysteriousbiomes.sakura_wood": "Sakura Wood",
+  "block.mysteriousbiomes.sakura_stripped_wood": "Stripped Sakura Wood",
+  "block.mysteriousbiomes.sakura_planks": "Sakura Planks",
+  "block.mysteriousbiomes.sakura_pressure_plate": "Sakura Pressure Plate",
+  "block.mysteriousbiomes.sakura_sapling": "Sakura Sapling",
+  "block.mysteriousbiomes.sakura_sign": "Sakura Sign",
+  "block.mysteriousbiomes.sakura_slab": "Sakura Slab",
+  "block.mysteriousbiomes.sakura_stairs": "Sakura Stairs",
+  "block.mysteriousbiomes.sakura_trapdoor": "Sakura Trapdoor",
+  "block.mysteriousbiomes.sakura_wall_sign": "Sakura Wall Sign"
 }

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:sorbus_fence"
+          "name": "mysteriousbiomes:sorbus_fence"
         }
       ],
       "rolls": 1.0

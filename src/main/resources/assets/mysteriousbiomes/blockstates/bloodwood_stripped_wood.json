@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "spookybiomes:block/bloodwood_stripped_wood",
+      "model": "mysteriousbiomes:block/bloodwood_stripped_wood",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "spookybiomes:block/bloodwood_stripped_wood"
+      "model": "mysteriousbiomes:block/bloodwood_stripped_wood"
     },
     "axis=z": {
-      "model": "spookybiomes:block/bloodwood_stripped_wood",
+      "model": "mysteriousbiomes:block/bloodwood_stripped_wood",
       "x": 90
     }
   }

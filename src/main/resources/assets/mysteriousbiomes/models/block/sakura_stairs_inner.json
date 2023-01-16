@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "mysteriousbiomes:block/sakura_planks",
+    "side": "mysteriousbiomes:block/sakura_planks",
+    "top": "mysteriousbiomes:block/sakura_planks"
+  }
+}

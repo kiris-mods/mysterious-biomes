@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/bloodwood_leaves"
+      "model": "mysteriousbiomes:block/bloodwood_leaves"
     }
   }
 }

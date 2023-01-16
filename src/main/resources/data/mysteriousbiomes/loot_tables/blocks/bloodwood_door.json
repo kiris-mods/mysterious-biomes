@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "spookybiomes:bloodwood_door",
+              "block": "mysteriousbiomes:bloodwood_door",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "spookybiomes:bloodwood_door"
+          "name": "mysteriousbiomes:bloodwood_door"
         }
       ],
       "rolls": 1.0

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:ghostly_gate"
+          "name": "mysteriousbiomes:ghostly_gate"
         }
       ],
       "rolls": 1.0

@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:seeping_trapdoor"
+          "name": "mysteriousbiomes:seeping_trapdoor"
         }
       ],
       "rolls": 1.0

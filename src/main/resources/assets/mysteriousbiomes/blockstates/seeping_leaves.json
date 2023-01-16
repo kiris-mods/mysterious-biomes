@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/seeping_leaves"
+      "model": "mysteriousbiomes:block/seeping_leaves"
     }
   }
 }

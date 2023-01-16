@@ -12,7 +12,7 @@ public class MysteriousSetupHelpers {
 
     public static Supplier<Block> setupSaplingBlock(String name, SaplingGenerator generator) {
         return RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID, name), MysteriousBiomes.ITEM_TAB,
-            () -> new SaplingBlock(generator, Block.Settings.of(Material.WOOD).ticksRandomly()),
+            () -> new SaplingBlock(generator, Block.Settings.of(Material.WOOD).ticksRandomly().noCollision()),
             MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 

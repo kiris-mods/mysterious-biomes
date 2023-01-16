@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/bloodwood_sapling"
+      "model": "mysteriousbiomes:block/bloodwood_sapling"
     }
   }
 }

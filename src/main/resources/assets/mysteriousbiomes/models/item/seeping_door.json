@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "spookybiomes:item/seeping_door"
+    "layer0": "mysteriousbiomes:item/seeping_door"
   }
 }

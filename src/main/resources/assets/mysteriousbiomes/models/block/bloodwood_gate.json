@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/template_fence_gate",
   "textures": {
-    "texture": "spookybiomes:block/bloodwood_planks"
+    "texture": "mysteriousbiomes:block/bloodwood_planks"
   }
 }

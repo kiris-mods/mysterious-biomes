@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/button",
   "textures": {
-    "texture": "spookybiomes:block/ghostly_planks"
+    "texture": "mysteriousbiomes:block/ghostly_planks"
   }
 }

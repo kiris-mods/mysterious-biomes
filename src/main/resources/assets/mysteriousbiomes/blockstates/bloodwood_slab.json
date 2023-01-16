@@ -1,13 +1,13 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "spookybiomes:block/bloodwood_slab"
+      "model": "mysteriousbiomes:block/bloodwood_slab"
     },
     "type=double": {
-      "model": "spookybiomes:block/bloodwood_planks"
+      "model": "mysteriousbiomes:block/bloodwood_planks"
     },
     "type=top": {
-      "model": "spookybiomes:block/bloodwood_slab_top"
+      "model": "mysteriousbiomes:block/bloodwood_slab_top"
     }
   }
 }

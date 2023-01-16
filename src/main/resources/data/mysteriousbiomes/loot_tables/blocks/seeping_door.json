@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "spookybiomes:seeping_door",
+              "block": "mysteriousbiomes:seeping_door",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "spookybiomes:seeping_door"
+          "name": "mysteriousbiomes:seeping_door"
         }
       ],
       "rolls": 1.0

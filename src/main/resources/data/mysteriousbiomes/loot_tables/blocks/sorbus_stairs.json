@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:sorbus_stairs"
+          "name": "mysteriousbiomes:sorbus_stairs"
         }
       ],
       "rolls": 1.0

@@ -37,7 +37,7 @@
                   ]
                 }
               ],
-              "name": "spookybiomes:ghostly_leaves"
+              "name": "mysteriousbiomes:ghostly_leaves"
             },
             {
               "type": "minecraft:item",
@@ -56,7 +56,7 @@
                   "enchantment": "minecraft:fortune"
                 }
               ],
-              "name": "spookybiomes:ghostly_sapling"
+              "name": "mysteriousbiomes:ghostly_sapling"
             }
           ]
         }

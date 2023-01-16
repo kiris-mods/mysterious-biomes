@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "spookybiomes:item/sorbus_door"
+    "layer0": "mysteriousbiomes:item/sorbus_door"
   }
 }

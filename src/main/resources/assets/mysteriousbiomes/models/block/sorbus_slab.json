@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/slab",
   "textures": {
-    "bottom": "spookybiomes:block/sorbus_planks",
-    "side": "spookybiomes:block/sorbus_planks",
-    "top": "spookybiomes:block/sorbus_planks"
+    "bottom": "mysteriousbiomes:block/sorbus_planks",
+    "side": "mysteriousbiomes:block/sorbus_planks",
+    "top": "mysteriousbiomes:block/sorbus_planks"
   }
 }

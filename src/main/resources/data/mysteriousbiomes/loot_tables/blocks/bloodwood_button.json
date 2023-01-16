@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spookybiomes:bloodwood_button"
+          "name": "mysteriousbiomes:bloodwood_button"
         }
       ],
       "rolls": 1.0

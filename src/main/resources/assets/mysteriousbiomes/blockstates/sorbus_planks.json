@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "spookybiomes:block/sorbus_planks"
+      "model": "mysteriousbiomes:block/sorbus_planks"
     }
   }
 }

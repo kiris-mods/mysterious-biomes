@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "spookybiomes:sorbus_door",
+              "block": "mysteriousbiomes:sorbus_door",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "spookybiomes:sorbus_door"
+          "name": "mysteriousbiomes:sorbus_door"
         }
       ],
       "rolls": 1.0
