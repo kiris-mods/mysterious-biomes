@@ -27,11 +27,11 @@ repositories {
 dependencies {
 	//The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
 	minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings "org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2"
-	//mappings loom.layered {
-	//	mappings "org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2"
-	//	officialMojangMappings()
-	//}
+    //mappings "org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2"
+	mappings loom.layered {
+		mappings "org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2"
+		officialMojangMappings()
+	}
 
 	//Quilt Loader
     modImplementation "org.quiltmc:quilt-loader:${loader_version}"

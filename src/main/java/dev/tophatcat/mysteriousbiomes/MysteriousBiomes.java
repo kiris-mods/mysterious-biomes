@@ -23,12 +23,12 @@ package dev.tophatcat.mysteriousbiomes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntitySetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tag.BiomeTags;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BiomeTags;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.item.group.api.QuiltItemGroup;
@@ -47,7 +47,7 @@ public class MysteriousBiomes implements ModInitializer {
     //SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
     public static final String MOD_ID = "mysteriousbiomes";
-    public static final ItemGroup ITEM_TAB = QuiltItemGroup.createWithIcon(new Identifier(MOD_ID, "group"),
+    public static final CreativeModeTab ITEM_TAB = QuiltItemGroup.createWithIcon(new ResourceLocation(MOD_ID, "group"),
         () -> new ItemStack(MysteriousWoodTypes.GHOSTLY.getSapling().get()));
 
     @Override
@@ -55,7 +55,7 @@ public class MysteriousBiomes implements ModInitializer {
         new MysteriousContentSetup();
         MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, block.get()));
         MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, item.get()));
-        BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().isIn(BiomeTags.IS_FOREST),
-            SpawnGroup.MONSTER, MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
+        BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST),
+            MobCategory.MONSTER, MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
     }
 }

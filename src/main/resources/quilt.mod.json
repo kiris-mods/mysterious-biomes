@@ -4,7 +4,6 @@
     "group": "${group}",
     "id": "${mod_id}",
     "version": "${version}",
-    "icon": "assets/${mod_id}/icon.png",
     "metadata": {
       "name": "${mod_name}",
       "description": "${mod_description}",
@@ -18,18 +17,13 @@
       },
       "license": [
         {
-          "name": "All Rights Reserved",
-          "id": "ARR (Assets)",
-          "url": "https://en.wikipedia.org/wiki/All_rights_reserved",
-          "description": "License for the art in this module"
-        },
-        {
           "name": "${mod_license_long}",
           "id": "${mod_license_id} (Code)",
           "url": "${mod_source}/blob/dev/LICENSE.txt",
           "description": "License for the code in this mod"
         }
-      ]
+      ],
+			"icon": "assets/${mod_id}/icon.png"
     },
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {

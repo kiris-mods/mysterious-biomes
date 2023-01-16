@@ -22,30 +22,30 @@ package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
 import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.MobEntityRenderer;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-public class RenderTheForgottenWarlock extends MobEntityRenderer<TheForgottenWarlock, EntityModel<TheForgottenWarlock>> {
+public class RenderTheForgottenWarlock extends MobRenderer<TheForgottenWarlock, EntityModel<TheForgottenWarlock>> {
 
-    private static final Identifier RESOURCE_LOCATION = new Identifier(MysteriousBiomes.MOD_ID,
+    private static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(MysteriousBiomes.MOD_ID,
         "textures/entity/the_forgotten_warlock.png");
 
-    public RenderTheForgottenWarlock(EntityRendererFactory.Context renderManager) {
+    public RenderTheForgottenWarlock(EntityRendererProvider.Context renderManager) {
         super(renderManager, new TheForgottenWarlockModel<>(
-            renderManager.getPart(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
+            renderManager.bakeLayer(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
     }
 
     @NotNull
     @Override
-    public Identifier getTexture(@NotNull TheForgottenWarlock theForgottenWarlock) {
+    public ResourceLocation getTextureLocation(@NotNull TheForgottenWarlock theForgottenWarlock) {
         return RESOURCE_LOCATION;
     }
 
     @Override
-    protected boolean hasLabel(@NotNull TheForgottenWarlock entity) {
-        return super.hasLabel(entity);
+    protected boolean shouldShowName(@NotNull TheForgottenWarlock entity) {
+        return super.shouldShowName(entity);
     }
 }

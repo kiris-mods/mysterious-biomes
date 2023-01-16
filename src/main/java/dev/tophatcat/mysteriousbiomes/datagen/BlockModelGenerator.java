@@ -4,9 +4,15 @@ import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.model.*;
-import net.minecraft.data.family.BlockFamily;
+import net.minecraft.data.BlockFamily;
+import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelLocationUtils;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
+import net.minecraft.data.models.model.TextureSlot;
 
 public class BlockModelGenerator extends FabricModelProvider {
 
@@ -21,49 +27,52 @@ public class BlockModelGenerator extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator modelGen) {
+    public void generateBlockStateModels(BlockModelGenerators modelGen) {
         makeWoodTypes(modelGen, MysteriousWoodTypes.BLOODWOOD, BLOODWOOD);
         makeWoodTypes(modelGen, MysteriousWoodTypes.GHOSTLY, GHOSTLY);
         makeWoodTypes(modelGen, MysteriousWoodTypes.SORBUS, SORBUS);
         makeWoodTypes(modelGen, MysteriousWoodTypes.SEEPING, SEEPING);
         makeWoodTypes(modelGen, MysteriousWoodTypes.SAKURA, SAKURA);
-        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.BLOODWOOD.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.GHOSTLY.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.SORBUS.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.SEEPING.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousWoodTypes.SAKURA.getLeaves().get());
-        modelGen.registerTintableCross(MysteriousWoodTypes.BLOODWOOD.getSapling().get(),
-            BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousWoodTypes.GHOSTLY.getSapling().get(),
-            BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousWoodTypes.SORBUS.getSapling().get(),
-            BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousWoodTypes.SEEPING.getSapling().get(),
-            BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousWoodTypes.SAKURA.getSapling().get(),
-            BlockStateModelGenerator.TintType.NOT_TINTED);
+        modelGen.createTrivialCube(MysteriousWoodTypes.BLOODWOOD.getLeaves().get());
+        modelGen.createTrivialCube(MysteriousWoodTypes.GHOSTLY.getLeaves().get());
+        modelGen.createTrivialCube(MysteriousWoodTypes.SORBUS.getLeaves().get());
+        modelGen.createTrivialCube(MysteriousWoodTypes.SEEPING.getLeaves().get());
+        modelGen.createTrivialCube(MysteriousWoodTypes.SAKURA.getLeaves().get());
+        modelGen.createCrossBlockWithDefaultItem(MysteriousWoodTypes.BLOODWOOD.getSapling().get(),
+            BlockModelGenerators.TintState.NOT_TINTED);
+        modelGen.createCrossBlockWithDefaultItem(MysteriousWoodTypes.GHOSTLY.getSapling().get(),
+            BlockModelGenerators.TintState.NOT_TINTED);
+        modelGen.createCrossBlockWithDefaultItem(MysteriousWoodTypes.SORBUS.getSapling().get(),
+            BlockModelGenerators.TintState.NOT_TINTED);
+        modelGen.createCrossBlockWithDefaultItem(MysteriousWoodTypes.SEEPING.getSapling().get(),
+            BlockModelGenerators.TintState.NOT_TINTED);
+        modelGen.createCrossBlockWithDefaultItem(MysteriousWoodTypes.SAKURA.getSapling().get(),
+            BlockModelGenerators.TintState.NOT_TINTED);
 
-        modelGen.registerSimpleCubeAll(MysteriousContentSetup.BLOODIED_DIRT.get());
-        modelGen.registerTopSoil(MysteriousContentSetup.BLOODIED_GRASS.get(),
-            ModelIds.getBlockModelId(MysteriousContentSetup.BLOODIED_GRASS.get()),
-            BlockStateVariant.create().put(VariantSettings.MODEL,
-                Models.CUBE_BOTTOM_TOP.upload(MysteriousContentSetup.BLOODIED_GRASS.get(), "_snow",
-                    new Texture().put(TextureKey.BOTTOM, Texture.getId(MysteriousContentSetup.BLOODIED_DIRT.get()))
-                        .inherit(TextureKey.BOTTOM, TextureKey.PARTICLE).put(TextureKey.TOP,
-                        Texture.getSubId(MysteriousContentSetup.BLOODIED_GRASS.get(), "_top"))
-                    .put(TextureKey.SIDE, Texture.getSubId(MysteriousContentSetup.BLOODIED_GRASS.get(), "_snow")),
-                modelGen.modelCollector)));
+        modelGen.createTrivialCube(MysteriousContentSetup.BLOODIED_DIRT.get());
+        //FIXME This does NOT generate the bloodied_grass.json block model file like it in theory should.
+        modelGen.createGrassLikeBlock(MysteriousContentSetup.BLOODIED_GRASS.get(),
+            ModelLocationUtils.getModelLocation(MysteriousContentSetup.BLOODIED_GRASS.get()),
+            Variant.variant().with(VariantProperties.MODEL, ModelTemplates.CUBE_BOTTOM_TOP
+                .createWithSuffix(MysteriousContentSetup.BLOODIED_GRASS.get(), "_snow",
+                    new TextureMapping().put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(
+                        MysteriousContentSetup.BLOODIED_DIRT.get())).copyForced(TextureSlot.BOTTOM,
+                        TextureSlot.PARTICLE).put(TextureSlot.TOP, TextureMapping.getBlockTexture(
+                        MysteriousContentSetup.BLOODIED_GRASS.get(), "_top")).put(TextureSlot.SIDE,
+                        TextureMapping.getBlockTexture(MysteriousContentSetup.BLOODIED_GRASS.get(),
+                            "_snow")), modelGen.modelOutput)));
     }
 
     @Override
-    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+    public void generateItemModels(ItemModelGenerators itemModelGenerator) {
     }
 
-    private void makeWoodTypes(BlockStateModelGenerator generator, MysteriousWoodTypes woodType, BlockFamily family) {
-        generator.registerLog(woodType.getLog().get()).log(woodType.getLog().get()).wood(woodType.getWood().get());
-        generator.registerLog(woodType.getStrippedLog().get()).log(woodType.getStrippedLog().get())
+    private void makeWoodTypes(BlockModelGenerators generator, MysteriousWoodTypes woodType, BlockFamily family) {
+        generator.woodProvider(woodType.getLog().get()).logWithHorizontal(woodType.getLog().get())
+            .wood(woodType.getWood().get());
+        generator.woodProvider(woodType.getStrippedLog().get()).logWithHorizontal(woodType.getStrippedLog().get())
             .wood(woodType.getStrippedWood().get());
-        generator.registerCubeAllModelTexturePool(woodType.getPlanks().get()).family(family);
+        generator.family(woodType.getPlanks().get()).generateFor(family);
     }
 
     private static BlockFamily fromWoodType(MysteriousWoodTypes woodTypes) {
@@ -77,7 +86,8 @@ public class BlockModelGenerator extends FabricModelProvider {
             .stairs(woodTypes.getStairs().get())
             //TODO Sign stuff!
             //.sign(woodTypes.getFloorSign().get(), woodTypes.getWallSign().get())
-            .trapdoor(woodTypes.getTrapdoor().get()).group("wooden").unlockCriterionName("has_planks").build();
+            .trapdoor(woodTypes.getTrapdoor().get()).recipeGroupPrefix("wooden")
+            .recipeUnlockedBy("has_planks").getFamily();
 
     }
 }

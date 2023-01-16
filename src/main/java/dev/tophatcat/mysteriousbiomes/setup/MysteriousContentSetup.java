@@ -3,12 +3,12 @@ package dev.tophatcat.mysteriousbiomes.setup;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
 import dev.tophatcat.mysteriousbiomes.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.common.blocks.BloodiedGrass;
-import net.minecraft.block.Block;
-import net.minecraft.block.Material;
-import net.minecraft.block.sapling.OakSaplingGenerator;
-import net.minecraft.item.Item;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.grower.OakTreeGrower;
+import net.minecraft.world.level.material.Material;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -17,8 +17,8 @@ import java.util.function.Supplier;
 
 public class MysteriousContentSetup {
 
-    public static final Map<Identifier, Supplier<Block>> BLOCKS = new LinkedHashMap<>();
-    public static final Map<Identifier, Supplier<Item>> ITEMS = new LinkedHashMap<>();
+    public static final Map<ResourceLocation, Supplier<Block>> BLOCKS = new LinkedHashMap<>();
+    public static final Map<ResourceLocation, Supplier<Item>> ITEMS = new LinkedHashMap<>();
 
     public static Supplier<Block> BLOODIED_GRASS = null;
     public static Supplier<Block> BLOODIED_DIRT = null;
@@ -38,7 +38,7 @@ public class MysteriousContentSetup {
             woodType.stripped_wood = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(), "_stripped_wood");
             woodType.planks = MysteriousSetupHelpers.setupPlanksBlock(woodType.getName());
             woodType.stairs = MysteriousSetupHelpers.setupStairsBlock(woodType.getName(),
-                woodType.getPlanks().get().getDefaultState());
+                woodType.getPlanks().get().defaultBlockState());
             woodType.leaves = MysteriousSetupHelpers.setupLeavesBlock(woodType.getName());
             woodType.slab = MysteriousSetupHelpers.setupSlabBlock(woodType.getName());
             woodType.fence = MysteriousSetupHelpers.setupFenceBlock(woodType.getName());
@@ -51,22 +51,22 @@ public class MysteriousContentSetup {
 
         //TODO Change the sapling generators.
         MysteriousWoodTypes.BLOODWOOD.sapling = MysteriousSetupHelpers.setupSaplingBlock("bloodwood_sapling",
-            new OakSaplingGenerator());
+            new OakTreeGrower());
         MysteriousWoodTypes.GHOSTLY.sapling = MysteriousSetupHelpers.setupSaplingBlock("ghostly_sapling",
-            new OakSaplingGenerator());
+            new OakTreeGrower());
         MysteriousWoodTypes.SORBUS.sapling = MysteriousSetupHelpers.setupSaplingBlock("sorbus_sapling",
-            new OakSaplingGenerator());
+            new OakTreeGrower());
         MysteriousWoodTypes.SEEPING.sapling = MysteriousSetupHelpers.setupSaplingBlock("seeping_sapling",
-            new OakSaplingGenerator());
+            new OakTreeGrower());
         MysteriousWoodTypes.SAKURA.sapling = MysteriousSetupHelpers.setupSaplingBlock("sakura_sapling",
-            new OakSaplingGenerator());
+            new OakTreeGrower());
 
-        BLOODIED_GRASS = RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID, "bloodied_grass"),
-            MysteriousBiomes.ITEM_TAB, () -> new BloodiedGrass(Block.Settings.of(Material.SOIL).strength(0.5F)
-                .sounds(BlockSoundGroup.WET_GRASS).ticksRandomly()), BLOCKS, ITEMS);
+        BLOODIED_GRASS = RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, "bloodied_grass"),
+            MysteriousBiomes.ITEM_TAB, () -> new BloodiedGrass(Block.Properties.of(Material.DIRT).strength(0.5F)
+                .sound(SoundType.WET_GRASS).randomTicks()), BLOCKS, ITEMS);
         BLOODIED_DIRT = RegHelpers.createBlockWithItem(
-            new Identifier(MysteriousBiomes.MOD_ID, "bloodied_dirt"), MysteriousBiomes.ITEM_TAB,
-            () -> new Block(Block.Settings.of(Material.SOIL).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT)),
+            new ResourceLocation(MysteriousBiomes.MOD_ID, "bloodied_dirt"), MysteriousBiomes.ITEM_TAB,
+            () -> new Block(Block.Properties.of(Material.DIRT).strength(0.5F).sound(SoundType.ROOTED_DIRT)),
             BLOCKS, ITEMS);
     }
 }

@@ -20,11 +20,11 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntitySetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.renderer.RenderType;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
@@ -37,17 +37,17 @@ public class MysteriousRendering implements ClientModInitializer {
         EntityRendererRegistry.register(MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, (RenderTheForgottenWarlock::new));
         EntityModelLayerRegistry.registerModelLayer(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION,
             TheForgottenWarlockModel::createBodyLayer);
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.BLOODWOOD.getSapling().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.BLOODWOOD.getTrapdoor().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.BLOODWOOD.getDoor().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.GHOSTLY.getSapling().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.GHOSTLY.getTrapdoor().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.GHOSTLY.getDoor().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.SEEPING.getSapling().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.SEEPING.getTrapdoor().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.SEEPING.getDoor().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.SORBUS.getSapling().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.SORBUS.getTrapdoor().get());
-        BlockRenderLayerMap.put(RenderLayer.getCutout(), MysteriousWoodTypes.SORBUS.getDoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.BLOODWOOD.getSapling().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.BLOODWOOD.getTrapdoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.BLOODWOOD.getDoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.GHOSTLY.getSapling().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.GHOSTLY.getTrapdoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.GHOSTLY.getDoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.SEEPING.getSapling().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.SEEPING.getTrapdoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.SEEPING.getDoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.SORBUS.getSapling().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.SORBUS.getTrapdoor().get());
+        BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.SORBUS.getDoor().get());
     }
 }
