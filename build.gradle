@@ -233,6 +233,7 @@ task publishToCurseForge(type: TaskPublishCurseForge) {
     //mainFile.addRequirement('fabric-api') //Fabric API slug
     //mainFile.addEmbedded('cloth-config') //Cloth Config slug
 	mainFile.addOptional('modmenu')
+	mainFile.addRequirement('kiris-lib')
     mainFile.changelog = mod_changelog_url
 }
 
