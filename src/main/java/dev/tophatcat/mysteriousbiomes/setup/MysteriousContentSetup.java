@@ -1,7 +1,7 @@
 package dev.tophatcat.mysteriousbiomes.setup;
 
+import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.common.blocks.BloodiedGrass;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

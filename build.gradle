@@ -10,8 +10,8 @@ plugins {
     id 'net.darkhax.curseforgegradle' version '1.0.11'
 }
 
-archivesBaseName = mod_name
-version = "${mod_version}+${minecraft_version}"
+archivesBaseName = mod_id
+version = "${mod_version}-${minecraft_version}"
 group = mod_group
 
 repositories {
@@ -29,6 +29,18 @@ repositories {
 		url "https://cursemaven.com"
 		content {
 			includeGroup "curse.maven"
+		}
+	}
+
+	exclusiveContent {
+		forRepository {
+			maven {
+				name = "Modrinth"
+				url = "https://api.modrinth.com/maven"
+			}
+		}
+		filter {
+			includeGroup "maven.modrinth"
 		}
 	}
 }
@@ -58,7 +70,9 @@ dependencies {
 
 	//Mod Menu dependency
 	modApi "com.terraformersmc:modmenu:${modmenu_version}"
-	modImplementation "curse.maven:kiris-lib-280547:${kiris_lib_version}"
+
+	//Kiri's Lib dependency
+	modImplementation "maven.modrinth:kirislib:${kiris_lib_version}"
 }
 
 loom {
