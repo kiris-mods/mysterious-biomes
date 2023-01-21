@@ -31,7 +31,6 @@ import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
 
 public class MysteriousRendering implements ClientModInitializer {
 
-    //event.registerBlockEntityRenderer(SpookyEntities.SIGN.get(), SignRenderer::new);
     @Override
     public void onInitializeClient(ModContainer mod) {
         EntityRendererRegistry.register(MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, (RenderTheForgottenWarlock::new));

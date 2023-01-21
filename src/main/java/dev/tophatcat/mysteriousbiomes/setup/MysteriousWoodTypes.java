@@ -1,5 +1,6 @@
 package dev.tophatcat.mysteriousbiomes.setup;
 
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
@@ -32,6 +33,7 @@ public enum MysteriousWoodTypes {
     public Supplier<Block> pressure_plate;
     public Supplier<Block> leaves;
     public Supplier<Block> sapling;
+    public Supplier<Item> sign;
     public Supplier<Block> wall_sign;
     public Supplier<Block> floor_sign;
 
@@ -97,6 +99,10 @@ public enum MysteriousWoodTypes {
 
     public Supplier<Block> getSapling() {
         return sapling;
+    }
+
+    public Supplier<Item> getSign() {
+        return sign;
     }
 
     public Supplier<Block> getWallSign() {

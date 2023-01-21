@@ -29,10 +29,13 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.properties.WoodType;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.item.group.api.QuiltItemGroup;
 import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 //TODO Block tags.
 //TODO Sign stuff!
@@ -40,22 +43,27 @@ import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
 //TODO Convert to the new item group system in 1.19.3.
 public class MysteriousBiomes implements ModInitializer {
 
-    //public static final SignType SORBUS_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":sorbus"));
-    //public static final SignType GHOSTLY_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":ghostly"));
-    //public static final SignType SEEPING_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":seeping"));
-    //public static final SignType BLOODWOOD_WOOD_TYPE = SignType.register(new SignType(MOD_ID + ":bloodwood"));
+    public static final String MOD_ID = "mysteriousbiomes";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    //Sign type stuff for custom signs.
+    public static final WoodType BLOODWOOD_WOOD_TYPE = WoodType.register(new WoodType("bloodwood"));
+    public static final WoodType GHOSTLY_WOOD_TYPE = WoodType.register(new WoodType("ghostly"));
+    public static final WoodType SORBUS_WOOD_TYPE = WoodType.register(new WoodType("sorbus"));
+    public static final WoodType SEEPING_WOOD_TYPE = WoodType.register(new WoodType("seeping"));
+    public static final WoodType SAKURA_WOOD_TYPE = WoodType.register(new WoodType("sakura"));
+
     //SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
-    public static final String MOD_ID = "mysteriousbiomes";
-    public static final CreativeModeTab ITEM_TAB = QuiltItemGroup.createWithIcon(new ResourceLocation(MOD_ID, "group"),
-        () -> new ItemStack(MysteriousWoodTypes.GHOSTLY.getSapling().get()));
+    public static final CreativeModeTab ITEM_TAB = QuiltItemGroup.createWithIcon(new ResourceLocation(MOD_ID,
+            "group"), () -> new ItemStack(MysteriousWoodTypes.GHOSTLY.getSapling().get()));
 
     @Override
     public void onInitialize(ModContainer mod) {
         new MysteriousContentSetup();
         MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, block.get()));
         MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, item.get()));
-        BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST),
-            MobCategory.MONSTER, MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
+        BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST), MobCategory.MONSTER,
+            MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
     }
 }

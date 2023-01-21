@@ -84,8 +84,7 @@ public class BlockModelGenerator extends FabricModelProvider {
             .pressurePlate(woodTypes.getPressurePlate().get())
             .slab(woodTypes.getSlab().get())
             .stairs(woodTypes.getStairs().get())
-            //TODO Sign stuff!
-            //.sign(woodTypes.getFloorSign().get(), woodTypes.getWallSign().get())
+            .sign(woodTypes.getFloorSign().get(), woodTypes.getWallSign().get())
             .trapdoor(woodTypes.getTrapdoor().get()).recipeGroupPrefix("wooden")
             .recipeUnlockedBy("has_planks").getFamily();
 
