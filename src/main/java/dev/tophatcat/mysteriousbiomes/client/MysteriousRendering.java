@@ -1,6 +1,6 @@
 /*
- * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2013-2022 <KiriCattus>
+ * Mysterious Biomes - https://github.com/tophatcats-mods/mysterious-biomes
+ * Copyright (C) 2013-2023 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

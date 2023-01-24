@@ -1,6 +1,6 @@
 /*
- * Spooky Biomes - https://github.com/tophatcats-mods/spooky-biomes
- * Copyright (C) 2013-2022 <KiriCattus>
+ * Mysterious Biomes - https://github.com/tophatcats-mods/mysterious-biomes
+ * Copyright (C) 2013-2023 <KiriCattus>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -34,16 +34,10 @@ import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.item.group.api.QuiltItemGroup;
 import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-//TODO Block tags.
-//TODO Check for and replace previous mod name/id in code/resources.
-//TODO Convert to the new item group system in 1.19.3.
 public class MysteriousBiomes implements ModInitializer {
 
     public static final String MOD_ID = "mysteriousbiomes";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     //Sign type stuff for custom signs.
     public static final WoodType BLOODWOOD_WOOD_TYPE = WoodType.register(new WoodType("bloodwood"));
