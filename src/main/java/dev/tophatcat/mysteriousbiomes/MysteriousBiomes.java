@@ -38,7 +38,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //TODO Block tags.
-//TODO Sign stuff!
 //TODO Check for and replace previous mod name/id in code/resources.
 //TODO Convert to the new item group system in 1.19.3.
 public class MysteriousBiomes implements ModInitializer {
@@ -53,18 +52,16 @@ public class MysteriousBiomes implements ModInitializer {
     public static final WoodType SEEPING_WOOD_TYPE = WoodType.register(new WoodType("seeping"));
     public static final WoodType SAKURA_WOOD_TYPE = WoodType.register(new WoodType("sakura"));
 
-    //SpookyBiomesInjection.BIOMES.register(FMLJavaModLoadingContext.get().getModEventBus());
-
     public static final CreativeModeTab ITEM_TAB = QuiltItemGroup.createWithIcon(new ResourceLocation(MOD_ID,
             "group"), () -> new ItemStack(MysteriousWoodTypes.GHOSTLY.getSapling().get()));
 
     @Override
     public void onInitialize(ModContainer mod) {
         new MysteriousContentSetup();
-        new MysteriousWorldGen();
         MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, block.get()));
         MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, item.get()));
         BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST), MobCategory.MONSTER,
             MysteriousContentSetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
+        new MysteriousWorldGen();
     }
 }

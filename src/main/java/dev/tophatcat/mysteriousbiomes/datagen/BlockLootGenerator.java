@@ -30,7 +30,7 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
         var spookyBlockTypes = List.of(
             "trapdoor", "slab", "stairs", "planks",
             "log", "stripped_log", "wood", "stripped_wood",
-            "gate", "fence", "button", "pressure_plate", "sapling");
+            "gate", "fence", "button", "pressure_plate", "sapling", "sign");
 
         spookyWoodTypes.forEach(woodType -> {
             spookyBlockTypes.forEach(blockType -> {
