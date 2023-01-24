@@ -21,7 +21,7 @@
           "persistent": "false",
           "distance": "7"
         },
-        "Name": "spookybiomes:ghostly_leaves"
+        "Name": "mysteriousbiomes:ghostly_leaves"
       },
       "type": "minecraft:simple_state_provider"
     },
@@ -30,7 +30,7 @@
         "Properties": {
           "stage": "0"
         },
-        "Name": "spookybiomes:ghostly_sapling"
+        "Name": "mysteriousbiomes:ghostly_sapling"
       },
       "type": "minecraft:simple_state_provider"
     },
@@ -44,7 +44,7 @@
         "Properties": {
           "axis": "y"
         },
-        "Name": "spookybiomes:ghostly_log"
+        "Name": "mysteriousbiomes:ghostly_log"
       },
       "type": "minecraft:simple_state_provider"
     },

@@ -21,7 +21,7 @@
           "persistent": "false",
           "distance": "7"
         },
-        "Name": "spookybiomes:sorbus_leaves"
+        "Name": "mysteriousbiomes:sorbus_leaves"
       },
       "type": "minecraft:simple_state_provider"
     },
@@ -30,7 +30,7 @@
         "Properties": {
           "stage": "0"
         },
-        "Name": "spookybiomes:sorbus_sapling"
+        "Name": "mysteriousbiomes:sorbus_sapling"
       },
       "type": "minecraft:simple_state_provider"
     },
@@ -45,7 +45,7 @@
         "Properties": {
           "axis": "y"
         },
-        "Name": "spookybiomes:sorbus_log"
+        "Name": "mysteriousbiomes:sorbus_log"
       },
       "type": "minecraft:simple_state_provider"
     },

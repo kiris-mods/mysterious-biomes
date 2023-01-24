@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntitySetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -33,7 +33,7 @@ public class MysteriousRendering implements ClientModInitializer {
 
     @Override
     public void onInitializeClient(ModContainer mod) {
-        EntityRendererRegistry.register(MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, (RenderTheForgottenWarlock::new));
+        EntityRendererRegistry.register(MysteriousContentSetup.THE_FORGOTTEN_WARLOCK, (RenderTheForgottenWarlock::new));
         EntityModelLayerRegistry.registerModelLayer(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION,
             TheForgottenWarlockModel::createBodyLayer);
         BlockRenderLayerMap.put(RenderType.cutout(), MysteriousWoodTypes.BLOODWOOD.getSapling().get());

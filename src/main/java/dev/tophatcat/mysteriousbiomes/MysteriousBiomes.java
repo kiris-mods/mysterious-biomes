@@ -21,8 +21,8 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntitySetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousWorldGen;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
@@ -61,9 +61,10 @@ public class MysteriousBiomes implements ModInitializer {
     @Override
     public void onInitialize(ModContainer mod) {
         new MysteriousContentSetup();
+        new MysteriousWorldGen();
         MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registry.BLOCK, id, block.get()));
         MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registry.ITEM, id, item.get()));
         BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST), MobCategory.MONSTER,
-            MysteriousEntitySetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
+            MysteriousContentSetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
     }
 }

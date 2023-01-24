@@ -3,12 +3,17 @@ package dev.tophatcat.mysteriousbiomes.setup;
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
 import dev.tophatcat.mysteriousbiomes.common.blocks.BloodiedGrass;
+import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.grower.OakTreeGrower;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.Material;
+import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -22,6 +27,18 @@ public class MysteriousContentSetup {
 
     public static Supplier<Block> BLOODIED_GRASS = null;
     public static Supplier<Block> BLOODIED_DIRT = null;
+
+    public static final EntityType<TheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
+        Registry.ENTITY_TYPE, new ResourceLocation(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
+        QuiltEntityTypeBuilder.<TheForgottenWarlock>createMob()
+            .spawnGroup(MobCategory.MONSTER)
+            .entityFactory(TheForgottenWarlock::new)
+            .defaultAttributes(TheForgottenWarlock.createMonsterAttributes())
+            .setDimensions(EntityDimensions.fixed(0.65F, 1.45F))
+            .maxChunkTrackingRange(1)
+            .spawnRestriction(SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules)
+            .build());
 
     public MysteriousContentSetup() {
         var spookyWoodTypes = List.of(

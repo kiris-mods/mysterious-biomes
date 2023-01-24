@@ -6,11 +6,11 @@
           "config": {
             "features": [
               {
-                "feature": "spookybiomes:ghostly_tree",
+                "feature": "mysteriousbiomes:ghostly_tree",
                 "chance": 0.1
               }
             ],
-            "default": "spookybiomes:ghostly_tree_tall"
+            "default": "mysteriousbiomes:ghostly_tree_tall"
           },
           "type": "minecraft:random_selector"
         },

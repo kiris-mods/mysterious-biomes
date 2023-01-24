@@ -20,7 +20,7 @@
     "water_color": 9371648,
     "water_fog_color": 9371648
   },
-  "surface_builder": "spookybiomes:bloodied_hills_surface",
+  "surface_builder": "mysteriousbiomes:bloodied_hills_surface",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -67,9 +67,9 @@
     [
       "minecraft:forest_flower_vegetation",
       "minecraft:glow_lichen",
-      "spookybiomes:bloodied_tree_worldgen",
+      "mysteriousbiomes:bloodied_tree_worldgen",
       "minecraft:flower_default",
-	  "spookybiomes:patch_grass_count_3",
+	  "mysteriousbiomes:patch_grass_count_3",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
@@ -99,7 +99,7 @@
         "maxCount": 1
       },
       {
-        "type": "spookybiomes:the_forgotten_warlock",
+        "type": "mysteriousbiomes:the_forgotten_warlock",
         "weight": 2,
         "minCount": 1,
         "maxCount": 1

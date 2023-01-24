@@ -67,9 +67,9 @@
     [
       "minecraft:forest_flower_vegetation",
       "minecraft:glow_lichen",
-      "spookybiomes:ghostly_tree_worldgen",
+      "mysteriousbiomes:ghostly_tree_worldgen",
       "minecraft:flower_default",
-      "spookybiomes:patch_large_fern_and_grass",
+      "mysteriousbiomes:patch_large_fern_and_grass",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
@@ -93,7 +93,7 @@
         "maxCount": 3
       },
       {
-        "type": "spookybiomes:the_forgotten_warlock",
+        "type": "mysteriousbiomes:the_forgotten_warlock",
         "weight": 5,
         "minCount": 1,
         "maxCount": 2

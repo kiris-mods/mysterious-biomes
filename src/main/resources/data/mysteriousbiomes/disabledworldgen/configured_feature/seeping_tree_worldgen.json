@@ -2,7 +2,7 @@
   "config": {
     "feature": {
       "config": {
-        "feature": "spookybiomes:seeping_tree",
+        "feature": "mysteriousbiomes:seeping_tree",
         "decorator": {
           "config": {
             "outer": {

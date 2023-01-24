@@ -24,6 +24,12 @@ repositories {
 		name "TerraformersMC"
 		url "https://maven.terraformersmc.com/releases/"
 	}
+
+	maven {
+		name "Forge Maven"
+		url 'https://maven.minecraftforge.net/'
+	}
+
 	maven {
 		name "CurseMaven"
 		url "https://cursemaven.com"
@@ -73,6 +79,9 @@ dependencies {
 
 	//Kiri's Lib dependency
 	modImplementation "maven.modrinth:kirislib:${kiris_lib_version}"
+
+	//TerraBlender
+	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
 }
 
 loom {

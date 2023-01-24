@@ -42,10 +42,13 @@
       }
     ]
   },
+	"mixin": [
+		"mysteriousbiomes.mixins.json"
+	],
   "modmenu": {
     "links": {
       "modmenu.discord": "${mod_discord}"
     }
   },
-	"accessWidener": "${mod_id}.accesswidener"
+	"access_widener": "${mod_id}.accesswidener"
 }

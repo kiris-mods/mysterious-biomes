@@ -2,7 +2,7 @@
   "config": {
     "feature": {
       "config": {
-        "feature": "spookybiomes:sorbus_tree",
+        "feature": "mysteriousbiomes:sorbus_tree",
         "decorator": {
           "config": {
             "outer": {

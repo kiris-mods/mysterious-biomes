@@ -6,11 +6,11 @@
           "config": {
             "features": [
               {
-                "feature": "spookybiomes:bloodied_tree_big",
+                "feature": "mysteriousbiomes:bloodied_tree_big",
                 "chance": 0.1
               }
             ],
-            "default": "spookybiomes:bloodied_tree"
+            "default": "mysteriousbiomes:bloodied_tree"
           },
           "type": "minecraft:random_selector"
         },

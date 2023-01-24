@@ -23,7 +23,7 @@
           "persistent": "false",
           "distance": "7"
         },
-        "Name": "spookybiomes:seeping_leaves"
+        "Name": "mysteriousbiomes:seeping_leaves"
       },
       "type": "minecraft:simple_state_provider"
     },
@@ -32,7 +32,7 @@
         "Properties": {
           "stage": "0"
         },
-        "Name": "spookybiomes:seeping_sapling"
+        "Name": "mysteriousbiomes:seeping_sapling"
       },
       "type": "minecraft:simple_state_provider"
     },
@@ -47,7 +47,7 @@
         "Properties": {
           "axis": "y"
         },
-        "Name": "spookybiomes:seeping_log"
+        "Name": "mysteriousbiomes:seeping_log"
       },
       "type": "minecraft:simple_state_provider"
     },

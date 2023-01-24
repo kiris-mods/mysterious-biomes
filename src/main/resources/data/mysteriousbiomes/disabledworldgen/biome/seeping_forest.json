@@ -67,9 +67,9 @@
     [
       "minecraft:forest_flower_vegetation",
       "minecraft:glow_lichen",
-      "spookybiomes:seeping_tree_worldgen",
+      "mysteriousbiomes:seeping_tree_worldgen",
       "minecraft:flower_default",
-	  "spookybiomes:patch_grass_count_4",
+	  "mysteriousbiomes:patch_grass_count_4",
       "minecraft:brown_mushroom_normal",
       "minecraft:red_mushroom_normal",
       "minecraft:patch_sugar_cane",
