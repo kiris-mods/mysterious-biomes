@@ -22,9 +22,10 @@ package dev.tophatcat.mysteriousbiomes.setup;
 
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.common.blocks.BloodiedGrass;
-import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.blocks.BloodiedGrass;
+import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlock;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.Item;
@@ -49,7 +50,7 @@ public class MysteriousContentSetup {
     public static Supplier<Block> BLOODIED_DIRT = null;
 
     public static final EntityType<TheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
-        Registry.ENTITY_TYPE, new ResourceLocation(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
+        Registries.ENTITY_TYPE, new ResourceLocation(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
         QuiltEntityTypeBuilder.<TheForgottenWarlock>createMob()
             .spawnGroup(MobCategory.MONSTER)
             .entityFactory(TheForgottenWarlock::new)
@@ -65,17 +66,16 @@ public class MysteriousContentSetup {
             MysteriousWoodTypes.BLOODWOOD,
             MysteriousWoodTypes.GHOSTLY,
             MysteriousWoodTypes.SORBUS,
-            MysteriousWoodTypes.SEEPING,
-            MysteriousWoodTypes.SAKURA);
+            MysteriousWoodTypes.SEEPING);
 
         spookyWoodTypes.forEach(woodType -> {
             woodType.log = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(), "_log");
             woodType.stripped_log = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(),
                 "_stripped_log");
-            woodType.wood = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(), "_wood");
+            woodType.wood = MysteriousSetupHelpers.setupPillarBlock(woodType, "_wood");
             woodType.stripped_wood = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(),
                 "_stripped_wood");
-            woodType.planks = MysteriousSetupHelpers.setupPlanksBlock(woodType.getName());
+            woodType.planks = MysteriousSetupHelpers.setupPlanksBlock(woodType);
             woodType.stairs = MysteriousSetupHelpers.setupStairsBlock(woodType.getName(),
                 woodType.getPlanks().get().defaultBlockState());
             woodType.leaves = MysteriousSetupHelpers.setupLeavesBlock(woodType.getName());
@@ -97,8 +97,7 @@ public class MysteriousContentSetup {
             new OakTreeGrower());
         MysteriousWoodTypes.SEEPING.sapling = MysteriousSetupHelpers.setupSaplingBlock("seeping_sapling",
             new OakTreeGrower());
-        MysteriousWoodTypes.SAKURA.sapling = MysteriousSetupHelpers.setupSaplingBlock("sakura_sapling",
-            new OakTreeGrower());
+
 
         MysteriousWoodTypes.BLOODWOOD.floor_sign = MysteriousSetupHelpers.setupFloorSignBlock("bloodwood_sign",
             MysteriousBiomes.BLOODWOOD_WOOD_TYPE);
@@ -108,8 +107,7 @@ public class MysteriousContentSetup {
             MysteriousBiomes.SORBUS_WOOD_TYPE);
         MysteriousWoodTypes.SEEPING.floor_sign = MysteriousSetupHelpers.setupFloorSignBlock("seeping_sign",
             MysteriousBiomes.SEEPING_WOOD_TYPE);
-        MysteriousWoodTypes.SAKURA.floor_sign = MysteriousSetupHelpers.setupFloorSignBlock("sakura_sign",
-            MysteriousBiomes.SAKURA_WOOD_TYPE);
+
 
         MysteriousWoodTypes.BLOODWOOD.wall_sign = MysteriousSetupHelpers.setupWallSignBlock("bloodwood_wall_sign",
             MysteriousBiomes.BLOODWOOD_WOOD_TYPE);
@@ -119,8 +117,6 @@ public class MysteriousContentSetup {
             MysteriousBiomes.SORBUS_WOOD_TYPE);
         MysteriousWoodTypes.SEEPING.wall_sign = MysteriousSetupHelpers.setupWallSignBlock("seeping_wall_sign",
             MysteriousBiomes.SEEPING_WOOD_TYPE);
-        MysteriousWoodTypes.SAKURA.wall_sign = MysteriousSetupHelpers.setupWallSignBlock("sakura_wall_sign",
-            MysteriousBiomes.SAKURA_WOOD_TYPE);
 
         MysteriousWoodTypes.BLOODWOOD.sign = MysteriousSetupHelpers.setupSignItem("bloodwood_sign",
             MysteriousWoodTypes.BLOODWOOD.getFloorSign().get(), MysteriousWoodTypes.BLOODWOOD.getWallSign().get());
@@ -134,10 +130,10 @@ public class MysteriousContentSetup {
             MysteriousWoodTypes.SAKURA.getFloorSign().get(), MysteriousWoodTypes.SAKURA.getWallSign().get());
 
         BLOODIED_GRASS = RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID,
-                "bloodied_grass"), MysteriousBiomes.ITEM_TAB, () -> new BloodiedGrass(Block.Properties
+                "bloodied_grass"), () -> new BloodiedGrass(Block.Properties
             .of(Material.DIRT).strength(0.5F).sound(SoundType.WET_GRASS).randomTicks()), BLOCKS, ITEMS);
         BLOODIED_DIRT = RegHelpers.createBlockWithItem(
-            new ResourceLocation(MysteriousBiomes.MOD_ID, "bloodied_dirt"), MysteriousBiomes.ITEM_TAB,
+            new ResourceLocation(MysteriousBiomes.MOD_ID, "bloodied_dirt"),
             () -> new Block(Block.Properties.of(Material.DIRT).strength(0.5F).sound(SoundType.ROOTED_DIRT)),
             BLOCKS, ITEMS);
     }

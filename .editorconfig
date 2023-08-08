@@ -10,6 +10,9 @@ trim_trailing_whitespace = true
 [*.gradle]
 indent_style = tab
 
+[*.md]
+trim_trailing_whitespace = false
+
 [*.java]
 indent_style = space
 indent_size = 4

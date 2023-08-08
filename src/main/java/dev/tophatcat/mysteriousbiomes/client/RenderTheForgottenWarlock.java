@@ -21,7 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlock;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

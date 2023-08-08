@@ -41,9 +41,7 @@ public class BlockEntityTypeMixin {
             || (state.is(MysteriousWoodTypes.SORBUS.getFloorSign().get())
             || state.is(MysteriousWoodTypes.SORBUS.getWallSign().get())
             || (state.is(MysteriousWoodTypes.SEEPING.getFloorSign().get())
-            || state.is(MysteriousWoodTypes.SEEPING.getWallSign().get())
-            || (state.is(MysteriousWoodTypes.SAKURA.getFloorSign().get())
-            || state.is(MysteriousWoodTypes.SAKURA.getWallSign().get()))))))) {
+            || state.is(MysteriousWoodTypes.SEEPING.getWallSign().get())))))) {
             cir.setReturnValue(true);
         }
     }

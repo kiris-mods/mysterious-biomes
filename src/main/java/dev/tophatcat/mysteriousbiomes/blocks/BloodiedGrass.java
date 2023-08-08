@@ -18,7 +18,7 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.mysteriousbiomes.common.blocks;
+package dev.tophatcat.mysteriousbiomes.blocks;
 
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.minecraft.core.BlockPos;

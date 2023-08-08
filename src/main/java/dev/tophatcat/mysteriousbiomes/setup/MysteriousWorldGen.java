@@ -21,8 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.setup;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -38,11 +37,11 @@ public class MysteriousWorldGen {
     public static final ResourceKey<Biome> SAKURA_HILLS = register("sakura_hills");
 
     public MysteriousWorldGen() {
-        BuiltinRegistries.register(BuiltinRegistries.BIOME, BLOODIED_PLAINS.location(), setupBloodiedPlains());
-        BuiltinRegistries.register(BuiltinRegistries.BIOME, GHOSTLY_WOODLANDS.location(), setupGhostlyWoodlands());
-        BuiltinRegistries.register(BuiltinRegistries.BIOME, SEEPING_FOREST.location(), setupSeepingForest());
-        BuiltinRegistries.register(BuiltinRegistries.BIOME, SORBUS_HIGHLANDS.location(), setupSorbusHighlands());
-        BuiltinRegistries.register(BuiltinRegistries.BIOME, SAKURA_HILLS.location(), setupSakuraHills());
+        BuiltinRegistries.register(Registries.BIOME, BLOODIED_PLAINS.location(), setupBloodiedPlains());
+        BuiltinRegistries.register(Registries.BIOME, GHOSTLY_WOODLANDS.location(), setupGhostlyWoodlands());
+        BuiltinRegistries.register(Registries.BIOME, SEEPING_FOREST.location(), setupSeepingForest());
+        BuiltinRegistries.register(Registries.BIOME, SORBUS_HIGHLANDS.location(), setupSorbusHighlands());
+        BuiltinRegistries.register(Registries.BIOME, SAKURA_HILLS.location(), setupSakuraHills());
     }
 
     private static Biome setupBloodiedPlains() {
@@ -179,7 +178,7 @@ public class MysteriousWorldGen {
     }
 
     private static ResourceKey<Biome> register(String name) {
-        return ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(MysteriousBiomes.MOD_ID, name));
+        return ResourceKey.create(Registries.BIOME, new ResourceLocation(MysteriousBiomes.MOD_ID, name));
     }
 
     private static void addBasicFeatures(BiomeGenerationSettings.Builder builder) {

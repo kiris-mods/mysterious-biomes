@@ -1,9 +1,11 @@
-import net.darkhax.curseforgegradle.TaskPublishCurseForge
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
 
 plugins {
-    id 'maven-publish'
+    id 'idea'
+	id 'eclipse'
+	id 'maven-publish'
     id 'org.quiltmc.loom' version '1.0.+'
     id 'com.modrinth.minotaur' version '2.+'
     id 'org.cadixdev.licenser' version '0.6.1'
@@ -11,7 +13,7 @@ plugins {
 }
 
 archivesBaseName = mod_id
-version = "${mod_version}-${minecraft_version}"
+version = "${minecraft_version}-${mod_version}"
 group = mod_group
 
 repositories {
@@ -223,12 +225,12 @@ license {
 }
 
 modrinth {
-	token = System.getenv("MODRINTH_TOKEN") ?: "Invalid/No Modrinth API key could be found!" // This is the default. Remember to have the MODRINTH_TOKEN environment variable set or else this will fail, or set it to whatever you want - just make sure it stays private!
+	token = project.MODRINTH_TOKEN ?: "Invalid/No Modrinth API key could be found!"// This is the default.
 	projectId = modrinth_project_id // This can be the project ID or the slug. Either will work!
 	versionNumber = version // You don't need to set this manually. Will fail if Modrinth has this version already
 	versionType = modrinth_release_type // This is the default -- can also be `beta` or `alpha`
 	versionName = "${archivesBaseName}-${version}"
-	changelog = project.mod_changelog_url
+	changelog = rootProject.file("changelog.md").text
 	uploadFile = remapJar // With Loom, this MUST be set to `remapJar` instead of `jar`!
 	gameVersions = [minecraft_version] // Must be an array, even with only one version
 	loaders = ["quilt"] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
@@ -237,27 +239,39 @@ modrinth {
 		// The scope can be `required`, `optional`, `incompatible`, or `embedded`
 		// The type can either be `project` or `version`
 		required.project "qsl" // Creates a new required dependency on Fabric API
+		required.project "kirislib"
+		required.project "terrablender"
 		optional.project "modmenu"
 	}
 	syncBodyFrom = rootProject.file("README.md").text
 }
 
-task publishToCurseForge(type: TaskPublishCurseForge) {
-	apiToken = System.getenv("CURSEFORGE_TOKEN") ?: "Invalid/No CurseForge API key could be found!"
+tasks.modrinth.dependsOn tasks.modrinthSyncBody
+tasks.modrinth.dependsOn tasks.assemble
 
-    def mainFile = upload(curseforge_project_id, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
+task curseforge(type: TaskPublishCurseForge) {
+	apiToken = project.CURSEFORGE_TOKEN ?: "Invalid/No CurseForge API key could be found!"
 
-    mainFile.displayName = "${archivesBaseName}-${version}"
-    mainFile.releaseType = curseforge_release_type
-    mainFile.addModLoader("Quilt")
-    mainFile.addGameVersion(minecraft_version)
-    mainFile.addJavaVersion(curseforge_java_version)
+	def mainFile = upload(curseforge_project_id, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
 
-    //mainFile.addRequirement('fabric-api') //Fabric API slug
-    //mainFile.addEmbedded('cloth-config') //Cloth Config slug
-	mainFile.addOptional('modmenu')
+	mainFile.displayName = "${archivesBaseName}-${version}"
+	mainFile.releaseType = curseforge_release_type
+	mainFile.addModLoader("Quilt")
+	mainFile.addGameVersion(minecraft_version)
+	mainFile.addJavaVersion(curseforge_java_version)
+
+	//mainFile.addRequirement('fabric-api') //Fabric API slug
+	//mainFile.addEmbedded('cloth-config') //Cloth Config slug
 	mainFile.addRequirement('kiris-lib')
-    mainFile.changelog = mod_changelog_url
+	mainFile.addRequirement('terrablender-fabric')
+	mainFile.addOptional('modmenu')
+	mainFile.changelog = rootProject.file("changelog.md").text
+	mainFile.changelogType = 'text'
 }
 
-tasks.publishToCurseForge.dependsOn tasks.assemble
+tasks.curseforge.dependsOn tasks.assemble
+
+task publishToModHosts {
+	publishToModHosts.dependsOn tasks.modrinth
+	publishToModHosts.dependsOn tasks.curseforge
+}

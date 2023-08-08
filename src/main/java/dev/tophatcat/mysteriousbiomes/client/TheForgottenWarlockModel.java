@@ -23,7 +23,7 @@ package dev.tophatcat.mysteriousbiomes.client;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlock;
 import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
