@@ -16,27 +16,27 @@
                 "blacklist": [],
                 "tries": 64,
                 "state_provider": {
-				  "entries": [
-					{
-					  "data": {
-						"Properties": {
-						  "half": "lower"
-						},
-						"Name": "minecraft:large_fern"
-					  },
-					  "weight": 3
-					},
-					{
-					  "data": {
-						"Properties": {
-						  "half": "lower"
-						},
-						"Name": "minecraft:tall_grass"
-					  },
-					  "weight": 1
-					}
-				  ],
-				  "type": "minecraft:weighted_state_provider"
+                  "entries": [
+                    {
+                      "data": {
+                        "Properties": {
+                          "half": "lower"
+                        },
+                        "Name": "minecraft:large_fern"
+                      },
+                      "weight": 3
+                    },
+                    {
+                      "data": {
+                        "Properties": {
+                          "half": "lower"
+                        },
+                        "Name": "minecraft:tall_grass"
+                      },
+                      "weight": 1
+                    }
+                  ],
+                  "type": "minecraft:weighted_state_provider"
                 },
                 "block_placer": {
                   "type": "minecraft:double_plant_placer"

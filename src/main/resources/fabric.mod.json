@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "${mod_homepage}",
+    "issues": "${mod_issue_tracker}",
+    "sources": "${mod_source}"
+  },
+  "license": "${mod_license_id}",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.tophatcat.mysteriousbiomes.MysteriousBiomes"
+    ],
+    "client": [
+      "dev.tophatcat.mysteriousbiomes.client.MysteriousRendering"
+    ],
+    "fabric-datagen": [
+      "dev.tophatcat.mysteriousbiomes.datagen.DataGen"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17",
+    "fabric-api": "${fabric_api_version}"
+  },
+  "mixins": [
+    "${mod_id}.mixins.json"
+  ],
+  "accessWidener": "${mod_id}.accesswidener",
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "${mod_discord}",
+        "modmenu.modrinth": "${mod_homepage}",
+        "modmenu.curseforge": "${mod_cf}"
+      },
+      "update_checker": true
+    }
+  }
+}

@@ -22,36 +22,36 @@ package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousWorldGen;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.tags.BiomeTags;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.level.block.state.properties.BlockSetType;
-import net.minecraft.world.level.block.state.properties.WoodType;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
-import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.minecraft.block.BlockSetType;
+import net.minecraft.block.WoodType;
+import net.minecraft.entity.SpawnGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.BiomeTags;
+import terrablender.api.TerraBlenderApi;
 
-public class MysteriousBiomes implements ModInitializer {
+public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
 
     public static final String MOD_ID = "mysteriousbiomes";
 
     public static final WoodType BLOODWOOD_WOOD_TYPE = new WoodType("bloodwood",
-        new BlockSetType("bloodwood"));
+            new BlockSetType("bloodwood"));
     public static final WoodType GHOSTLY_WOOD_TYPE = new WoodType("ghostly",
-        new BlockSetType("ghostly"));
+            new BlockSetType("ghostly"));
     public static final WoodType SORBUS_WOOD_TYPE = new WoodType("sorbus",
-        new BlockSetType("sorbus"));
+            new BlockSetType("sorbus"));
     public static final WoodType SEEPING_WOOD_TYPE = new WoodType("seeping",
-        new BlockSetType("seeping"));
+            new BlockSetType("seeping"));
 
     @Override
-    public void onInitialize(ModContainer mod) {
+    public void onInitialize() {
         new MysteriousContentSetup();
-        MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(BuiltInRegistries.BLOCK, id, block.get()));
-        MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(BuiltInRegistries.ITEM, id, item.get()));
-        BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST), MobCategory.MONSTER,
-            MysteriousContentSetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
+        MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registries.BLOCK, id, block.get()));
+        MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registries.ITEM, id, item.get()));
+        BiomeModifications.addSpawn(biome -> biome.getBiomeRegistryEntry().isIn(BiomeTags.IS_FOREST), SpawnGroup.MONSTER,
+                MysteriousContentSetup.THE_FORGOTTEN_WARLOCK, 10, 1, 2);
         new MysteriousWorldGen();
     }
 }

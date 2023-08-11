@@ -20,8 +20,8 @@
  */
 package dev.tophatcat.mysteriousbiomes.setup;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 
 import java.util.function.Supplier;
 
@@ -32,7 +32,7 @@ public enum MysteriousWoodTypes {
     SORBUS("sorbus"),
     SEEPING("seeping");
 
-    MysteriousWoodTypes(String name)  {
+    MysteriousWoodTypes(String name) {
         this.name = name;
     }
 
