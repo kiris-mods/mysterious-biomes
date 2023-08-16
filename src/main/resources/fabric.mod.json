@@ -1,19 +1,25 @@
 {
   "schemaVersion": 1,
-  "id": "${mod_id}",
+  "id": "mysteriousbiomes",
   "version": "${version}",
-  "name": "${mod_name}",
-  "description": "${mod_description}",
+  "name": "Mysterious Biomes",
+  "description": "Made during SpookyJam 2017, Mysterious Biomes (Formerly Spooky Biomes) is a bundle of some spooky feeling and miscellaneous nice to have biomes to enhance your gameplay!",
   "authors": [
-    "${mod_author}"
+    {
+      "name": "KiriCattus",
+      "contact": {
+        "github": "KiriCattus",
+        "homepage": "https://tophatcat.dev"
+      }
+    }
   ],
   "contact": {
-    "homepage": "${mod_homepage}",
-    "issues": "${mod_issue_tracker}",
-    "sources": "${mod_source}"
+    "homepage": "https://modrinth.com/mod/mysteriousbiomes",
+    "issues": "https://github.com/tophatcats-mods/mysterious-biomes/issues",
+    "sources": "https://github.com/tophatcats-mods/mysterious-biomes"
   },
-  "license": "${mod_license_id}",
-  "icon": "assets/${mod_id}/icon.png",
+  "license": "LGPL-2.1",
+  "icon": "assets/mysteriousbiomes/logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -26,22 +32,36 @@
       "dev.tophatcat.mysteriousbiomes.datagen.DataGen"
     ]
   },
+
   "depends": {
-    "fabricloader": ">=${fabric_loader_version}",
-    "minecraft": "${minecraft_version}",
+    "fabricloader": ">=0.14.22",
+    "minecraft": ">=1.20",
     "java": ">=17",
-    "fabric-api": "${fabric_api_version}"
+    "fabric-api": ">=0.86.1+1.20.1",
+    "kirislib": ">=1.20.1-5.0.0",
+    "terrablender": ">=3.0.0.169"
   },
+
+  "suggests": {
+    "modmenu": "*"
+  },
+
   "mixins": [
-    "${mod_id}.mixins.json"
+    "mysteriousbiomes.mixins.json"
   ],
-  "accessWidener": "${mod_id}.accesswidener",
+  "accessWidener": "mysteriousbiomes.accesswidener",
+
   "custom": {
+    "mc-publish": {
+      "loaders": ["fabric", "quilt"],
+      "curseforge": 280003,
+      "modrinth": "SrAIvfzS"
+    },
     "modmenu": {
       "links": {
-        "modmenu.discord": "${mod_discord}",
-        "modmenu.modrinth": "${mod_homepage}",
-        "modmenu.curseforge": "${mod_cf}"
+        "modmenu.discord": "https://discord.tophatcat.dev",
+        "modmenu.modrinth": "https://modrinth.com/mod/mysteriousbiomes",
+        "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/mysterious-biomes"
       },
       "update_checker": true
     }
