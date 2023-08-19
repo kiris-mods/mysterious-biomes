@@ -70,13 +70,16 @@ dependencies {
     //Kiri's Lib dependency
     modImplementation "maven.modrinth:kirislib:${kiris_lib_version}"
 
+    //Jade optional dependency
+    modImplementation "maven.modrinth:jade:${jade_version}"
+
     //TerraBlender
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
 }
 
 loom {
     if (project.hasProperty('fabric_aws_enabled') && project.findProperty('fabric_aws_enabled').toBoolean()) {
-        accessWidenerPath = file("src/main/resources/${mod_id}.accessWidener")
+        accessWidenerPath = file("src/main/resources/${mod_id}.accesswidener")
         project.logger.debug('Fabric Access Widener are enabled for this project!!!')
     }
     runs {

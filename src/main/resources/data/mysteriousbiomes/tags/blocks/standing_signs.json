@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:sorbus_sign",
+    "mysteriousbiomes:ghostly_sign",
+    "mysteriousbiomes:seeping_sign",
+    "mysteriousbiomes:bloodwood_sign"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:sorbus_sapling",
+    "mysteriousbiomes:ghostly_sapling",
+    "mysteriousbiomes:seeping_sapling",
+    "mysteriousbiomes:bloodwood_sapling"
+  ]
+}

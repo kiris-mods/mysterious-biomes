@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "mysteriousbiomes:seeping_planks"
+    }
+  },
+  "result": {
+    "item": "mysteriousbiomes:seeping_pressure_plate"
+  }
+}

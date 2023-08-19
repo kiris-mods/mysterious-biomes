@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:sorbus_stairs",
+    "mysteriousbiomes:ghostly_stairs",
+    "mysteriousbiomes:seeping_stairs",
+    "mysteriousbiomes:bloodwood_stairs"
+  ]
+}

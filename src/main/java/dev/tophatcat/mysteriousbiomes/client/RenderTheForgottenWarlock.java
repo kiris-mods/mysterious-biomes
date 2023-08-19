@@ -21,26 +21,26 @@
 package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.entity.EntityTheForgottenWarlock;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-public class RenderTheForgottenWarlock extends MobEntityRenderer<TheForgottenWarlock, EntityModel<TheForgottenWarlock>> {
+public class RenderTheForgottenWarlock extends MobEntityRenderer<EntityTheForgottenWarlock, EntityModel<EntityTheForgottenWarlock>> {
 
     private static final Identifier RESOURCE_LOCATION = new Identifier(MysteriousBiomes.MOD_ID,
             "textures/entity/the_forgotten_warlock.png");
 
     public RenderTheForgottenWarlock(EntityRendererFactory.Context renderManager) {
-        super(renderManager, new TheForgottenWarlockModel<>(
-                renderManager.getPart(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
+        super(renderManager, new ModelTheForgottenWarlock<>(
+                renderManager.getPart(ModelTheForgottenWarlock.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
     }
 
     @NotNull
     @Override
-    public Identifier getTexture(@NotNull TheForgottenWarlock theForgottenWarlock) {
+    public Identifier getTexture(@NotNull EntityTheForgottenWarlock theForgottenWarlock) {
         return RESOURCE_LOCATION;
     }
 }

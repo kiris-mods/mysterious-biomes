@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence_gate",
+  "pattern": [
+    "s#s",
+    "s#s"
+  ],
+  "key": {
+    "#": {
+      "item": "mysteriousbiomes:seeping_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "mysteriousbiomes:seeping_gate"
+  }
+}

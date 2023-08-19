@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "mysteriousbiomes:bloodied_tree_big",
+        "chance": 0.1
+      }
+    ],
+    "default": "mysteriousbiomes:bloodied_tree"
+  }
+}

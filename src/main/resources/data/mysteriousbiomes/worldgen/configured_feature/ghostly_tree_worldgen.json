@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "mysteriousbiomes:ghostly_tree",
+        "chance": 0.1
+      }
+    ],
+    "default": "mysteriousbiomes:ghostly_tree_tall"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "mysteriousbiomes:ghostly_planks"
+    }
+  ],
+  "result": {
+    "item": "mysteriousbiomes:ghostly_button"
+  }
+}

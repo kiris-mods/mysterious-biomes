@@ -20,8 +20,8 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
+import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
@@ -32,20 +32,39 @@ public class MysteriousRendering implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(MysteriousContentSetup.THE_FORGOTTEN_WARLOCK, (RenderTheForgottenWarlock::new));
-        EntityModelLayerRegistry.registerModelLayer(TheForgottenWarlockModel.THE_FORGOTTEN_WARLOCK_LOCATION,
-                TheForgottenWarlockModel::createBodyLayer);
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.BLOODWOOD.getSapling().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.BLOODWOOD.getTrapdoor().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.BLOODWOOD.getDoor().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.GHOSTLY.getSapling().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.GHOSTLY.getTrapdoor().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.GHOSTLY.getDoor().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.SEEPING.getSapling().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.SEEPING.getTrapdoor().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.SEEPING.getDoor().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.SORBUS.getSapling().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.SORBUS.getTrapdoor().get(), RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousWoodTypes.SORBUS.getDoor().get(), RenderLayer.getCutout());
+        EntityRendererRegistry.register(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, RenderTheForgottenWarlock::new);
+        EntityModelLayerRegistry.registerModelLayer(ModelTheForgottenWarlock.THE_FORGOTTEN_WARLOCK_LOCATION,
+                ModelTheForgottenWarlock::getTexturedModelData);
+
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.BLOODWOOD.getSapling().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.BLOODWOOD.getTrapdoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.BLOODWOOD.getDoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.GHOSTLY.getSapling().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.GHOSTLY.getTrapdoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.GHOSTLY.getDoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SEEPING.getSapling().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SEEPING.getTrapdoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SEEPING.getDoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SORBUS.getSapling().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SORBUS.getTrapdoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SORBUS.getDoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SAKURA.getSapling().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SAKURA.getTrapdoor().get(),
+                RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SAKURA.getDoor().get(),
+                RenderLayer.getCutout());
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "mysteriousbiomes:bloodwood_planks"
+    }
+  ],
+  "result": {
+    "item": "mysteriousbiomes:bloodwood_button"
+  }
+}

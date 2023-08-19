@@ -23,30 +23,21 @@ package dev.tophatcat.mysteriousbiomes.setup;
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
 import dev.tophatcat.mysteriousbiomes.blocks.BloodiedGrass;
-import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlock;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.block.AbstractBlock;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.sapling.OakSaplingGenerator;
-import net.minecraft.entity.EntityDimensions;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.SpawnRestriction;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.Heightmap;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class MysteriousContentSetup {
+public final class MysteriousContentSetup {
 
     public static final Map<Identifier, Supplier<Block>> BLOCKS = new LinkedHashMap<>();
     public static final Map<Identifier, Supplier<Item>> ITEMS = new LinkedHashMap<>();
@@ -54,90 +45,159 @@ public class MysteriousContentSetup {
     public static Supplier<Block> BLOODIED_GRASS = null;
     public static Supplier<Block> BLOODIED_DIRT = null;
 
-    public static final EntityType<TheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
-            Registries.ENTITY_TYPE, new Identifier(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
-            FabricEntityTypeBuilder.<TheForgottenWarlock>createMob()
-                    .spawnGroup(SpawnGroup.MONSTER)
-                    .entityFactory(TheForgottenWarlock::new)
-                    .defaultAttributes(TheForgottenWarlock::createMonsterAttributes)
-                    .dimensions(EntityDimensions.fixed(0.65F, 1.45F))
-                    .trackRangeChunks(1)
-                    .spawnRestriction(SpawnRestriction.Location.ON_GROUND,
-                            Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn)
-                    .build());
+    private MysteriousContentSetup() {
+        throw new UnsupportedOperationException();
+    }
 
-    public MysteriousContentSetup() {
+    public static void init() {
         var spookyWoodTypes = List.of(
-                MysteriousWoodTypes.BLOODWOOD,
-                MysteriousWoodTypes.GHOSTLY,
-                MysteriousWoodTypes.SORBUS,
-                MysteriousWoodTypes.SEEPING);
+                MysteriousBlockTypes.BLOODWOOD,
+                MysteriousBlockTypes.GHOSTLY,
+                MysteriousBlockTypes.SORBUS,
+                MysteriousBlockTypes.SEEPING,
+                MysteriousBlockTypes.SAKURA);
 
         spookyWoodTypes.forEach(woodType -> {
-            woodType.log = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(), "_log");
-            woodType.stripped_log = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(),
+            woodType.log = MysteriousHelpers.setupPillarBlock(woodType, "_log");
+            woodType.stripped_log = MysteriousHelpers.setupPillarBlock(woodType,
                     "_stripped_log");
-            woodType.wood = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(), "_wood");
-            woodType.stripped_wood = MysteriousSetupHelpers.setupPillarBlock(woodType.getName(),
+            woodType.wood = MysteriousHelpers.setupPillarBlock(woodType, "_wood");
+            woodType.stripped_wood = MysteriousHelpers.setupPillarBlock(woodType,
                     "_stripped_wood");
-            woodType.planks = MysteriousSetupHelpers.setupPlanksBlock(woodType.getName());
-            woodType.stairs = MysteriousSetupHelpers.setupStairsBlock(woodType.getName(),
+            woodType.planks = MysteriousHelpers.setupPlanksBlock(woodType);
+            woodType.stairs = MysteriousHelpers.setupStairsBlock(woodType,
                     woodType.getPlanks().get().getDefaultState());
-            woodType.leaves = MysteriousSetupHelpers.setupLeavesBlock(woodType.getName());
-            woodType.slab = MysteriousSetupHelpers.setupSlabBlock(woodType.getName());
-            woodType.fence = MysteriousSetupHelpers.setupFenceBlock(woodType.getName());
-            woodType.gate = MysteriousSetupHelpers.setupGateBlock(woodType.getName());
-            woodType.button = MysteriousSetupHelpers.setupButtonBlock(woodType.getName());
-            woodType.pressure_plate = MysteriousSetupHelpers.setupPressurePlateBlock(woodType.getName());
-            woodType.trapdoor = MysteriousSetupHelpers.setupTrapdoorBlock(woodType.getName());
-            woodType.door = MysteriousSetupHelpers.setupDoorBlock(woodType.getName());
+            woodType.leaves = MysteriousHelpers.setupLeavesBlock(woodType);
+            woodType.slab = MysteriousHelpers.setupSlabBlock(woodType);
+            woodType.fence = MysteriousHelpers.setupFenceBlock(woodType);
+            woodType.gate = MysteriousHelpers.setupGateBlock(woodType);
+            woodType.button = MysteriousHelpers.setupButtonBlock(woodType);
+            woodType.pressure_plate = MysteriousHelpers.setupPressurePlateBlock(woodType);
+            woodType.trapdoor = MysteriousHelpers.setupTrapdoorBlock(woodType);
+            woodType.door = MysteriousHelpers.setupDoorBlock(woodType);
         });
 
         //TODO Change the sapling generators.
-        MysteriousWoodTypes.BLOODWOOD.sapling = MysteriousSetupHelpers.setupSaplingBlock("bloodwood_sapling",
+        MysteriousBlockTypes.BLOODWOOD.sapling = MysteriousHelpers.setupSaplingBlock("bloodwood_sapling",
                 new OakSaplingGenerator());
-        MysteriousWoodTypes.GHOSTLY.sapling = MysteriousSetupHelpers.setupSaplingBlock("ghostly_sapling",
+        MysteriousBlockTypes.GHOSTLY.sapling = MysteriousHelpers.setupSaplingBlock("ghostly_sapling",
                 new OakSaplingGenerator());
-        MysteriousWoodTypes.SORBUS.sapling = MysteriousSetupHelpers.setupSaplingBlock("sorbus_sapling",
+        MysteriousBlockTypes.SORBUS.sapling = MysteriousHelpers.setupSaplingBlock("sorbus_sapling",
                 new OakSaplingGenerator());
-        MysteriousWoodTypes.SEEPING.sapling = MysteriousSetupHelpers.setupSaplingBlock("seeping_sapling",
+        MysteriousBlockTypes.SEEPING.sapling = MysteriousHelpers.setupSaplingBlock("seeping_sapling",
+                new OakSaplingGenerator());
+        MysteriousBlockTypes.SAKURA.sapling = MysteriousHelpers.setupSaplingBlock("sakura_sapling",
                 new OakSaplingGenerator());
 
 
-        MysteriousWoodTypes.BLOODWOOD.floor_sign = MysteriousSetupHelpers.setupFloorSignBlock("bloodwood_sign",
-                MysteriousBiomes.BLOODWOOD_WOOD_TYPE);
-        MysteriousWoodTypes.GHOSTLY.floor_sign = MysteriousSetupHelpers.setupFloorSignBlock("ghostly_sign",
-                MysteriousBiomes.GHOSTLY_WOOD_TYPE);
-        MysteriousWoodTypes.SORBUS.floor_sign = MysteriousSetupHelpers.setupFloorSignBlock("sorbus_sign",
-                MysteriousBiomes.SORBUS_WOOD_TYPE);
-        MysteriousWoodTypes.SEEPING.floor_sign = MysteriousSetupHelpers.setupFloorSignBlock("seeping_sign",
-                MysteriousBiomes.SEEPING_WOOD_TYPE);
+        MysteriousBlockTypes.BLOODWOOD.floor_sign = MysteriousHelpers.setupFloorSignBlock("bloodwood_sign",
+                MysteriousWoodType.BLOODWOOD_WOOD_TYPE);
+        MysteriousBlockTypes.GHOSTLY.floor_sign = MysteriousHelpers.setupFloorSignBlock("ghostly_sign",
+                MysteriousWoodType.GHOSTLY_WOOD_TYPE);
+        MysteriousBlockTypes.SORBUS.floor_sign = MysteriousHelpers.setupFloorSignBlock("sorbus_sign",
+                MysteriousWoodType.SORBUS_WOOD_TYPE);
+        MysteriousBlockTypes.SEEPING.floor_sign = MysteriousHelpers.setupFloorSignBlock("seeping_sign",
+                MysteriousWoodType.SEEPING_WOOD_TYPE);
+        MysteriousBlockTypes.SAKURA.floor_sign = MysteriousHelpers.setupFloorSignBlock("sakura_sign",
+                MysteriousWoodType.SAKURA_WOOD_TYPE);
 
 
-        MysteriousWoodTypes.BLOODWOOD.wall_sign = MysteriousSetupHelpers.setupWallSignBlock("bloodwood_wall_sign",
-                MysteriousBiomes.BLOODWOOD_WOOD_TYPE);
-        MysteriousWoodTypes.GHOSTLY.wall_sign = MysteriousSetupHelpers.setupWallSignBlock("ghostly_wall_sign",
-                MysteriousBiomes.GHOSTLY_WOOD_TYPE);
-        MysteriousWoodTypes.SORBUS.wall_sign = MysteriousSetupHelpers.setupWallSignBlock("sorbus_wall_sign",
-                MysteriousBiomes.SORBUS_WOOD_TYPE);
-        MysteriousWoodTypes.SEEPING.wall_sign = MysteriousSetupHelpers.setupWallSignBlock("seeping_wall_sign",
-                MysteriousBiomes.SEEPING_WOOD_TYPE);
+        MysteriousBlockTypes.BLOODWOOD.wall_sign = MysteriousHelpers.setupWallSignBlock("bloodwood_wall_sign",
+                MysteriousWoodType.BLOODWOOD_WOOD_TYPE);
+        MysteriousBlockTypes.GHOSTLY.wall_sign = MysteriousHelpers.setupWallSignBlock("ghostly_wall_sign",
+                MysteriousWoodType.GHOSTLY_WOOD_TYPE);
+        MysteriousBlockTypes.SORBUS.wall_sign = MysteriousHelpers.setupWallSignBlock("sorbus_wall_sign",
+                MysteriousWoodType.SORBUS_WOOD_TYPE);
+        MysteriousBlockTypes.SEEPING.wall_sign = MysteriousHelpers.setupWallSignBlock("seeping_wall_sign",
+                MysteriousWoodType.SEEPING_WOOD_TYPE);
+        MysteriousBlockTypes.SAKURA.wall_sign = MysteriousHelpers.setupWallSignBlock("sakura_wall_sign",
+                MysteriousWoodType.SAKURA_WOOD_TYPE);
 
-        MysteriousWoodTypes.BLOODWOOD.sign = MysteriousSetupHelpers.setupSignItem("bloodwood_sign",
-                MysteriousWoodTypes.BLOODWOOD.getFloorSign().get(), MysteriousWoodTypes.BLOODWOOD.getWallSign().get());
-        MysteriousWoodTypes.GHOSTLY.sign = MysteriousSetupHelpers.setupSignItem("ghostly_sign",
-                MysteriousWoodTypes.GHOSTLY.getFloorSign().get(), MysteriousWoodTypes.GHOSTLY.getWallSign().get());
-        MysteriousWoodTypes.SORBUS.sign = MysteriousSetupHelpers.setupSignItem("sorbus_sign",
-                MysteriousWoodTypes.SORBUS.getFloorSign().get(), MysteriousWoodTypes.SORBUS.getWallSign().get());
-        MysteriousWoodTypes.SEEPING.sign = MysteriousSetupHelpers.setupSignItem("seeping_sign",
-                MysteriousWoodTypes.SEEPING.getFloorSign().get(), MysteriousWoodTypes.SEEPING.getWallSign().get());
+        MysteriousBlockTypes.BLOODWOOD.sign = MysteriousHelpers.setupSignItem("bloodwood_sign",
+                MysteriousBlockTypes.BLOODWOOD.getFloorSign().get(),
+                MysteriousBlockTypes.BLOODWOOD.getWallSign().get());
+        MysteriousBlockTypes.GHOSTLY.sign = MysteriousHelpers.setupSignItem("ghostly_sign",
+                MysteriousBlockTypes.GHOSTLY.getFloorSign().get(),
+                MysteriousBlockTypes.GHOSTLY.getWallSign().get());
+        MysteriousBlockTypes.SORBUS.sign = MysteriousHelpers.setupSignItem("sorbus_sign",
+                MysteriousBlockTypes.SORBUS.getFloorSign().get(),
+                MysteriousBlockTypes.SORBUS.getWallSign().get());
+        MysteriousBlockTypes.SEEPING.sign = MysteriousHelpers.setupSignItem("seeping_sign",
+                MysteriousBlockTypes.SEEPING.getFloorSign().get(),
+                MysteriousBlockTypes.SEEPING.getWallSign().get());
+        MysteriousBlockTypes.SAKURA.sign = MysteriousHelpers.setupSignItem("sakura_sign",
+                MysteriousBlockTypes.SAKURA.getFloorSign().get(),
+                MysteriousBlockTypes.SAKURA.getWallSign().get());
+
+        MysteriousBlockTypes.BLOODWOOD.hanging_sign = MysteriousHelpers.setupHangingSignBlock(
+                "bloodwood_hanging_sign", MysteriousWoodType.BLOODWOOD_WOOD_TYPE);
+        MysteriousBlockTypes.GHOSTLY.hanging_sign = MysteriousHelpers.setupHangingSignBlock(
+                "ghostly_hanging_sign", MysteriousWoodType.GHOSTLY_WOOD_TYPE);
+        MysteriousBlockTypes.SORBUS.hanging_sign = MysteriousHelpers.setupHangingSignBlock(
+                "sorbus_hanging_sign", MysteriousWoodType.SORBUS_WOOD_TYPE);
+        MysteriousBlockTypes.SEEPING.hanging_sign = MysteriousHelpers.setupHangingSignBlock(
+                "seeping_hanging_sign", MysteriousWoodType.SEEPING_WOOD_TYPE);
+        MysteriousBlockTypes.SAKURA.hanging_sign = MysteriousHelpers.setupHangingSignBlock(
+                "sakura_hanging_sign", MysteriousWoodType.SAKURA_WOOD_TYPE);
+
+        MysteriousBlockTypes.BLOODWOOD.wall_hanging_sign = MysteriousHelpers.setupWallHangingSignBlock(
+                "bloodwood_wall_hanging_sign", MysteriousWoodType.BLOODWOOD_WOOD_TYPE);
+        MysteriousBlockTypes.GHOSTLY.wall_hanging_sign = MysteriousHelpers.setupWallHangingSignBlock(
+                "ghostly_wall_hanging_sign", MysteriousWoodType.GHOSTLY_WOOD_TYPE);
+        MysteriousBlockTypes.SORBUS.wall_hanging_sign = MysteriousHelpers.setupWallHangingSignBlock(
+                "sorbus_wall_hanging_sign", MysteriousWoodType.SORBUS_WOOD_TYPE);
+        MysteriousBlockTypes.SEEPING.wall_hanging_sign = MysteriousHelpers.setupWallHangingSignBlock(
+                "seeping_wall_hanging_sign", MysteriousWoodType.SEEPING_WOOD_TYPE);
+        MysteriousBlockTypes.SAKURA.wall_hanging_sign = MysteriousHelpers.setupWallHangingSignBlock(
+                "sakura_wall_hanging_sign", MysteriousWoodType.SAKURA_WOOD_TYPE);
+
+        MysteriousBlockTypes.BLOODWOOD.hanging_sign_item = MysteriousHelpers.setupHangingSignItem(
+                "bloodwood_hanging_sign_item", MysteriousBlockTypes.BLOODWOOD.getHangingSign().get(),
+                MysteriousBlockTypes.BLOODWOOD.getWallHangingSign().get());
+        MysteriousBlockTypes.GHOSTLY.hanging_sign_item = MysteriousHelpers.setupHangingSignItem(
+                "ghostly_hanging_sign_item", MysteriousBlockTypes.GHOSTLY.getHangingSign().get(),
+                MysteriousBlockTypes.GHOSTLY.getWallHangingSign().get());
+        MysteriousBlockTypes.SORBUS.hanging_sign_item = MysteriousHelpers.setupHangingSignItem(
+                "sorbus_hanging_sign_item", MysteriousBlockTypes.SORBUS.getHangingSign().get(),
+                MysteriousBlockTypes.SORBUS.getWallHangingSign().get());
+        MysteriousBlockTypes.SEEPING.hanging_sign_item = MysteriousHelpers.setupHangingSignItem(
+                "seeping_hanging_sign_item", MysteriousBlockTypes.SEEPING.getHangingSign().get(),
+                MysteriousBlockTypes.SEEPING.getWallHangingSign().get());
+        MysteriousBlockTypes.SAKURA.hanging_sign_item = MysteriousHelpers.setupHangingSignItem(
+                "sakura_hanging_sign_item", MysteriousBlockTypes.SAKURA.getHangingSign().get(),
+                MysteriousBlockTypes.SEEPING.getWallHangingSign().get());
 
         BLOODIED_GRASS = RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID,
-                "bloodied_grass"), () -> new BloodiedGrass(AbstractBlock.Settings
+                "bloodied_grass"), () -> new BloodiedGrass(Block.Settings
                 .copy(Blocks.DIRT).strength(0.5F).sounds(BlockSoundGroup.WET_GRASS).ticksRandomly()), BLOCKS, ITEMS);
         BLOODIED_DIRT = RegHelpers.createBlockWithItem(
                 new Identifier(MysteriousBiomes.MOD_ID, "bloodied_dirt"),
                 () -> new Block(Block.Settings.copy(Blocks.DIRT).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT)),
                 BLOCKS, ITEMS);
+
+        MysteriousHelpers.setupMobEgg("the_forgotten_warlock_spawn_egg",
+                new SpawnEggItem(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, 0x0519f7,
+                0x161a4a, new Item.Settings()));
+
+        StrippableBlockRegistry.register(MysteriousBlockTypes.BLOODWOOD.log.get(),
+                MysteriousBlockTypes.BLOODWOOD.stripped_log.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.BLOODWOOD.wood.get(),
+                MysteriousBlockTypes.BLOODWOOD.stripped_wood.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.GHOSTLY.log.get(),
+                MysteriousBlockTypes.GHOSTLY.stripped_log.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.GHOSTLY.wood.get(),
+                MysteriousBlockTypes.GHOSTLY.stripped_wood.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.SORBUS.log.get(),
+                MysteriousBlockTypes.SORBUS.stripped_log.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.SORBUS.wood.get(),
+                MysteriousBlockTypes.SORBUS.stripped_wood.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.SEEPING.log.get(),
+                MysteriousBlockTypes.SEEPING.stripped_log.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.SEEPING.wood.get(),
+                MysteriousBlockTypes.SEEPING.stripped_wood.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.SAKURA.log.get(),
+                MysteriousBlockTypes.SAKURA.stripped_log.get());
+        StrippableBlockRegistry.register(MysteriousBlockTypes.SAKURA.wood.get(),
+                MysteriousBlockTypes.SAKURA.stripped_wood.get());
     }
 }

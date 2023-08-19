@@ -2,6 +2,7 @@
   "block.mysteriousbiomes.bloodied_dirt": "Bloodied Dirt",
   "block.mysteriousbiomes.bloodied_grass": "Bloodied Grass",
   "entity.mysteriousbiomes.the_forgotten_warlock": "The Forgotten Warlock",
+  "item.mysteriousbiomes.the_forgotten_warlock_spawn_egg": "The Forgotten Warlock Spawn Egg",
   "itemGroup.mysteriousbiomes.group": "Spooky Biomes",
   "block.mysteriousbiomes.bloodwood_button": "Blood Button",
   "block.mysteriousbiomes.bloodwood_door": "Blood Door",
@@ -16,6 +17,7 @@
   "block.mysteriousbiomes.bloodwood_pressure_plate": "Blood Pressure Plate",
   "block.mysteriousbiomes.bloodwood_sapling": "Blood Sapling",
   "block.mysteriousbiomes.bloodwood_sign": "Blood Sign",
+  "block.mysteriousbiomes.bloodwood_hanging_sign": "Blood Hanging Sign",
   "block.mysteriousbiomes.bloodwood_slab": "Blood Slab",
   "block.mysteriousbiomes.bloodwood_stairs": "Blood Stairs",
   "block.mysteriousbiomes.bloodwood_trapdoor": "Blood Trapdoor",
@@ -33,6 +35,7 @@
   "block.mysteriousbiomes.ghostly_pressure_plate": "Ghostly Pressure Plate",
   "block.mysteriousbiomes.ghostly_sapling": "Ghostly Sapling",
   "block.mysteriousbiomes.ghostly_sign": "Ghostly Sign",
+  "block.mysteriousbiomes.ghostly_hanging_sign": "Ghostly Hanging Sign",
   "block.mysteriousbiomes.ghostly_slab": "Ghostly Slab",
   "block.mysteriousbiomes.ghostly_stairs": "Ghostly Stairs",
   "block.mysteriousbiomes.ghostly_trapdoor": "Ghostly Trapdoor",
@@ -50,6 +53,7 @@
   "block.mysteriousbiomes.seeping_pressure_plate": "Seeping Pressure Plate",
   "block.mysteriousbiomes.seeping_sapling": "Seeping Sapling",
   "block.mysteriousbiomes.seeping_sign": "Seeping Sign",
+  "block.mysteriousbiomes.seeping_hanging_sign": "Seeping Hanging Sign",
   "block.mysteriousbiomes.seeping_slab": "Seeping Slab",
   "block.mysteriousbiomes.seeping_stairs": "Seeping Stairs",
   "block.mysteriousbiomes.seeping_trapdoor": "Seeping Trapdoor",
@@ -67,6 +71,7 @@
   "block.mysteriousbiomes.sorbus_pressure_plate": "Sorbus Pressure Plate",
   "block.mysteriousbiomes.sorbus_sapling": "Sorbus Sapling",
   "block.mysteriousbiomes.sorbus_sign": "Sorbus Sign",
+  "block.mysteriousbiomes.sorbus_hanging_sign": "Sorbus Hanging Sign",
   "block.mysteriousbiomes.sorbus_slab": "Sorbus Slab",
   "block.mysteriousbiomes.sorbus_stairs": "Sorbus Stairs",
   "block.mysteriousbiomes.sorbus_trapdoor": "Sorbus Trapdoor",
@@ -87,5 +92,6 @@
   "block.mysteriousbiomes.sakura_slab": "Sakura Slab",
   "block.mysteriousbiomes.sakura_stairs": "Sakura Stairs",
   "block.mysteriousbiomes.sakura_trapdoor": "Sakura Trapdoor",
-  "block.mysteriousbiomes.sakura_wall_sign": "Sakura Wall Sign"
+  "block.mysteriousbiomes.sakura_wall_sign": "Sakura Wall Sign",
+  "block.mysteriousbiomes.sakura_hanging_sign": "Sakura Hanging Sign"
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "mysteriousbiomes:seeping_planks"
+    }
+  },
+  "result": {
+    "item": "mysteriousbiomes:seeping_slab",
+    "count": 6
+  }
+}

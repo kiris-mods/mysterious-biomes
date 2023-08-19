@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:sorbus_fence",
+    "mysteriousbiomes:ghostly_fence",
+    "mysteriousbiomes:seeping_fence",
+    "mysteriousbiomes:bloodwood_fence"
+  ]
+}

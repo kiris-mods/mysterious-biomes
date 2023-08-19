@@ -20,9 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.datagen;
 
-import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.loot.LootTable;
@@ -41,32 +39,33 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
     @Override
     public void accept(BiConsumer<Identifier, LootTable.Builder> biConsumer) {
         var spookyWoodTypes = List.of(
-                MysteriousWoodTypes.BLOODWOOD.getName(),
-                MysteriousWoodTypes.GHOSTLY.getName(),
-                MysteriousWoodTypes.SORBUS.getName(),
-                MysteriousWoodTypes.SEEPING.getName());
+                MysteriousBlockTypes.BLOODWOOD.getName(),
+                MysteriousBlockTypes.GHOSTLY.getName(),
+                MysteriousBlockTypes.SORBUS.getName(),
+                MysteriousBlockTypes.SEEPING.getName());
         var spookyBlockTypes = List.of(
                 "trapdoor", "slab", "stairs", "planks",
                 "log", "stripped_log", "wood", "stripped_wood",
                 "gate", "fence", "button", "pressure_plate", "sapling", "sign");
 
+        /*
         spookyWoodTypes.forEach(woodType -> {
             spookyBlockTypes.forEach(blockType -> {
                 var spookyIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_" + blockType);
                 biConsumer.accept(new Identifier(spookyIdentifier.getNamespace(), "blocks/"
-                        + spookyIdentifier.getPath()), BlockLoot.createSingleItemTable(
+                        + spookyIdentifier.getPath()), BlockLootTableGenerator.createSingleItemTable(
                         MysteriousContentSetup.BLOCKS.get(spookyIdentifier).get().asItem()));
             });
 
             var doorIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_door");
             biConsumer.accept(new Identifier(doorIdentifier.getNamespace(), "blocks/"
-                    + doorIdentifier.getPath()), BlockLoot.createDoorTable(
+                    + doorIdentifier.getPath()), BlockLootTableGenerator.createDoorTable(
                     MysteriousContentSetup.BLOCKS.get(doorIdentifier).get()));
 
             var leafIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_leaves");
             var saplingIdentifier = new Identifier(MysteriousBiomes.MOD_ID, woodType + "_sapling");
             biConsumer.accept(new Identifier(leafIdentifier.getNamespace(), "blocks/"
-                    + leafIdentifier.getPath()), BlockLoot.createLeavesDrops(
+                    + leafIdentifier.getPath()), BlockLootTableGenerator.createLeavesDrops(
                     MysteriousContentSetup.BLOCKS.get(leafIdentifier).get(),
                     MysteriousContentSetup.BLOCKS.get(saplingIdentifier).get(),
                     0.05F, 0.0625F, 0.083333336F, 0.1F));
@@ -75,11 +74,13 @@ public class BlockLootGenerator extends SimpleFabricLootTableProvider {
         var dirtIdentifier = new Identifier(MysteriousBiomes.MOD_ID, "bloodied_dirt");
         biConsumer.accept(new Identifier(dirtIdentifier.getNamespace(), "blocks/"
                         + dirtIdentifier.getPath()),
-                BlockLoot.createSingleItemTable(MysteriousContentSetup.BLOCKS.get(dirtIdentifier).get().asItem()));
+                BlockLootTableGenerator.createSingleItemTable(MysteriousContentSetup.BLOCKS.get(dirtIdentifier).get().asItem()));
 
         var grassIdentifier = new Identifier(MysteriousBiomes.MOD_ID, "bloodied_grass");
         biConsumer.accept(new Identifier(grassIdentifier.getNamespace(), "blocks/"
                         + grassIdentifier.getPath()),
-                BlockLoot.createSilkTouchOnlyTable(MysteriousContentSetup.BLOCKS.get(grassIdentifier).get().asItem()));
+                BlockLootTableGenerator.dropsWithSilkTouch(MysteriousContentSetup.BLOCKS.get(grassIdentifier).get().asItem()));
+
+         */
     }
 }

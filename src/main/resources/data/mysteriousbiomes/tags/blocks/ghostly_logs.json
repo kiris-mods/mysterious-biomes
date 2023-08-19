@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:ghostly_log",
+    "mysteriousbiomes:ghostly_stripped_log",
+    "mysteriousbiomes:ghostly_wood",
+    "mysteriousbiomes:ghostly_stripped_log"
+  ]
+}

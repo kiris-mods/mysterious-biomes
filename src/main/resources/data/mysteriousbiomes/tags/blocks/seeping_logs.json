@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:seeping_log",
+    "mysteriousbiomes:seeping_stripped_log",
+    "mysteriousbiomes:seeping_wood",
+    "mysteriousbiomes:seeping_stripped_wood"
+  ]
+}

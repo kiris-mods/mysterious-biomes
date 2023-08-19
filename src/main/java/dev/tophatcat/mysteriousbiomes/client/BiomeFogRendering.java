@@ -20,6 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
+//TODO Rewrite this entire system...
 public class BiomeFogRendering {
 
     private static double mistX, mistZ;

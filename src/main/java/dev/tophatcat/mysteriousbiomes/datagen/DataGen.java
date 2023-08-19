@@ -30,5 +30,6 @@ public class DataGen implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(BlockLootGenerator::new);
         pack.addProvider(BlockModelGenerator::new);
+        pack.addProvider(BlockTagGenerator::new);
     }
 }

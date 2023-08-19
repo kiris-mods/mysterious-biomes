@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:sorbus_planks",
+    "mysteriousbiomes:ghostly_planks",
+    "mysteriousbiomes:seeping_planks",
+    "mysteriousbiomes:bloodwood_planks"
+  ]
+}

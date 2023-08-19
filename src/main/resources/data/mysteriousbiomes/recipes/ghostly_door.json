@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_door",
+  "pattern": [
+    "##",
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "mysteriousbiomes:ghostly_planks"
+    }
+  },
+  "result": {
+    "item": "mysteriousbiomes:ghostly_door",
+    "count": 3
+  }
+}

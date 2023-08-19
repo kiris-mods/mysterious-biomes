@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.mixins;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,17 +31,33 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BlockEntityType.class)
 public class BlockEntityTypeMixin {
 
+    //TODO Change this to a better system.
     @Inject(method = "supports", at = @At("HEAD"), cancellable = true)
     private void isValid(BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (BlockEntityType.SIGN.equals(this)
-                && (state.isOf(MysteriousWoodTypes.BLOODWOOD.getFloorSign().get())
-                || state.isOf(MysteriousWoodTypes.BLOODWOOD.getWallSign().get())
-                || (state.isOf(MysteriousWoodTypes.GHOSTLY.getFloorSign().get())
-                || state.isOf(MysteriousWoodTypes.GHOSTLY.getWallSign().get())
-                || (state.isOf(MysteriousWoodTypes.SORBUS.getFloorSign().get())
-                || state.isOf(MysteriousWoodTypes.SORBUS.getWallSign().get())
-                || (state.isOf(MysteriousWoodTypes.SEEPING.getFloorSign().get())
-                || state.isOf(MysteriousWoodTypes.SEEPING.getWallSign().get())))))) {
+                && (state.isOf(MysteriousBlockTypes.BLOODWOOD.getFloorSign().get())
+                || state.isOf(MysteriousBlockTypes.BLOODWOOD.getWallSign().get())
+                || (state.isOf(MysteriousBlockTypes.GHOSTLY.getFloorSign().get())
+                || state.isOf(MysteriousBlockTypes.GHOSTLY.getWallSign().get())
+                || (state.isOf(MysteriousBlockTypes.SORBUS.getFloorSign().get())
+                || state.isOf(MysteriousBlockTypes.SORBUS.getWallSign().get())
+                || (state.isOf(MysteriousBlockTypes.SEEPING.getFloorSign().get())
+                || state.isOf(MysteriousBlockTypes.SEEPING.getWallSign().get())
+                || (state.isOf(MysteriousBlockTypes.SAKURA.getFloorSign().get())
+                || state.isOf(MysteriousBlockTypes.SAKURA.getWallSign().get()))))))) {
+            cir.setReturnValue(true);
+        }
+        if (BlockEntityType.HANGING_SIGN.equals(this)
+                && (state.isOf(MysteriousBlockTypes.BLOODWOOD.getHangingSign().get())
+                || state.isOf(MysteriousBlockTypes.BLOODWOOD.getWallHangingSign().get())
+                || (state.isOf(MysteriousBlockTypes.GHOSTLY.getHangingSign().get())
+                || state.isOf(MysteriousBlockTypes.GHOSTLY.getWallHangingSign().get())
+                || (state.isOf(MysteriousBlockTypes.SORBUS.getHangingSign().get())
+                || state.isOf(MysteriousBlockTypes.SORBUS.getWallHangingSign().get())
+                || (state.isOf(MysteriousBlockTypes.SEEPING.getHangingSign().get())
+                || state.isOf(MysteriousBlockTypes.SEEPING.getWallHangingSign().get())
+                || (state.isOf(MysteriousBlockTypes.SAKURA.getHangingSign().get())
+                || state.isOf(MysteriousBlockTypes.SAKURA.getWallHangingSign().get()))))))) {
             cir.setReturnValue(true);
         }
     }
