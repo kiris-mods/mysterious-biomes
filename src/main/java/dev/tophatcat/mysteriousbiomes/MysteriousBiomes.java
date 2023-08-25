@@ -53,22 +53,20 @@ import java.util.Comparator;
 public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
 
     //TODO Make sure all of the following work properly
-    //Recipes
-    //Tags
-    //Loot tables
-    //Block states for things like fences
-    //Fences need fixing so they can connect.
+    //Recipes.
     //Advancements?
     //Structures?
-    //World generation
-    //Saplings
-    //Mist not working in biomes
-    //Configurable poison damage in our biomes
-    //Charms to protect against poisonings from the mist
-    //Compat with Eight's mod
-    //Baubles or Charms compat
-    //Full set of textures for all blocks and for The Forgotten Warlock
+    //World generation.
+    //Saplings.
+    //Mist not working in biomes.
+    //Configurable poison damage in our biomes.
+    //Charms to protect against poisonings from the mist.
+    //Compat with Eight's mod.
+    //Baubles or Charms compat.
+    //Full set of textures for all blocks and for The Forgotten Warlock.
+    //Check The Forgotten Warlock is spawning in the world.
     //Check all block and item properties are correct.
+    //Item tags.
     public static final String MOD_ID = "mysteriousbiomes";
 
     public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP,

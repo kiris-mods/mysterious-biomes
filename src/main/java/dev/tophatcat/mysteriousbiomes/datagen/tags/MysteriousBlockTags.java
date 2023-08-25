@@ -31,71 +31,75 @@ final class MysteriousBlockTags {
     public static final TagKey<Block> DIRT = TagKey.of(RegistryKeys.BLOCK,
             new Identifier("dirt"));
     public static final TagKey<Block> PLANKS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "planks"));
+        new Identifier("planks"));
     public static final TagKey<Block> WOODEN_BUTTONS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wooden_buttons"));
+        new Identifier("wooden_buttons"));
     public static final TagKey<Block> BUTTONS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "buttons"));
+        new Identifier("buttons"));
     public static final TagKey<Block> WOODEN_DOORS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wooden_doors"));
+        new Identifier("wooden_doors"));
     public static final TagKey<Block> WOODEN_STAIRS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wooden_stairs"));
+        new Identifier("wooden_stairs"));
     public static final TagKey<Block> WOODEN_SLABS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wooden_slabs"));
+        new Identifier("wooden_slabs"));
     public static final TagKey<Block> WOODEN_FENCES = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wooden_fences"));
+        new Identifier("wooden_fences"));
     public static final TagKey<Block> WOODEN_PRESSURE_PLATES = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wooden_pressure_plates"));
+        new Identifier("wooden_pressure_plates"));
     public static final TagKey<Block> PRESSURE_PLATES = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "pressure_plates"));
+        new Identifier("pressure_plates"));
     public static final TagKey<Block> WOODEN_TRAPDOORS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wooden_trapdoors"));
+        new Identifier("wooden_trapdoors"));
     public static final TagKey<Block> DOORS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "doors"));
+        new Identifier("doors"));
     public static final TagKey<Block> SAPLINGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "saplings"));
+        new Identifier("saplings"));
     public static final TagKey<Block> LOGS_THAT_BURN = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "logs_that_burn"));
+        new Identifier("logs_that_burn"));
     public static final TagKey<Block> OVERWORLD_NATURAL_LOGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "overworld_natural_logs"));
+        new Identifier("overworld_natural_logs"));
     public static final TagKey<Block> LOGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "logs"));
+        new Identifier("logs"));
     public static final TagKey<Block> BLOODWOOD_LOGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "bloodwood_logs"));
+        new Identifier("bloodwood_logs"));
     public static final TagKey<Block> GHOSTLY_LOGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "ghostly_logs"));
+        new Identifier("ghostly_logs"));
     public static final TagKey<Block> SEEPING_LOGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "seeping_logs"));
+        new Identifier("seeping_logs"));
     public static final TagKey<Block> SORBUS_LOGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "sorbus_logs"));
+        new Identifier("sorbus_logs"));
     public static final TagKey<Block> SAKURA_LOGS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "sakura_logs"));
+        new Identifier("sakura_logs"));
     public static final TagKey<Block> STAIRS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "stairs"));
+        new Identifier("stairs"));
     public static final TagKey<Block> SLABS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "slabs"));
+        new Identifier("slabs"));
     public static final TagKey<Block> LEAVES = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "leaves"));
+        new Identifier("leaves"));
     public static final TagKey<Block> TRAPDOORS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "trapdoors"));
+        new Identifier("trapdoors"));
     public static final TagKey<Block> FENCES = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "fences"));
+        new Identifier("fences"));
     public static final TagKey<Block> STANDING_SIGNS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "standing_signs"));
+        new Identifier("standing_signs"));
     public static final TagKey<Block> WALL_SIGNS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wall_signs"));
+        new Identifier("wall_signs"));
     public static final TagKey<Block> SIGNS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "signs"));
+        new Identifier("signs"));
     public static final TagKey<Block> CEILING_HANGING_SIGNS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "ceiling_hanging_signs"));
+        new Identifier("ceiling_hanging_signs"));
     public static final TagKey<Block> WALL_HANGING_SIGNS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "wall_hanging_signs"));
+        new Identifier("wall_hanging_signs"));
     public static final TagKey<Block> ALL_HANGING_SIGNS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "all_hanging_signs"));
+        new Identifier("all_hanging_signs"));
     public static final TagKey<Block> ALL_SIGNS = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "all_signs"));
+        new Identifier("all_signs"));
     public static final TagKey<Block> FENCE_GATES = TagKey.of(RegistryKeys.BLOCK,
-        new Identifier(MysteriousBiomes.MOD_ID, "fence_gates"));
+        new Identifier("fence_gates"));
     public static final TagKey<Block> AXE_MINEABLE = TagKey.of(RegistryKeys.BLOCK,
         new Identifier("mineable/axe"));
+    public static final TagKey<Block> HOE_MINEABLE = TagKey.of(RegistryKeys.BLOCK,
+        new Identifier("mineable/hoe"));
+    public static final TagKey<Block> SHOVEL_MINEABLE = TagKey.of(RegistryKeys.BLOCK,
+        new Identifier("mineable/shovel"));
 }

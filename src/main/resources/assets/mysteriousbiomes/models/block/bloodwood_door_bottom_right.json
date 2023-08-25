@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_right",
-  "textures": {
-    "bottom": "mysteriousbiomes:block/bloodwood_door_bottom",
-    "top": "mysteriousbiomes:block/bloodwood_door_top"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "mysteriousbiomes:block/seeping_planks",
-    "side": "mysteriousbiomes:block/seeping_planks",
-    "top": "mysteriousbiomes:block/seeping_planks"
-  }
-}

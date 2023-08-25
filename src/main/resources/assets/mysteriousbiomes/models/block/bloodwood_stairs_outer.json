@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "textures": {
-    "bottom": "mysteriousbiomes:block/bloodwood_planks",
-    "side": "mysteriousbiomes:block/bloodwood_planks",
-    "top": "mysteriousbiomes:block/bloodwood_planks"
-  }
-}

@@ -237,5 +237,12 @@ public class MysteriousBlockTagProvider extends FabricTagProvider.BlockTagProvid
             .addTag(MysteriousBlockTags.PLANKS)
             .addTag(MysteriousBlockTags.LOGS)
             .addTag(MysteriousBlockTags.FENCE_GATES);
+
+        getOrCreateTagBuilder(MysteriousBlockTags.HOE_MINEABLE)
+            .addTag(MysteriousBlockTags.LEAVES);
+
+        getOrCreateTagBuilder(MysteriousBlockTags.SHOVEL_MINEABLE)
+            .add(MysteriousContentSetup.BLOODIED_GRASS.get())
+            .add(MysteriousContentSetup.BLOODIED_DIRT.get());
     }
 }

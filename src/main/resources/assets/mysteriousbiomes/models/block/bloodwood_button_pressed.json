@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/button_pressed",
-  "textures": {
-    "texture": "mysteriousbiomes:block/bloodwood_planks"
-  }
-}
