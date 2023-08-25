@@ -20,7 +20,6 @@
  */
 package dev.tophatcat.mysteriousbiomes.setup;
 
-import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousBlockTags;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 
