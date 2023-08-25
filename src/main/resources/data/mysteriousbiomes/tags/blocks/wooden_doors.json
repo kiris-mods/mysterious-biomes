@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
-    "mysteriousbiomes:sorbus_door",
+    "mysteriousbiomes:bloodwood_door",
     "mysteriousbiomes:ghostly_door",
     "mysteriousbiomes:seeping_door",
-    "mysteriousbiomes:bloodwood_door"
+    "mysteriousbiomes:sorbus_door",
+    "mysteriousbiomes:sakura_door"
   ]
 }

@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
-    "mysteriousbiomes:sorbus_slab",
+    "mysteriousbiomes:bloodwood_slab",
     "mysteriousbiomes:ghostly_slab",
     "mysteriousbiomes:seeping_slab",
-    "mysteriousbiomes:bloodwood_slab"
+    "mysteriousbiomes:sorbus_slab",
+    "mysteriousbiomes:sakura_slab"
   ]
 }

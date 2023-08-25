@@ -1,8 +1,10 @@
 {
+  "replace": false,
   "values": [
-    "#mysteriousbiomes:sorbus_logs",
+    "#mysteriousbiomes:bloodwood_logs",
     "#mysteriousbiomes:ghostly_logs",
+    "#mysteriousbiomes:sorbus_logs",
     "#mysteriousbiomes:seeping_logs",
-    "#mysteriousbiomes:bloodwood_logs"
+    "#mysteriousbiomes:sakura_logs"
   ]
 }

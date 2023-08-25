@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
-    "mysteriousbiomes:sorbus_stairs",
+    "mysteriousbiomes:bloodwood_stairs",
     "mysteriousbiomes:ghostly_stairs",
     "mysteriousbiomes:seeping_stairs",
-    "mysteriousbiomes:bloodwood_stairs"
+    "mysteriousbiomes:sorbus_stairs",
+    "mysteriousbiomes:sakura_stairs"
   ]
 }

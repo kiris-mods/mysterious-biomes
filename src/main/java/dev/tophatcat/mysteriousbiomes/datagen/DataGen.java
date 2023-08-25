@@ -20,6 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.datagen;
 
+import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousBlockTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -28,8 +29,6 @@ public class DataGen implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-        pack.addProvider(BlockLootGenerator::new);
-        pack.addProvider(BlockModelGenerator::new);
-        pack.addProvider(BlockTagGenerator::new);
+        pack.addProvider(MysteriousBlockTagProvider::new);
     }
 }

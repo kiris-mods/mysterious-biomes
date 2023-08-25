@@ -18,10 +18,12 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.mysteriousbiomes.setup;
+package dev.tophatcat.mysteriousbiomes.utils;
 
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.minecraft.block.*;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.item.HangingSignItem;
@@ -31,7 +33,7 @@ import net.minecraft.util.Identifier;
 
 import java.util.function.Supplier;
 
-public class MysteriousHelpers {
+public class MysteriousRegistrationUtils {
 
     public static Supplier<Item> setupMobEgg(String name, Item item) {
         return RegHelpers.createBasicItem(new Identifier(MysteriousBiomes.MOD_ID, name),
@@ -115,7 +117,7 @@ public class MysteriousHelpers {
     public static Supplier<Block> setupDoorBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID, woodType.getName()
                 + "_door"), () -> new DoorBlock(Block.Settings.copy(Blocks.OAK_DOOR).strength(3.0F)
-                .nonOpaque(), BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                .nonOpaque().burnable(), BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Item> setupSignItem(String woodType, Block signBlock, Block wallSignBlock) {
@@ -130,9 +132,9 @@ public class MysteriousHelpers {
                 MysteriousContentSetup.BLOCKS);
     }
 
-    public static Supplier<Block> setupWallSignBlock(String woodType, WoodType signType) {
-        return RegHelpers.createBlock(new Identifier(MysteriousBiomes.MOD_ID, woodType),
-                () -> new WallSignBlock(Block.Settings.copy(Blocks.OAK_WALL_SIGN), signType),
+    public static Supplier<Block> setupWallSignBlock(String woodName, WoodType woodType) {
+        return RegHelpers.createBlock(new Identifier(MysteriousBiomes.MOD_ID, woodName),
+                () -> new WallSignBlock(Block.Settings.copy(Blocks.OAK_WALL_SIGN), woodType),
                 MysteriousContentSetup.BLOCKS);
     }
 

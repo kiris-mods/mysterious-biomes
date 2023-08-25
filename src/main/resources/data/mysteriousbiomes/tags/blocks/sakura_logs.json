@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:sakura_log",
+    "mysteriousbiomes:sakura_stripped_log",
+    "mysteriousbiomes:sakura_wood",
+    "mysteriousbiomes:sakura_stripped_wood"
+  ]
+}

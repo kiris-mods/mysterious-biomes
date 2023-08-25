@@ -23,6 +23,7 @@ package dev.tophatcat.mysteriousbiomes;
 import dev.tophatcat.mysteriousbiomes.entity.EntityTheForgottenWarlock;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousFlammableBlocks;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -56,8 +57,7 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     //Tags
     //Loot tables
     //Block states for things like fences
-    //Fire burns wooden blocks
-    //Furnaces can use our woods for fuel and turn logs into charcoal
+    //Fences need fixing so they can connect.
     //Advancements?
     //Structures?
     //World generation
@@ -66,7 +66,7 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     //Configurable poison damage in our biomes
     //Charms to protect against poisonings from the mist
     //Compat with Eight's mod
-    //Baubles/Charms compat
+    //Baubles or Charms compat
     //Full set of textures for all blocks and for The Forgotten Warlock
     //Check all block and item properties are correct.
     public static final String MOD_ID = "mysteriousbiomes";
@@ -90,6 +90,7 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     public void onInitialize() {
         MysteriousWoodType.init();
         MysteriousContentSetup.init();
+        MysteriousFlammableBlocks.init();
 
         MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(Registries.BLOCK, id, block.get()));
         MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(Registries.ITEM, id, item.get()));

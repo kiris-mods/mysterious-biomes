@@ -1,9 +1,10 @@
 {
   "replace": false,
   "values": [
-    "mysteriousbiomes:sorbus_button",
+    "mysteriousbiomes:bloodwood_button",
     "mysteriousbiomes:ghostly_button",
     "mysteriousbiomes:seeping_button",
-    "mysteriousbiomes:bloodwood_button"
+    "mysteriousbiomes:sorbus_button",
+    "mysteriousbiomes:sakura_button"
   ]
 }
