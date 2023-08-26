@@ -31,7 +31,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class MysteriousBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
-    public MysteriousBlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public MysteriousBlockTagProvider(FabricDataOutput output,
+                                      CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
 

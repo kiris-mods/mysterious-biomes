@@ -21,6 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.datagen;
 
 import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousBlockTagProvider;
+import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousItemTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -28,9 +29,10 @@ public class DataGen implements DataGeneratorEntrypoint {
 
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
-        pack.addProvider(MysteriousBlockStateModelGenerator::new);
-        pack.addProvider(MysteriousBlockTagProvider::new);
-        pack.addProvider(MysteriousBlockLootTableGenerator::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousBlockStateModelGenerator::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousBlockTagProvider::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousItemTagProvider::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousBlockLootTableGenerator::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousLanguageProvider::new);
     }
 }
