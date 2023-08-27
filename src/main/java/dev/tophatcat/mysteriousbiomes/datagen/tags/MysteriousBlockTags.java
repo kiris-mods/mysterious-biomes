@@ -26,7 +26,7 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-final class MysteriousBlockTags {
+public final class MysteriousBlockTags {
 
     public static final TagKey<Block> DIRT = TagKey.of(RegistryKeys.BLOCK,
             new Identifier("dirt"));

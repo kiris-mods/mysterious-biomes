@@ -24,14 +24,13 @@ import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.block.Block;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
 
-public class MysteriousItemTagProvider extends FabricTagProvider.ItemTagProvider {
+public class MysteriousItemTagGenerator extends FabricTagProvider.ItemTagProvider {
 
-    public MysteriousItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup>
+    public MysteriousItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup>
             completableFuture) {
         super(output, completableFuture);
     }

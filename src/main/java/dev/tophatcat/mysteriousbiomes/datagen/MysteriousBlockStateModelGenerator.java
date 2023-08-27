@@ -83,6 +83,8 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
         modelGen.registerSimpleCubeAll(MysteriousContentSetup.BLOODIED_DIRT.get());
 
         //FIXME This does NOT generate the bloodied_grass.json block model file like it in theory should.
+        //FIXME It does however generate the snowy model and the blockstate file.
+        //Until a fix can be found, a manually written model file has been left in the mods resources to patch this.
         modelGen.registerTopSoil(MysteriousContentSetup.BLOODIED_GRASS.get(),
                 ModelIds.getBlockModelId(MysteriousContentSetup.BLOODIED_GRASS.get()),
                 BlockStateVariant.create().put(VariantSettings.MODEL, Models.CUBE_BOTTOM_TOP.upload(

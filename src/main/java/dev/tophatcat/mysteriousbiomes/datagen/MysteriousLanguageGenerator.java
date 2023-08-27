@@ -26,9 +26,9 @@ import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
-public class MysteriousLanguageProvider extends FabricLanguageProvider {
+public class MysteriousLanguageGenerator extends FabricLanguageProvider {
 
-    protected MysteriousLanguageProvider(FabricDataOutput dataOutput) {
+    protected MysteriousLanguageGenerator(FabricDataOutput dataOutput) {
         super(dataOutput);
     }
 

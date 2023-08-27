@@ -29,7 +29,7 @@
       "dev.tophatcat.mysteriousbiomes.client.MysteriousRendering"
     ],
     "fabric-datagen": [
-      "dev.tophatcat.mysteriousbiomes.datagen.DataGen"
+      "dev.tophatcat.mysteriousbiomes.datagen.MysteriousDataGen"
     ]
   },
 

@@ -20,19 +20,20 @@
  */
 package dev.tophatcat.mysteriousbiomes.datagen;
 
-import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousBlockTagProvider;
-import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousItemTagProvider;
+import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousBlockTagGenerator;
+import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousItemTagGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
-public class DataGen implements DataGeneratorEntrypoint {
+public class MysteriousDataGen implements DataGeneratorEntrypoint {
 
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         fabricDataGenerator.createPack().addProvider(MysteriousBlockStateModelGenerator::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousBlockTagProvider::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousItemTagProvider::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousBlockTagGenerator::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousItemTagGenerator::new);
         fabricDataGenerator.createPack().addProvider(MysteriousBlockLootTableGenerator::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousLanguageProvider::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousLanguageGenerator::new);
+        fabricDataGenerator.createPack().addProvider(MysteriousRecipeGenerator::new);
     }
 }
