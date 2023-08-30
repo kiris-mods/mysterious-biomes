@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "mysteriousbiomes:block/bloodwood_sapling"
+  }
+}

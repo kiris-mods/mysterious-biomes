@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_trapdoor",
+  "key": {
+    "W": {
+      "item": "mysteriousbiomes:ghostly_planks"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "WWW"
+  ],
+  "result": {
+    "count": 2,
+    "item": "mysteriousbiomes:ghostly_trapdoor"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mysteriousbiomes:item/sakura_hanging_sign_item"
+  }
+}

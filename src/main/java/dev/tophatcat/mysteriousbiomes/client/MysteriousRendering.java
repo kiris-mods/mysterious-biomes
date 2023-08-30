@@ -21,12 +21,16 @@
 package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.util.Identifier;
 
 public class MysteriousRendering implements ClientModInitializer {
 
@@ -66,5 +70,8 @@ public class MysteriousRendering implements ClientModInitializer {
                 RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SAKURA.getDoor().get(),
                 RenderLayer.getCutout());
+        FabricLoader.getInstance().getModContainer(MysteriousBiomes.MOD_ID).ifPresent(modContainer
+            -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MysteriousBiomes.MOD_ID,
+                "legacy_textures"), modContainer, ResourcePackActivationType.NORMAL));
     }
 }

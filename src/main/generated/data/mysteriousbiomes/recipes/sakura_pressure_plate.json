@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_pressure_plate",
+  "key": {
+    "W": {
+      "item": "mysteriousbiomes:sakura_planks"
+    }
+  },
+  "pattern": [
+    "WW"
+  ],
+  "result": {
+    "item": "mysteriousbiomes:sakura_pressure_plate"
+  },
+  "show_notification": true
+}

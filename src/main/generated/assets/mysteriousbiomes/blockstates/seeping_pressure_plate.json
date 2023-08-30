@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "mysteriousbiomes:block/seeping_pressure_plate"
+    },
+    "powered=true": {
+      "model": "mysteriousbiomes:block/seeping_pressure_plate_down"
+    }
+  }
+}

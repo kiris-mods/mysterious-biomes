@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "mysteriousbiomes:sakura_planks"
+    ]
+  },
+  "criteria": {
+    "has_sakura_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "mysteriousbiomes:sakura_logs"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "mysteriousbiomes:sakura_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sakura_log",
+      "has_the_recipe"
+    ]
+  ]
+}

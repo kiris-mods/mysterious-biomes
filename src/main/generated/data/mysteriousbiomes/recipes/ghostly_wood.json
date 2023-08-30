@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bark",
+  "key": {
+    "W": {
+      "item": "mysteriousbiomes:ghostly_log"
+    }
+  },
+  "pattern": [
+    "WW",
+    "WW"
+  ],
+  "result": {
+    "count": 3,
+    "item": "mysteriousbiomes:ghostly_wood"
+  },
+  "show_notification": true
+}

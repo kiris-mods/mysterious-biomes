@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:bloodwood_planks",
+    "mysteriousbiomes:ghostly_planks",
+    "mysteriousbiomes:seeping_planks",
+    "mysteriousbiomes:sorbus_planks",
+    "mysteriousbiomes:sakura_planks"
+  ]
+}

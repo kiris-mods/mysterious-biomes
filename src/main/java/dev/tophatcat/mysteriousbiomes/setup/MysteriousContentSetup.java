@@ -23,7 +23,9 @@ package dev.tophatcat.mysteriousbiomes.setup;
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
 import dev.tophatcat.mysteriousbiomes.blocks.BloodiedGrass;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousRegistrationUtils;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -179,6 +181,6 @@ public final class MysteriousContentSetup {
 
         MysteriousRegistrationUtils.setupMobEgg("the_forgotten_warlock_spawn_egg",
                 new SpawnEggItem(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, 0x0519f7,
-                0x161a4a, new Item.Settings()));
+                        0x161a4a, new Item.Settings()));
     }
 }

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:bloodwood_hanging_sign_item",
+    "mysteriousbiomes:ghostly_hanging_sign_item",
+    "mysteriousbiomes:seeping_hanging_sign_item",
+    "mysteriousbiomes:sorbus_hanging_sign_item",
+    "mysteriousbiomes:sakura_hanging_sign_item"
+  ]
+}

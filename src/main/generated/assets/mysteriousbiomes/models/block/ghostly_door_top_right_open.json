@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right_open",
+  "textures": {
+    "bottom": "mysteriousbiomes:block/ghostly_door_bottom",
+    "top": "mysteriousbiomes:block/ghostly_door_top"
+  }
+}

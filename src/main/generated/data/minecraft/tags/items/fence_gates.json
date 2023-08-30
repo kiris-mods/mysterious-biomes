@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "mysteriousbiomes:bloodwood_gate",
+    "mysteriousbiomes:ghostly_gate",
+    "mysteriousbiomes:seeping_gate",
+    "mysteriousbiomes:sorbus_gate",
+    "mysteriousbiomes:sakura_gate"
+  ]
+}

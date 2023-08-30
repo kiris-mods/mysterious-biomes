@@ -20,8 +20,12 @@
  */
 package dev.tophatcat.mysteriousbiomes.datagen;
 
-import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousBlockTagGenerator;
-import dev.tophatcat.mysteriousbiomes.datagen.tags.MysteriousItemTagGenerator;
+import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousBlockStateModelGenerator;
+import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousLanguageGenerator;
+import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousBlockLootTableGenerator;
+import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousRecipeGenerator;
+import dev.tophatcat.mysteriousbiomes.datagen.server.tags.MysteriousBlockTagGenerator;
+import dev.tophatcat.mysteriousbiomes.datagen.server.tags.MysteriousItemTagGenerator;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 

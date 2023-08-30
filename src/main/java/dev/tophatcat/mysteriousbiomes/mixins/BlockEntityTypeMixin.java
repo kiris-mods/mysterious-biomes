@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.mixins;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import org.spongepowered.asm.mixin.Mixin;

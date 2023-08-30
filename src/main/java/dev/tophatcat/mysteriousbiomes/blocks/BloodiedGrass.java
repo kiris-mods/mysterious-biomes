@@ -70,7 +70,7 @@ public class BloodiedGrass extends GrassBlock {
         if (!world.isClient) {
             //FIXME Ask why this if check doesn't seem to let grass spread when enabled.
             //if (!world.isChunkLoaded(pos.getX(), 3)) {
-                // Prevent loading unloaded chunks when checking neighbor's light and spreading.
+            // Prevent loading unloaded chunks when checking neighbor's light and spreading.
             //    return;
             //}
 

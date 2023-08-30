@@ -20,6 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.setup;
 
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 
@@ -31,11 +32,11 @@ public class MysteriousFlammableBlocks {
         FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
 
         var mysteriousWoodTypes = List.of(
-            MysteriousBlockTypes.BLOODWOOD,
-            MysteriousBlockTypes.GHOSTLY,
-            MysteriousBlockTypes.SORBUS,
-            MysteriousBlockTypes.SEEPING,
-            MysteriousBlockTypes.SAKURA);
+                MysteriousBlockTypes.BLOODWOOD,
+                MysteriousBlockTypes.GHOSTLY,
+                MysteriousBlockTypes.SORBUS,
+                MysteriousBlockTypes.SEEPING,
+                MysteriousBlockTypes.SAKURA);
 
         mysteriousWoodTypes.forEach(woodType -> {
             registry.add(woodType.getLog().get(), 5, 5);

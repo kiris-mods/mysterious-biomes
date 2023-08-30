@@ -22,7 +22,6 @@ package dev.tophatcat.mysteriousbiomes.utils;
 
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import net.minecraft.block.*;
 import net.minecraft.block.sapling.SaplingGenerator;
@@ -38,12 +37,6 @@ public class MysteriousRegistrationUtils {
     public static Supplier<Item> setupMobEgg(String name, Item item) {
         return RegHelpers.createBasicItem(new Identifier(MysteriousBiomes.MOD_ID, name),
                 () -> item, MysteriousContentSetup.ITEMS);
-    }
-
-    public static Supplier<Block> setupCraftingTableBlock(WoodType woodType) {
-        return RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID, woodType.name()),
-                () -> new CraftingTableBlock(Block.Settings.copy(Blocks.CRAFTING_TABLE)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupSaplingBlock(String woodType, SaplingGenerator generator) {
@@ -110,8 +103,8 @@ public class MysteriousRegistrationUtils {
 
     public static Supplier<Block> setupTrapdoorBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_trapdoor"), () -> new TrapdoorBlock(Block.Settings.copy(Blocks.OAK_TRAPDOOR),
-                        BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_trapdoor"), () -> new TrapdoorBlock(Block.Settings.copy(Blocks.OAK_TRAPDOOR),
+                BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupDoorBlock(MysteriousBlockTypes woodType) {

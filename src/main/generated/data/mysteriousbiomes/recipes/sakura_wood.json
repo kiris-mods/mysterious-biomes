@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bark",
+  "key": {
+    "W": {
+      "item": "mysteriousbiomes:sakura_log"
+    }
+  },
+  "pattern": [
+    "WW",
+    "WW"
+  ],
+  "result": {
+    "count": 3,
+    "item": "mysteriousbiomes:sakura_wood"
+  },
+  "show_notification": true
+}

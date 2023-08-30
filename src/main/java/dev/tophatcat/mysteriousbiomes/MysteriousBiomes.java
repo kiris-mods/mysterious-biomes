@@ -21,10 +21,10 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.entity.EntityTheForgottenWarlock;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousBlockTypes;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousFlammableBlocks;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousWoodType;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -53,20 +53,20 @@ import java.util.Comparator;
 public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
 
     //TODO Make sure all of the following work properly
-    //Recipes.
-    //Advancements?
+    //Advancements to datagen in the future? Not in 1.20.1 at least.
     //Structures?
     //World generation.
     //Saplings.
     //Mist not working in biomes.
-    //Configurable poison damage in our biomes.
+    //Poison the player if they enter the biome without a charm for protection.
+    //Add a config to disable this in certain cases.
     //Charms to protect against poisonings from the mist.
+    //Loot generation for said charms.
     //Compat with Eight's mod.
     //Baubles or Charms compat.
     //Full set of textures for all blocks and for The Forgotten Warlock.
     //Check The Forgotten Warlock is spawning in the world.
     //Check all block and item properties are correct.
-    //Item tags.
     public static final String MOD_ID = "mysteriousbiomes";
 
     public static final RegistryKey<ItemGroup> ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP,

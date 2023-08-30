@@ -55,13 +55,13 @@ public class EntityTheForgottenWarlock extends HostileEntity implements RangedAt
         goalSelector.add(5, new WanderAroundGoal(this, 1.0D));
         targetSelector.add(6, new TheForgottenWarlockAttackGoal(this));
         targetSelector.add(7, new TheForgottenWarlockTargetGoal<>(
-            this, PlayerEntity.class));
+                this, PlayerEntity.class));
         targetSelector.add(8, new TheForgottenWarlockTargetGoal<>(
                 this, AbstractSkeletonEntity.class));
         targetSelector.add(9, new TheForgottenWarlockTargetGoal<>(
-            this, ZombieEntity.class));
+                this, ZombieEntity.class));
         targetSelector.add(9, new TheForgottenWarlockTargetGoal<>(
-            this, CreeperEntity.class));
+                this, CreeperEntity.class));
         isFireImmune();
     }
 
