@@ -68,11 +68,10 @@ public class BloodiedGrass extends GrassBlock {
     public void randomTick(@NotNull BlockState state, ServerWorld world, @NotNull BlockPos pos,
                            @NotNull Random random) {
         if (!world.isClient) {
-            //FIXME Ask why this if check doesn't seem to let grass spread when enabled.
-            //if (!world.isChunkLoaded(pos.getX(), 3)) {
-            // Prevent loading unloaded chunks when checking neighbor's light and spreading.
-            //    return;
-            //}
+            if (!world.isChunkLoaded(world.getChunk(pos).getPos().x, world.getChunk(pos).getPos().z)) {
+                //Prevent loading unloaded chunks when checking neighbor's light and spreading.
+                return;
+            }
 
             if (!canBeGrass(state, world, pos)) {
                 //Block is covered, turn it into bloodied dirt.

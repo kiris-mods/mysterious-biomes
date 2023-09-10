@@ -53,7 +53,6 @@ import java.util.Comparator;
 public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
 
     //TODO Make sure all of the following work properly
-    //Advancements to datagen in the future? Not in 1.20.1 at least.
     //Structures?
     //World generation.
     //Saplings.
