@@ -43,8 +43,8 @@ public class BlockEntityTypeMixin {
                 || state.isOf(MysteriousBlockTypes.SORBUS.getWallSign().get())
                 || (state.isOf(MysteriousBlockTypes.SEEPING.getFloorSign().get())
                 || state.isOf(MysteriousBlockTypes.SEEPING.getWallSign().get())
-                || (state.isOf(MysteriousBlockTypes.SAKURA.getFloorSign().get())
-                || state.isOf(MysteriousBlockTypes.SAKURA.getWallSign().get()))))))) {
+                || (state.isOf(MysteriousBlockTypes.WALNUT.getFloorSign().get())
+                || state.isOf(MysteriousBlockTypes.WALNUT.getWallSign().get()))))))) {
             cir.setReturnValue(true);
         }
         if (BlockEntityType.HANGING_SIGN.equals(this)
@@ -56,8 +56,8 @@ public class BlockEntityTypeMixin {
                 || state.isOf(MysteriousBlockTypes.SORBUS.getWallHangingSign().get())
                 || (state.isOf(MysteriousBlockTypes.SEEPING.getHangingSign().get())
                 || state.isOf(MysteriousBlockTypes.SEEPING.getWallHangingSign().get())
-                || (state.isOf(MysteriousBlockTypes.SAKURA.getHangingSign().get())
-                || state.isOf(MysteriousBlockTypes.SAKURA.getWallHangingSign().get()))))))) {
+                || (state.isOf(MysteriousBlockTypes.WALNUT.getHangingSign().get())
+                || state.isOf(MysteriousBlockTypes.WALNUT.getWallHangingSign().get()))))))) {
             cir.setReturnValue(true);
         }
     }

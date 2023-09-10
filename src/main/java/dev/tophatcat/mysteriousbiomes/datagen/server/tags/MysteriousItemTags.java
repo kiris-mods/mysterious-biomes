@@ -31,7 +31,7 @@ public class MysteriousItemTags {
     public static final TagKey<Item> DIRT = TagKey.of(RegistryKeys.ITEM,
             new Identifier("dirt"));
     public static final TagKey<Item> PLANKS = TagKey.of(RegistryKeys.ITEM,
-            new Identifier("wood"));
+            new Identifier("planks"));
     public static final TagKey<Item> WOODEN_BUTTONS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("wooden_buttons"));
     public static final TagKey<Item> BUTTONS = TagKey.of(RegistryKeys.ITEM,
@@ -66,8 +66,8 @@ public class MysteriousItemTags {
             new Identifier(MysteriousBiomes.MOD_ID, "seeping_logs"));
     public static final TagKey<Item> SORBUS_LOGS = TagKey.of(RegistryKeys.ITEM,
             new Identifier(MysteriousBiomes.MOD_ID, "sorbus_logs"));
-    public static final TagKey<Item> SAKURA_LOGS = TagKey.of(RegistryKeys.ITEM,
-            new Identifier(MysteriousBiomes.MOD_ID, "sakura_logs"));
+    public static final TagKey<Item> WALNUT_LOGS = TagKey.of(RegistryKeys.ITEM,
+            new Identifier(MysteriousBiomes.MOD_ID, "walnut_logs"));
     public static final TagKey<Item> STAIRS = TagKey.of(RegistryKeys.ITEM,
             new Identifier("stairs"));
     public static final TagKey<Item> SLABS = TagKey.of(RegistryKeys.ITEM,

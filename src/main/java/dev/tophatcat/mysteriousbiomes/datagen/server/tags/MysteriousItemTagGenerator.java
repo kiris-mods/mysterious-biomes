@@ -38,53 +38,53 @@ public class MysteriousItemTagGenerator extends FabricTagProvider.ItemTagProvide
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(MysteriousItemTags.PLANKS)
-                .add(MysteriousBlockTypes.BLOODWOOD.getPlanks().get().asItem().asItem())
+                .add(MysteriousBlockTypes.BLOODWOOD.getPlanks().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getPlanks().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getPlanks().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getPlanks().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getPlanks().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getPlanks().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WOODEN_BUTTONS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getButton().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getButton().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getButton().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getButton().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getButton().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getButton().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WOODEN_DOORS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getDoor().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getDoor().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getDoor().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getDoor().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getDoor().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getDoor().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WOODEN_STAIRS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getStairs().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getStairs().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getStairs().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getStairs().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getStairs().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getStairs().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WOODEN_SLABS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getSlab().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getSlab().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getSlab().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getSlab().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getSlab().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getSlab().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WOODEN_FENCES)
                 .add(MysteriousBlockTypes.BLOODWOOD.getFence().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getFence().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getFence().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getFence().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getFence().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getFence().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.SAPLINGS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getSapling().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getSapling().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getSapling().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getSapling().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getSapling().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getSapling().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.LOGS)
                 .addTag(MysteriousItemTags.LOGS_THAT_BURN);
@@ -94,56 +94,56 @@ public class MysteriousItemTagGenerator extends FabricTagProvider.ItemTagProvide
                 .add(MysteriousBlockTypes.GHOSTLY.getPressurePlate().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getPressurePlate().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getPressurePlate().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getPressurePlate().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getPressurePlate().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.LEAVES)
                 .add(MysteriousBlockTypes.BLOODWOOD.getLeaves().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getLeaves().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getLeaves().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getLeaves().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getLeaves().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getLeaves().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WOODEN_TRAPDOORS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getTrapdoor().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getTrapdoor().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getTrapdoor().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getTrapdoor().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getTrapdoor().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getTrapdoor().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.STANDING_SIGNS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getSign().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getSign().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getSign().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getSign().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getSign().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getSign().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WALL_SIGNS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getWallSign().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getWallSign().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getWallSign().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getWallSign().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getWallSign().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getWallSign().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.CEILING_HANGING_SIGNS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getHangingSign().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getHangingSign().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getHangingSign().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getHangingSign().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getHangingSign().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getHangingSign().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.WALL_HANGING_SIGNS)
                 .add(MysteriousBlockTypes.BLOODWOOD.getWallHangingSign().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getWallHangingSign().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getWallHangingSign().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getWallHangingSign().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getWallHangingSign().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getWallHangingSign().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.FENCE_GATES)
                 .add(MysteriousBlockTypes.BLOODWOOD.getGate().get().asItem())
                 .add(MysteriousBlockTypes.GHOSTLY.getGate().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getGate().get().asItem())
                 .add(MysteriousBlockTypes.SORBUS.getGate().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getGate().get().asItem());
+                .add(MysteriousBlockTypes.WALNUT.getGate().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.DIRT)
                 .add(MysteriousContentSetup.BLOODIED_DIRT.get().asItem())
@@ -176,18 +176,18 @@ public class MysteriousItemTagGenerator extends FabricTagProvider.ItemTagProvide
                 .add(MysteriousBlockTypes.SEEPING.getWood().get().asItem())
                 .add(MysteriousBlockTypes.SEEPING.getStrippedWood().get().asItem());
 
-        getOrCreateTagBuilder(MysteriousItemTags.SAKURA_LOGS)
-                .add(MysteriousBlockTypes.SAKURA.getLog().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getStrippedLog().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getWood().get().asItem())
-                .add(MysteriousBlockTypes.SAKURA.getStrippedWood().get().asItem());
+        getOrCreateTagBuilder(MysteriousItemTags.WALNUT_LOGS)
+                .add(MysteriousBlockTypes.WALNUT.getLog().get().asItem())
+                .add(MysteriousBlockTypes.WALNUT.getStrippedLog().get().asItem())
+                .add(MysteriousBlockTypes.WALNUT.getWood().get().asItem())
+                .add(MysteriousBlockTypes.WALNUT.getStrippedWood().get().asItem());
 
         getOrCreateTagBuilder(MysteriousItemTags.LOGS_THAT_BURN)
                 .addTag(MysteriousItemTags.BLOODWOOD_LOGS)
                 .addTag(MysteriousItemTags.GHOSTLY_LOGS)
                 .addTag(MysteriousItemTags.SORBUS_LOGS)
                 .addTag(MysteriousItemTags.SEEPING_LOGS)
-                .addTag(MysteriousItemTags.SAKURA_LOGS);
+                .addTag(MysteriousItemTags.WALNUT_LOGS);
 
         getOrCreateTagBuilder(MysteriousItemTags.PRESSURE_PLATES)
                 .addTag(MysteriousItemTags.WOODEN_PRESSURE_PLATES);

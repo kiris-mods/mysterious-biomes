@@ -31,7 +31,7 @@ public enum MysteriousBlockTypes {
     GHOSTLY("ghostly"),
     SORBUS("sorbus"),
     SEEPING("seeping"),
-    SAKURA("sakura");
+    WALNUT("walnut");
 
     MysteriousBlockTypes(String name) {
         this.name = name;

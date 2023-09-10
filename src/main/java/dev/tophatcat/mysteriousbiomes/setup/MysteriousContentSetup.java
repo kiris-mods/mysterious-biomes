@@ -58,7 +58,7 @@ public final class MysteriousContentSetup {
                 MysteriousBlockTypes.GHOSTLY,
                 MysteriousBlockTypes.SORBUS,
                 MysteriousBlockTypes.SEEPING,
-                MysteriousBlockTypes.SAKURA);
+                MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
             woodType.log = MysteriousRegistrationUtils.setupPillarBlock(woodType, "_log");
@@ -90,7 +90,7 @@ public final class MysteriousContentSetup {
                 new OakSaplingGenerator());
         MysteriousBlockTypes.SEEPING.sapling = MysteriousRegistrationUtils.setupSaplingBlock("seeping_sapling",
                 new OakSaplingGenerator());
-        MysteriousBlockTypes.SAKURA.sapling = MysteriousRegistrationUtils.setupSaplingBlock("sakura_sapling",
+        MysteriousBlockTypes.WALNUT.sapling = MysteriousRegistrationUtils.setupSaplingBlock("walnut_sapling",
                 new OakSaplingGenerator());
 
 
@@ -102,8 +102,8 @@ public final class MysteriousContentSetup {
                 MysteriousWoodType.SORBUS_WOOD_TYPE);
         MysteriousBlockTypes.SEEPING.floor_sign = MysteriousRegistrationUtils.setupFloorSignBlock("seeping_sign",
                 MysteriousWoodType.SEEPING_WOOD_TYPE);
-        MysteriousBlockTypes.SAKURA.floor_sign = MysteriousRegistrationUtils.setupFloorSignBlock("sakura_sign",
-                MysteriousWoodType.SAKURA_WOOD_TYPE);
+        MysteriousBlockTypes.WALNUT.floor_sign = MysteriousRegistrationUtils.setupFloorSignBlock("walnut_sign",
+                MysteriousWoodType.WALNUT_WOOD_TYPE);
 
 
         MysteriousBlockTypes.BLOODWOOD.wall_sign = MysteriousRegistrationUtils.setupWallSignBlock("bloodwood_wall_sign",
@@ -114,8 +114,8 @@ public final class MysteriousContentSetup {
                 MysteriousWoodType.SORBUS_WOOD_TYPE);
         MysteriousBlockTypes.SEEPING.wall_sign = MysteriousRegistrationUtils.setupWallSignBlock("seeping_wall_sign",
                 MysteriousWoodType.SEEPING_WOOD_TYPE);
-        MysteriousBlockTypes.SAKURA.wall_sign = MysteriousRegistrationUtils.setupWallSignBlock("sakura_wall_sign",
-                MysteriousWoodType.SAKURA_WOOD_TYPE);
+        MysteriousBlockTypes.WALNUT.wall_sign = MysteriousRegistrationUtils.setupWallSignBlock("walnut_wall_sign",
+                MysteriousWoodType.WALNUT_WOOD_TYPE);
 
         MysteriousBlockTypes.BLOODWOOD.sign = MysteriousRegistrationUtils.setupSignItem("bloodwood_sign",
                 MysteriousBlockTypes.BLOODWOOD.getFloorSign().get(),
@@ -129,9 +129,9 @@ public final class MysteriousContentSetup {
         MysteriousBlockTypes.SEEPING.sign = MysteriousRegistrationUtils.setupSignItem("seeping_sign",
                 MysteriousBlockTypes.SEEPING.getFloorSign().get(),
                 MysteriousBlockTypes.SEEPING.getWallSign().get());
-        MysteriousBlockTypes.SAKURA.sign = MysteriousRegistrationUtils.setupSignItem("sakura_sign",
-                MysteriousBlockTypes.SAKURA.getFloorSign().get(),
-                MysteriousBlockTypes.SAKURA.getWallSign().get());
+        MysteriousBlockTypes.WALNUT.sign = MysteriousRegistrationUtils.setupSignItem("walnut_sign",
+                MysteriousBlockTypes.WALNUT.getFloorSign().get(),
+                MysteriousBlockTypes.WALNUT.getWallSign().get());
 
         MysteriousBlockTypes.BLOODWOOD.hanging_sign = MysteriousRegistrationUtils.setupHangingSignBlock(
                 "bloodwood_hanging_sign", MysteriousWoodType.BLOODWOOD_WOOD_TYPE);
@@ -141,8 +141,8 @@ public final class MysteriousContentSetup {
                 "sorbus_hanging_sign", MysteriousWoodType.SORBUS_WOOD_TYPE);
         MysteriousBlockTypes.SEEPING.hanging_sign = MysteriousRegistrationUtils.setupHangingSignBlock(
                 "seeping_hanging_sign", MysteriousWoodType.SEEPING_WOOD_TYPE);
-        MysteriousBlockTypes.SAKURA.hanging_sign = MysteriousRegistrationUtils.setupHangingSignBlock(
-                "sakura_hanging_sign", MysteriousWoodType.SAKURA_WOOD_TYPE);
+        MysteriousBlockTypes.WALNUT.hanging_sign = MysteriousRegistrationUtils.setupHangingSignBlock(
+                "walnut_hanging_sign", MysteriousWoodType.WALNUT_WOOD_TYPE);
 
         MysteriousBlockTypes.BLOODWOOD.wall_hanging_sign = MysteriousRegistrationUtils.setupWallHangingSignBlock(
                 "bloodwood_wall_hanging_sign", MysteriousWoodType.BLOODWOOD_WOOD_TYPE);
@@ -152,8 +152,8 @@ public final class MysteriousContentSetup {
                 "sorbus_wall_hanging_sign", MysteriousWoodType.SORBUS_WOOD_TYPE);
         MysteriousBlockTypes.SEEPING.wall_hanging_sign = MysteriousRegistrationUtils.setupWallHangingSignBlock(
                 "seeping_wall_hanging_sign", MysteriousWoodType.SEEPING_WOOD_TYPE);
-        MysteriousBlockTypes.SAKURA.wall_hanging_sign = MysteriousRegistrationUtils.setupWallHangingSignBlock(
-                "sakura_wall_hanging_sign", MysteriousWoodType.SAKURA_WOOD_TYPE);
+        MysteriousBlockTypes.WALNUT.wall_hanging_sign = MysteriousRegistrationUtils.setupWallHangingSignBlock(
+                "walnut_wall_hanging_sign", MysteriousWoodType.WALNUT_WOOD_TYPE);
 
         MysteriousBlockTypes.BLOODWOOD.hanging_sign_item = MysteriousRegistrationUtils.setupHangingSignItem(
                 "bloodwood_hanging_sign_item", MysteriousBlockTypes.BLOODWOOD.getHangingSign().get(),
@@ -167,9 +167,9 @@ public final class MysteriousContentSetup {
         MysteriousBlockTypes.SEEPING.hanging_sign_item = MysteriousRegistrationUtils.setupHangingSignItem(
                 "seeping_hanging_sign_item", MysteriousBlockTypes.SEEPING.getHangingSign().get(),
                 MysteriousBlockTypes.SEEPING.getWallHangingSign().get());
-        MysteriousBlockTypes.SAKURA.hanging_sign_item = MysteriousRegistrationUtils.setupHangingSignItem(
-                "sakura_hanging_sign_item", MysteriousBlockTypes.SAKURA.getHangingSign().get(),
-                MysteriousBlockTypes.SAKURA.getWallHangingSign().get());
+        MysteriousBlockTypes.WALNUT.hanging_sign_item = MysteriousRegistrationUtils.setupHangingSignItem(
+                "walnut_hanging_sign_item", MysteriousBlockTypes.WALNUT.getHangingSign().get(),
+                MysteriousBlockTypes.WALNUT.getWallHangingSign().get());
 
         BLOODIED_GRASS = RegHelpers.createBlockWithItem(new Identifier(MysteriousBiomes.MOD_ID,
                 "bloodied_grass"), () -> new BloodiedGrass(Block.Settings

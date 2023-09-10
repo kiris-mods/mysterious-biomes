@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "mysteriousbiomes:walnut_planks"
+    }
+  ],
+  "result": {
+    "item": "mysteriousbiomes:walnut_button"
+  }
+}

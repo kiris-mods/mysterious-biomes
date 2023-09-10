@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "mysteriousbiomes:block/walnut_slab"
+    },
+    "type=double": {
+      "model": "mysteriousbiomes:block/walnut_planks"
+    },
+    "type=top": {
+      "model": "mysteriousbiomes:block/walnut_slab_top"
+    }
+  }
+}

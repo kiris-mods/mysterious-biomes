@@ -42,7 +42,7 @@ public class MysteriousBlockLootTableGenerator extends FabricBlockLootTableProvi
                 MysteriousBlockTypes.GHOSTLY,
                 MysteriousBlockTypes.SORBUS,
                 MysteriousBlockTypes.SEEPING,
-                MysteriousBlockTypes.SAKURA);
+                MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
             addDrop(woodType.getTrapdoor().get());

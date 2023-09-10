@@ -113,22 +113,22 @@ public class MysteriousLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(MysteriousBlockTypes.SORBUS.getStairs().get(), "Sorbus Stairs");
         translationBuilder.add(MysteriousBlockTypes.SORBUS.getTrapdoor().get(), "Sorbus Trapdoor");
 
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getLog().get(), "Sakura Log");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getWood().get(), "Sakura Wood");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getStrippedLog().get(), "Sakura Stripped Log");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getStrippedWood().get(), "Sakura Stripped Wood");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getButton().get(), "Sakura Button");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getDoor().get(), "Sakura Door");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getFence().get(), "Sakura Fence");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getGate().get(), "Sakura Gate");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getLeaves().get(), "Sakura Leaves");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getPlanks().get(), "Sakura Planks");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getPressurePlate().get(), "Sakura Pressure Plate");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getSapling().get(), "Sakura Sapling");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getSign().get(), "Sakura Sign");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getHangingSign().get(), "Sakura Hanging Sign");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getSlab().get(), "Sakura Slab");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getStairs().get(), "Sakura Stairs");
-        translationBuilder.add(MysteriousBlockTypes.SAKURA.getTrapdoor().get(), "Sakura Trapdoor");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getLog().get(), "Walnut Log");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getWood().get(), "Walnut Wood");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getStrippedLog().get(), "Walnut Stripped Log");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getStrippedWood().get(), "Walnut Stripped Wood");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getButton().get(), "Walnut Button");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getDoor().get(), "Walnut Door");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getFence().get(), "Walnut Fence");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getGate().get(), "Walnut Gate");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getLeaves().get(), "Walnut Leaves");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getPlanks().get(), "Walnut Planks");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getPressurePlate().get(), "Walnut Pressure Plate");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getSapling().get(), "Walnut Sapling");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getSign().get(), "Walnut Sign");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getHangingSign().get(), "Walnut Hanging Sign");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getSlab().get(), "Walnut Slab");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getStairs().get(), "Walnut Stairs");
+        translationBuilder.add(MysteriousBlockTypes.WALNUT.getTrapdoor().get(), "Walnut Trapdoor");
     }
 }

@@ -64,11 +64,11 @@ public class MysteriousRendering implements ClientModInitializer {
                 RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SORBUS.getDoor().get(),
                 RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SAKURA.getSapling().get(),
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.WALNUT.getSapling().get(),
                 RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SAKURA.getTrapdoor().get(),
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.WALNUT.getTrapdoor().get(),
                 RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.SAKURA.getDoor().get(),
+        BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.WALNUT.getDoor().get(),
                 RenderLayer.getCutout());
         FabricLoader.getInstance().getModContainer(MysteriousBiomes.MOD_ID).ifPresent(modContainer
             -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MysteriousBiomes.MOD_ID,

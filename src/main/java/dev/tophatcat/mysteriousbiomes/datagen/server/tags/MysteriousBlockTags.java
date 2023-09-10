@@ -68,8 +68,8 @@ public final class MysteriousBlockTags {
             new Identifier(MysteriousBiomes.MOD_ID, "seeping_logs"));
     public static final TagKey<Block> SORBUS_LOGS = TagKey.of(RegistryKeys.BLOCK,
             new Identifier(MysteriousBiomes.MOD_ID, "sorbus_logs"));
-    public static final TagKey<Block> SAKURA_LOGS = TagKey.of(RegistryKeys.BLOCK,
-            new Identifier(MysteriousBiomes.MOD_ID, "sakura_logs"));
+    public static final TagKey<Block> WALNUT_LOGS = TagKey.of(RegistryKeys.BLOCK,
+            new Identifier(MysteriousBiomes.MOD_ID, "walnut_logs"));
     public static final TagKey<Block> STAIRS = TagKey.of(RegistryKeys.BLOCK,
             new Identifier("stairs"));
     public static final TagKey<Block> SLABS = TagKey.of(RegistryKeys.BLOCK,

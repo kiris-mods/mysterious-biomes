@@ -33,8 +33,8 @@ public final class MysteriousWoodType {
             new BlockSetType("mysteriousbiomes:sorbus"));
     public static final WoodType SEEPING_WOOD_TYPE = new WoodType("mysteriousbiomes:seeping",
             new BlockSetType("mysteriousbiomes:seeping"));
-    public static final WoodType SAKURA_WOOD_TYPE = new WoodType("mysteriousbiomes:sakura",
-            new BlockSetType("mysteriousbiomes:sakura"));
+    public static final WoodType WALNUT_WOOD_TYPE = new WoodType("mysteriousbiomes:walnut",
+            new BlockSetType("mysteriousbiomes:walnut"));
 
     private MysteriousWoodType() {
         throw new UnsupportedOperationException();
@@ -45,6 +45,6 @@ public final class MysteriousWoodType {
         WoodType.register(GHOSTLY_WOOD_TYPE);
         WoodType.register(SORBUS_WOOD_TYPE);
         WoodType.register(SEEPING_WOOD_TYPE);
-        WoodType.register(SAKURA_WOOD_TYPE);
+        WoodType.register(WALNUT_WOOD_TYPE);
     }
 }

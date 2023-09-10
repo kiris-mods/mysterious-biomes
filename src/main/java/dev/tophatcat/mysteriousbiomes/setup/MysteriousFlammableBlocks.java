@@ -36,7 +36,7 @@ public class MysteriousFlammableBlocks {
                 MysteriousBlockTypes.GHOSTLY,
                 MysteriousBlockTypes.SORBUS,
                 MysteriousBlockTypes.SEEPING,
-                MysteriousBlockTypes.SAKURA);
+                MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
             registry.add(woodType.getLog().get(), 5, 5);

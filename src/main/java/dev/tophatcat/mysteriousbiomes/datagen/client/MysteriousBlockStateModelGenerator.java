@@ -33,7 +33,7 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
     private static final BlockFamily GHOSTLY = fromWoodType(MysteriousBlockTypes.GHOSTLY);
     private static final BlockFamily SORBUS = fromWoodType(MysteriousBlockTypes.SORBUS);
     private static final BlockFamily SEEPING = fromWoodType(MysteriousBlockTypes.SEEPING);
-    private static final BlockFamily SAKURA = fromWoodType(MysteriousBlockTypes.SAKURA);
+    private static final BlockFamily WALNUT = fromWoodType(MysteriousBlockTypes.WALNUT);
 
     public MysteriousBlockStateModelGenerator(FabricDataOutput dataGenerator) {
         super(dataGenerator);
@@ -45,13 +45,13 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
         makeWoodTypes(modelGen, MysteriousBlockTypes.GHOSTLY, GHOSTLY);
         makeWoodTypes(modelGen, MysteriousBlockTypes.SORBUS, SORBUS);
         makeWoodTypes(modelGen, MysteriousBlockTypes.SEEPING, SEEPING);
-        makeWoodTypes(modelGen, MysteriousBlockTypes.SAKURA, SAKURA);
+        makeWoodTypes(modelGen, MysteriousBlockTypes.WALNUT, WALNUT);
 
         modelGen.registerSimpleCubeAll(MysteriousBlockTypes.BLOODWOOD.getLeaves().get());
         modelGen.registerSimpleCubeAll(MysteriousBlockTypes.GHOSTLY.getLeaves().get());
         modelGen.registerSimpleCubeAll(MysteriousBlockTypes.SORBUS.getLeaves().get());
         modelGen.registerSimpleCubeAll(MysteriousBlockTypes.SEEPING.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousBlockTypes.SAKURA.getLeaves().get());
+        modelGen.registerSimpleCubeAll(MysteriousBlockTypes.WALNUT.getLeaves().get());
 
         modelGen.registerTintableCross(MysteriousBlockTypes.BLOODWOOD.getSapling().get(),
                 BlockStateModelGenerator.TintType.NOT_TINTED);
@@ -61,7 +61,7 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
                 BlockStateModelGenerator.TintType.NOT_TINTED);
         modelGen.registerTintableCross(MysteriousBlockTypes.SEEPING.getSapling().get(),
                 BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousBlockTypes.SAKURA.getSapling().get(),
+        modelGen.registerTintableCross(MysteriousBlockTypes.WALNUT.getSapling().get(),
                 BlockStateModelGenerator.TintType.NOT_TINTED);
 
         modelGen.registerHangingSign(MysteriousBlockTypes.BLOODWOOD.getLog().get(),
@@ -76,9 +76,9 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
         modelGen.registerHangingSign(MysteriousBlockTypes.SEEPING.getLog().get(),
                 MysteriousBlockTypes.SEEPING.getHangingSign().get(),
                 MysteriousBlockTypes.SEEPING.getWallHangingSign().get());
-        modelGen.registerHangingSign(MysteriousBlockTypes.SAKURA.getLog().get(),
-                MysteriousBlockTypes.SAKURA.getHangingSign().get(),
-                MysteriousBlockTypes.SAKURA.getWallHangingSign().get());
+        modelGen.registerHangingSign(MysteriousBlockTypes.WALNUT.getLog().get(),
+                MysteriousBlockTypes.WALNUT.getHangingSign().get(),
+                MysteriousBlockTypes.WALNUT.getWallHangingSign().get());
 
         modelGen.registerSimpleCubeAll(MysteriousContentSetup.BLOODIED_DIRT.get());
 
