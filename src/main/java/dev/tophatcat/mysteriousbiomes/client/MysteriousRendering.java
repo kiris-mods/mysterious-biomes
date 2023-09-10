@@ -71,7 +71,7 @@ public class MysteriousRendering implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(MysteriousBlockTypes.WALNUT.getDoor().get(),
                 RenderLayer.getCutout());
         FabricLoader.getInstance().getModContainer(MysteriousBiomes.MOD_ID).ifPresent(modContainer
-            -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MysteriousBiomes.MOD_ID,
+                -> ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(MysteriousBiomes.MOD_ID,
                 "legacy_textures"), modContainer, ResourcePackActivationType.NORMAL));
     }
 }

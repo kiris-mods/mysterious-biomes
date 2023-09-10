@@ -21,9 +21,9 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.entity.EntityTheForgottenWarlock;
-import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousFlammableBlocks;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
