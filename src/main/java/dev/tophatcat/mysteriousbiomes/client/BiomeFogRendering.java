@@ -78,7 +78,7 @@ public class BiomeFogRendering {
      //@Nullable IMistyBiome biome = ProxysLib.getMistyBiome(Minecraft.getInstance().getConnection().func_239165_n_().getRegistry(Registry.BIOME_KEY).getKey(level.getBiome(pos)));
      Biome biome = level.getBiome(pos);
      if (MinecraftClient.getInstance().getConnection().registryAccess().registry(Registry.BIOME_KEY).map(r -> r.getKey(biome).getNamespace().equals(SpookyBiomes.MOD_ID)).orElse(false)) {
-     float distancePart = 0.1f; //biome.getMistDensity(pos); TODO: Make dynamic
+     float distancePart = 0.1f; //biome.getMistDensity(pos); TO DO: Make dynamic
      float weightPart = 1;
 
      if (x == -distance) {

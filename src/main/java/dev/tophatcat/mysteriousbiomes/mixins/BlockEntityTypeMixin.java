@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.mixins;
 
-import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
+import dev.tophatcat.mysteriousbiomes.datagen.server.tags.MysteriousBlockTags;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,33 +31,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(BlockEntityType.class)
 public class BlockEntityTypeMixin {
 
-    //TODO Change this to a better system.
     @Inject(method = "supports", at = @At("HEAD"), cancellable = true)
     private void isValid(BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (BlockEntityType.SIGN.equals(this)
-                && (state.isOf(MysteriousBlockTypes.BLOODWOOD.getFloorSign().get())
-                || state.isOf(MysteriousBlockTypes.BLOODWOOD.getWallSign().get())
-                || (state.isOf(MysteriousBlockTypes.GHOSTLY.getFloorSign().get())
-                || state.isOf(MysteriousBlockTypes.GHOSTLY.getWallSign().get())
-                || (state.isOf(MysteriousBlockTypes.SORBUS.getFloorSign().get())
-                || state.isOf(MysteriousBlockTypes.SORBUS.getWallSign().get())
-                || (state.isOf(MysteriousBlockTypes.SEEPING.getFloorSign().get())
-                || state.isOf(MysteriousBlockTypes.SEEPING.getWallSign().get())
-                || (state.isOf(MysteriousBlockTypes.WALNUT.getFloorSign().get())
-                || state.isOf(MysteriousBlockTypes.WALNUT.getWallSign().get()))))))) {
+            && (state.isIn(MysteriousBlockTags.WALL_SIGNS))
+            || (state.isIn(MysteriousBlockTags.STANDING_SIGNS))) {
             cir.setReturnValue(true);
         }
         if (BlockEntityType.HANGING_SIGN.equals(this)
-                && (state.isOf(MysteriousBlockTypes.BLOODWOOD.getHangingSign().get())
-                || state.isOf(MysteriousBlockTypes.BLOODWOOD.getWallHangingSign().get())
-                || (state.isOf(MysteriousBlockTypes.GHOSTLY.getHangingSign().get())
-                || state.isOf(MysteriousBlockTypes.GHOSTLY.getWallHangingSign().get())
-                || (state.isOf(MysteriousBlockTypes.SORBUS.getHangingSign().get())
-                || state.isOf(MysteriousBlockTypes.SORBUS.getWallHangingSign().get())
-                || (state.isOf(MysteriousBlockTypes.SEEPING.getHangingSign().get())
-                || state.isOf(MysteriousBlockTypes.SEEPING.getWallHangingSign().get())
-                || (state.isOf(MysteriousBlockTypes.WALNUT.getHangingSign().get())
-                || state.isOf(MysteriousBlockTypes.WALNUT.getWallHangingSign().get()))))))) {
+            && (state.isIn(MysteriousBlockTags.ALL_HANGING_SIGNS))) {
             cir.setReturnValue(true);
         }
     }

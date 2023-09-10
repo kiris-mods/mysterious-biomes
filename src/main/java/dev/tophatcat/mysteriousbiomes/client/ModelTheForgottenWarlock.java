@@ -109,8 +109,7 @@ public class ModelTheForgottenWarlock<T extends EntityTheForgottenWarlock> exten
 
     @Override
     public void setAngles(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        //TODO Work on animations for arms, legs and attacking movements.
-        //FIXME New texture required!
+        //TODO Work on animations for arms, legs and attacking movements, then get a new texture from Lux
     }
 
     @Override

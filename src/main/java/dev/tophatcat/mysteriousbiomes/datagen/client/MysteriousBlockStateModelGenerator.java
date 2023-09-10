@@ -27,6 +27,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
 import net.minecraft.data.family.BlockFamily;
 
+import java.util.List;
+
 public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
 
     private static final BlockFamily BLOODWOOD = fromWoodType(MysteriousBlockTypes.BLOODWOOD);
@@ -41,85 +43,61 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator modelGen) {
-        makeWoodTypes(modelGen, MysteriousBlockTypes.BLOODWOOD, BLOODWOOD);
-        makeWoodTypes(modelGen, MysteriousBlockTypes.GHOSTLY, GHOSTLY);
-        makeWoodTypes(modelGen, MysteriousBlockTypes.SORBUS, SORBUS);
-        makeWoodTypes(modelGen, MysteriousBlockTypes.SEEPING, SEEPING);
-        makeWoodTypes(modelGen, MysteriousBlockTypes.WALNUT, WALNUT);
+        modelGen.registerCubeAllModelTexturePool(MysteriousBlockTypes.BLOODWOOD.getPlanks().get()).family(BLOODWOOD);
+        modelGen.registerCubeAllModelTexturePool(MysteriousBlockTypes.GHOSTLY.getPlanks().get()).family(GHOSTLY);
+        modelGen.registerCubeAllModelTexturePool(MysteriousBlockTypes.SORBUS.getPlanks().get()).family(SORBUS);
+        modelGen.registerCubeAllModelTexturePool(MysteriousBlockTypes.SEEPING.getPlanks().get()).family(SEEPING);
+        modelGen.registerCubeAllModelTexturePool(MysteriousBlockTypes.WALNUT.getPlanks().get()).family(WALNUT);
+        var mysteriousWoodTypes = List.of(
+            MysteriousBlockTypes.BLOODWOOD,
+            MysteriousBlockTypes.GHOSTLY,
+            MysteriousBlockTypes.SORBUS,
+            MysteriousBlockTypes.SEEPING,
+            MysteriousBlockTypes.WALNUT);
 
-        modelGen.registerSimpleCubeAll(MysteriousBlockTypes.BLOODWOOD.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousBlockTypes.GHOSTLY.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousBlockTypes.SORBUS.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousBlockTypes.SEEPING.getLeaves().get());
-        modelGen.registerSimpleCubeAll(MysteriousBlockTypes.WALNUT.getLeaves().get());
+        mysteriousWoodTypes.forEach(woodType -> {
+            modelGen.registerLog(woodType.getLog().get())
+                .log(woodType.getLog().get())
+                .wood(woodType.getWood().get());
+            modelGen.registerSimpleCubeAll(woodType.getLeaves().get());
+            modelGen.registerTintableCross(woodType.getSapling().get(),
+                BlockStateModelGenerator.TintType.NOT_TINTED);
+            modelGen.registerHangingSign(woodType.getLog().get(),
+                woodType.getHangingSign().get(),
+                woodType.getWallHangingSign().get());
+        });
 
-        modelGen.registerTintableCross(MysteriousBlockTypes.BLOODWOOD.getSapling().get(),
-                BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousBlockTypes.GHOSTLY.getSapling().get(),
-                BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousBlockTypes.SORBUS.getSapling().get(),
-                BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousBlockTypes.SEEPING.getSapling().get(),
-                BlockStateModelGenerator.TintType.NOT_TINTED);
-        modelGen.registerTintableCross(MysteriousBlockTypes.WALNUT.getSapling().get(),
-                BlockStateModelGenerator.TintType.NOT_TINTED);
-
-        modelGen.registerHangingSign(MysteriousBlockTypes.BLOODWOOD.getLog().get(),
-                MysteriousBlockTypes.BLOODWOOD.getHangingSign().get(),
-                MysteriousBlockTypes.BLOODWOOD.getWallHangingSign().get());
-        modelGen.registerHangingSign(MysteriousBlockTypes.GHOSTLY.getLog().get(),
-                MysteriousBlockTypes.GHOSTLY.getHangingSign().get(),
-                MysteriousBlockTypes.GHOSTLY.getWallHangingSign().get());
-        modelGen.registerHangingSign(MysteriousBlockTypes.SORBUS.getLog().get(),
-                MysteriousBlockTypes.SORBUS.getHangingSign().get(),
-                MysteriousBlockTypes.SORBUS.getWallHangingSign().get());
-        modelGen.registerHangingSign(MysteriousBlockTypes.SEEPING.getLog().get(),
-                MysteriousBlockTypes.SEEPING.getHangingSign().get(),
-                MysteriousBlockTypes.SEEPING.getWallHangingSign().get());
-        modelGen.registerHangingSign(MysteriousBlockTypes.WALNUT.getLog().get(),
-                MysteriousBlockTypes.WALNUT.getHangingSign().get(),
-                MysteriousBlockTypes.WALNUT.getWallHangingSign().get());
-
-        modelGen.registerSimpleCubeAll(MysteriousContentSetup.BLOODIED_DIRT.get());
-
-        //FIXME This does NOT generate the bloodied_grass.json block model file like it in theory should.
-        //FIXME It does however generate the snowy model and the blockstate file.
+        //This does NOT generate the bloodied_grass.json block model file like it in theory should.
+        //It does however generate the snowy model and the blockstate file.
         //Until a fix can be found, a manually written model file has been left in the mods resources to patch this.
         modelGen.registerTopSoil(MysteriousContentSetup.BLOODIED_GRASS.get(),
-                ModelIds.getBlockModelId(MysteriousContentSetup.BLOODIED_GRASS.get()),
-                BlockStateVariant.create().put(VariantSettings.MODEL, Models.CUBE_BOTTOM_TOP.upload(
-                        MysteriousContentSetup.BLOODIED_GRASS.get(), "_snow",
-                        new TextureMap().put(TextureKey.BOTTOM, TextureMap.getId(
-                                MysteriousContentSetup.BLOODIED_DIRT.get())).inherit(TextureKey.BOTTOM,
-                                TextureKey.PARTICLE).put(TextureKey.TOP, TextureMap.getSubId(
-                                MysteriousContentSetup.BLOODIED_GRASS.get(), "_top")).put(TextureKey.SIDE,
-                                TextureMap.getSubId(MysteriousContentSetup.BLOODIED_GRASS.get(),
-                                        "_snow")), modelGen.modelCollector)));
+            ModelIds.getBlockModelId(MysteriousContentSetup.BLOODIED_GRASS.get()),
+            BlockStateVariant.create().put(VariantSettings.MODEL, Models.CUBE_BOTTOM_TOP.upload(
+                MysteriousContentSetup.BLOODIED_GRASS.get(), "_snow",
+                new TextureMap().put(TextureKey.BOTTOM, TextureMap.getId(
+                    MysteriousContentSetup.BLOODIED_DIRT.get())).inherit(TextureKey.BOTTOM,
+                    TextureKey.PARTICLE).put(TextureKey.TOP, TextureMap.getSubId(
+                    MysteriousContentSetup.BLOODIED_GRASS.get(), "_top")).put(TextureKey.SIDE,
+                    TextureMap.getSubId(MysteriousContentSetup.BLOODIED_GRASS.get(),
+                        "_snow")), modelGen.modelCollector)));
+        modelGen.registerSimpleCubeAll(MysteriousContentSetup.BLOODIED_DIRT.get());
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
     }
 
-    private void makeWoodTypes(BlockStateModelGenerator generator, MysteriousBlockTypes woodType, BlockFamily family) {
-        generator.registerLog(woodType.getLog().get()).log(woodType.getLog().get())
-                .wood(woodType.getWood().get());
-        generator.registerLog(woodType.getStrippedLog().get()).log(woodType.getStrippedLog().get())
-                .wood(woodType.getStrippedWood().get());
-        generator.registerCubeAllModelTexturePool(woodType.getPlanks().get()).family(family);
-    }
-
     private static BlockFamily fromWoodType(MysteriousBlockTypes woodTypes) {
         return new BlockFamily.Builder(woodTypes.getPlanks().get())
-                .button(woodTypes.getButton().get())
-                .door(woodTypes.getDoor().get())
-                .fence(woodTypes.getFence().get())
-                .fenceGate(woodTypes.getGate().get())
-                .pressurePlate(woodTypes.getPressurePlate().get())
-                .slab(woodTypes.getSlab().get())
-                .stairs(woodTypes.getStairs().get())
-                .sign(woodTypes.getFloorSign().get(), woodTypes.getWallSign().get())
-                .trapdoor(woodTypes.getTrapdoor().get()).group("wooden")
-                .unlockCriterionName("has_planks").build();
+            .button(woodTypes.getButton().get())
+            .door(woodTypes.getDoor().get())
+            .fence(woodTypes.getFence().get())
+            .fenceGate(woodTypes.getGate().get())
+            .pressurePlate(woodTypes.getPressurePlate().get())
+            .slab(woodTypes.getSlab().get())
+            .stairs(woodTypes.getStairs().get())
+            .sign(woodTypes.getFloorSign().get(), woodTypes.getWallSign().get())
+            .trapdoor(woodTypes.getTrapdoor().get()).group("wooden")
+            .unlockCriterionName("has_planks").build();
     }
 }

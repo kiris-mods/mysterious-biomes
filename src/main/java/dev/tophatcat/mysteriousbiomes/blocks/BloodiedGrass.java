@@ -28,6 +28,7 @@ import net.minecraft.block.SnowBlock;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
@@ -68,7 +69,7 @@ public class BloodiedGrass extends GrassBlock {
     public void randomTick(@NotNull BlockState state, ServerWorld world, @NotNull BlockPos pos,
                            @NotNull Random random) {
         if (!world.isClient) {
-            if (!world.isChunkLoaded(world.getChunk(pos).getPos().x, world.getChunk(pos).getPos().z)) {
+            if (!world.isChunkLoaded(ChunkSectionPos.from(pos).getX(), ChunkSectionPos.from(pos).getZ())) {
                 //Prevent loading unloaded chunks when checking neighbor's light and spreading.
                 return;
             }

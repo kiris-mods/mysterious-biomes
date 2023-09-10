@@ -30,7 +30,6 @@ public class MysteriousFlammableBlocks {
 
     public static void init() {
         FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
-
         var mysteriousWoodTypes = List.of(
                 MysteriousBlockTypes.BLOODWOOD,
                 MysteriousBlockTypes.GHOSTLY,
