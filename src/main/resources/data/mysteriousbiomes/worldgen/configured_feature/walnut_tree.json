@@ -18,7 +18,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "mysteriousbiomes:sakura_log",
+        "Name": "mysteriousbiomes:walnut_log",
         "Properties": {
           "axis": "y"
         }
@@ -30,7 +30,7 @@
         {
           "weight": 1,
           "data": {
-            "Name": "mysteriousbiomes:sakura_leaves",
+            "Name": "mysteriousbiomes:walnut_leaves",
             "Properties": {
               "distance": "7",
               "persistent": "false",

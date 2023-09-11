@@ -26,7 +26,6 @@ import dev.tophatcat.mysteriousbiomes.setup.MysteriousFlammableBlocks;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
@@ -36,11 +35,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -71,19 +66,19 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     public static final String MOD_ID = "mysteriousbiomes";
 
     public static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB,
-            new ResourceLocation(MOD_ID, "group"));
+        new ResourceLocation(MOD_ID, "group"));
 
     public static final EntityType<EntityTheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
-            BuiltInRegistries.ENTITY_TYPE, new ResourceLocation(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
-            QuiltEntityTypeBuilder.<EntityTheForgottenWarlock>createMob()
-                    .spawnGroup(MobCategory.MONSTER)
-                    .entityFactory(EntityTheForgottenWarlock::new)
-                    .defaultAttributes(EntityTheForgottenWarlock.theForgottenWarlockAttributes())
-                    .setDimensions(EntityDimensions.fixed(0.75F, 2.30F))
-                    .maxChunkTrackingRange(1)
-                    .spawnRestriction(SpawnPlacements.Type.ON_GROUND,
-                            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules)
-                    .build());
+        BuiltInRegistries.ENTITY_TYPE, new ResourceLocation(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
+        QuiltEntityTypeBuilder.<EntityTheForgottenWarlock>createMob()
+            .spawnGroup(MobCategory.MONSTER)
+            .entityFactory(EntityTheForgottenWarlock::new)
+            .defaultAttributes(EntityTheForgottenWarlock.theForgottenWarlockAttributes())
+            .setDimensions(EntityDimensions.fixed(0.75F, 2.30F))
+            .maxChunkTrackingRange(1)
+            .spawnRestriction(SpawnPlacements.Type.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules)
+            .build());
 
     @Override
     public void onInitialize(ModContainer container) {
@@ -95,18 +90,18 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
         MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(BuiltInRegistries.ITEM, id, item.get()));
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
-                .title(Component.translatable(Util.makeDescriptionId("itemGroup",
-                        new ResourceLocation(MOD_ID, "group"))))
-                .icon(() -> new ItemStack(MysteriousBlockTypes.GHOSTLY.sapling.get()))
-                .displayItems((displayContext, entries) -> BuiltInRegistries.ITEM.holders()
-                        .filter(itemReference -> itemReference.key().location().getNamespace().equals(MOD_ID))
-                        .sorted(Comparator.comparing(itemReference -> itemReference.key().location().getPath()))
-                        .map(Holder.Reference::value)
-                        .forEachOrdered(entries::accept))
-                .build());
+            .title(Component.translatable(Util.makeDescriptionId("itemGroup",
+                new ResourceLocation(MOD_ID, "group"))))
+            .icon(() -> new ItemStack(MysteriousBlockTypes.GHOSTLY.sapling.get()))
+            .displayItems((displayContext, entries) -> BuiltInRegistries.ITEM.holders()
+                .filter(itemReference -> itemReference.key().location().getNamespace().equals(MOD_ID))
+                .sorted(Comparator.comparing(itemReference -> itemReference.key().location().getPath()))
+                .map(Holder.Reference::value)
+                .forEachOrdered(entries::accept))
+            .build());
 
         BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST),
-                MobCategory.MONSTER, THE_FORGOTTEN_WARLOCK,
-                10, 1, 2);
+            MobCategory.MONSTER, THE_FORGOTTEN_WARLOCK,
+            10, 1, 2);
     }
 }

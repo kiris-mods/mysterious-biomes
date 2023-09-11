@@ -39,10 +39,10 @@ public class MysteriousRendering implements ClientModInitializer {
     public void onInitializeClient(ModContainer container) {
         EntityRendererRegistry.register(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, RenderTheForgottenWarlock::new);
         EntityModelLayerRegistry.registerModelLayer(ModelTheForgottenWarlock.THE_FORGOTTEN_WARLOCK_LOCATION,
-                ModelTheForgottenWarlock::getTexturedModelData);
+            ModelTheForgottenWarlock::getTexturedModelData);
         QuiltLoader.getModContainer(MysteriousBiomes.MOD_ID).ifPresent(modContainer
-                -> ResourceLoader.registerBuiltinResourcePack(new ResourceLocation(MysteriousBiomes.MOD_ID,
-                "legacy_textures"), modContainer, ResourcePackActivationType.NORMAL));
+            -> ResourceLoader.registerBuiltinResourcePack(new ResourceLocation(MysteriousBiomes.MOD_ID,
+            "legacy_textures"), modContainer, ResourcePackActivationType.NORMAL));
 
         BlockRenderLayerMap.put(RenderType.cutout(), MysteriousBlockTypes.BLOODWOOD.getSapling().get());
         BlockRenderLayerMap.put(RenderType.cutout(), MysteriousBlockTypes.BLOODWOOD.getTrapdoor().get());

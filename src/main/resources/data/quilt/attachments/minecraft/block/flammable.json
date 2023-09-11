@@ -1,0 +1,145 @@
+{
+  "replace": false,
+  "values": {
+    "#mysteriousbiomes:bloodwood_logs": {
+      "burn": 5,
+      "spread": 5
+    },
+    "#mysteriousbiomes:ghostly_logs": {
+      "burn": 5,
+      "spread": 5
+    },
+    "#mysteriousbiomes:seeping_logs": {
+      "burn": 5,
+      "spread": 5
+    },
+    "#mysteriousbiomes:sorbus_logs": {
+      "burn": 5,
+      "spread": 5
+    },
+    "#mysteriousbiomes:walnut_logs": {
+      "burn": 5,
+      "spread": 5
+    },
+    "mysteriousbiomes:bloodwood_planks": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:ghostly_planks": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:seeping_planks": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:sorbus_planks": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:walnut_planks": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:bloodwood_leaves": {
+      "burn": 30,
+      "spread": 60
+    },
+    "mysteriousbiomes:ghostly_leaves": {
+      "burn": 30,
+      "spread": 60
+    },
+    "mysteriousbiomes:seeping_leaves": {
+      "burn": 30,
+      "spread": 60
+    },
+    "mysteriousbiomes:sorbus_leaves": {
+      "burn": 30,
+      "spread": 60
+    },
+    "mysteriousbiomes:walnut_leaves": {
+      "burn": 30,
+      "spread": 60
+    },
+    "mysteriousbiomes:bloodwood_slab": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:ghostly_slab": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:seeping_slab": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:sorbus_slab": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:walnut_slab": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:bloodwood_gate": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:ghostly_gate": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:seeping_gate": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:sorbus_gate": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:walnut_gate": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:bloodwood_fence": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:ghostly_fence": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:seeping_fence": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:sorbus_fence": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:walnut_fence": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:bloodwood_stairs": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:ghostly_stairs": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:seeping_stairs": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:sorbus_stairs": {
+      "burn": 5,
+      "spread": 20
+    },
+    "mysteriousbiomes:walnut_stairs": {
+      "burn": 5,
+      "spread": 20
+    }
+  }
+}

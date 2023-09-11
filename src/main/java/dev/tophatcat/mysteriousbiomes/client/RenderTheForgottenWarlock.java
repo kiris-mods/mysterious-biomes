@@ -31,11 +31,11 @@ import org.jetbrains.annotations.NotNull;
 public class RenderTheForgottenWarlock extends MobRenderer<EntityTheForgottenWarlock, EntityModel<EntityTheForgottenWarlock>> {
 
     private static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(MysteriousBiomes.MOD_ID,
-            "textures/entity/the_forgotten_warlock.png");
+        "textures/entity/the_forgotten_warlock.png");
 
     public RenderTheForgottenWarlock(EntityRendererProvider.Context renderManager) {
         super(renderManager, new ModelTheForgottenWarlock<>(
-                renderManager.bakeLayer(ModelTheForgottenWarlock.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
+            renderManager.bakeLayer(ModelTheForgottenWarlock.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
     }
 
     @NotNull

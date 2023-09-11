@@ -1,5 +1,5 @@
 {
-  "feature": "mysteriousbiomes:sakura_tree",
+  "feature": "mysteriousbiomes:bloodwood_tree_worldgen",
   "placement": [
     {
       "type": "minecraft:count",
@@ -8,11 +8,11 @@
         "distribution": [
           {
             "weight": 90,
-            "data": 3
+            "data": 6
           },
           {
             "weight": 10,
-            "data": 4
+            "data": 7
           }
         ]
       }

@@ -26,6 +26,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.level.block.Block;
+
 import java.util.List;
 
 public class MysteriousBlockLootTableGenerator extends FabricBlockLootTableProvider {
@@ -37,11 +38,11 @@ public class MysteriousBlockLootTableGenerator extends FabricBlockLootTableProvi
     @Override
     public void generate() {
         var mysteriousWoodTypes = List.of(
-                MysteriousBlockTypes.BLOODWOOD,
-                MysteriousBlockTypes.GHOSTLY,
-                MysteriousBlockTypes.SORBUS,
-                MysteriousBlockTypes.SEEPING,
-                MysteriousBlockTypes.WALNUT);
+            MysteriousBlockTypes.BLOODWOOD,
+            MysteriousBlockTypes.GHOSTLY,
+            MysteriousBlockTypes.SORBUS,
+            MysteriousBlockTypes.SEEPING,
+            MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
             dropSelf(woodType.getTrapdoor().get());
@@ -63,12 +64,12 @@ public class MysteriousBlockLootTableGenerator extends FabricBlockLootTableProvi
             dropSelf(woodType.getWallHangingSign().get());
             add(woodType.getDoor().get(), this::createDoorTable);
             add(woodType.getLeaves().get(), block -> createLeavesDrops(woodType.getLeaves().get(),
-                    woodType.getSapling().get(),
-                    BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
+                woodType.getSapling().get(),
+                BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
         });
 
         dropSelf(MysteriousContentSetup.BLOODIED_DIRT.get());
         add(MysteriousContentSetup.BLOODIED_GRASS.get(), block
-                -> createSingleItemTableWithSilkTouch(block, MysteriousContentSetup.BLOODIED_DIRT.get()));
+            -> createSingleItemTableWithSilkTouch(block, MysteriousContentSetup.BLOODIED_DIRT.get()));
     }
 }

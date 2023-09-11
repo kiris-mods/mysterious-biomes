@@ -2,6 +2,6 @@
   "type": "minecraft:random_selector",
   "config": {
     "features": [],
-    "default": "mysteriousbiomes:bloodied_tree"
+    "default": "mysteriousbiomes:bloodwood_tree"
   }
 }

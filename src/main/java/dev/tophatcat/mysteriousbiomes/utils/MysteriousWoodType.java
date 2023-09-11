@@ -26,15 +26,15 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 public final class MysteriousWoodType {
 
     public static final WoodType BLOODWOOD_WOOD_TYPE = new WoodType("mysteriousbiomes:bloodwood",
-            new BlockSetType("mysteriousbiomes:bloodwood"));
+        new BlockSetType("mysteriousbiomes:bloodwood"));
     public static final WoodType GHOSTLY_WOOD_TYPE = new WoodType("mysteriousbiomes:ghostly",
-            new BlockSetType("mysteriousbiomes:ghostly"));
+        new BlockSetType("mysteriousbiomes:ghostly"));
     public static final WoodType SORBUS_WOOD_TYPE = new WoodType("mysteriousbiomes:sorbus",
-            new BlockSetType("mysteriousbiomes:sorbus"));
+        new BlockSetType("mysteriousbiomes:sorbus"));
     public static final WoodType SEEPING_WOOD_TYPE = new WoodType("mysteriousbiomes:seeping",
-            new BlockSetType("mysteriousbiomes:seeping"));
+        new BlockSetType("mysteriousbiomes:seeping"));
     public static final WoodType WALNUT_WOOD_TYPE = new WoodType("mysteriousbiomes:walnut",
-            new BlockSetType("mysteriousbiomes:walnut"));
+        new BlockSetType("mysteriousbiomes:walnut"));
 
     private MysteriousWoodType() {
         throw new UnsupportedOperationException();

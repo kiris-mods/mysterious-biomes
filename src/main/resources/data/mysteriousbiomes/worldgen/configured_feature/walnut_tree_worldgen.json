@@ -2,6 +2,6 @@
   "type": "minecraft:random_selector",
   "config": {
     "features": [],
-    "default": "mysteriousbiomes:sakura_tree"
+    "default": "mysteriousbiomes:walnut_tree"
   }
 }

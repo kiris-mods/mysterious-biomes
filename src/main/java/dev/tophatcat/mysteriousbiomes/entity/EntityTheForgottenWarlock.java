@@ -25,26 +25,13 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EntityDimensions;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobType;
-import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
-import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
-import net.minecraft.world.entity.ai.goal.RangedAttackGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.AbstractSkeleton;
-import net.minecraft.world.entity.monster.Creeper;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.RangedAttackMob;
-import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
@@ -54,7 +41,7 @@ import org.jetbrains.annotations.NotNull;
 public class EntityTheForgottenWarlock extends Monster implements RangedAttackMob {
 
     private static final EntityDataAccessor<Byte> CLIMBING
-            = SynchedEntityData.defineId(EntityTheForgottenWarlock.class, EntityDataSerializers.BYTE);
+        = SynchedEntityData.defineId(EntityTheForgottenWarlock.class, EntityDataSerializers.BYTE);
 
     public EntityTheForgottenWarlock(EntityType<? extends EntityTheForgottenWarlock> type, Level world) {
         super(type, world);
@@ -69,21 +56,21 @@ public class EntityTheForgottenWarlock extends Monster implements RangedAttackMo
         goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0D));
         targetSelector.addGoal(6, new TheForgottenWarlockAttackGoal(this));
         targetSelector.addGoal(7, new TheForgottenWarlockTargetGoal<>(
-                this, Player.class));
+            this, Player.class));
         targetSelector.addGoal(8, new TheForgottenWarlockTargetGoal<>(
-                this, AbstractSkeleton.class));
+            this, AbstractSkeleton.class));
         targetSelector.addGoal(9, new TheForgottenWarlockTargetGoal<>(
-                this, Zombie.class));
+            this, Zombie.class));
         targetSelector.addGoal(9, new TheForgottenWarlockTargetGoal<>(
-                this, Creeper.class));
+            this, Creeper.class));
         fireImmune();
     }
 
     public static AttributeSupplier.Builder theForgottenWarlockAttributes() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 40.0D)
-                .add(Attributes.ATTACK_DAMAGE, 7.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.25D);
+            .add(Attributes.MAX_HEALTH, 40.0D)
+            .add(Attributes.ATTACK_DAMAGE, 7.0D)
+            .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
     @Override
@@ -106,10 +93,10 @@ public class EntityTheForgottenWarlock extends Monster implements RangedAttackMo
         if (level().isClientSide) {
             for (int i = 0; i < 2; ++i) {
                 level().addParticle(ParticleTypes.PORTAL, getX() + (random.nextDouble()
-                                - 0.5D) * (double) getBbWidth(), getY() + random.nextDouble()
-                                * (double) getBbHeight(), getZ() + (random.nextDouble() - 0.5D)
-                                * (double) getBbWidth(), (random.nextDouble() - 0.5D) * 2.0D,
-                        -random.nextDouble(), (random.nextDouble() - 0.5D) * 2.0D);
+                        - 0.5D) * (double) getBbWidth(), getY() + random.nextDouble()
+                        * (double) getBbHeight(), getZ() + (random.nextDouble() - 0.5D)
+                        * (double) getBbWidth(), (random.nextDouble() - 0.5D) * 2.0D,
+                    -random.nextDouble(), (random.nextDouble() - 0.5D) * 2.0D);
             }
         }
     }

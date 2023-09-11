@@ -56,37 +56,37 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
         modelGen.family(MysteriousBlockTypes.SEEPING.getPlanks().get()).generateFor(SEEPING);
         modelGen.family(MysteriousBlockTypes.WALNUT.getPlanks().get()).generateFor(WALNUT);
         var mysteriousWoodTypes = List.of(
-                MysteriousBlockTypes.BLOODWOOD,
-                MysteriousBlockTypes.GHOSTLY,
-                MysteriousBlockTypes.SORBUS,
-                MysteriousBlockTypes.SEEPING,
-                MysteriousBlockTypes.WALNUT);
+            MysteriousBlockTypes.BLOODWOOD,
+            MysteriousBlockTypes.GHOSTLY,
+            MysteriousBlockTypes.SORBUS,
+            MysteriousBlockTypes.SEEPING,
+            MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
             modelGen.woodProvider(woodType.getLog().get())
-                    .logWithHorizontal(woodType.getLog().get())
-                    .wood(woodType.getWood().get());
+                .logWithHorizontal(woodType.getLog().get())
+                .wood(woodType.getWood().get());
             modelGen.createTrivialCube(woodType.getLeaves().get());
             modelGen.createCrossBlockWithDefaultItem(woodType.getSapling().get(),
-                    BlockModelGenerators.TintState.NOT_TINTED);
+                BlockModelGenerators.TintState.NOT_TINTED);
             modelGen.createHangingSign(woodType.getLog().get(),
-                    woodType.getHangingSign().get(),
-                    woodType.getWallHangingSign().get());
+                woodType.getHangingSign().get(),
+                woodType.getWallHangingSign().get());
         });
 
         //This does NOT generate the bloodied_grass.json block model file like it in theory should.
         //It does however generate the snowy model and the blockstate file.
         //Until a fix can be found, a manually written model file has been left in the mods resources to patch this.
         modelGen.createGrassLikeBlock(MysteriousContentSetup.BLOODIED_GRASS.get(),
-                ModelLocationUtils.getModelLocation(MysteriousContentSetup.BLOODIED_GRASS.get()),
-                Variant.variant().with(VariantProperties.MODEL, ModelTemplates.CUBE_BOTTOM_TOP.createWithSuffix(
-                        MysteriousContentSetup.BLOODIED_GRASS.get(), "_snow",
-                        new TextureMapping().put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(
-                                MysteriousContentSetup.BLOODIED_DIRT.get())).copyForced(TextureSlot.BOTTOM,
-                                TextureSlot.PARTICLE).put(TextureSlot.TOP, TextureMapping.getBlockTexture(
-                                MysteriousContentSetup.BLOODIED_GRASS.get(), "_top")).put(TextureSlot.SIDE,
-                                TextureMapping.getBlockTexture(MysteriousContentSetup.BLOODIED_GRASS.get(),
-                                        "_snow")), modelGen.modelOutput)));
+            ModelLocationUtils.getModelLocation(MysteriousContentSetup.BLOODIED_GRASS.get()),
+            Variant.variant().with(VariantProperties.MODEL, ModelTemplates.CUBE_BOTTOM_TOP.createWithSuffix(
+                MysteriousContentSetup.BLOODIED_GRASS.get(), "_snow",
+                new TextureMapping().put(TextureSlot.BOTTOM, TextureMapping.getBlockTexture(
+                    MysteriousContentSetup.BLOODIED_DIRT.get())).copyForced(TextureSlot.BOTTOM,
+                    TextureSlot.PARTICLE).put(TextureSlot.TOP, TextureMapping.getBlockTexture(
+                    MysteriousContentSetup.BLOODIED_GRASS.get(), "_top")).put(TextureSlot.SIDE,
+                    TextureMapping.getBlockTexture(MysteriousContentSetup.BLOODIED_GRASS.get(),
+                        "_snow")), modelGen.modelOutput)));
         modelGen.createTrivialCube(MysteriousContentSetup.BLOODIED_DIRT.get());
     }
 
@@ -96,15 +96,15 @@ public class MysteriousBlockStateModelGenerator extends FabricModelProvider {
 
     private static BlockFamily fromWoodType(MysteriousBlockTypes woodTypes) {
         return new BlockFamily.Builder(woodTypes.getPlanks().get())
-                .button(woodTypes.getButton().get())
-                .door(woodTypes.getDoor().get())
-                .fence(woodTypes.getFence().get())
-                .fenceGate(woodTypes.getGate().get())
-                .pressurePlate(woodTypes.getPressurePlate().get())
-                .slab(woodTypes.getSlab().get())
-                .stairs(woodTypes.getStairs().get())
-                .sign(woodTypes.getFloorSign().get(), woodTypes.getWallSign().get())
-                .trapdoor(woodTypes.getTrapdoor().get()).recipeGroupPrefix("wooden")
-                .recipeUnlockedBy("has_planks").getFamily();
+            .button(woodTypes.getButton().get())
+            .door(woodTypes.getDoor().get())
+            .fence(woodTypes.getFence().get())
+            .fenceGate(woodTypes.getGate().get())
+            .pressurePlate(woodTypes.getPressurePlate().get())
+            .slab(woodTypes.getSlab().get())
+            .stairs(woodTypes.getStairs().get())
+            .sign(woodTypes.getFloorSign().get(), woodTypes.getWallSign().get())
+            .trapdoor(woodTypes.getTrapdoor().get()).recipeGroupPrefix("wooden")
+            .recipeUnlockedBy("has_planks").getFamily();
     }
 }

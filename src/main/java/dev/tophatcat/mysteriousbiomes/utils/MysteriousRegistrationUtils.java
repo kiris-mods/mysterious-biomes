@@ -27,144 +27,129 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.PressurePlateBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.WallSignBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
+
 import java.util.function.Supplier;
 
 public class MysteriousRegistrationUtils {
 
     public static Supplier<Item> setupMobEgg(String name, Item item) {
         return RegHelpers.createBasicItem(new ResourceLocation(MysteriousBiomes.MOD_ID, name),
-                () -> item, MysteriousContentSetup.ITEMS);
+            () -> item, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupSaplingBlock(String woodType, AbstractTreeGrower generator) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType),
-                () -> new SaplingBlock(generator, Block.Properties.copy(Blocks.OAK_SAPLING)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+            () -> new SaplingBlock(generator, Block.Properties.copy(Blocks.OAK_SAPLING)),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupPillarBlock(MysteriousBlockTypes woodType, String blockType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + blockType), () -> new RotatedPillarBlock(Block.Properties.copy(Blocks.OAK_LOG)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + blockType), () -> new RotatedPillarBlock(Block.Properties.copy(Blocks.OAK_LOG)),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupPlanksBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_planks"), () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_planks"), () -> new Block(Block.Properties.copy(Blocks.OAK_PLANKS)),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupStairsBlock(MysteriousBlockTypes woodType, BlockState blockState) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_stairs"), () -> new StairBlock(blockState, Block.Properties.copy(Blocks.OAK_STAIRS)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_stairs"), () -> new StairBlock(blockState, Block.Properties.copy(Blocks.OAK_STAIRS)),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupLeavesBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_leaves"), () -> new LeavesBlock(Block.Properties.copy(Blocks.OAK_LEAVES)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_leaves"), () -> new LeavesBlock(Block.Properties.copy(Blocks.OAK_LEAVES)),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupSlabBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_slab"), () -> new SlabBlock(Block.Properties.copy(Blocks.OAK_SLAB)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_slab"), () -> new SlabBlock(Block.Properties.copy(Blocks.OAK_SLAB)),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupFenceBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_fence"), () -> new FenceBlock(Block.Properties.copy(Blocks.OAK_FENCE)),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_fence"), () -> new FenceBlock(Block.Properties.copy(Blocks.OAK_FENCE)),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupGateBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_gate"), () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_gate"), () -> new FenceGateBlock(Block.Properties.copy(Blocks.OAK_FENCE_GATE), WoodType.OAK),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupButtonBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_button"), () -> new ButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON), BlockSetType.OAK,
-                        30, true),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_button"), () -> new ButtonBlock(Block.Properties.copy(Blocks.OAK_BUTTON), BlockSetType.OAK,
+                30, true),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupPressurePlateBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                        + "_pressure_plate"), () -> new PressurePlateBlock(PressurePlateBlock
-                        .Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK),
-                MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+                + "_pressure_plate"), () -> new PressurePlateBlock(PressurePlateBlock
+                .Sensitivity.EVERYTHING, Block.Properties.copy(Blocks.OAK_PRESSURE_PLATE), BlockSetType.OAK),
+            MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupTrapdoorBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                + "_trapdoor"), () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR),
-                BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+            + "_trapdoor"), () -> new TrapDoorBlock(Block.Properties.copy(Blocks.OAK_TRAPDOOR),
+            BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupDoorBlock(MysteriousBlockTypes woodType) {
         return RegHelpers.createBlockWithItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType.getName()
-                + "_door"), () -> new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR).strength(3.0F)
-                .noOcclusion().ignitedByLava(), BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
+            + "_door"), () -> new DoorBlock(Block.Properties.copy(Blocks.OAK_DOOR).strength(3.0F)
+            .noOcclusion().ignitedByLava(), BlockSetType.OAK), MysteriousContentSetup.BLOCKS, MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Item> setupSignItem(String woodType, Block signBlock, Block wallSignBlock) {
         return RegHelpers.createBasicItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType),
-                () -> new SignItem(new Item.Properties().stacksTo(16),
-                        signBlock, wallSignBlock), MysteriousContentSetup.ITEMS);
+            () -> new SignItem(new Item.Properties().stacksTo(16),
+                signBlock, wallSignBlock), MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupFloorSignBlock(String name, WoodType signType) {
         return RegHelpers.createBlock(new ResourceLocation(MysteriousBiomes.MOD_ID, name),
-                () -> new StandingSignBlock(Block.Properties.copy(Blocks.OAK_SIGN), signType),
-                MysteriousContentSetup.BLOCKS);
+            () -> new StandingSignBlock(Block.Properties.copy(Blocks.OAK_SIGN), signType),
+            MysteriousContentSetup.BLOCKS);
     }
 
     public static Supplier<Block> setupWallSignBlock(String woodName, WoodType woodType) {
         return RegHelpers.createBlock(new ResourceLocation(MysteriousBiomes.MOD_ID, woodName),
-                () -> new WallSignBlock(Block.Properties.copy(Blocks.OAK_WALL_SIGN), woodType),
-                MysteriousContentSetup.BLOCKS);
+            () -> new WallSignBlock(Block.Properties.copy(Blocks.OAK_WALL_SIGN), woodType),
+            MysteriousContentSetup.BLOCKS);
     }
 
     public static Supplier<Item> setupHangingSignItem(String woodType, Block hangingSignBlock,
                                                       Block wallHangingSignBlock) {
         return RegHelpers.createBasicItem(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType),
-                () -> new HangingSignItem(hangingSignBlock, wallHangingSignBlock,
-                        new Item.Properties().stacksTo(16)), MysteriousContentSetup.ITEMS);
+            () -> new HangingSignItem(hangingSignBlock, wallHangingSignBlock,
+                new Item.Properties().stacksTo(16)), MysteriousContentSetup.ITEMS);
     }
 
     public static Supplier<Block> setupHangingSignBlock(String woodType, WoodType signType) {
         return RegHelpers.createBlock(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType),
-                () -> new CeilingHangingSignBlock(Block.Properties.copy(Blocks.OAK_HANGING_SIGN), signType),
-                MysteriousContentSetup.BLOCKS);
+            () -> new CeilingHangingSignBlock(Block.Properties.copy(Blocks.OAK_HANGING_SIGN), signType),
+            MysteriousContentSetup.BLOCKS);
     }
 
     public static Supplier<Block> setupWallHangingSignBlock(String woodType, WoodType signType) {
         return RegHelpers.createBlock(new ResourceLocation(MysteriousBiomes.MOD_ID, woodType),
-                () -> new WallHangingSignBlock(Block.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), signType),
-                MysteriousContentSetup.BLOCKS);
+            () -> new WallHangingSignBlock(Block.Properties.copy(Blocks.OAK_WALL_HANGING_SIGN), signType),
+            MysteriousContentSetup.BLOCKS);
     }
 }

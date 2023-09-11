@@ -51,7 +51,7 @@ public class BloodiedGrass extends GrassBlock {
                 return false;
             } else {
                 int i = LightEngine.getLightBlockInto(world, state, pos, blockstate, blockpos, Direction.UP,
-                        blockstate.getLightBlock(world, blockpos));
+                    blockstate.getLightBlock(world, blockpos));
                 return i < world.getMaxLightLevel();
             }
         }
@@ -84,12 +84,12 @@ public class BloodiedGrass extends GrassBlock {
 
                     for (int i = 0; i < 4; ++i) {
                         BlockPos blockpos = pos.offset(random.nextInt(3) - 1,
-                                random.nextInt(5) - 3, random.nextInt(3) - 1);
+                            random.nextInt(5) - 3, random.nextInt(3) - 1);
 
                         if (world.getBlockState(blockpos).getBlock() == MysteriousContentSetup.BLOODIED_DIRT.get()
-                                && canPropagate(replacementBlock, world, blockpos)) {
+                            && canPropagate(replacementBlock, world, blockpos)) {
                             world.setBlockAndUpdate(blockpos, replacementBlock.setValue(SNOWY,
-                                    world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));
+                                world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));
                         }
                     }
                 }

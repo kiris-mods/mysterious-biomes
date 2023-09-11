@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": {
+    "mysteriousbiomes:bloodwood_log": "mysteriousbiomes:bloodwood_stripped_log",
+    "mysteriousbiomes:ghostly_log": "mysteriousbiomes:ghostly_stripped_log",
+    "mysteriousbiomes:sorbus_log": "mysteriousbiomes:sorbus_stripped_log",
+    "mysteriousbiomes:seeping_log": "mysteriousbiomes:seeping_stripped_log",
+    "mysteriousbiomes:walnut_log": "mysteriousbiomes:walnut_stripped_log",
+    "mysteriousbiomes:bloodwood_wood": "mysteriousbiomes:bloodwood_stripped_wood",
+    "mysteriousbiomes:ghostly_wood": "mysteriousbiomes:ghostly_stripped_wood",
+    "mysteriousbiomes:sorbus_wood": "mysteriousbiomes:sorbus_stripped_wood",
+    "mysteriousbiomes:seeping_wood": "mysteriousbiomes:seeping_stripped_wood",
+    "mysteriousbiomes:walnut_wood": "mysteriousbiomes:walnut_stripped_wood"
+  }
+}

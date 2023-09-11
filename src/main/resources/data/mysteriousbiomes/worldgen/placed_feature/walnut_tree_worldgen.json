@@ -1,5 +1,5 @@
 {
-  "feature": "mysteriousbiomes:bloodied_tree_worldgen",
+  "feature": "mysteriousbiomes:walnut_tree",
   "placement": [
     {
       "type": "minecraft:count",
@@ -8,11 +8,11 @@
         "distribution": [
           {
             "weight": 90,
-            "data": 6
+            "data": 3
           },
           {
             "weight": 10,
-            "data": 7
+            "data": 4
           }
         ]
       }

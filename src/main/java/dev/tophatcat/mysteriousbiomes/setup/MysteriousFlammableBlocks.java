@@ -21,8 +21,6 @@
 package dev.tophatcat.mysteriousbiomes.setup;
 
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
-import org.quiltmc.qsl.block.content.registry.api.BlockContentRegistries;
-import org.quiltmc.qsl.block.content.registry.api.FlammableBlockEntry;
 import org.quiltmc.qsl.item.content.registry.api.ItemContentRegistries;
 
 import java.util.List;
@@ -31,34 +29,13 @@ public class MysteriousFlammableBlocks {
 
     public static void init() {
         var mysteriousWoodTypes = List.of(
-                MysteriousBlockTypes.BLOODWOOD,
-                MysteriousBlockTypes.GHOSTLY,
-                MysteriousBlockTypes.SORBUS,
-                MysteriousBlockTypes.SEEPING,
-                MysteriousBlockTypes.WALNUT);
+            MysteriousBlockTypes.BLOODWOOD,
+            MysteriousBlockTypes.GHOSTLY,
+            MysteriousBlockTypes.SORBUS,
+            MysteriousBlockTypes.SEEPING,
+            MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
-            BlockContentRegistries.FLAMMABLE.put(woodType.getLog().get(),
-                new FlammableBlockEntry(5, 5));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getStrippedLog().get(),
-                new FlammableBlockEntry(5, 5));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getWood().get(),
-                new FlammableBlockEntry(5, 5));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getStrippedWood().get(),
-                new FlammableBlockEntry(5, 5));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getPlanks().get(),
-                new FlammableBlockEntry(5, 20));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getLeaves().get(),
-                new FlammableBlockEntry(30, 60));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getSlab().get(),
-                new FlammableBlockEntry(5, 20));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getGate().get(),
-                new FlammableBlockEntry(5, 20));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getFence().get(),
-                new FlammableBlockEntry(5, 20));
-            BlockContentRegistries.FLAMMABLE.put(woodType.getStairs().get(),
-                new FlammableBlockEntry(5, 20));
-
             ItemContentRegistries.FUEL_TIMES.put(woodType.getLog().get().asItem(), 300);
             ItemContentRegistries.FUEL_TIMES.put(woodType.getStrippedLog().get().asItem(), 300);
             ItemContentRegistries.FUEL_TIMES.put(woodType.getWood().get().asItem(), 300);
