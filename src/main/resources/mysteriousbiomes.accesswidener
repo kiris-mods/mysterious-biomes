@@ -1,4 +1,4 @@
 accessWidener v1 named
-accessible field net/minecraft/world/biome/Biome$Builder specialEffects Lnet/minecraft/world/biome/BiomeEffects;
-accessible field net/minecraft/world/biome/Biome spawnSettings Lnet/minecraft/world/biome/SpawnSettings;
-accessible method net/minecraft/block/WoodType register (Lnet/minecraft/block/WoodType;)Lnet/minecraft/block/WoodType;
+accessible method net/minecraft/world/level/block/Blocks ocelotOrParrot (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/entity/EntityType;)Ljava/lang/Boolean;
+accessible method net/minecraft/world/level/block/Blocks never (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z
+accessible method net/minecraft/world/level/block/state/properties/WoodType register (Lnet/minecraft/world/level/block/state/properties/WoodType;)Lnet/minecraft/world/level/block/state/properties/WoodType;

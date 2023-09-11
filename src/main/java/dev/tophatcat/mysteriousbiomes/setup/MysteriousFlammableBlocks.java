@@ -21,15 +21,15 @@
 package dev.tophatcat.mysteriousbiomes.setup;
 
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import org.quiltmc.qsl.block.content.registry.api.BlockContentRegistries;
+import org.quiltmc.qsl.block.content.registry.api.FlammableBlockEntry;
+import org.quiltmc.qsl.item.content.registry.api.ItemContentRegistries;
 
 import java.util.List;
 
 public class MysteriousFlammableBlocks {
 
     public static void init() {
-        FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
         var mysteriousWoodTypes = List.of(
                 MysteriousBlockTypes.BLOODWOOD,
                 MysteriousBlockTypes.GHOSTLY,
@@ -38,32 +38,42 @@ public class MysteriousFlammableBlocks {
                 MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
-            registry.add(woodType.getLog().get(), 5, 5);
-            registry.add(woodType.getStrippedLog().get(), 5, 5);
-            registry.add(woodType.getWood().get(), 5, 5);
-            registry.add(woodType.getStrippedWood().get(), 5, 5);
-            registry.add(woodType.getPlanks().get(), 5, 20);
-            registry.add(woodType.getLeaves().get(), 30, 60);
-            registry.add(woodType.getSlab().get(), 5, 20);
-            registry.add(woodType.getGate().get(), 5, 20);
-            registry.add(woodType.getFence().get(), 5, 20);
-            registry.add(woodType.getStairs().get(), 5, 20);
+            BlockContentRegistries.FLAMMABLE.put(woodType.getLog().get(),
+                new FlammableBlockEntry(5, 5));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getStrippedLog().get(),
+                new FlammableBlockEntry(5, 5));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getWood().get(),
+                new FlammableBlockEntry(5, 5));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getStrippedWood().get(),
+                new FlammableBlockEntry(5, 5));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getPlanks().get(),
+                new FlammableBlockEntry(5, 20));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getLeaves().get(),
+                new FlammableBlockEntry(30, 60));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getSlab().get(),
+                new FlammableBlockEntry(5, 20));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getGate().get(),
+                new FlammableBlockEntry(5, 20));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getFence().get(),
+                new FlammableBlockEntry(5, 20));
+            BlockContentRegistries.FLAMMABLE.put(woodType.getStairs().get(),
+                new FlammableBlockEntry(5, 20));
 
-            FuelRegistry.INSTANCE.add(woodType.getLog().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getStrippedLog().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getWood().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getStrippedWood().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getPlanks().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getStairs().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getSlab().get(), 150);
-            FuelRegistry.INSTANCE.add(woodType.getTrapdoor().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getPressurePlate().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getFence().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getGate().get(), 300);
-            FuelRegistry.INSTANCE.add(woodType.getSign().get(), 200);
-            FuelRegistry.INSTANCE.add(woodType.getHangingSign().get(), 800);
-            FuelRegistry.INSTANCE.add(woodType.getButton().get(), 100);
-            FuelRegistry.INSTANCE.add(woodType.getSapling().get(), 100);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getLog().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getStrippedLog().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getWood().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getStrippedWood().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getPlanks().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getStairs().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getSlab().get().asItem(), 150);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getTrapdoor().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getPressurePlate().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getFence().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getGate().get().asItem(), 300);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getSign().get(), 200);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getHangingSign().get().asItem(), 800);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getButton().get().asItem(), 100);
+            ItemContentRegistries.FUEL_TIMES.put(woodType.getSapling().get().asItem(), 100);
         });
     }
 }

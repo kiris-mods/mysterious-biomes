@@ -37,7 +37,7 @@ public class MysteriousLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(MysteriousBiomes.ITEM_GROUP, "Mysterious Biomes");
         translationBuilder.add(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, "The Forgotten Warlock");
         translationBuilder.add("item.mysteriousbiomes.the_forgotten_warlock_spawn_egg",
-                "The Forgotten Warlock Spawn Egg");
+            "The Forgotten Warlock Spawn Egg");
         translationBuilder.add(MysteriousContentSetup.BLOODIED_DIRT.get(), "Bloodied Dirt");
         translationBuilder.add(MysteriousContentSetup.BLOODIED_GRASS.get(), "Bloodied Grass");
 

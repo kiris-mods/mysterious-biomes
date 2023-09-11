@@ -24,9 +24,8 @@ import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.minecraft.block.Block;
-import net.minecraft.data.server.loottable.BlockLootTableGenerator;
-
+import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.world.level.block.Block;
 import java.util.List;
 
 public class MysteriousBlockLootTableGenerator extends FabricBlockLootTableProvider {
@@ -45,31 +44,31 @@ public class MysteriousBlockLootTableGenerator extends FabricBlockLootTableProvi
                 MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
-            addDrop(woodType.getTrapdoor().get());
-            addDrop(woodType.getSlab().get());
-            addDrop(woodType.getStairs().get());
-            addDrop(woodType.getPlanks().get());
-            addDrop(woodType.getLog().get());
-            addDrop(woodType.getStrippedLog().get());
-            addDrop(woodType.getWood().get());
-            addDrop(woodType.getStrippedWood().get());
-            addDrop(woodType.getGate().get());
-            addDrop(woodType.getFence().get());
-            addDrop(woodType.getButton().get());
-            addDrop(woodType.getPressurePlate().get());
-            addDrop(woodType.getSapling().get());
-            addDrop(Block.getBlockFromItem(woodType.getSign().get()));
-            addDrop(woodType.getWallSign().get());
-            addDrop(woodType.getHangingSign().get());
-            addDrop(woodType.getWallHangingSign().get());
-            addDrop(woodType.getDoor().get(), this::doorDrops);
-            addDrop(woodType.getLeaves().get(), block -> leavesDrops(woodType.getLeaves().get(),
+            dropSelf(woodType.getTrapdoor().get());
+            dropSelf(woodType.getSlab().get());
+            dropSelf(woodType.getStairs().get());
+            dropSelf(woodType.getPlanks().get());
+            dropSelf(woodType.getLog().get());
+            dropSelf(woodType.getStrippedLog().get());
+            dropSelf(woodType.getWood().get());
+            dropSelf(woodType.getStrippedWood().get());
+            dropSelf(woodType.getGate().get());
+            dropSelf(woodType.getFence().get());
+            dropSelf(woodType.getButton().get());
+            dropSelf(woodType.getPressurePlate().get());
+            dropSelf(woodType.getSapling().get());
+            dropSelf(Block.byItem(woodType.getSign().get()));
+            dropSelf(woodType.getWallSign().get());
+            dropSelf(woodType.getHangingSign().get());
+            dropSelf(woodType.getWallHangingSign().get());
+            add(woodType.getDoor().get(), this::createDoorTable);
+            add(woodType.getLeaves().get(), block -> createLeavesDrops(woodType.getLeaves().get(),
                     woodType.getSapling().get(),
-                    BlockLootTableGenerator.SAPLING_DROP_CHANCE));
+                    BlockLootSubProvider.NORMAL_LEAVES_SAPLING_CHANCES));
         });
 
-        addDrop(MysteriousContentSetup.BLOODIED_DIRT.get());
-        addDrop(MysteriousContentSetup.BLOODIED_GRASS.get(), block
-                -> drops(block, MysteriousContentSetup.BLOODIED_DIRT.get()));
+        dropSelf(MysteriousContentSetup.BLOODIED_DIRT.get());
+        add(MysteriousContentSetup.BLOODIED_GRASS.get(), block
+                -> createSingleItemTableWithSilkTouch(block, MysteriousContentSetup.BLOODIED_DIRT.get()));
     }
 }

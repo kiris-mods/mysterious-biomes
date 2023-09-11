@@ -20,8 +20,8 @@
  */
 package dev.tophatcat.mysteriousbiomes.utils;
 
-import net.minecraft.block.BlockSetType;
-import net.minecraft.block.WoodType;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 public final class MysteriousWoodType {
 

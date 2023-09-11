@@ -1,29 +1,39 @@
-# eclipse
-bin
+# gradle
+.gradle/
+build/
+out/
+classes/
+
+# Quilt Loom
+remappedSrc/
+run/
+runserver/
+
+# Eclipse
 *.launch
-.settings
 .metadata
+workspace/
+
+# IntelliJ Idea
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Fleet
+.fleet/
+
+# Visual Studio Code
+.settings/
+.vscode/
+bin/
 .classpath
 .project
 
-# idea
-out
-*.ipr
-*.iws
-*.iml
-.idea/*
-!.idea/scopes
-
-# gradle
-build
-.gradle
+# MacOS
+*.DS_Store
 
 # other
-/src/main/generated/.cache/*
-eclipse
-run
-runserver
+src/main/generated/.cache/*
 extras
-libs
-screenshots
 mcmodsrepo

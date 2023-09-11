@@ -24,12 +24,11 @@ import dev.tophatcat.mysteriousbiomes.datagen.server.tags.MysteriousItemTags;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.book.RecipeCategory;
-
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.world.item.Items;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -40,7 +39,7 @@ public class MysteriousRecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void buildRecipes(Consumer<FinishedRecipe> exporter) {
         var mysteriousWoodTypes = List.of(
                 MysteriousBlockTypes.BLOODWOOD,
                 MysteriousBlockTypes.GHOSTLY,
@@ -49,144 +48,144 @@ public class MysteriousRecipeGenerator extends FabricRecipeProvider {
                 MysteriousBlockTypes.WALNUT);
 
         mysteriousWoodTypes.forEach(woodType -> {
-            ShapelessRecipeJsonBuilder.create(RecipeCategory.REDSTONE,
+            ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE,
                             woodType.getButton().get())
-                    .input(woodType.getPlanks().get())
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .requires(woodType.getPlanks().get())
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_button")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,
                             woodType.getDoor().get(), 3)
                     .pattern("WW")
                     .pattern("WW")
                     .pattern("WW")
-                    .input('W', woodType.getPlanks().get())
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_door")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC,
                             woodType.getFence().get(), 3)
                     .pattern("WSW")
                     .pattern("WSW")
-                    .input('W', woodType.getPlanks().get())
-                    .input('S', Items.STICK)
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .define('S', Items.STICK)
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_fence")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,
                             woodType.getGate().get())
                     .pattern("SWS")
                     .pattern("SWS")
-                    .input('W', woodType.getPlanks().get())
-                    .input('S', Items.STICK)
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .define('S', Items.STICK)
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_fence_gate")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC,
                             woodType.getHangingSign().get(), 6)
                     .pattern("X X")
                     .pattern("WWW")
                     .pattern("WWW")
-                    .input('W', woodType.getStrippedLog().get())
-                    .input('X', Items.CHAIN)
-                    .criterion("has_stripped_logs",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getStrippedLog().get()))
+                    .define('W', woodType.getStrippedLog().get())
+                    .define('X', Items.CHAIN)
+                    .unlockedBy("has_stripped_logs",
+                            FabricRecipeProvider.has(woodType.getStrippedLog().get()))
                     .group("hanging_sign")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,
                             woodType.getPressurePlate().get())
                     .pattern("WW")
-                    .input('W', woodType.getPlanks().get())
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_pressure_plate")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC,
                             woodType.getSign().get(), 3)
                     .pattern("WWW")
                     .pattern("WWW")
                     .pattern(" S ")
-                    .input('W', woodType.getPlanks().get())
-                    .input('S', Items.STICK)
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .define('S', Items.STICK)
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_sign")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,
                             woodType.getSlab().get(), 6)
                     .pattern("WWW")
-                    .input('W', woodType.getPlanks().get())
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_slab")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,
                             woodType.getStairs().get(), 4)
                     .pattern("W  ")
                     .pattern("WW ")
                     .pattern("WWW")
-                    .input('W', woodType.getPlanks().get())
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_stairs")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE,
                             woodType.getTrapdoor().get(), 2)
                     .pattern("WWW")
                     .pattern("WWW")
-                    .input('W', woodType.getPlanks().get())
-                    .criterion("has_planks",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getPlanks().get()))
+                    .define('W', woodType.getPlanks().get())
+                    .unlockedBy("has_planks",
+                            FabricRecipeProvider.has(woodType.getPlanks().get()))
                     .group("wooden_trapdoor")
-                    .offerTo(exporter);
-            ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+                    .save(exporter);
+            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS,
                             woodType.getWood().get(), 3)
                     .pattern("WW")
                     .pattern("WW")
-                    .input('W', woodType.getLog().get())
-                    .criterion("has_log",
-                            FabricRecipeProvider.conditionsFromItem(woodType.getLog().get()))
+                    .define('W', woodType.getLog().get())
+                    .unlockedBy("has_log",
+                            FabricRecipeProvider.has(woodType.getLog().get()))
                     .group("bark")
-                    .offerTo(exporter);
+                    .save(exporter);
         });
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,
                         MysteriousBlockTypes.BLOODWOOD.getPlanks().get(), 4)
-                .input(MysteriousItemTags.BLOODWOOD_LOGS)
-                .criterion("has_log",
-                        FabricRecipeProvider.conditionsFromTag(MysteriousItemTags.BLOODWOOD_LOGS))
+                .requires(MysteriousItemTags.BLOODWOOD_LOGS)
+                .unlockedBy("has_log",
+                        FabricRecipeProvider.has(MysteriousItemTags.BLOODWOOD_LOGS))
                 .group("planks")
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+                .save(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,
                         MysteriousBlockTypes.GHOSTLY.getPlanks().get(), 4)
-                .input(MysteriousItemTags.GHOSTLY_LOGS)
-                .criterion("has_log",
-                        FabricRecipeProvider.conditionsFromTag(MysteriousItemTags.GHOSTLY_LOGS))
+                .requires(MysteriousItemTags.GHOSTLY_LOGS)
+                .unlockedBy("has_log",
+                        FabricRecipeProvider.has(MysteriousItemTags.GHOSTLY_LOGS))
                 .group("planks")
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+                .save(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,
                         MysteriousBlockTypes.SORBUS.getPlanks().get(), 4)
-                .input(MysteriousItemTags.SORBUS_LOGS)
-                .criterion("has_log",
-                        FabricRecipeProvider.conditionsFromTag(MysteriousItemTags.SORBUS_LOGS))
+                .requires(MysteriousItemTags.SORBUS_LOGS)
+                .unlockedBy("has_log",
+                        FabricRecipeProvider.has(MysteriousItemTags.SORBUS_LOGS))
                 .group("planks")
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+                .save(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,
                         MysteriousBlockTypes.SEEPING.getPlanks().get(), 4)
-                .input(MysteriousItemTags.SEEPING_LOGS)
-                .criterion("has_log",
-                        FabricRecipeProvider.conditionsFromTag(MysteriousItemTags.SEEPING_LOGS))
+                .requires(MysteriousItemTags.SEEPING_LOGS)
+                .unlockedBy("has_log",
+                        FabricRecipeProvider.has(MysteriousItemTags.SEEPING_LOGS))
                 .group("planks")
-                .offerTo(exporter);
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS,
+                .save(exporter);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS,
                         MysteriousBlockTypes.WALNUT.getPlanks().get(), 4)
-                .input(MysteriousItemTags.WALNUT_LOGS)
-                .criterion("has_log",
-                        FabricRecipeProvider.conditionsFromTag(MysteriousItemTags.WALNUT_LOGS))
+                .requires(MysteriousItemTags.WALNUT_LOGS)
+                .unlockedBy("has_log",
+                        FabricRecipeProvider.has(MysteriousItemTags.WALNUT_LOGS))
                 .group("planks")
-                .offerTo(exporter);
+                .save(exporter);
     }
 }
