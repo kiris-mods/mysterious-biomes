@@ -82,12 +82,10 @@ dependencies {
 }
 
 processResources {
-	inputs.property 'version', version
-	inputs.property 'group', project.group
+	inputs.properties 'version': version, 'group': project.group
 
 	filesMatching(['quilt.mod.json']) {
-		expand 'version': version
-		expand 'group': project.group
+		expand 'version': version, 'group': project.group
 	}
 }
 
@@ -160,7 +158,7 @@ loom {
 	runs {
 		client {
 			client()
-			setConfigName("Fabric Client")
+			setConfigName("Minecraft Client")
 			ideConfigGenerated(true)
 			runDir("run")
 
@@ -177,7 +175,7 @@ loom {
 
 		server {
 			server()
-			setConfigName("Fabric Server")
+			setConfigName("Minecraft Server")
 			ideConfigGenerated(true)
 			runDir("run")
 			programArgs('--singleplayer', "yes", '--nogui', "true")
@@ -221,4 +219,10 @@ license {
         source = mod_source
         author = mod_author
     }
+}
+
+// messy workaround for bug in quilt loom 1.3.3
+project.configurations.all {
+	exclude(group: "net.fabricmc", module: "fabric-loader")
+	exclude(group: "net.fabricmc.fabric-api")
 }
