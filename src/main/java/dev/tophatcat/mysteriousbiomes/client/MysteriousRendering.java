@@ -21,6 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntities;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
@@ -37,7 +38,7 @@ public class MysteriousRendering implements ClientModInitializer {
 
     @Override
     public void onInitializeClient(ModContainer container) {
-        EntityRendererRegistry.register(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, RenderTheForgottenWarlock::new);
+        EntityRendererRegistry.register(MysteriousEntities.THE_FORGOTTEN_WARLOCK, RenderTheForgottenWarlock::new);
         EntityModelLayerRegistry.registerModelLayer(ModelTheForgottenWarlock.THE_FORGOTTEN_WARLOCK_LOCATION,
             ModelTheForgottenWarlock::getTexturedModelData);
         QuiltLoader.getModContainer(MysteriousBiomes.MOD_ID).ifPresent(modContainer

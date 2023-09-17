@@ -8,6 +8,7 @@ quilted_fabric_api = "7.2.1+0.88.0-1.20.1"
 
 kiris_lib = "1.20.1-5.0.0"
 terrablender_version = "1.20.1-3.0.0.169"
+midnight_lib = "1.4.1-quilt"
 modmenu_version = "7.2.1"
 jade_version = "11.5.1"
 
@@ -19,6 +20,7 @@ quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loade
 # Required dependencies
 kiris_lib = { module = "maven.modrinth:kirislib", version.ref = "kiris_lib" }
 terrablender = { module = "com.github.glitchfiend:TerraBlender-fabric", version.ref = "terrablender_version" }
+midnight_lib = { module = "maven.modrinth:midnightlib", version.ref = "midnight_lib" }
 
 # Optional dependencies
 modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu_version" }

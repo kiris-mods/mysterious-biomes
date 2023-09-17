@@ -35,10 +35,10 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 import java.util.function.Supplier;
 
-public class MysteriousRegistrationUtils {
+public final class MysteriousRegistrationUtils {
 
-    public static Supplier<Item> setupMobEgg(String name, Item item) {
-        return RegHelpers.createBasicItem(new ResourceLocation(MysteriousBiomes.MOD_ID, name),
+    public static void setupMobEgg(String name, Item item) {
+        RegHelpers.createBasicItem(new ResourceLocation(MysteriousBiomes.MOD_ID, name),
             () -> item, MysteriousContentSetup.ITEMS);
     }
 

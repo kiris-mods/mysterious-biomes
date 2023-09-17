@@ -25,6 +25,18 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 
 public final class MysteriousWoodType {
 
+    private MysteriousWoodType() {
+        throw new UnsupportedOperationException("MysteriousWoodTypes only contains static definitions...");
+    }
+
+    public static void init() {
+        WoodType.register(BLOODWOOD_WOOD_TYPE);
+        WoodType.register(GHOSTLY_WOOD_TYPE);
+        WoodType.register(SORBUS_WOOD_TYPE);
+        WoodType.register(SEEPING_WOOD_TYPE);
+        WoodType.register(WALNUT_WOOD_TYPE);
+    }
+
     public static final WoodType BLOODWOOD_WOOD_TYPE = new WoodType("mysteriousbiomes:bloodwood",
         new BlockSetType("mysteriousbiomes:bloodwood"));
     public static final WoodType GHOSTLY_WOOD_TYPE = new WoodType("mysteriousbiomes:ghostly",
@@ -35,16 +47,4 @@ public final class MysteriousWoodType {
         new BlockSetType("mysteriousbiomes:seeping"));
     public static final WoodType WALNUT_WOOD_TYPE = new WoodType("mysteriousbiomes:walnut",
         new BlockSetType("mysteriousbiomes:walnut"));
-
-    private MysteriousWoodType() {
-        throw new UnsupportedOperationException();
-    }
-
-    public static void init() {
-        WoodType.register(BLOODWOOD_WOOD_TYPE);
-        WoodType.register(GHOSTLY_WOOD_TYPE);
-        WoodType.register(SORBUS_WOOD_TYPE);
-        WoodType.register(SEEPING_WOOD_TYPE);
-        WoodType.register(WALNUT_WOOD_TYPE);
-    }
 }

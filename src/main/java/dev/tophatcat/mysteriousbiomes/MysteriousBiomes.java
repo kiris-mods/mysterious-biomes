@@ -20,11 +20,13 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.mysteriousbiomes.entity.EntityTheForgottenWarlock;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousConfig;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntities;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousFlammableBlocks;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
+import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
@@ -34,26 +36,22 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
-import net.minecraft.world.entity.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.levelgen.Heightmap;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
-import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
-import org.quiltmc.qsl.worldgen.biome.api.BiomeModifications;
 import terrablender.api.TerraBlenderApi;
 
 import java.util.Comparator;
 
 public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
 
-    //TODO Make sure all of the following work properly
+    //TODO Make sure all of the following work properly.
     //Structures?
     //World generation.
     //Saplings.
     //Mist not working in biomes.
+    //Charm items for poison protection/resistance.
     //Poison the player if they enter the biome without a charm for protection.
     //Add a config to disable this in certain cases.
     //Charms to protect against poisonings from the mist.
@@ -61,27 +59,16 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     //Compat with Eight's mod.
     //Baubles or Charms compat.
     //Full set of textures for all blocks and for The Forgotten Warlock.
-    //Check The Forgotten Warlock is spawning in the world.
-    //Check all block and item properties are correct.
+    //TODO Fix data generation, what worked fine on fabric no longer works on quilt and it tries to generate minecraft:air.
     public static final String MOD_ID = "mysteriousbiomes";
 
     public static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB,
         new ResourceLocation(MOD_ID, "group"));
 
-    public static final EntityType<EntityTheForgottenWarlock> THE_FORGOTTEN_WARLOCK = Registry.register(
-        BuiltInRegistries.ENTITY_TYPE, new ResourceLocation(MysteriousBiomes.MOD_ID, "the_forgotten_warlock"),
-        QuiltEntityTypeBuilder.<EntityTheForgottenWarlock>createMob()
-            .spawnGroup(MobCategory.MONSTER)
-            .entityFactory(EntityTheForgottenWarlock::new)
-            .defaultAttributes(EntityTheForgottenWarlock.theForgottenWarlockAttributes())
-            .setDimensions(EntityDimensions.fixed(0.75F, 2.30F))
-            .maxChunkTrackingRange(1)
-            .spawnRestriction(SpawnPlacements.Type.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules)
-            .build());
-
     @Override
     public void onInitialize(ModContainer container) {
+        MidnightConfig.init(MOD_ID, MysteriousConfig.class);
+        MysteriousEntities.init();
         MysteriousWoodType.init();
         MysteriousContentSetup.init();
         MysteriousFlammableBlocks.init();
@@ -99,9 +86,5 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
                 .map(Holder.Reference::value)
                 .forEachOrdered(entries::accept))
             .build());
-
-        BiomeModifications.addSpawn(biome -> biome.getBiomeHolder().is(BiomeTags.IS_FOREST),
-            MobCategory.MONSTER, THE_FORGOTTEN_WARLOCK,
-            10, 1, 2);
     }
 }

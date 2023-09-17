@@ -88,5 +88,8 @@
   "block.mysteriousbiomes.walnut_wood": "Walnut Wood",
   "entity.mysteriousbiomes.the_forgotten_warlock": "The Forgotten Warlock",
   "item.mysteriousbiomes.the_forgotten_warlock_spawn_egg": "The Forgotten Warlock Spawn Egg",
-  "itemGroup.mysteriousbiomes.group": "Mysterious Biomes"
+  "itemGroup.mysteriousbiomes.group": "Mysterious Biomes",
+  "mysteriousbiomes.midnightconfig.doMistPoisonDamage": "Mist causes poison damage without charms?",
+  "mysteriousbiomes.midnightconfig.shouldMistCausePoisonDamage": "Some Mysterious Biomes have a poisonous mist that cause harm without the correct protection charms, these charms can be found in loot chests in the world.",
+  "mysteriousbiomes.midnightconfig.title": "Mysterious Biomes Config"
 }

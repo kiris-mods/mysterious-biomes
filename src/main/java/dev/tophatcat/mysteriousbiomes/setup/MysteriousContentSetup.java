@@ -79,7 +79,6 @@ public final class MysteriousContentSetup {
             woodType.door = MysteriousRegistrationUtils.setupDoorBlock(woodType);
         });
 
-        //TODO Change the sapling generators.
         MysteriousBlockTypes.BLOODWOOD.sapling = MysteriousRegistrationUtils.setupSaplingBlock(
             "bloodwood_sapling", new OakTreeGrower());
         MysteriousBlockTypes.GHOSTLY.sapling = MysteriousRegistrationUtils.setupSaplingBlock(
@@ -178,7 +177,7 @@ public final class MysteriousContentSetup {
             BLOCKS, ITEMS);
 
         MysteriousRegistrationUtils.setupMobEgg("the_forgotten_warlock_spawn_egg",
-            new SpawnEggItem(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, 0x0519f7,
+            new SpawnEggItem(MysteriousEntities.THE_FORGOTTEN_WARLOCK, 0x0519f7,
                 0x161a4a, new Item.Properties()));
     }
 }

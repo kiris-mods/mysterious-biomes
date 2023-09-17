@@ -22,6 +22,7 @@ package dev.tophatcat.mysteriousbiomes.datagen.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntities;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
@@ -34,8 +35,15 @@ public class MysteriousLanguageGenerator extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(TranslationBuilder translationBuilder) {
+        translationBuilder.add("mysteriousbiomes.midnightconfig.title", "Mysterious Biomes Config");
+        translationBuilder.add("mysteriousbiomes.midnightconfig.shouldMistCausePoisonDamage",
+            "Some Mysterious Biomes have a poisonous mist that cause harm without the "
+                + "correct protection charms, these charms can be found in loot chests in the world.");
+        translationBuilder.add("mysteriousbiomes.midnightconfig.doMistPoisonDamage",
+            "Mist causes poison damage without charms?");
+
         translationBuilder.add(MysteriousBiomes.ITEM_GROUP, "Mysterious Biomes");
-        translationBuilder.add(MysteriousBiomes.THE_FORGOTTEN_WARLOCK, "The Forgotten Warlock");
+        translationBuilder.add(MysteriousEntities.THE_FORGOTTEN_WARLOCK, "The Forgotten Warlock");
         translationBuilder.add("item.mysteriousbiomes.the_forgotten_warlock_spawn_egg",
             "The Forgotten Warlock Spawn Egg");
         translationBuilder.add(MysteriousContentSetup.BLOODIED_DIRT.get(), "Bloodied Dirt");
