@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.datagen.server.tags;
 
-import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -61,15 +61,15 @@ public final class MysteriousBlockTags {
     public static final TagKey<Block> LOGS = TagKey.create(Registries.BLOCK,
         new ResourceLocation("logs"));
     public static final TagKey<Block> BLOODWOOD_LOGS = TagKey.create(Registries.BLOCK,
-        new ResourceLocation(MysteriousBiomes.MOD_ID, "bloodwood_logs"));
+        MysteriousUtils.identifier( "bloodwood_logs"));
     public static final TagKey<Block> GHOSTLY_LOGS = TagKey.create(Registries.BLOCK,
-        new ResourceLocation(MysteriousBiomes.MOD_ID, "ghostly_logs"));
+        MysteriousUtils.identifier( "ghostly_logs"));
     public static final TagKey<Block> SEEPING_LOGS = TagKey.create(Registries.BLOCK,
-        new ResourceLocation(MysteriousBiomes.MOD_ID, "seeping_logs"));
+        MysteriousUtils.identifier( "seeping_logs"));
     public static final TagKey<Block> SORBUS_LOGS = TagKey.create(Registries.BLOCK,
-        new ResourceLocation(MysteriousBiomes.MOD_ID, "sorbus_logs"));
+        MysteriousUtils.identifier( "sorbus_logs"));
     public static final TagKey<Block> WALNUT_LOGS = TagKey.create(Registries.BLOCK,
-        new ResourceLocation(MysteriousBiomes.MOD_ID, "walnut_logs"));
+        MysteriousUtils.identifier( "walnut_logs"));
     public static final TagKey<Block> STAIRS = TagKey.create(Registries.BLOCK,
         new ResourceLocation("stairs"));
     public static final TagKey<Block> SLABS = TagKey.create(Registries.BLOCK,

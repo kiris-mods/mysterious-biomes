@@ -33,11 +33,12 @@ public class MysteriousDataGen implements DataGeneratorEntrypoint {
 
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        fabricDataGenerator.createPack().addProvider(MysteriousLanguageGenerator::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousBlockTagGenerator::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousItemTagGenerator::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousBlockLootTableGenerator::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousRecipeGenerator::new);
-        fabricDataGenerator.createPack().addProvider(MysteriousBlockStateModelGenerator::new);
+        FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
+        pack.addProvider(MysteriousLanguageGenerator::new);
+        pack.addProvider(MysteriousBlockTagGenerator::new);
+        pack.addProvider(MysteriousItemTagGenerator::new);
+        pack.addProvider(MysteriousBlockLootTableGenerator::new);
+        pack.addProvider(MysteriousRecipeGenerator::new);
+        pack.addProvider(MysteriousBlockStateModelGenerator::new);
     }
 }

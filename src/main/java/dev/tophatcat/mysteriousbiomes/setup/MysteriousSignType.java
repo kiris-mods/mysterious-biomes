@@ -18,33 +18,33 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.mysteriousbiomes.utils;
+package dev.tophatcat.mysteriousbiomes.setup;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
-public final class MysteriousWoodType {
+public final class MysteriousSignType {
 
-    private MysteriousWoodType() {
-        throw new UnsupportedOperationException("MysteriousWoodTypes only contains static definitions...");
+    private MysteriousSignType() {
+        throw new UnsupportedOperationException("MysteriousSignTypes only contains static definitions...");
     }
 
     public static void init() {
-        WoodType.register(BLOODWOOD_WOOD_TYPE);
-        WoodType.register(GHOSTLY_WOOD_TYPE);
-        WoodType.register(SORBUS_WOOD_TYPE);
-        WoodType.register(SEEPING_WOOD_TYPE);
-        WoodType.register(WALNUT_WOOD_TYPE);
+        WoodType.register(BLOODWOOD_SIGN_TYPE);
+        WoodType.register(GHOSTLY_SIGN_TYPE);
+        WoodType.register(SORBUS_SIGN_TYPE);
+        WoodType.register(SEEPING_SIGN_TYPE);
+        WoodType.register(WALNUT_SIGN_TYPE);
     }
 
-    public static final WoodType BLOODWOOD_WOOD_TYPE = new WoodType("mysteriousbiomes:bloodwood",
+    public static final WoodType BLOODWOOD_SIGN_TYPE = new WoodType("mysteriousbiomes:bloodwood",
         new BlockSetType("mysteriousbiomes:bloodwood"));
-    public static final WoodType GHOSTLY_WOOD_TYPE = new WoodType("mysteriousbiomes:ghostly",
+    public static final WoodType GHOSTLY_SIGN_TYPE = new WoodType("mysteriousbiomes:ghostly",
         new BlockSetType("mysteriousbiomes:ghostly"));
-    public static final WoodType SORBUS_WOOD_TYPE = new WoodType("mysteriousbiomes:sorbus",
+    public static final WoodType SORBUS_SIGN_TYPE = new WoodType("mysteriousbiomes:sorbus",
         new BlockSetType("mysteriousbiomes:sorbus"));
-    public static final WoodType SEEPING_WOOD_TYPE = new WoodType("mysteriousbiomes:seeping",
+    public static final WoodType SEEPING_SIGN_TYPE = new WoodType("mysteriousbiomes:seeping",
         new BlockSetType("mysteriousbiomes:seeping"));
-    public static final WoodType WALNUT_WOOD_TYPE = new WoodType("mysteriousbiomes:walnut",
+    public static final WoodType WALNUT_SIGN_TYPE = new WoodType("mysteriousbiomes:walnut",
         new BlockSetType("mysteriousbiomes:walnut"));
 }

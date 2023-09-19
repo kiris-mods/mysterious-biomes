@@ -21,11 +21,10 @@
 package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousConfig;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousContentSetup;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntities;
 import dev.tophatcat.mysteriousbiomes.setup.MysteriousFlammableBlocks;
-import dev.tophatcat.mysteriousbiomes.utils.MysteriousBlockTypes;
-import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.setup.MysteriousSignType;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.Util;
@@ -53,13 +52,11 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     //Mist not working in biomes.
     //Charm items for poison protection/resistance.
     //Poison the player if they enter the biome without a charm for protection.
-    //Add a config to disable this in certain cases.
     //Charms to protect against poisonings from the mist.
     //Loot generation for said charms.
     //Compat with Eight's mod.
     //Baubles or Charms compat.
     //Full set of textures for all blocks and for The Forgotten Warlock.
-    //TODO Fix data generation, what worked fine on fabric no longer works on quilt and it tries to generate minecraft:air.
     public static final String MOD_ID = "mysteriousbiomes";
 
     public static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB,
@@ -69,17 +66,14 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     public void onInitialize(ModContainer container) {
         MidnightConfig.init(MOD_ID, MysteriousConfig.class);
         MysteriousEntities.init();
-        MysteriousWoodType.init();
-        MysteriousContentSetup.init();
+        MysteriousSignType.init();
+        MysteriousRegistry.init();
         MysteriousFlammableBlocks.init();
-
-        MysteriousContentSetup.BLOCKS.forEach((id, block) -> Registry.register(BuiltInRegistries.BLOCK, id, block.get()));
-        MysteriousContentSetup.ITEMS.forEach((id, item) -> Registry.register(BuiltInRegistries.ITEM, id, item.get()));
 
         Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, ITEM_GROUP, FabricItemGroup.builder()
             .title(Component.translatable(Util.makeDescriptionId("itemGroup",
                 new ResourceLocation(MOD_ID, "group"))))
-            .icon(() -> new ItemStack(MysteriousBlockTypes.GHOSTLY.sapling.get()))
+            .icon(() -> new ItemStack(MysteriousRegistry.GHOSTLY_SAPLING.get()))
             .displayItems((displayContext, entries) -> BuiltInRegistries.ITEM.holders()
                 .filter(itemReference -> itemReference.key().location().getNamespace().equals(MOD_ID))
                 .sorted(Comparator.comparing(itemReference -> itemReference.key().location().getPath()))
