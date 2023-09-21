@@ -27,6 +27,11 @@ repositories {
         url "https://maven.terraformersmc.com/releases/"
     }
 
+	maven {
+		name "Ladysnake Mods"
+		url "https://maven.ladysnake.org/releases"
+	}
+
     maven {
         name "Forge Maven"
         url "https://maven.minecraftforge.net/"
@@ -45,14 +50,10 @@ repositories {
         }
     }
 
-    exclusiveContent {
-        forRepository {
-            maven {
-                name = "Modrinth"
-                url = "https://api.modrinth.com/maven"
-            }
-        }
-        filter {
+    maven {
+		name "Modrinth"
+		url "https://api.modrinth.com/maven"
+        content {
             includeGroup "maven.modrinth"
         }
     }
@@ -78,6 +79,7 @@ dependencies {
 	modImplementation libs.kiris.lib
 	modImplementation libs.terrablender
 	modImplementation libs.midnight.lib
+	modImplementation libs.trinkets
 	modApi libs.modmenu
 	modApi libs.jade
 }

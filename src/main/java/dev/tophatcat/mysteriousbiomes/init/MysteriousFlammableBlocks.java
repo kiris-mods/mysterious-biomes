@@ -18,7 +18,7 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.mysteriousbiomes.setup;
+package dev.tophatcat.mysteriousbiomes.init;
 
 import org.quiltmc.qsl.item.content.registry.api.ItemContentRegistries;
 

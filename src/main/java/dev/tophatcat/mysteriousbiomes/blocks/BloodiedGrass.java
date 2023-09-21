@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.blocks;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.SectionPos;

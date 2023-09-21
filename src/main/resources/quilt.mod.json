@@ -67,6 +67,10 @@
 			{
 				"id": "midnightlib",
 				"version": ">=1.4.1"
+			},
+			{
+				"id": "trinkets",
+				"version": ">=3.7.1"
 			}
 		]
 	},

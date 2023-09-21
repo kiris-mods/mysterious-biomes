@@ -57,10 +57,6 @@ public final class MysteriousUtils {
         return type;
     }
 
-    public static void makeMobEgg(String name, Item item) {
-        RegHelpers.createBasicItem(identifier(name), () -> item, ITEMS);
-    }
-
     public static Supplier<Block> makeSaplingBlock(String name, AbstractTreeGrower generator) {
         return RegHelpers.createBlockWithItem(identifier(name),
             () -> new SaplingBlock(generator, Block.Properties.copy(Blocks.OAK_SAPLING)), BLOCKS, ITEMS);

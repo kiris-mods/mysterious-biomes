@@ -18,8 +18,9 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.mysteriousbiomes.setup;
+package dev.tophatcat.mysteriousbiomes.init;
 
+import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.entity.EntityTheForgottenWarlock;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousUtils;
 import net.minecraft.core.Registry;
@@ -65,8 +66,8 @@ public final class MysteriousEntities {
     }
 
     static void addSpawnEgg() {
-        MysteriousUtils.makeMobEgg("the_forgotten_warlock_spawn_egg",
-            new SpawnEggItem(MysteriousEntities.THE_FORGOTTEN_WARLOCK, 0x0519f7,
-                0x161a4a, new Item.Properties()));
+        RegHelpers.createBasicItem(MysteriousUtils.identifier("the_forgotten_warlock_spawn_egg"),
+            () -> new SpawnEggItem(MysteriousEntities.THE_FORGOTTEN_WARLOCK, 0x0519f7,
+                0x161a4a, new Item.Properties()), MysteriousUtils.ITEMS);
     }
 }

@@ -18,10 +18,14 @@
  * USA
  * https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
-package dev.tophatcat.mysteriousbiomes.setup;
+package dev.tophatcat.mysteriousbiomes.init;
 
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.blocks.BloodiedGrass;
+import dev.tophatcat.mysteriousbiomes.items.CharmOfBloodlust;
+import dev.tophatcat.mysteriousbiomes.items.CharmOfMistProtection;
+import dev.tophatcat.mysteriousbiomes.items.CharmOfTheElder;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousSignType;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -45,6 +49,17 @@ public class MysteriousRegistry {
         MysteriousUtils.BLOCKS.forEach((id, block) -> Registry.register(BuiltInRegistries.BLOCK, id, block.get()));
         MysteriousUtils.ITEMS.forEach((id, item) -> Registry.register(BuiltInRegistries.ITEM, id, item.get()));
     }
+
+    //Charm items.
+    public static final Supplier<Item> CHARM_OF_MIST_PROTECTION = RegHelpers.createBasicItem(
+        MysteriousUtils.identifier("charm_of_mist_protection"),
+        () -> new CharmOfMistProtection(new Item.Properties()), MysteriousUtils.ITEMS);
+    public static final Supplier<Item> CHARM_OF_BLOODLUST = RegHelpers.createBasicItem(
+        MysteriousUtils.identifier("charm_of_bloodlust"),
+        ()  -> new CharmOfBloodlust(new Item.Properties()), MysteriousUtils.ITEMS);
+    public static final Supplier<Item> CHARM_OF_THE_ELDER = RegHelpers.createBasicItem(
+        MysteriousUtils.identifier("charm_of_the_elder"),
+        () -> new CharmOfTheElder(new Item.Properties()), MysteriousUtils.ITEMS);
 
     //Misc blocks.
     public static final Supplier<Block> BLOODIED_GRASS = RegHelpers.createBlockWithItem(MysteriousUtils.identifier(

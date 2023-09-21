@@ -20,11 +20,11 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousConfig;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntities;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousFlammableBlocks;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousRegistry;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousSignType;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousConfig;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousEntities;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousFlammableBlocks;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousSignType;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.Util;
@@ -45,14 +45,17 @@ import java.util.Comparator;
 
 public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
 
-    //TODO Make sure all of the following work properly.
+    //TODO Make sure all of the following work properly/are implemented.
     //Structures?
     //World generation.
     //Saplings.
     //Mist not working in biomes.
-    //Charm items for poison protection/resistance.
+    //Poison effect on player entering the biome with a chat warning.
+    //Charm items
+    // - Charm of Blood Lust (Gives you a speed and damage buff at a cost of hunger)
+    // - Charm of Poisonous Mist (Protects against poison mist damage)
+    // - Charm of the Elder (normal mobs act passive towards you)
     //Poison the player if they enter the biome without a charm for protection.
-    //Charms to protect against poisonings from the mist.
     //Loot generation for said charms.
     //Compat with Eight's mod.
     //Baubles or Charms compat.

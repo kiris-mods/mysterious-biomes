@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes.datagen.server;
 
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousRegistry;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.data.loot.BlockLootSubProvider;

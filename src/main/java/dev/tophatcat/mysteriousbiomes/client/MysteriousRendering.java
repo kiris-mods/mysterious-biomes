@@ -21,8 +21,8 @@
 package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousEntities;
-import dev.tophatcat.mysteriousbiomes.setup.MysteriousRegistry;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousEntities;
+import dev.tophatcat.mysteriousbiomes.init.MysteriousRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.renderer.RenderType;
