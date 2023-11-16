@@ -37,8 +37,6 @@ import net.minecraft.world.level.block.grower.OakTreeGrower;
 
 import java.util.function.Supplier;
 
-import static dev.tophatcat.mysteriousbiomes.utils.MysteriousUtils.BLOCKS;
-
 public class MysteriousRegistry {
 
     private MysteriousRegistry() {
@@ -64,10 +62,10 @@ public class MysteriousRegistry {
     //Misc blocks.
     public static final Supplier<Block> BLOODIED_GRASS = RegHelpers.createBlockWithItem(MysteriousUtils.identifier(
         "bloodied_grass"), () -> new BloodiedGrass(Block.Properties.copy(Blocks.DIRT).strength(0.5F)
-        .sound(SoundType.WET_GRASS).randomTicks()), BLOCKS, MysteriousUtils.ITEMS);
+        .sound(SoundType.WET_GRASS).randomTicks()), MysteriousUtils.BLOCKS, MysteriousUtils.ITEMS);
     public static final Supplier<Block> BLOODIED_DIRT = RegHelpers.createBlockWithItem(MysteriousUtils.identifier(
         "bloodied_dirt"), () -> new Block(Block.Properties.copy(Blocks.DIRT).strength(0.5F)
-        .sound(SoundType.ROOTED_DIRT)), BLOCKS, MysteriousUtils.ITEMS);
+        .sound(SoundType.ROOTED_DIRT)), MysteriousUtils.BLOCKS, MysteriousUtils.ITEMS);
 
     //Bloodwood tree family.
     public static final Supplier<Block> BLOODWOOD_LOG

@@ -22,12 +22,15 @@ package dev.tophatcat.mysteriousbiomes.utils;
 
 import dev.tophatcat.kirislib.RegHelpers;
 import dev.tophatcat.mysteriousbiomes.MysteriousBiomes;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
@@ -44,7 +47,11 @@ public final class MysteriousUtils {
     public static final Map<ResourceLocation, Supplier<Block>> BLOCKS = new LinkedHashMap<>();
     public static final Map<ResourceLocation, Supplier<Item>> ITEMS = new LinkedHashMap<>();
 
-    private void MysteriousBiomes() {
+    public static ResourceKey<Biome> registerBiome(String name) {
+        return ResourceKey.create(Registries.BIOME, new ResourceLocation(MysteriousBiomes.MOD_ID, name));
+    }
+
+    private MysteriousUtils() {
         throw new UnsupportedOperationException();
     }
 

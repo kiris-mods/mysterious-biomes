@@ -25,6 +25,9 @@ import dev.tophatcat.mysteriousbiomes.init.MysteriousEntities;
 import dev.tophatcat.mysteriousbiomes.init.MysteriousFlammableBlocks;
 import dev.tophatcat.mysteriousbiomes.init.MysteriousRegistry;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousSignType;
+import dev.tophatcat.mysteriousbiomes.utils.MysteriousUtils;
+import dev.tophatcat.mysteriousbiomes.world.MysteriousRegion;
+import dev.tophatcat.mysteriousbiomes.world.MysteriousSurfaceRules;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.Util;
@@ -37,8 +40,11 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.biome.Biome;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
 
 import java.util.Comparator;
@@ -65,6 +71,11 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
     public static final ResourceKey<CreativeModeTab> ITEM_GROUP = ResourceKey.create(Registries.CREATIVE_MODE_TAB,
         new ResourceLocation(MOD_ID, "group"));
 
+    public static final ResourceKey<Biome> BLOODIED_PLAINS = MysteriousUtils.registerBiome("bloodied_plains");
+    public static final ResourceKey<Biome> GHOSTLY_WOODLANDS = MysteriousUtils.registerBiome("ghostly_woodlands");
+    public static final ResourceKey<Biome> SEEPING_FOREST = MysteriousUtils.registerBiome("seeping_forest");
+    public static final ResourceKey<Biome> SORBUS_HIGHLANDS = MysteriousUtils.registerBiome("sorbus_highlands");
+
     @Override
     public void onInitialize(ModContainer container) {
         MidnightConfig.init(MOD_ID, MysteriousConfig.class);
@@ -83,5 +94,12 @@ public class MysteriousBiomes implements ModInitializer, TerraBlenderApi {
                 .map(Holder.Reference::value)
                 .forEachOrdered(entries::accept))
             .build());
+    }
+
+    @Override
+    public void onTerraBlenderInitialized() {
+        Regions.register(new MysteriousRegion(new ResourceLocation(MOD_ID, "overworld_1"), 5));
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD,
+            MOD_ID, MysteriousSurfaceRules.makeRules());
     }
 }

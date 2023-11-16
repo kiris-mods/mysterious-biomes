@@ -33,15 +33,10 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": [
-				"dev.tophatcat.mysteriousbiomes.MysteriousBiomes"
-			],
-			"client_init": [
-				"dev.tophatcat.mysteriousbiomes.client.MysteriousRendering"
-			],
-			"fabric-datagen": [
-				"dev.tophatcat.mysteriousbiomes.datagen.MysteriousDataGen"
-			]
+			"init": "dev.tophatcat.mysteriousbiomes.MysteriousBiomes",
+			"client_init": "dev.tophatcat.mysteriousbiomes.client.MysteriousRendering",
+			"fabric-datagen": "dev.tophatcat.mysteriousbiomes.datagen.MysteriousDataGen",
+			"terrablender": "dev.tophatcat.mysteriousbiomes.MysteriousBiomes"
 		},
 		"depends": [
 			{
