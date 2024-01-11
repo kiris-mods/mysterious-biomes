@@ -1,0 +1,65 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "${mod_group}",
+		"id": "${mod_id}",
+		"version": "${version}",
+		"metadata": {
+			"name": "${mod_name}",
+			"description": "${description}",
+			"contributors": {
+				"${mod_author}": "Owner/Author"
+			},
+			"contact": {
+				"homepage": "${display_url}",
+				"issues": "${mod_source}/issues",
+				"sources": "${mod_source}"
+			},
+			"icon": "logo.png",
+			"license": {
+				"name": "Lesser General Public License v2.1",
+				"id": "${license}",
+				"url": "${mod_source}/blob/dev/LICENSE.md"
+			}
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {
+			"init": "${mod_group}.MysteriousQuilt",
+			"client_init": "${mod_group}.client.MysteriousRendererQuilt"
+		},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=${quilt_loader_version}"
+			},
+			{
+				"id": "quilted_fabric_api",
+				"version": ">=${quilted_fabric_api_version}"
+			},
+			{
+				"id": "minecraft",
+				"versions": "${minecraft_version}"
+			},
+			{
+				"id": "geckolib",
+				"versions": ">=${geckolib_version_quilt}"
+			},
+			{
+				"id": "kirisutils",
+				"versions": ">=${kirisutils_version_quilt}"
+			},
+			{
+				"id": "terrablender",
+				"versions": ">=${terrablender_version_fabric}"
+			}
+		]
+	},
+	"modmenu": {
+		"links": {
+			"modmenu.discord": "${discord}",
+			"modmenu.modrinth": "${modrinth_url}",
+			"modmenu.curseforge": "${curseforge_url}"
+		},
+		"update_checker": true
+	}
+}

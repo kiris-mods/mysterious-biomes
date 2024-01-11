@@ -1,9 +1,8 @@
-### 1.20.1
-- 5.0.0
-  Ported to 1.20.1.
+### 1.20.4
+- 4.0.0:  
+  Full blown rewrite!
 
 ### 1.17.1
-
 - 3.0.2:  
   Added Signs, Trapdoors and Pressure Plates.
 
@@ -16,7 +15,6 @@
   Another quick bugfix update is coming soon to fix three of the trees generation shape.
 
 ### 1.12.2:
-
 - 1.2.1.19:  
   Fixed missing texture for snowed on Bloodied Grass.  
   Fixed missing animated textures for Seeping Log.

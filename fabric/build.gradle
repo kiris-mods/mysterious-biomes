@@ -1,0 +1,95 @@
+plugins {
+	id 'idea'
+	id 'maven-publish'
+	id 'fabric-loom' version '1.4.+'
+}
+
+base {
+	archivesName = "${mod_id}-fabric-${minecraft_version}"
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+	implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+	implementation project(":common")
+	modImplementation "com.terraformersmc:modmenu:${modmenu_version_fabric}"
+	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${terrablender_version_fabric}"
+	//modImplementation "dev.tophatcat.kirisutils:kirisutils-fabric-${minecraft_version}:${kirisutils_version_fabric}"
+	modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${geckolib_version_fabric}"
+}
+
+loom {
+	if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
+		accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
+	}
+
+	runs {
+		client {
+			client()
+			setConfigName("Fabric Client")
+			ideConfigGenerated(true)
+			runDir("run")
+
+			if (project.hasProperty('mc_uuid')) {
+				// Your UUID, trimmed / without the dashes
+				programArg("--uuid=${project.mc_uuid}")
+			}
+
+			if (project.hasProperty('mc_username')) {
+				// Your Minecraft in-game username, not email
+				programArg("--username=${project.mc_username}")
+			}
+		}
+
+		server {
+			server()
+			setConfigName("Fabric Server")
+			ideConfigGenerated(true)
+			programArg("--nogui")
+			runDir("run")
+		}
+
+		datagen {
+			inherit server
+			setConfigName("Fabric Data Gen")
+			vmArg "-Dfabric-api.datagen"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.modid=${mod_id}"
+
+			runDir "build/datagen"
+		}
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	source(project(":common").sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).configureEach {
+	source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+	from(project(":common").sourceSets.main.allSource)
+}
+
+processResources {
+	from project(":common").sourceSets.main.resources
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId base.archivesName.get()
+			from components.java
+		}
+	}
+	repositories {
+		maven {
+			url "file://" + System.getenv("local_maven")
+		}
+	}
+}

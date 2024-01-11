@@ -1,0 +1,101 @@
+plugins {
+	id 'idea'
+	id 'maven-publish'
+	id 'org.quiltmc.loom' version '1.4.+'
+}
+
+base {
+	archivesName = "${mod_id}-quilt-${minecraft_version}"
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "org.quiltmc:quilt-loader:${quilt_loader_version}"
+	modImplementation("org.quiltmc:qsl:${quilt_sl_version}") {
+		exclude group: "net.fabricmc"
+	}
+	modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${quilted_fabric_api_version}"
+	implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
+	compileOnly project(":common")
+	modImplementation "com.terraformersmc:modmenu:${modmenu_version_quilt}"
+	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${terrablender_version_fabric}"
+	modImplementation "dev.tophatcat.kirisutils:kirisutils-quilt-${minecraft_version}:${kirisutils_version_quilt}"
+	modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${geckolib_version_quilt}"
+}
+
+loom {
+	if (project(":common").file("src/main/resources/${mod_id}.accesswidener").exists()) {
+		accessWidenerPath.set(project(":common").file("src/main/resources/${mod_id}.accesswidener"))
+	}
+
+	mods {
+		"${mod_id}" {
+			sourceSet("main")
+			project(":common").sourceSets.main
+		}
+	}
+
+	runs {
+		client {
+			client()
+			setConfigName("Quilt Client")
+			ideConfigGenerated(true)
+			runDir("run")
+
+			if (project.hasProperty('mc_uuid')) {
+				// Your UUID, trimmed / without the dashes
+				programArg("--uuid=${project.mc_uuid}")
+			}
+
+			if (project.hasProperty('mc_username')) {
+				// Your Minecraft in-game username, not email
+				programArg("--username=${project.mc_username}")
+			}
+		}
+
+		server {
+			server()
+			setConfigName("Quilt Server")
+			ideConfigGenerated(true)
+			programArg("--nogui")
+			runDir("run/server")
+		}
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	source(project(":common").sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).configureEach {
+	source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+	from(project(":common").sourceSets.main.allSource)
+}
+
+processResources {
+	from project(":common").sourceSets.main.resources
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId base.archivesName.get()
+			from components.java
+		}
+	}
+	repositories {
+		maven {
+			url "file://" + System.getenv("local_maven")
+		}
+	}
+}
+
+// messy workaround for bug in quilt loom 1.3.3
+project.configurations.configureEach {
+	exclude(group: "net.fabricmc", module: "fabric-loader")
+	exclude(group: "net.fabricmc.fabric-api")
+}

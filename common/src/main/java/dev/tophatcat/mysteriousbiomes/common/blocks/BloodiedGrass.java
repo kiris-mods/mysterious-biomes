@@ -1,0 +1,79 @@
+package dev.tophatcat.mysteriousbiomes.common.blocks;
+
+import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.SectionPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.GrassBlock;
+import net.minecraft.world.level.block.SnowLayerBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.lighting.LightEngine;
+import org.jetbrains.annotations.NotNull;
+
+public class BloodiedGrass extends GrassBlock {
+
+    public BloodiedGrass(Properties properties) {
+        super(properties);
+    }
+
+    public static boolean canBeGrass(BlockState state, ServerLevel world, BlockPos pos) {
+        BlockPos blockpos = pos.above();
+        BlockState blockstate = world.getBlockState(blockpos);
+
+        if (blockstate.is(Blocks.SNOW) && blockstate.getValue(SnowLayerBlock.LAYERS) == 1) {
+            return true;
+        } else {
+            if (blockstate.getFluidState().getAmount() == 8) {
+                return false;
+            } else {
+                int i = LightEngine.getLightBlockInto(world, state, pos, blockstate, blockpos, Direction.UP,
+                    blockstate.getLightBlock(world, blockpos));
+                return i < world.getMaxLightLevel();
+            }
+        }
+    }
+
+    public static boolean canPropagate(BlockState blockStateIn, ServerLevel world, BlockPos pos) {
+        BlockPos blockpos = pos.above();
+        return canBeGrass(blockStateIn, world, pos) && !world.getFluidState(blockpos).is(FluidTags.WATER);
+    }
+
+    /**
+     * Every tick, it'll attempt to spread bloodied grass onto dirt. If covered, will turn into bloodied dirt.
+     */
+    @Override
+    public void randomTick(@NotNull BlockState state, ServerLevel world, @NotNull BlockPos pos,
+                           @NotNull RandomSource random) {
+        if (!world.isClientSide) {
+            if (!world.hasChunk(SectionPos.of(pos).getX(), SectionPos.of(pos).getZ())) {
+                //Prevent loading unloaded chunks when checking neighbor's light and spreading.
+                return;
+            }
+
+            if (!canBeGrass(state, world, pos)) {
+                //Block is covered, turn it into bloodied dirt.
+                world.setBlockAndUpdate(pos, MysteriousRegistry.BLOODIED_DIRT.get().defaultBlockState());
+            } else {
+                if (world.getMaxLocalRawBrightness(pos.above()) >= 9) {
+                    //Attempt to spread grass onto neighboring bloodied dirt.
+                    BlockState replacementBlock = MysteriousRegistry.BLOODIED_GRASS.get().defaultBlockState();
+
+                    for (int i = 0; i < 4; ++i) {
+                        BlockPos blockpos = pos.offset(random.nextInt(3) - 1,
+                            random.nextInt(5) - 3, random.nextInt(3) - 1);
+
+                        if (world.getBlockState(blockpos).getBlock() == MysteriousRegistry.BLOODIED_DIRT.get()
+                            && canPropagate(replacementBlock, world, blockpos)) {
+                            world.setBlockAndUpdate(blockpos, replacementBlock.setValue(SNOWY,
+                                world.getBlockState(blockpos.above()).getBlock() == Blocks.SNOW));
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
