@@ -1,6 +1,7 @@
 package dev.tophatcat.mysteriousbiomes.utils;
 
 import com.google.common.base.Suppliers;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
@@ -15,16 +16,19 @@ import java.util.function.Supplier;
 
 public final class MysteriousUtils {
 
+    //TODO Set up registration with services for multi-platform blocks, items and entities.
+    public static <T extends EntityType<?>> Supplier<T> createEntity(String name, Supplier<T> entity) {
+        return entity;
+    }
+
     public static <T extends Block> Supplier<T> createBlock(String name, Supplier<T> block, boolean makeItem) {
         if (makeItem) {
             createItem(name, Suppliers.memoize(() -> new BlockItem(block.get(), new Item.Properties())));
         }
-        //TODO Set up registration with a service via platform services.
         return block;
     }
 
     public static <T extends Item> Supplier<T> createItem(String name, Supplier<T> item) {
-        //TODO Set up registration with a service via platform services.
         return item;
     }
 

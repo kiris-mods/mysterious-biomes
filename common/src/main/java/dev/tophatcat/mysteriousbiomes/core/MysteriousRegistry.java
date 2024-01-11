@@ -24,9 +24,8 @@ import java.util.function.Supplier;
 public class MysteriousRegistry {
 
     public static final Supplier<EntityType<EntityTheForgottenWarlock>> THE_FORGOTTEN_WARLOCK
-        = Suppliers.memoize(() -> Registry.register(BuiltInRegistries.ENTITY_TYPE,
-        new ResourceLocation(MysteriousCommon.MOD_ID, "the_forgotten_warlock"),
-        EntityType.Builder.of(EntityTheForgottenWarlock::new, MobCategory.MONSTER)
+        = MysteriousUtils.createEntity("the_forgotten_warlock", Suppliers.memoize(
+        () -> EntityType.Builder.of(EntityTheForgottenWarlock::new, MobCategory.MONSTER)
             .sized(0.75F, 2.30F)
             .clientTrackingRange(10)
             .build(MysteriousCommon.MOD_ID + ":the_forgotten_warlock")));
