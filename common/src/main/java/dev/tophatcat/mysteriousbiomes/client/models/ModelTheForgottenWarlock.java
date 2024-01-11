@@ -13,7 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ModelTheForgottenWarlock<T extends EntityTheForgottenWarlock> extends EntityModel<T> {
 
-    public static final ModelLayerLocation THE_FORGOTTEN_WARLOCK_LOCATION = new ModelLayerLocation(
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
         new ResourceLocation(MysteriousCommon.MOD_ID, "the_forgotten_warlock"), "main");
     private final ModelPart headBone;
     private final ModelPart rightArmBone;
@@ -31,7 +31,7 @@ public class ModelTheForgottenWarlock<T extends EntityTheForgottenWarlock> exten
         this.torso = root.getChild("torso");
     }
 
-    public static LayerDefinition getTexturedModelData() {
+    public static LayerDefinition createBodyLayer() {
         MeshDefinition modelData = new MeshDefinition();
         PartDefinition modelPartData = modelData.getRoot();
         PartDefinition headBone = modelPartData.addOrReplaceChild("headBone", CubeListBuilder.create()

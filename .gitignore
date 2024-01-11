@@ -31,4 +31,4 @@ bin/
 
 # MacOS
 *.DS_Store
-/fabric/src/main/generated/.cache/
+generated/.cache/

@@ -1,11 +1,12 @@
 package dev.tophatcat.mysteriousbiomes.utils;
 
 import com.google.common.base.Suppliers;
+import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
+import dev.tophatcat.mysteriousbiomes.platform.Services;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.HangingSignItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,20 +17,22 @@ import java.util.function.Supplier;
 
 public final class MysteriousUtils {
 
-    //TODO Set up registration with services for multi-platform blocks, items and entities.
     public static <T extends EntityType<?>> Supplier<T> createEntity(String name, Supplier<T> entity) {
-        return entity;
+        return Services.PLATFORM.register(entity, new ResourceLocation(MysteriousCommon.MOD_ID, name),
+            BuiltInRegistries.ENTITY_TYPE);
     }
 
     public static <T extends Block> Supplier<T> createBlock(String name, Supplier<T> block, boolean makeItem) {
         if (makeItem) {
             createItem(name, Suppliers.memoize(() -> new BlockItem(block.get(), new Item.Properties())));
         }
-        return block;
+        return Services.PLATFORM.register(block, new ResourceLocation(MysteriousCommon.MOD_ID, name),
+            BuiltInRegistries.BLOCK);
     }
 
     public static <T extends Item> Supplier<T> createItem(String name, Supplier<T> item) {
-        return item;
+        return Services.PLATFORM.register(item, new ResourceLocation(MysteriousCommon.MOD_ID, name),
+            BuiltInRegistries.ITEM);
     }
 
     public static Supplier<Block> makePillarBlock(String name) {
@@ -39,7 +42,7 @@ public final class MysteriousUtils {
 
     public static Supplier<Block> makePlanksBlock(String name) {
         return createBlock(name, Suppliers.memoize(() -> new Block(
-            Block.Properties.ofFullCopy(Blocks.OAK_PLANKS))), false);
+            Block.Properties.ofFullCopy(Blocks.OAK_PLANKS))), true);
     }
 
     public static Supplier<Block> makeLeavesBlock(String name) {
@@ -88,14 +91,15 @@ public final class MysteriousUtils {
             generator, Block.Properties.ofFullCopy(Blocks.OAK_SAPLING))), true);
     }
 
-    public static Supplier<Block> makeStairsBlock(String name, BlockState blockState) {
-        return createBlock(name, Suppliers.memoize(() -> new StairBlock(blockState,
+    public static Supplier<Block> makeStairsBlock(String name, Supplier<BlockState> blockState) {
+        return createBlock(name, Suppliers.memoize(() -> new StairBlock(blockState.get(),
             Block.Properties.ofFullCopy(Blocks.OAK_STAIRS))), true);
     }
 
-    public static Supplier<Item> makeSignItem(String name, Block signBlock, Block wallSignBlock) {
+    public static Supplier<Item> makeSignItem(String name, Supplier<Block> signBlock,
+                                              Supplier<Block> wallSignBlock) {
         return createItem(name, Suppliers.memoize(() -> new SignItem(
-            new Item.Properties().stacksTo(16), signBlock, wallSignBlock)));
+            new Item.Properties().stacksTo(16), signBlock.get(), wallSignBlock.get())));
     }
 
     public static Supplier<Block> makeFloorSignBlock(String name, WoodType signType) {
@@ -108,9 +112,10 @@ public final class MysteriousUtils {
             Block.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN))), false);
     }
 
-    public static Supplier<Item> makeHangingSignItem(String name, Block hangingSignBlock, Block wallHangingSignBlock) {
+    public static Supplier<Item> makeHangingSignItem(String name, Supplier<Block> hangingSignBlock,
+                                                     Supplier<Block> wallHangingSignBlock) {
         return createItem(name, Suppliers.memoize(() -> new HangingSignItem(
-            hangingSignBlock, wallHangingSignBlock, new Item.Properties().stacksTo(16))));
+            hangingSignBlock.get(), wallHangingSignBlock.get(), new Item.Properties().stacksTo(16))));
     }
 
     public static Supplier<Block> makeHangingSignBlock(String name, WoodType signType) {

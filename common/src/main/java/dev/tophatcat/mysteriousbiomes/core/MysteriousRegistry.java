@@ -6,13 +6,9 @@ import dev.tophatcat.mysteriousbiomes.common.blocks.BloodiedGrass;
 import dev.tophatcat.mysteriousbiomes.common.entity.EntityTheForgottenWarlock;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousUtils;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
@@ -23,17 +19,15 @@ import java.util.function.Supplier;
 
 public class MysteriousRegistry {
 
+    public static void init() {
+    }
+
     public static final Supplier<EntityType<EntityTheForgottenWarlock>> THE_FORGOTTEN_WARLOCK
         = MysteriousUtils.createEntity("the_forgotten_warlock", Suppliers.memoize(
         () -> EntityType.Builder.of(EntityTheForgottenWarlock::new, MobCategory.MONSTER)
             .sized(0.75F, 2.30F)
             .clientTrackingRange(10)
             .build(MysteriousCommon.MOD_ID + ":the_forgotten_warlock")));
-
-    public static final Supplier<Item> THE_FORGOTTEN_WARLOCK_SPAWN_EGG
-        = MysteriousUtils.createItem("the_forgotten_warlock_spawn_egg",
-        Suppliers.memoize(() -> new SpawnEggItem(THE_FORGOTTEN_WARLOCK.get(), 0x0519f7,
-            0x161a4a, new Item.Properties())));
 
     public static final Supplier<Block> BLOODIED_GRASS = MysteriousUtils.createBlock("bloodied_grass",
         Suppliers.memoize(() -> new BloodiedGrass(Block.Properties.of().strength(0.5F)
@@ -54,7 +48,7 @@ public class MysteriousRegistry {
     public static final Supplier<Block> BLOODWOOD_PLANKS
         = MysteriousUtils.makePlanksBlock("bloodwood_planks");
     public static final Supplier<Block> BLOODWOOD_STAIRS
-        = MysteriousUtils.makeStairsBlock("bloodwood_stairs", BLOODWOOD_PLANKS.get().defaultBlockState());
+        = MysteriousUtils.makeStairsBlock("bloodwood_stairs", () -> BLOODWOOD_PLANKS.get().defaultBlockState());
     public static final Supplier<Block> BLOODWOOD_LEAVES
         = MysteriousUtils.makeLeavesBlock("bloodwood_leaves");
     public static final Supplier<Block> BLOODWOOD_SLAB
@@ -78,16 +72,16 @@ public class MysteriousRegistry {
         = MysteriousUtils.makeFloorSignBlock("bloodwood_sign", MysteriousWoodType.BLOODWOOD_TYPE);
     public static final Supplier<Block> BLOODWOOD_WALL_SIGN
         = MysteriousUtils.makeWallSignBlock("bloodwood_wall_sign", MysteriousWoodType.BLOODWOOD_TYPE);
-    public static final Supplier<Item> BLOODWOOD_SIGN
-        = MysteriousUtils.makeSignItem("bloodwood_sign", BLOODWOOD_FLOOR_SIGN.get(), BLOODWOOD_WALL_SIGN.get());
+    public static final Supplier<Item> BLOODWOOD_SIGN = MysteriousUtils.makeSignItem("bloodwood_sign",
+        BLOODWOOD_FLOOR_SIGN, BLOODWOOD_WALL_SIGN);
     public static final Supplier<Block> BLOODWOOD_HANGING_SIGN
         = MysteriousUtils.makeHangingSignBlock("bloodwood_hanging_sign", MysteriousWoodType.BLOODWOOD_TYPE);
     public static final Supplier<Block> BLOODWOOD_WALL_HANGING_SIGN
         = MysteriousUtils.makeWallHangingSignBlock("bloodwood_wall_hanging_sign",
         MysteriousWoodType.BLOODWOOD_TYPE);
     public static final Supplier<Item> BLOODWOOD_HANGING_SIGN_ITEM
-        = MysteriousUtils.makeHangingSignItem("bloodwood_hanging_sign_item", BLOODWOOD_HANGING_SIGN.get(),
-        BLOODWOOD_WALL_HANGING_SIGN.get());
+        = MysteriousUtils.makeHangingSignItem("bloodwood_hanging_sign_item", BLOODWOOD_HANGING_SIGN,
+        BLOODWOOD_WALL_HANGING_SIGN);
 
     //Ghostly tree family.
     public static final Supplier<Block> GHOSTLY_LOG
@@ -101,7 +95,7 @@ public class MysteriousRegistry {
     public static final Supplier<Block> GHOSTLY_PLANKS
         = MysteriousUtils.makePlanksBlock("ghostly_planks");
     public static final Supplier<Block> GHOSTLY_STAIRS
-        = MysteriousUtils.makeStairsBlock("ghostly_stairs", GHOSTLY_PLANKS.get().defaultBlockState());
+        = MysteriousUtils.makeStairsBlock("ghostly_stairs", () -> GHOSTLY_PLANKS.get().defaultBlockState());
     public static final Supplier<Block> GHOSTLY_LEAVES
         = MysteriousUtils.makeLeavesBlock("ghostly_leaves");
     public static final Supplier<Block> GHOSTLY_SLAB
@@ -126,15 +120,15 @@ public class MysteriousRegistry {
     public static final Supplier<Block> GHOSTLY_WALL_SIGN
         = MysteriousUtils.makeWallSignBlock("ghostly_wall_sign", MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<Item> GHOSTLY_SIGN
-        = MysteriousUtils.makeSignItem("ghostly_sign", GHOSTLY_FLOOR_SIGN.get(), GHOSTLY_WALL_SIGN.get());
+        = MysteriousUtils.makeSignItem("ghostly_sign", GHOSTLY_FLOOR_SIGN, GHOSTLY_WALL_SIGN);
     public static final Supplier<Block> GHOSTLY_HANGING_SIGN
         = MysteriousUtils.makeHangingSignBlock("ghostly_hanging_sign", MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<Block> GHOSTLY_WALL_HANGING_SIGN
         = MysteriousUtils.makeWallHangingSignBlock("ghostly_wall_hanging_sign",
         MysteriousWoodType.GHOSTLY_TYPE);
     public static final Supplier<Item> GHOSTLY_HANGING_SIGN_ITEM
-        = MysteriousUtils.makeHangingSignItem("ghostly_hanging_sign_item", GHOSTLY_HANGING_SIGN.get(),
-        GHOSTLY_WALL_HANGING_SIGN.get());
+        = MysteriousUtils.makeHangingSignItem("ghostly_hanging_sign_item", GHOSTLY_HANGING_SIGN,
+        GHOSTLY_WALL_HANGING_SIGN);
 
     //Seeping tree family.
     public static final Supplier<Block> SEEPING_LOG
@@ -148,7 +142,7 @@ public class MysteriousRegistry {
     public static final Supplier<Block> SEEPING_PLANKS
         = MysteriousUtils.makePlanksBlock("seeping_planks");
     public static final Supplier<Block> SEEPING_STAIRS
-        = MysteriousUtils.makeStairsBlock("seeping_stairs", SEEPING_PLANKS.get().defaultBlockState());
+        = MysteriousUtils.makeStairsBlock("seeping_stairs", () -> SEEPING_PLANKS.get().defaultBlockState());
     public static final Supplier<Block> SEEPING_LEAVES
         = MysteriousUtils.makeLeavesBlock("seeping_leaves");
     public static final Supplier<Block> SEEPING_SLAB
@@ -173,15 +167,15 @@ public class MysteriousRegistry {
     public static final Supplier<Block> SEEPING_WALL_SIGN
         = MysteriousUtils.makeWallSignBlock("seeping_wall_sign", MysteriousWoodType.SEEPING_TYPE);
     public static final Supplier<Item> SEEPING_SIGN
-        = MysteriousUtils.makeSignItem("seeping_sign", SEEPING_FLOOR_SIGN.get(), SEEPING_WALL_SIGN.get());
+        = MysteriousUtils.makeSignItem("seeping_sign", SEEPING_FLOOR_SIGN, SEEPING_WALL_SIGN);
     public static final Supplier<Block> SEEPING_HANGING_SIGN
         = MysteriousUtils.makeHangingSignBlock("seeping_hanging_sign", MysteriousWoodType.SEEPING_TYPE);
     public static final Supplier<Block> SEEPING_WALL_HANGING_SIGN
         = MysteriousUtils.makeWallHangingSignBlock("seeping_wall_hanging_sign",
         MysteriousWoodType.SEEPING_TYPE);
     public static final Supplier<Item> SEEPING_HANGING_SIGN_ITEM
-        = MysteriousUtils.makeHangingSignItem("seeping_hanging_sign_item", SEEPING_HANGING_SIGN.get(),
-        SEEPING_WALL_HANGING_SIGN.get());
+        = MysteriousUtils.makeHangingSignItem("seeping_hanging_sign_item", SEEPING_HANGING_SIGN,
+        SEEPING_WALL_HANGING_SIGN);
 
     //Sorbus tree family.
     public static final Supplier<Block> SORBUS_LOG
@@ -195,7 +189,7 @@ public class MysteriousRegistry {
     public static final Supplier<Block> SORBUS_PLANKS
         = MysteriousUtils.makePlanksBlock("sorbus_planks");
     public static final Supplier<Block> SORBUS_STAIRS
-        = MysteriousUtils.makeStairsBlock("sorbus_stairs", SORBUS_PLANKS.get().defaultBlockState());
+        = MysteriousUtils.makeStairsBlock("sorbus_stairs", () -> SORBUS_PLANKS.get().defaultBlockState());
     public static final Supplier<Block> SORBUS_LEAVES
         = MysteriousUtils.makeLeavesBlock("sorbus_leaves");
     public static final Supplier<Block> SORBUS_SLAB
@@ -220,15 +214,15 @@ public class MysteriousRegistry {
     public static final Supplier<Block> SORBUS_WALL_SIGN
         = MysteriousUtils.makeWallSignBlock("sorbus_wall_sign", MysteriousWoodType.SORBUS_TYPE);
     public static final Supplier<Item> SORBUS_SIGN
-        = MysteriousUtils.makeSignItem("sorbus_sign", SORBUS_FLOOR_SIGN.get(), SORBUS_WALL_SIGN.get());
+        = MysteriousUtils.makeSignItem("sorbus_sign", SORBUS_FLOOR_SIGN, SORBUS_WALL_SIGN);
     public static final Supplier<Block> SORBUS_HANGING_SIGN
         = MysteriousUtils.makeHangingSignBlock("sorbus_hanging_sign", MysteriousWoodType.SORBUS_TYPE);
     public static final Supplier<Block> SORBUS_WALL_HANGING_SIGN
         = MysteriousUtils.makeWallHangingSignBlock("sorbus_wall_hanging_sign",
         MysteriousWoodType.SORBUS_TYPE);
     public static final Supplier<Item> SORBUS_HANGING_SIGN_ITEM
-        = MysteriousUtils.makeHangingSignItem("sorbus_hanging_sign_item", SORBUS_HANGING_SIGN.get(),
-        SORBUS_WALL_HANGING_SIGN.get());
+        = MysteriousUtils.makeHangingSignItem("sorbus_hanging_sign_item", SORBUS_HANGING_SIGN,
+        SORBUS_WALL_HANGING_SIGN);
 
     //Walnut tree family.
     public static final Supplier<Block> WALNUT_LOG
@@ -242,7 +236,7 @@ public class MysteriousRegistry {
     public static final Supplier<Block> WALNUT_PLANKS
         = MysteriousUtils.makePlanksBlock("walnut_planks");
     public static final Supplier<Block> WALNUT_STAIRS
-        = MysteriousUtils.makeStairsBlock("walnut_stairs", WALNUT_PLANKS.get().defaultBlockState());
+        = MysteriousUtils.makeStairsBlock("walnut_stairs", () -> WALNUT_PLANKS.get().defaultBlockState());
     public static final Supplier<Block> WALNUT_LEAVES
         = MysteriousUtils.makeLeavesBlock("walnut_leaves");
     public static final Supplier<Block> WALNUT_SLAB
@@ -267,13 +261,13 @@ public class MysteriousRegistry {
     public static final Supplier<Block> WALNUT_WALL_SIGN
         = MysteriousUtils.makeWallSignBlock("walnut_wall_sign", MysteriousWoodType.WALNUT_TYPE);
     public static final Supplier<Item> WALNUT_SIGN
-        = MysteriousUtils.makeSignItem("walnut_sign", WALNUT_FLOOR_SIGN.get(), WALNUT_WALL_SIGN.get());
+        = MysteriousUtils.makeSignItem("walnut_sign", WALNUT_FLOOR_SIGN, WALNUT_WALL_SIGN);
     public static final Supplier<Block> WALNUT_HANGING_SIGN
         = MysteriousUtils.makeHangingSignBlock("walnut_hanging_sign", MysteriousWoodType.WALNUT_TYPE);
     public static final Supplier<Block> WALNUT_WALL_HANGING_SIGN
         = MysteriousUtils.makeWallHangingSignBlock("walnut_wall_hanging_sign",
         MysteriousWoodType.WALNUT_TYPE);
     public static final Supplier<Item> WALNUT_HANGING_SIGN_ITEM
-        = MysteriousUtils.makeHangingSignItem("walnut_hanging_sign_item", WALNUT_HANGING_SIGN.get(),
-        WALNUT_WALL_HANGING_SIGN.get());
+        = MysteriousUtils.makeHangingSignItem("walnut_hanging_sign_item", WALNUT_HANGING_SIGN,
+        WALNUT_WALL_HANGING_SIGN);
 }

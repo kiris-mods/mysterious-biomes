@@ -18,8 +18,6 @@ if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
 runs {
 	configureEach {
 		modSource project.sourceSets.main
-		systemProperty 'forge.logging.markers', 'REGISTRIES'
-		systemProperty 'forge.logging.console.level', 'debug'
 	}
 
 	client {
@@ -43,7 +41,9 @@ runs {
 	}
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets.main.resources {
+	srcDir "${project.rootDir}/generated"
+}
 
 dependencies {
 	implementation "net.neoforged:neoforge:${neoforge_version}"

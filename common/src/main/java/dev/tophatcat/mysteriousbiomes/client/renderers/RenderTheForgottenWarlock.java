@@ -16,7 +16,7 @@ public class RenderTheForgottenWarlock extends MobRenderer<EntityTheForgottenWar
 
     public RenderTheForgottenWarlock(EntityRendererProvider.Context renderManager) {
         super(renderManager, new ModelTheForgottenWarlock<>(
-            renderManager.bakeLayer(ModelTheForgottenWarlock.THE_FORGOTTEN_WARLOCK_LOCATION)), 0.5F);
+            renderManager.bakeLayer(ModelTheForgottenWarlock.LAYER_LOCATION)), 0.5F);
     }
 
     @NotNull

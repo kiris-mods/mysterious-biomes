@@ -17,6 +17,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [ "${mod_group}.MysteriousFabric" ],
+    "client": [ "${mod_group}.client.MysteriousRenderingFabric" ],
     "fabric-datagen": [ "${mod_group}.datagen.MysteriousDataGen" ]
   },
   "mixins": [

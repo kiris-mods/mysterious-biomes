@@ -56,7 +56,7 @@ loom {
 			inherit server
 			setConfigName("Fabric Data Gen")
 			vmArg "-Dfabric-api.datagen"
-			vmArg "-Dfabric-api.datagen.output-dir=${file("src/main/generated")}"
+			vmArg "-Dfabric-api.datagen.output-dir=${file("${project.rootDir}/generated")}"
 			vmArg "-Dfabric-api.datagen.modid=${mod_id}"
 
 			runDir "build/datagen"
@@ -78,6 +78,16 @@ tasks.named("sourcesJar", Jar) {
 
 processResources {
 	from project(":common").sourceSets.main.resources
+}
+
+sourceSets {
+	main {
+		resources {
+			srcDirs += [
+			    "${project.rootDir}/generated"
+			]
+		}
+	}
 }
 
 publishing {
