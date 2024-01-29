@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "bark",
+  "key": {
+    "W": {
+      "item": "mysteriousbiomes:bloodwood_log"
+    }
+  },
+  "pattern": [
+    "WW",
+    "WW"
+  ],
+  "result": {
+    "count": 3,
+    "item": "mysteriousbiomes:bloodwood_wood"
+  }
+}

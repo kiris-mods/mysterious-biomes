@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#minecraft:signs",
-    "#minecraft:all_hanging_signs"
-  ]
-}

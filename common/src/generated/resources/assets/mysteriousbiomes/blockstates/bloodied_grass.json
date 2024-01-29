@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "snowy=false": {
+      "model": "mysteriousbiomes:block/bloodied_grass"
+    },
+    "snowy=true": {
+      "model": "mysteriousbiomes:block/bloodied_grass_snow"
+    }
+  }
+}

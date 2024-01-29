@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "group": "wooden_door",
+  "key": {
+    "W": {
+      "item": "mysteriousbiomes:bloodwood_planks"
+    }
+  },
+  "pattern": [
+    "WW",
+    "WW",
+    "WW"
+  ],
+  "result": {
+    "count": 3,
+    "item": "mysteriousbiomes:bloodwood_door"
+  }
+}

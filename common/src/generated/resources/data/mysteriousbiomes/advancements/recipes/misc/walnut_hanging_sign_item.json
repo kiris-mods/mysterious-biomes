@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_logs": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mysteriousbiomes:walnut_stripped_log"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mysteriousbiomes:walnut_hanging_sign_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_logs"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mysteriousbiomes:walnut_hanging_sign_item"
+    ]
+  }
+}
