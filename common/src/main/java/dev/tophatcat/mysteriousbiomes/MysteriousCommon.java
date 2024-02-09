@@ -36,7 +36,7 @@ public class MysteriousCommon {
     // This stuff needs to be added back/remade for 1.20+
     // Updated model (or just grow The Forbidden Warlock to be 3 blocks high and wider for now)
     // Mist doesn't work at all, like we have no code for it at all because it's all from 1.12.2.
-    // (Hire someone in to do this.
+    // (Hire someone in to do the above)
     // Biomes just don't generate, don't have working biomes.json stuff.
     // Need to figure out how to do trees in general.
     // Structures?
