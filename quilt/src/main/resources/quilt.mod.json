@@ -1,31 +1,30 @@
 {
 	"schema_version": 1,
 	"quilt_loader": {
-		"group": "${mod_group}",
 		"id": "${mod_id}",
 		"version": "${version}",
+		"group": "${maven_group_id}",
 		"metadata": {
-			"name": "${mod_name}",
-			"description": "${description}",
+			"name": "${mod_display_name}",
+			"description": "${mod_description}",
 			"contributors": {
-				"${mod_author}": "Owner/Author"
+				"KiriCattus": "Owner"
 			},
 			"contact": {
-				"homepage": "${display_url}",
-				"issues": "${mod_source}/issues",
-				"sources": "${mod_source}"
+				"homepage": "${homepage_url}",
+				"issues": "${sources_url}",
+				"sources": "${issues_url}"
 			},
-			"icon": "logo.png",
 			"license": {
 				"name": "Lesser General Public License v2.1",
-				"id": "${license}",
-				"url": "${mod_source}/blob/dev/LICENSE.md"
-			}
+				"id": "LGPL-v2.1",
+				"url": "${license_url}"
+			},
+			"icon": "logo.png"
 		},
-		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "${mod_group}.MysteriousQuilt",
-			"client_init": "${mod_group}.client.MysteriousRendererQuilt"
+			"init": "dev.tophatcat.mysteriousbiomes.MysteriousQuilt",
+			"client_init": "dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingQuilt"
 		},
 		"depends": [
 			{
@@ -34,29 +33,43 @@
 			},
 			{
 				"id": "quilted_fabric_api",
-				"version": ">=${quilted_fabric_api_version}"
+				"mc-publish": {
+					"curseforge": "634179",
+					"modrinth": "qvIfYCYJ"
+				}
 			},
 			{
 				"id": "minecraft",
-				"versions": "${minecraft_version}"
-			},
-			{
-				"id": "geckolib",
-				"versions": ">=${geckolib_version_quilt}"
-			},
-			{
-				"id": "kirisutils",
-				"versions": ">=${kirisutils_version_quilt}"
+				"versions": ">=${minecraft_version}"
 			},
 			{
 				"id": "terrablender",
-				"versions": ">=${terrablender_version_fabric}"
+				"mc-publish": {
+					"curseforge": "565956",
+					"modrinth": "kkmrDlKT"
+				}
 			}
+		],
+		"intermediate_mappings": "net.fabricmc:intermediary"
+	},
+	"access_widener": "${mod_id}.accesswidener",
+	"minecraft": {
+		"environment": "*"
+	},
+	"mixin": "${mod_id}.mixins.json",
+	"mc-publish": {
+		"curseforge": "280003",
+		"modrinth": "SrAIvfzS",
+		"loaders": [
+			"quilt"
+		],
+		"dependencies": [
+			"terrablender(required){modrinth:kkmrDlKT}{curseforge:565956}"
 		]
 	},
 	"modmenu": {
 		"links": {
-			"modmenu.discord": "${discord}",
+			"modmenu.discord": "${discord_url}",
 			"modmenu.modrinth": "${modrinth_url}",
 			"modmenu.curseforge": "${curseforge_url}"
 		},

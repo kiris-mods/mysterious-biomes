@@ -1,0 +1,24 @@
+[versions]
+# The latest versions are available at https://lambdaurora.dev/tools/import_quilt.html
+quilt_loom = "1.4.+"
+
+quilt_loader = "0.23.1"
+quilted_fabric_api = "8.0.0-alpha.3+0.91.2-1.20.2"
+quilt_standard_libs = "7.0.0-alpha.9+1.20.2"
+
+terrablender = "1.20.2-3.2.0.14"
+jade = "12.3.0"
+modmenu = "8.0.1"
+
+[libraries]
+quilt_loader = { module = "org.quiltmc:quilt-loader", version.ref = "quilt_loader" }
+quilted_fabric_api = { module = "org.quiltmc.quilted-fabric-api:quilted-fabric-api", version.ref = "quilted_fabric_api" }
+quilt_standard_libs = { module = "org.quiltmc:qsl", version.ref = "quilt_standard_libs" }
+
+#TODO Switch Terrablender to the Quilt version once it's ready.
+terrablender = { module = "com.github.glitchfiend:TerraBlender-fabric", version.ref = "terrablender" }
+jade = { module = "maven.modrinth:jade", version.ref = "jade" }
+modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
+
+[plugins]
+quilt_loom = { id = "org.quiltmc.loom", version.ref = "quilt_loom" }

@@ -1,34 +1,46 @@
 pluginManagement {
 	repositories {
 		gradlePluginPortal()
-		maven {
-			name = 'Fabric'
-			url = 'https://maven.fabricmc.net/'
+        maven {
+            name = "Sponge"
+            url = "https://repo.spongepowered.org/repository/maven-public/"
+        }
+        maven {
+            name = "Quilt"
+            url = "https://maven.quiltmc.org/repository/release/"
+        }
+        maven {
+			name = "NeoForge"
+			url = "https://maven.neoforged.net/releases/"
 		}
-		maven {
-			name = 'NeoForge'
-			url = 'https://maven.neoforged.net/releases/'
-		}
-		maven {
-			name = 'Quilt'
-			url = 'https://maven.quiltmc.org/repository/release'
-		}
-		maven {
-			name = 'Sponge Snapshots'
-			url = 'https://repo.spongepowered.org/repository/maven-public/'
-		}
+        maven {
+            name = "Fabric"
+            url = "https://maven.fabricmc.net/"
+        }
 	}
 }
 
 plugins {
-	id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
+	id "org.gradle.toolchains.foojay-resolver-convention" version "0.8.0"
 }
 
-// This should match the folder name of the project, or else IDEA may complain (see https://youtrack.jetbrains.com/issue/IDEA-317606)
-rootProject.name = 'mysterious-biomes'
-include("common")
-include("fabric")
-include("neoforge")
-//TODO Enable this once Quilt finally get things ready...
-//include("quilt")
+dependencyResolutionManagement {
+	versionCatalogs {
+		libs {
+			from(files("./common/libs.versions.toml"))
+		}
+        quilt {
+            from(files("./quilt/libs.versions.toml"))
+        }
+        neoforge {
+            from(files("./neoforge/libs.versions.toml"))
+        }
+        fabric {
+            from(files("./fabric/libs.versions.toml"))
+        }
+	}
+}
 
+rootProject.name = "mysterious-biomes"
+
+include "common", "quilt", "neoforge", "fabric"

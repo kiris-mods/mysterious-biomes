@@ -1,52 +1,114 @@
 plugins {
+	id "pmd"
+	id "idea"
+	id "maven-publish"
+	id "net.neoforged.licenser" version "0.7.2"
+	id "com.diffplug.spotless" version "6.25.0"
 	// Required for NeoGradle
 	id "org.jetbrains.gradle.plugin.idea-ext" version "1.1.7"
 }
 
+group = maven_group_id
+def javaVersion = 17
+def ENV = System.getenv()
+def NOW = new Date()
+def buildTime = ENV.BUILD_TIME ?: NOW.format("yyyyMMddHHmmss")
+boolean isPreviewBuild = !ENV.TAG || ENV.TAG.matches(".+-.+")
+def buildNumber = !ENV.TAG ? ("${ENV.BUILD_NUMBER ? "build.${ENV.BUILD_NUMBER}" : buildTime}") : ""
+version = (ENV.TAG ?: "${libs.versions.minecraft.get()}-development") + ((isPreviewBuild && !ENV.TAG) ? "+${buildNumber}" : "")
+def mod_name = rootProject.name.replaceAll("-", "_").toLowerCase(Locale.ROOT)
+println("Building ${project.name} ${version}")
+
 subprojects {
-	apply plugin: 'java'
+	apply plugin: "pmd"
+	apply plugin: "java"
+	apply plugin: "net.neoforged.licenser"
+	apply plugin: "com.diffplug.spotless"
+	project.group = rootProject.group
+	project.version = rootProject.version
 
-	java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-	java.withSourcesJar()
-	java.withJavadocJar()
-
-	jar {
-		from(rootProject.file("LICENSE")) {
-			rename { "${it}_${mod_name}" }
+	java {
+		toolchain {
+			languageVersion = JavaLanguageVersion.of(javaVersion)
+			vendor = JvmVendorSpec.MICROSOFT
 		}
-		manifest {
-			attributes([
-				'Specification-Title'     : mod_name,
-				'Specification-Vendor'    : mod_author,
-				'Specification-Version'   : project.jar.archiveVersion,
-				'Implementation-Title'    : project.name,
-				'Implementation-Version'  : project.jar.archiveVersion,
-				'Implementation-Vendor'   : mod_author,
-				'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-				'Timestamp'               : System.currentTimeMillis(),
-				'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-				'Built-On-Minecraft'      : minecraft_version
-			])
-		}
+		withSourcesJar()
+		withJavadocJar()
 	}
 
+	javadoc {
+		options.tags = ["reason"]
+	}
+
+	base {
+		archivesName = "${rootProject.name}-${project.name}"
+	}
+
+	jar {
+		from(rootProject.file("LICENSE.md")) {
+			rename {
+				"LICENSE_${mod_name}.md"
+			}
+		}
+		manifest {
+            attributes([
+                "Maven-Artifact"            : "${maven_group_id}:${rootProject.name}-${project.name}:${project.version}",
+                "Timestamp"                 : NOW.format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Specification-Title"       : rootProject.name,
+                "Specification-Vendor"      : "KiriCattus",
+                "Specification-Version"     : project.version,
+                "Implementation-Title"      : "${rootProject.name}-${project.name}",
+                "Implementation-Version"    : project.version,
+                "Implementation-Vendor"     : "KiriCattus",
+                "Implementation-Timestamp"  : NOW.format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "Built-On-Java"             : "${System.getProperty("java.vm.version")} (${System.getProperty("java.vm.vendor")})",
+                "Built-On-Minecraft"        : libs.versions.minecraft.get()
+            ])
+        }
+    }
+
 	sourcesJar {
-		from(rootProject.file("LICENSE")) {
-			rename { "${it}_${mod_name}" }
+		from(rootProject.file("LICENSE.md")) {
+			rename {
+				"LICENSE_${mod_name}.md"
+			}
 		}
 	}
 
 	repositories {
-		mavenLocal()
 		mavenCentral()
+
 		maven {
-			name = 'Sponge / Mixin'
-			url = 'https://repo.spongepowered.org/repository/maven-public/'
+			name = "Sponge"
+			url = "https://repo.spongepowered.org/repository/maven-public/"
+			content {
+				includeGroup "org.spongepowered"
+			}
 		}
 
 		maven {
-			name = 'Quilt'
-			url = 'https://maven.quiltmc.org/repository/release'
+			name = "Quilt"
+			url = "https://maven.quiltmc.org/repository/release/"
+		}
+
+		maven {
+			name = "Fabric"
+			url = "https://maven.fabricmc.net/"
+		}
+
+		maven {
+			name = "NeoForged"
+			url = "https://maven.neoforged.net/releases/"
+		}
+
+		maven {
+			name = "MinecraftForge"
+			url = "https://maven.minecraftforge.net/"
+		}
+
+		maven {
+			name = "uuid.gg Maven Repository"
+			url = "https://maven.uuid.gg/releases/"
 		}
 
 		maven {
@@ -55,87 +117,139 @@ subprojects {
 		}
 
 		maven {
-			name = 'GeckoLib'
-			url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+			name = "Modrinth"
+			url = "https://api.modrinth.com/maven/"
+			content {
+				includeGroup "maven.modrinth"
+			}
 		}
 
 		maven {
-			name "Modrinth"
-			url "https://api.modrinth.com/maven"
+			name = "CurseMaven"
+			url = "https://www.cursemaven.com/"
 			content {
-				includeGroup "maven.modrinth"
+				includeGroup "curse.maven"
 			}
 		}
 	}
 
 	tasks.withType(JavaCompile).configureEach {
-
-		it.options.encoding = 'UTF-8'
-		it.options.getRelease().set(17)
+		it.options.encoding = "UTF-8"
+		it.options.release.set(javaVersion)
 	}
 
 	processResources {
+		filteringCharset "UTF-8"
+
 		def expandProps = [
 			"version"                       : version,
-			"mod_group"                     : project.mod_group,
-			"mod_name"                      : mod_name,
-			"mod_author"                    : mod_author,
+			"maven_group_id"                : maven_group_id,
 			"mod_id"                        : mod_id,
-			"license"                       : license,
-			"description"                   : project.description,
-			"mod_source"                    : project.mod_source,
-			"discord"                       : discord,
-			"display_url"                   : display_url,
+			"mod_display_name"              : mod_display_name,
+			"mod_description"               : mod_description,
+			"sources_url"                   : sources_url,
+			"issues_url"                    : issues_url,
+			"license_url"					: license_url,
+			"discord_url"                   : discord_url,
 			"curseforge_url"                : curseforge_url,
 			"modrinth_url"                  : modrinth_url,
-			"credits"                       : credits,
-
-			"minecraft_version"             : minecraft_version,
-			"minecraft_version_range"       : minecraft_version_range,
-
-			"fabric_version"                : fabric_version,
-			"fabric_version_range"          : fabric_version_range,
-			"fabric_loader_version"         : fabric_loader_version,
-			"fabric_loader_version_range"   : fabric_loader_version_range,
-			"java_version_range"            : java_version_range, //Only used for Fabric right now.
-
-			"neoforge_version"              : neoforge_version,
-			"neoforge_version_range"        : neoforge_version_range,
-			"neoforge_loader_version_range" : neoforge_loader_version_range,
-
-			"quilt_sl_version"              : quilt_sl_version,
-			"quilt_loader_version"          : quilt_loader_version,
-			"quilt_loader_version_range"    : quilt_loader_version_range,
-			"quilted_fabric_api_version"    : quilted_fabric_api_version,
-
-			"modmenu_version_fabric"        : modmenu_version_fabric,
-			"modmenu_version_quilt"         : modmenu_version_quilt,
-
-			"terrablender_version_neoforge" : terrablender_version_neoforge,
-			"terrablender_version_fabric"   : terrablender_version_fabric,
-			"terrablender_version_common"   : terrablender_version_common,
-
-			"kirisutils_version_neoforge"   : kirisutils_version_neoforge,
-			"kirisutils_version_fabric"     : kirisutils_version_fabric,
-			"kirisutils_version_quilt"      : kirisutils_version_quilt,
-			"kirisutils_version_common"     : kirisutils_version_common,
-
-			"geckolib_version_neoforge"     : geckolib_version_neoforge,
-			"geckolib_version_fabric"       : geckolib_version_fabric,
-			"geckolib_version_quilt"        : geckolib_version_quilt,
+			"homepage_url"                  : homepage_url,
+			"minecraft_version"             : libs.versions.minecraft.get(),
+			"neoforge_version"              : neoforge.versions.neoforge.get(),
+			"fabric_loader_version"         : fabric.versions.fabric.loader.get(),
+			"quilt_loader_version"          : quilt.versions.quilt.loader.get()
 		]
 
-		filesMatching(['fabric.mod.json', 'quilt.mod.json', 'META-INF/mods.toml', '*.mixins.json']) {
+		filesMatching(["fabric.mod.json", "quilt.mod.json", "META-INF/mods.toml", "*.mixins.json"]) {
 			expand expandProps
 		}
 		inputs.properties(expandProps)
 	}
 
-	// Disables Gradle's custom module metadata from being published to maven. The
-	// metadata includes mapped dependencies which are not reasonably consumable by
-	// other mod developers.
-	tasks.withType(GenerateModuleMetadata).configureEach {
-		enabled = false
-	}
+    license {
+        ignoreFailures = true
+        header = rootProject.file("LICENSE_HEADER.txt")
+        newLine = false
+        include "**/*.java"
+        include "**/*.kt"
+        exclude "**/package-info.java"
+        exclude "**/module-info.java"
+        properties {
+            name = "KiriCattus"
+            year = "2013 - " + Calendar.getInstance().get(Calendar.YEAR)
+            license_link = license_url
+            project_information = license_description
+        }
+    }
+
+    spotless {
+        java {
+            endWithNewline()
+            indentWithSpaces()
+            removeUnusedImports()
+            toggleOffOn()
+            importOrder()
+
+            // Courtesy of diffplug/spotless#240
+            // https://github.com/diffplug/spotless/issues/240#issuecomment-385206606
+            custom "noWildcardImports", { String fileContents ->
+                if (fileContents.contains("*;\n")) {
+                    throw new GradleException("No wildcard imports are allowed!")
+                }
+            }
+
+            custom "noNotNull", { String fileContents ->
+                if (fileContents.contains("@NotNull") || fileContents.contains("@Nonnull")) {
+                    throw new GradleException("@NotNull and @Nonnull are disallowed.")
+                }
+            }
+            bumpThisNumberIfACustomStepChanges(1)
+        }
+    }
+
+    pmd {
+        ignoreFailures = true
+        reportsDir = project.file("reports/")
+        rulesMinimumPriority = 5
+        toolVersion = "6.55.0"
+    }
+
+    tasks.named("spotlessApply").configure{mustRunAfter "licenseFormat"}
+    tasks.named("pmdMain").configure{mustRunAfter "spotlessApply"}
+
+    tasks.register("cleanCode", Task) {
+        dependsOn "licenseFormat", "spotlessApply", "pmdMain"
+    }
+
+    tasks.named("assemble").configure{dependsOn "cleanCode"}
+
+    // Disables Gradle's custom module metadata from being published to maven. The
+    // metadata includes mapped dependencies which are not reasonably consumable by
+    // other mod developers.
+    tasks.withType(GenerateModuleMetadata).configureEach {
+        enabled = false
+    }
+
+    publishing {
+        publications {
+            "mavenJava${project.name}"(MavenPublication) {
+                artifactId "${rootProject.name}-${project.name}"
+                from components.java
+            }
+        }
+    }
 }
 
+publishing {
+	repositories {
+		if (ENV.MAVEN_UPLOAD_URL) {
+			maven {
+				url = ENV.MAVEN_UPLOAD_URL
+				credentials {
+					username = ENV.MAVEN_UPLOAD_USERNAME
+					password = ENV.MAVEN_UPLOAD_PASSWORD
+				}
+			}
+		}
+	}
+}

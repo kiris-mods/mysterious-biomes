@@ -27,3 +27,10 @@
 5. Once everything has refreshed and finished importing, restart IntelliJ, then open your Run/Debug Configurations.  
    Under the Application category there should now be options to run NeoForge, Fabric and Quilt clients and servers. Select one of these and try to run it.
 6. Assuming you were able to run the game in step 5 your workspace should now be set up.  
+
+### Custom gradle task
+This workspace has a custom gradle task called ``cleanCode``, this task adds license headers, formats the code and compiles a code standards report that can be found per subproject, example: ``neoforge/reports/main.html``  
+Should you wish to do any of these on their own you can run any of the following:  
+- ``./gradlew licenseFormat`` Adds the license header to any classes without them.  
+- ``./gradlew spotlessApply`` Formats the code according to our code format rules.  
+- ``./gradlew pmdMain`` Compiles a code standards report you can use to improve your code.    

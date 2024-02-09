@@ -1,0 +1,20 @@
+[versions]
+fabric_loom = "1.5-+"
+
+fabric_loader = "0.15.6"
+fabric_api = "0.95.1+1.20.4"
+
+terrablender = "1.20.2-3.2.0.14"
+jade = "12.3.0"
+modmenu = "8.0.1"
+
+[libraries]
+fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
+fabric_api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric_api" }
+
+terrablender = { module = "com.github.glitchfiend:TerraBlender-fabric", version.ref = "terrablender" }
+jade = { module = "maven.modrinth:jade", version.ref = "jade" }
+modmenu = { module = "com.terraformersmc:modmenu", version.ref = "modmenu" }
+
+[plugins]
+fabric_loom = { id = "fabric-loom", version.ref = "fabric_loom" }
