@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
 	implementation "${neoforge.neoforge.get()}"
-	implementation project(path: ':common')
+	implementation project(path: ":common")
 	compileOnly project(":common")
 
 	implementation neoforge.terrablender
@@ -14,50 +14,50 @@ dependencies {
 // Automatically enable neoforge AccessTransformers if the file exists
 // This location is hardcoded in FML and can not be changed.
 // https://github.com/neoforged/FancyModLoader/blob/a952595eaaddd571fbc53f43847680b00894e0c1/loader/src/main/java/net/neoforged/fml/loading/moddiscovery/ModFile.java#L118
-if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
-	accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+if (file("src/main/resources/META-INF/accesstransformer.cfg").exists()) {
+	accessTransformer = file("src/main/resources/META-INF/accesstransformer.cfg")
 }
 
 runs {
 	configureEach {
-		systemProperty 'forge.logging.markers', 'REGISTRIES'
-		systemProperty 'forge.logging.console.level', 'debug'
+		systemProperty "forge.logging.markers", "REGISTRIES"
+		systemProperty "forge.logging.console.level", "debug"
 		modSource project.sourceSets.main
 		modSource project(":common").sourceSets.main
 	}
 
 	client {
-		workingDirectory project.file('run')
+		workingDirectory project.file("run")
 
-		if (project.hasProperty('mc_uuid')) {
+		if (project.hasProperty("mc_uuid")) {
 			programArgument "--uuid=${project.mc_uuid}"
 		}
 
-		if (project.hasProperty('mc_username')) {
+		if (project.hasProperty("mc_username")) {
 			programArgument "--username=${project.mc_username}"
 		}
 
-		if (rootProject.hasProperty('mc_java_agent_path')) {
+		if (rootProject.hasProperty("mc_java_agent_path")) {
 			programArgument "-javaagent:${rootProject.mc_java_agent_path}"
 		}
 	}
 
 	server {
-		workingDirectory project.file('run/server')
-		programArgument '--nogui'
+		workingDirectory project.file("run/server")
+		programArgument "--nogui"
 	}
 
 	data {
-		workingDirectory project.file('run/data')
+		workingDirectory project.file("run/data")
 		programArguments.addAll(
-			'--mod', mod_id, '--all',
-			'--output', file("../common/src/generated/resources/").getAbsolutePath(),
-			'--existing', file("../common/src/main/resources/").getAbsolutePath()
+			"--mod", mod_id, "--all",
+			"--output", file("../common/src/generated/resources/").getAbsolutePath(),
+			"--existing", file("../common/src/main/resources/").getAbsolutePath()
 		)
 	}
 }
 
-sourceSets.main.resources.srcDir('../common/src/generated/resources')
+sourceSets.main.resources.srcDir("../common/src/generated/resources")
 
 // NeoGradle compiles the game, but we don't want to add our common code to the game's code
 Spec<Task> notNeoTask = { Task it -> !it.name.startsWith("neo") } as Spec<Task>

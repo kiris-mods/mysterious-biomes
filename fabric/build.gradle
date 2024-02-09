@@ -33,17 +33,18 @@ loom {
 			client()
 			setConfigName("Fabric Client")
 			ideConfigGenerated(true)
+
 			runDir("run")
 
-			if (project.hasProperty('mc_uuid')) {
+			if (project.hasProperty("mc_uuid")) {
 				programArg("--uuid=${project.mc_uuid}")
 			}
 
-			if (project.hasProperty('mc_username')) {
+			if (project.hasProperty("mc_username")) {
 				programArg("--username=${project.mc_username}")
 			}
 
-			if (rootProject.hasProperty('mc_java_agent_path')) {
+			if (rootProject.hasProperty("mc_java_agent_path")) {
 				vmArg("-javaagent:${rootProject.mc_java_agent_path}")
 			}
 		}
@@ -68,7 +69,7 @@ loom {
 	}
 }
 
-sourceSets.main.resources.srcDir('../common/src/generated/resources')
+sourceSets.main.resources.srcDir("../common/src/generated/resources")
 
 tasks.withType(JavaCompile).configureEach {
 	source(project(":common").sourceSets.main.allSource)
