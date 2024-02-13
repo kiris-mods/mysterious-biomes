@@ -22,6 +22,8 @@ package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingNeo;
 import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlockEntity;
+import dev.tophatcat.mysteriousbiomes.common.worldgen.MysteriousRegion;
+import dev.tophatcat.mysteriousbiomes.common.worldgen.MysteriousSurfaceRules;
 import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
 import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousBlockStateProvider;
 import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousItemModelProvider;
@@ -30,11 +32,11 @@ import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousLootTableProvider
 import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousRecipeProvider;
 import dev.tophatcat.mysteriousbiomes.datagen.server.MysteriousTagProvider;
 import dev.tophatcat.mysteriousbiomes.platform.NeoForgePlatformHelper;
-import java.util.Comparator;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -42,11 +44,16 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLEnvironment;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
+
+import java.util.Comparator;
 
 @Mod(MysteriousCommon.MOD_ID)
 public class MysteriousNeo {
@@ -55,31 +62,13 @@ public class MysteriousNeo {
         DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MysteriousCommon.MOD_ID);
 
     private static final DeferredHolder<CreativeModeTab, CreativeModeTab> MYSTERIOUS_TAB =
-        TABS.register(
-            "mysterious_tab",
-            () ->
-                CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(MysteriousRegistry.GHOSTLY_SAPLING.get()))
-                    .title(
-                        Component.translatable(
-                            "item_group." + MysteriousCommon.MOD_ID + ".mysterious_tab"))
-                    .displayItems(
-                        (displayContext, entries) ->
-                            BuiltInRegistries.ITEM
-                                .holders()
-                                .filter(
-                                    itemReference ->
-                                        itemReference
-                                            .key()
-                                            .location()
-                                            .getNamespace()
-                                            .equals(MysteriousCommon.MOD_ID))
-                                .sorted(
-                                    Comparator.comparing(
-                                        itemReference -> itemReference.key().location().getPath()))
-                                .map(Holder.Reference::value)
-                                .forEachOrdered(entries::accept))
-                    .build());
+        TABS.register("mysterious_tab", () -> CreativeModeTab.builder()
+            .icon(() -> new ItemStack(MysteriousRegistry.GHOSTLY_SAPLING.get()))
+            .title(Component.translatable("item_group." + MysteriousCommon.MOD_ID + ".mysterious_tab"))
+            .displayItems((displayContext, entries) -> BuiltInRegistries.ITEM.holders().filter(itemReference
+                    -> itemReference.key().location().getNamespace().equals(MysteriousCommon.MOD_ID)).sorted(
+                        Comparator.comparing(itemReference -> itemReference.key().location().getPath()))
+                .map(Holder.Reference::value).forEachOrdered(entries::accept)).build());
 
     public MysteriousNeo(IEventBus bus) {
         MysteriousCommon.init();
@@ -95,6 +84,12 @@ public class MysteriousNeo {
         }
 
         TABS.register(bus);
+
+        bus.addListener(this::worldGenSetup);
+    }
+
+    private void worldGenSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(MysteriousCommon::initTerraBlender);
     }
 
     public void registerEntityAttributes(EntityAttributeCreationEvent event) {
@@ -113,39 +108,25 @@ public class MysteriousNeo {
         var existingHelper = event.getExistingFileHelper();
 
         // Datagen block and item tags.
-        var blockTags =
-            gen.addProvider(
-                true,
-                new MysteriousTagProvider.MysteriousBlockTags(
-                    gen.getPackOutput(), event.getLookupProvider(), existingHelper));
+        var blockTags = gen.addProvider(true, new MysteriousTagProvider.MysteriousBlockTags(gen.getPackOutput(),
+            event.getLookupProvider(), existingHelper));
 
-        gen.addProvider(
-            true,
-            new MysteriousTagProvider.MysteriousItemTags(
-                gen.getPackOutput(),
-                event.getLookupProvider(),
-                blockTags.contentsGetter(),
-                existingHelper));
+        gen.addProvider(true, new MysteriousTagProvider.MysteriousItemTags(gen.getPackOutput(),
+            event.getLookupProvider(), blockTags.contentsGetter(), existingHelper));
 
         // Datagen language files.
-        gen.addProvider(
-            event.includeClient(),
-            new MysteriousLanguageProvider(gen.getPackOutput(), MysteriousCommon.MOD_ID, "en_us"));
+        gen.addProvider(event.includeClient(), new MysteriousLanguageProvider(gen.getPackOutput(),
+            MysteriousCommon.MOD_ID, "en_us"));
 
         // Datagen the block states and model files.
-        gen.addProvider(
-            event.includeClient(),
-            new MysteriousBlockStateProvider(gen.getPackOutput(), existingHelper));
+        gen.addProvider(event.includeClient(), new MysteriousBlockStateProvider(gen.getPackOutput(), existingHelper));
 
         // Datagen item model files.
-        gen.addProvider(
-            event.includeClient(),
-            new MysteriousItemModelProvider(gen.getPackOutput(), existingHelper));
+        gen.addProvider(event.includeClient(), new MysteriousItemModelProvider(gen.getPackOutput(), existingHelper));
 
         // Datagen recipes.
-        gen.addProvider(
-            event.includeServer(),
-            new MysteriousRecipeProvider(gen.getPackOutput(), event.getLookupProvider()));
+        gen.addProvider(event.includeServer(), new MysteriousRecipeProvider(
+            gen.getPackOutput(), event.getLookupProvider()));
 
         // Datagen loot tables.
         gen.addProvider(event.includeServer(), MysteriousLootTableProvider.create(gen.getPackOutput()));

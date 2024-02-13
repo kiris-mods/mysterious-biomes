@@ -18,11 +18,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  * USA
  */
-package dev.tophatcat.mysteriousbiomes.common.world;
+package dev.tophatcat.mysteriousbiomes.common.worldgen;
 
 import com.mojang.datafixers.util.Pair;
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import java.util.function.Consumer;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -32,22 +31,23 @@ import net.minecraft.world.level.biome.Climate;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
 
+import java.util.function.Consumer;
+
 public class MysteriousRegion extends Region {
 
-    public MysteriousRegion(ResourceLocation name, int weight) {
-        super(name, RegionType.OVERWORLD, weight);
+    private static final ResourceLocation LOCATION = new ResourceLocation(MysteriousCommon.MOD_ID, "overworld_main");
+
+    public MysteriousRegion(int weight) {
+        super(LOCATION, RegionType.OVERWORLD, weight);
     }
 
     @Override
-    public void addBiomes(
-        Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
-        this.addModifiedVanillaOverworldBiomes(
-            mapper,
-            builder -> {
-                builder.replaceBiome(Biomes.SAVANNA, MysteriousCommon.BLOODIED_PLAINS);
-                builder.replaceBiome(Biomes.SAVANNA_PLATEAU, MysteriousCommon.GHOSTLY_WOODLANDS);
-                builder.replaceBiome(Biomes.WINDSWEPT_SAVANNA, MysteriousCommon.SORBUS_HIGHLANDS);
-                builder.replaceBiome(Biomes.WINDSWEPT_GRAVELLY_HILLS, MysteriousCommon.SEEPING_FOREST);
-            });
+    public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
+        addModifiedVanillaOverworldBiomes(mapper, builder -> {
+            builder.replaceBiome(Biomes.PLAINS, MysteriousCommon.BLOODIED_PLAINS);
+            builder.replaceBiome(Biomes.OLD_GROWTH_SPRUCE_TAIGA, MysteriousCommon.GHOSTLY_WOODLANDS);
+            builder.replaceBiome(Biomes.SUNFLOWER_PLAINS, MysteriousCommon.SORBUS_HIGHLANDS);
+            builder.replaceBiome(Biomes.WINDSWEPT_GRAVELLY_HILLS, MysteriousCommon.SEEPING_FOREST);
+        });
     }
 }

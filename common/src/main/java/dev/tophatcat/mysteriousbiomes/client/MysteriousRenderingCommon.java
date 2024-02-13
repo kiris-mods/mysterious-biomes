@@ -23,33 +23,31 @@ package dev.tophatcat.mysteriousbiomes.client;
 import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
 import dev.tophatcat.mysteriousbiomes.client.renderers.TheForgottenWarlockRenderer;
 import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
 public class MysteriousRenderingCommon {
 
     public static <T extends Entity> List<Renderers<?>> getRenderers() {
         return List.of(
-            new Renderers<>(
-                MysteriousRegistry.THE_FORGOTTEN_WARLOCK, TheForgottenWarlockRenderer::new));
+            new Renderers<>(MysteriousRegistry.THE_FORGOTTEN_WARLOCK, TheForgottenWarlockRenderer::new)
+        );
     }
 
     public static List<LayerDefinitions> getLayerDefinitions() {
-        return new ArrayList<>(
-            List.of(
-                new LayerDefinitions(
-                    TheForgottenWarlockModel.LAYER_LOCATION,
-                    TheForgottenWarlockModel.createBodyLayer())));
+        return new ArrayList<>(List.of(
+            new LayerDefinitions(TheForgottenWarlockModel.LAYER_LOCATION, TheForgottenWarlockModel.createBodyLayer())
+        ));
     }
 
-    public record Renderers<T extends Entity>(
-        Supplier<EntityType<T>> type, EntityRendererProvider<T> renderer) {
+    public record Renderers<T extends Entity>(Supplier<EntityType<T>> type, EntityRendererProvider<T> renderer) {
     }
 
     public record LayerDefinitions(ModelLayerLocation layerLocation, LayerDefinition supplier) {

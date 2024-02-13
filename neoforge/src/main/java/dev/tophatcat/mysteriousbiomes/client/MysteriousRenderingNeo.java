@@ -20,21 +20,20 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
-import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
-import dev.tophatcat.mysteriousbiomes.client.renderers.TheForgottenWarlockRenderer;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
+import net.minecraft.world.entity.EntityType;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 
 public class MysteriousRenderingNeo {
 
     public static void registerEntityModels(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(
-            MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(), TheForgottenWarlockRenderer::new);
+        MysteriousRenderingCommon.getRenderers().forEach(
+            record -> event.registerEntityRenderer((EntityType) record.type().get(), record.renderer())
+        );
     }
 
-    public static void registerModelLayers(
-        final EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(
-            TheForgottenWarlockModel.LAYER_LOCATION, TheForgottenWarlockModel::createBodyLayer);
+    public static void registerModelLayers(final EntityRenderersEvent.RegisterLayerDefinitions event) {
+        MysteriousRenderingCommon.getLayerDefinitions().forEach(
+            layers -> event.registerLayerDefinition(layers.layerLocation(), layers::supplier)
+        );
     }
 }

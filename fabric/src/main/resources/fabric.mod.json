@@ -21,6 +21,9 @@
     ],
     "client": [
       "dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingFabric"
+    ],
+    "terrablender": [
+      "dev.tophatcat.mysteriousbiomes.MysteriousFabric"
     ]
   },
   "accessWidener": "${mod_id}.accesswidener",

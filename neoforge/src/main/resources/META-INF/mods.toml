@@ -9,7 +9,7 @@ version = "${version}" #mandatory
 displayName = "${mod_display_name}" #mandatory
 displayURL = "${homepage_url}" #optional (displayed in the mod UI)
 logoFile = "logo.png" #optional
-#credits="" #optional
+credits = "KiriCattus" #optional
 authors = "KiriCattus" #optional
 description = '''${mod_description}''' #mandatory (Supports multiline text)
 
@@ -18,7 +18,7 @@ config = "${mod_id}.mixins.json"
 
 [[dependencies.${ mod_id }]] #optional
 modId = "neoforge" #mandatory
-required = true
+mandatory = true
 versionRange = "*" #mandatory
 ordering = "NONE" # The order that this dependency should load in relation to your mod, required to be either 'BEFORE' or 'AFTER' if the dependency is not mandatory
 side = "BOTH" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER'
@@ -26,14 +26,14 @@ mc-publish = { ignore = true }
 
 [[dependencies.${ mod_id }]]
 modId = "minecraft"
-required = true
+mandatory = true
 versionRange = "[${minecraft_version}]"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${ mod_id }]]
 modId = "terrablender"
-required = true
+mandatory = true
 versionRange = "*"
 ordering = "NONE"
 side = "BOTH"

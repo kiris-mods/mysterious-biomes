@@ -22,7 +22,6 @@ package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlockEntity;
 import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
-import java.util.Comparator;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -37,8 +36,11 @@ import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
+import terrablender.api.TerraBlenderApi;
 
-public class MysteriousFabric implements ModInitializer {
+import java.util.Comparator;
+
+public class MysteriousFabric implements ModInitializer, TerraBlenderApi {
 
     private static final ResourceKey<CreativeModeTab> MYSTERIOUS_TAB =
         ResourceKey.create(Registries.CREATIVE_MODE_TAB,
@@ -65,5 +67,10 @@ public class MysteriousFabric implements ModInitializer {
                                 Comparator.comparing(itemReference -> itemReference.key().location().getPath()))
                         .map(Holder.Reference::value)
                         .forEachOrdered(entries::accept)).build());
+    }
+
+    @Override
+    public void onTerraBlenderInitialized() {
+        MysteriousCommon.initTerraBlender();
     }
 }

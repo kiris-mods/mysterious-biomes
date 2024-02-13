@@ -20,11 +20,9 @@
  */
 package dev.tophatcat.mysteriousbiomes.client;
 
-import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
-import dev.tophatcat.mysteriousbiomes.client.renderers.TheForgottenWarlockRenderer;
-import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.world.entity.EntityType;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 
@@ -32,9 +30,12 @@ public class MysteriousRenderingQuilt implements ClientModInitializer {
 
     @Override
     public void onInitializeClient(ModContainer mod) {
-        EntityRendererRegistry.register(
-            MysteriousRegistry.THE_FORGOTTEN_WARLOCK.get(), TheForgottenWarlockRenderer::new);
-        EntityModelLayerRegistry.registerModelLayer(
-            TheForgottenWarlockModel.LAYER_LOCATION, TheForgottenWarlockModel::createBodyLayer);
+        MysteriousRenderingCommon.getRenderers().forEach(
+            record -> EntityRendererRegistry.register((EntityType) record.type().get(), record.renderer())
+        );
+
+        MysteriousRenderingCommon.getLayerDefinitions().forEach(
+            layers -> EntityModelLayerRegistry.registerModelLayer(layers.layerLocation(), layers::supplier)
+        );
     }
 }

@@ -185,8 +185,6 @@
       "minecraft:spring_lava"
     ],
     [
-      "minecraft:glow_lichen",
-      "minecraft:dark_forest_vegetation",
       "mysteriousbiomes:sorbus_tree_worldgen",
       "minecraft:forest_flowers",
       "minecraft:flower_default",

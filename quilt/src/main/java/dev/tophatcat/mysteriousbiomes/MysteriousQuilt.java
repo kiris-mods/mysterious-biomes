@@ -38,8 +38,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
+import terrablender.api.TerraBlenderApi;
 
-public class MysteriousQuilt implements ModInitializer {
+public class MysteriousQuilt implements ModInitializer, TerraBlenderApi {
 
     private static final ResourceKey<CreativeModeTab> MYSTERIOUS_TAB =
         ResourceKey.create(Registries.CREATIVE_MODE_TAB,
@@ -66,5 +67,10 @@ public class MysteriousQuilt implements ModInitializer {
                         Comparator.comparing(itemReference -> itemReference.key().location().getPath()))
                     .map(Holder.Reference::value)
                     .forEachOrdered(entries::accept)).build());
+    }
+
+    @Override
+    public void onTerraBlenderInitialized() {
+        MysteriousCommon.initTerraBlender();
     }
 }

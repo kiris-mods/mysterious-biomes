@@ -24,7 +24,8 @@
 		},
 		"entrypoints": {
 			"init": "dev.tophatcat.mysteriousbiomes.MysteriousQuilt",
-			"client_init": "dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingQuilt"
+			"client_init": "dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingQuilt",
+      "terrablender": "dev.tophatcat.mysteriousbiomes.MysteriousQuilt"
 		},
 		"depends": [
 			{

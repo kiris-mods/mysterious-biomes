@@ -31,15 +31,12 @@ import net.minecraft.resources.ResourceLocation;
 public class TheForgottenWarlockRenderer
     extends MobRenderer<TheForgottenWarlockEntity, EntityModel<TheForgottenWarlockEntity>> {
 
-    private static final ResourceLocation RESOURCE_LOCATION =
-        new ResourceLocation(MysteriousCommon.MOD_ID, "textures/entity/the_forgotten_warlock.png");
+    private static final ResourceLocation RESOURCE_LOCATION = new ResourceLocation(MysteriousCommon.MOD_ID,
+        "textures/entity/the_forgotten_warlock.png");
 
     public TheForgottenWarlockRenderer(EntityRendererProvider.Context renderManager) {
-        super(
-            renderManager,
-            new TheForgottenWarlockModel<>(
-                renderManager.bakeLayer(TheForgottenWarlockModel.LAYER_LOCATION)),
-            0.5F);
+        super(renderManager, new TheForgottenWarlockModel<>(renderManager.bakeLayer(
+            TheForgottenWarlockModel.LAYER_LOCATION)), 0.5F);
     }
 
     @Override

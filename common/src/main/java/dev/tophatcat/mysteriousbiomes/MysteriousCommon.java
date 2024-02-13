@@ -20,6 +20,8 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
+import dev.tophatcat.mysteriousbiomes.common.worldgen.MysteriousRegion;
+import dev.tophatcat.mysteriousbiomes.common.worldgen.MysteriousSurfaceRules;
 import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
 import dev.tophatcat.mysteriousbiomes.platform.Services;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
@@ -29,6 +31,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 
 public class MysteriousCommon {
 
@@ -76,5 +80,11 @@ public class MysteriousCommon {
 
         MysteriousRegistry.init();
         MysteriousWoodType.init();
+    }
+
+    public static void initTerraBlender() {
+        Regions.register(new MysteriousRegion(5));
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD,
+            MOD_ID, MysteriousSurfaceRules.makeRules());
     }
 }

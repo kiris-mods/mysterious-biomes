@@ -2,7 +2,7 @@
 fabric_loom = "1.5-+"
 
 fabric_loader = "0.15.6"
-fabric_api = "0.95.1+1.20.4"
+fabric_api = "0.91.6+1.20.2"
 
 terrablender = "1.20.2-3.2.0.14"
 jade = "12.3.0"

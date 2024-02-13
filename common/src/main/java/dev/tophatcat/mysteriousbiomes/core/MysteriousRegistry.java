@@ -103,16 +103,16 @@ public class MysteriousRegistry {
         MysteriousUtils.makeWoodBlock(MysteriousCommon.MOD_ID, "walnut_wood");
 
     // Stripped woods
-    public static final Supplier<Block> BLOODWOOD_STRIPPED_WOOD =
-        MysteriousUtils.makeWoodBlock(MysteriousCommon.MOD_ID, "bloodwood_stripped_wood");
-    public static final Supplier<Block> GHOSTLY_STRIPPED_WOOD =
-        MysteriousUtils.makeWoodBlock(MysteriousCommon.MOD_ID, "ghostly_stripped_wood");
-    public static final Supplier<Block> SEEPING_STRIPPED_WOOD =
-        MysteriousUtils.makeWoodBlock(MysteriousCommon.MOD_ID, "seeping_stripped_wood");
-    public static final Supplier<Block> SORBUS_STRIPPED_WOOD =
-        MysteriousUtils.makeWoodBlock(MysteriousCommon.MOD_ID, "sorbus_stripped_wood");
-    public static final Supplier<Block> WALNUT_STRIPPED_WOOD =
-        MysteriousUtils.makeWoodBlock(MysteriousCommon.MOD_ID, "walnut_stripped_wood");
+    public static final Supplier<RotatedPillarBlock> BLOODWOOD_STRIPPED_WOOD =
+        MysteriousUtils.makePillarBlock(MysteriousCommon.MOD_ID, "bloodwood_stripped_wood");
+    public static final Supplier<RotatedPillarBlock> GHOSTLY_STRIPPED_WOOD =
+        MysteriousUtils.makePillarBlock(MysteriousCommon.MOD_ID, "ghostly_stripped_wood");
+    public static final Supplier<RotatedPillarBlock> SEEPING_STRIPPED_WOOD =
+        MysteriousUtils.makePillarBlock(MysteriousCommon.MOD_ID, "seeping_stripped_wood");
+    public static final Supplier<RotatedPillarBlock> SORBUS_STRIPPED_WOOD =
+        MysteriousUtils.makePillarBlock(MysteriousCommon.MOD_ID, "sorbus_stripped_wood");
+    public static final Supplier<RotatedPillarBlock> WALNUT_STRIPPED_WOOD =
+        MysteriousUtils.makePillarBlock(MysteriousCommon.MOD_ID, "walnut_stripped_wood");
 
     // Planks
     public static final Supplier<Block> BLOODWOOD_PLANKS =
