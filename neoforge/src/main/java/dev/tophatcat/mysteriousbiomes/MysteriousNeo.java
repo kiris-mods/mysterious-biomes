@@ -22,8 +22,6 @@ package dev.tophatcat.mysteriousbiomes;
 
 import dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingNeo;
 import dev.tophatcat.mysteriousbiomes.common.entity.TheForgottenWarlockEntity;
-import dev.tophatcat.mysteriousbiomes.common.worldgen.MysteriousRegion;
-import dev.tophatcat.mysteriousbiomes.common.worldgen.MysteriousSurfaceRules;
 import dev.tophatcat.mysteriousbiomes.core.MysteriousRegistry;
 import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousBlockStateProvider;
 import dev.tophatcat.mysteriousbiomes.datagen.client.MysteriousItemModelProvider;
@@ -36,7 +34,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -50,8 +47,6 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import terrablender.api.Regions;
-import terrablender.api.SurfaceRuleManager;
 
 import java.util.Comparator;
 

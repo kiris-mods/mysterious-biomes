@@ -26,6 +26,7 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
 public class MysteriousFeatures {
 
+    //TODO Come figure out what I needed these for...
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLOODWOOD_TREE
         = FeatureUtils.createKey("bloodwood_tree");
     public static final ResourceKey<ConfiguredFeature<?, ?>> GHOSTLY_TREE
