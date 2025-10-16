@@ -23,7 +23,6 @@
       "dev.tophatcat.mysteriousbiomes.client.MysteriousRenderingFabric"
     ]
   },
-  "accessWidener": "META-INF/${mod_id}.accesswidener",
   "depends": {
     "fabricloader": "${fabric_loader_version_range}",
     "fabric": "*",
@@ -50,6 +49,7 @@
         "fabric"
       ],
       "dependencies": [
+        "cattuslib(required){modrinth:M6agkTxA}{curseforge:280547}",
         "fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}",
         "smartbrainlib(required){modrinth:PuyPazRT}{curseforge:661293}",
         "geckolib(required){modrinth:8BmcQJ2H}{curseforge:388172}",

@@ -1,6 +1,6 @@
 ### 1.21.1
 - 5.0.0
-  Full blown rewrite and some new content. YEARS in the work and a LOT of grey hair later...
+  Full blown rewrite and some new (WIP) content. YEARS in the work and a LOT of grey hair later...
 
 ### 1.17.1
 - 3.0.2:  

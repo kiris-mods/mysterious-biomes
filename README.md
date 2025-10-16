@@ -1,5 +1,5 @@
 <h1>Mysterious Biomes</h1>
-<h5>Made during SpookyJam 2017, Mysterious Biomes (Formerly Spooky Biomes) is a bundle of some spooky feeling and miscellaneous nice to have biomes to enhance your gameplay!</h5>
+<h5>Made during SpookyJam 2017, Mysterious Biomes is a bundle of some spooky feeling and miscellaneous nice to have biomes to enhance your gameplay!</h5>
 <h5>Don't get too spooked! And remember to keep your ears alert for dangers that lurk in the mist...</h5>
 
 <a href="https://discord.tophatcat.dev">

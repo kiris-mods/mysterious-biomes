@@ -20,16 +20,16 @@ neoForge {
             client()
 
             if (project.hasProperty("mc_uuid")) {
-                programArguments.addAll "--uuid", project.mc_uuid
+                programArguments.addAll "--uuid", mc_uuid
             }
 
             if (project.hasProperty("mc_username")) {
-                programArguments.addAll "--username", project.mc_username
+                programArguments.addAll "--username", mc_username
             }
         }
         data {
             data()
-            programArguments.addAll("--mod", project.mod_id, "--all", "--output", file("../common/src/generated/resources").absolutePath, "--existing", file("../common/src/main/resources").absolutePath)
+            programArguments.addAll("--mod", mod_id, "--all", "--output", file("../common/src/generated/resources").absolutePath, "--existing", file("../common/src/main/resources").absolutePath)
         }
         server {
             server()
