@@ -13,15 +13,15 @@ neoForge {
 }
 
 dependencies {
-    compileOnly group: "org.spongepowered", name: "mixin", version: "0.8.5"
+    compileOnly "org.spongepowered:mixin:0.8.5"
     // fabric and neoforge both bundle mixinextras, so it is safe to use it in common
-    compileOnly group: "io.github.llamalad7", name: "mixinextras-common", version: "0.3.5"
-    annotationProcessor group: "io.github.llamalad7", name: "mixinextras-common", version: "0.3.5"
+    compileOnly "io.github.llamalad7:mixinextras-common:0.3.5"
+    annotationProcessor "io.github.llamalad7:mixinextras-common:0.3.5"
 
     // Dependencies we use for this mod to run as we expect it to.
     implementation "net.tslat.smartbrainlib:SmartBrainLib-common-${minecraft_version}:${smart_brain_lib_common_version}"
     implementation "software.bernie.geckolib:geckolib-common-${minecraft_version}:${geckolib_common_version}"
-    implementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-common-1.21:${resourceful_config_common_version}"
+    // implementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-common-1.21:${resourceful_config_common_version}"
     implementation "com.github.glitchfiend:TerraBlender-common:${minecraft_version}-${terrablender_common_version}"
 }
 

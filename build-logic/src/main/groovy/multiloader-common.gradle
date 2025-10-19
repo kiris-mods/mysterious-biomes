@@ -5,19 +5,12 @@ plugins {
     id "net.neoforged.licenser"
 }
 
-def ENV = System.getenv()
-def NOW = new Date();
-def buildTime = ENV.BUILD_TIME ?: NOW.format('yyyyMMddHHmmss')
-
-boolean isPreviewBuild = !ENV.TAG || ENV.TAG.matches(".+-.+")
-def buildNumber = !ENV.TAG ? ("${ENV.BUILD_NUMBER ? "build.${ENV.BUILD_NUMBER}" : buildTime}") : ""
-version = (ENV.TAG ?: "${minecraft_version}-development") + ((isPreviewBuild && !ENV.TAG) ? "+${buildNumber}" : "")
-
-def mod_name = rootProject.name.replaceAll("-", "_").toLowerCase(Locale.ROOT)
-
-base {
-    archivesName = "${rootProject.name}-${project.name}"
-}
+boolean noTag = !providers.environmentVariable("TAG").getOrNull()
+boolean isPreviewBuild = providers.environmentVariable("TAG").getOrNull().with { !it || it.matches(".+-.+") }
+def buildTime = providers.environmentVariable("BUILD_TIME").orElse(project.provider { new Date().format('yyyyMMddHHmmss') })
+version = providers.environmentVariable("TAG").getOrElse("${minecraft_version}-deveopment") + (
+    (isPreviewBuild && noTag) ? "+${providers.environmentVariable("BUILD_NUMBER").map { "build.$it" as String }.orElse(buildTime).get()}" : ""
+)
 
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(java_version)
@@ -75,9 +68,9 @@ repositories {
 // Read more about capabilities here: https://docs.gradle.org/current/userguide/component_capabilities.html#sec:declaring-additional-capabilities-for-a-local-component
 ["apiElements", "runtimeElements", "sourcesElements", "javadocElements"].each { variant ->
     configurations."$variant".outgoing {
-        capability("$group:${base.archivesName.get()}:$version")
-        capability("$group:$mod_id-${project.name}-${minecraft_version}:$version")
-        capability("$group:$mod_id:$version")
+        capability("$group:${project.name}:$version")
+        capability("$group:${project.name}-${minecraft_version}:$version")
+        capability("$group:${rootProject.name}:$version")
     }
     publishing.publications.configureEach {
         suppressPomMetadataWarningsFor(variant)
@@ -85,26 +78,26 @@ repositories {
 }
 
 sourcesJar {
+    def mod_id = project.mod_id
     from(rootProject.file("LICENSE.md")) {
-        rename { "LICENSE_${mod_name}.md" }
+        rename { "LICENSE_${mod_id}.md" }
     }
 }
 
 jar {
+    def mod_id = project.mod_id
     from(rootProject.file("LICENSE.md")) {
-        rename { "LICENSE_${mod_name}.md" }
+        rename { "LICENSE_${mod_id}.md" }
     }
 
     manifest {
         attributes([
             "Specification-Title"         : project.mod_name,
             "Specification-Vendor"        : project.author,
-            "Specification-Version"       : project.jar.archiveVersion,
+            "Specification-Version"       : project.provider { project.version },
             "Implementation-Title"        : project.name,
-            "Implementation-Version"      : project.jar.archiveVersion,
+            "Implementation-Version"      : project.provider { project.version },
             "Implementation-Vendor"       : project.author,
-            "Implementation-Timestamp"    : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            "Timestamp"                   : System.currentTimeMillis(),
             "Built-On-Java"               : "${System.getProperty("java.vm.version")} (${System.getProperty("java.vm.vendor")})",
             "Built-On-Minecraft"          : project.minecraft_version
         ])
@@ -112,38 +105,32 @@ jar {
 }
 
 processResources {
-	var expandProperties = [
-		"version"                             : version,
-		"group"                               : project.group,
-		"mod_name"                            : project.mod_name,
-		"mod_id"                              : project.mod_id,
-		"author"                              : project.author,
-		"credits"                             : project.credits,
-		"license"                             : project.license,
-		"description"                         : project.description,
+    var expandProperties = [
+        "version"                             : version,
+        "group"                               : project.group,
+        "mod_name"                            : project.mod_name,
+        "mod_id"                              : project.mod_id,
+        "author"                              : project.author,
+        "credits"                             : project.credits,
+        "license"                             : project.license,
+        "description"                         : project.description,
 
-		"display_url"                         : project.display_url,
-		"discord"                             : project.discord,
-		"mod_source"                          : project.mod_source,
-		"license_url"                         : project.license_url,
-		"modrinth_url"                        : project.modrinth_url,
-		"curseforge_url"                      : project.curseforge_url,
+        "display_url"                         : project.display_url,
+        "discord"                             : project.discord,
+        "mod_source"                          : project.mod_source,
+        "license_url"                         : project.license_url,
+        "modrinth_url"                        : project.modrinth_url,
+        "curseforge_url"                      : project.curseforge_url,
 
-		"java_version"                        : project.java_version,
-		"minecraft_version"                   : project.minecraft_version,
-		"minecraft_version_range"             : project.minecraft_version_range,
-		"curseforge_id"                       : project.curseforge_id,
-		"modrinth_id"                         : project.modrinth_id,
+        "java_version"                        : project.java_version,
+        "minecraft_version"                   : project.minecraft_version,
+        "curseforge_id"                       : project.curseforge_id,
+        "modrinth_id"                         : project.modrinth_id,
 
-		"neoforge_version"                    : project.neoforge_version,
-		"neoforge_version_range"              : project.neoforge_version_range,
-		"fancy_mod_loader_version"            : project.fancy_mod_loader_version,
-		"fancy_mod_loader_version_range"      : project.fancy_mod_loader_version_range,
+        "neoforge_version"                    : project.neoforge_version,
 
-		"fabric_version"                      : project.fabric_version,
-		"fabric_version_range"                : project.fabric_version_range,
-		"fabric_loader_version"               : project.fabric_loader_version,
-		"fabric_loader_version_range"         : project.fabric_loader_version_range,
+        "fabric_version"                      : project.fabric_version,
+        "fabric_loader_version"               : project.fabric_loader_version,
 
         "smart_brain_lib_neoforge_version"    : project.smart_brain_lib_neoforge_version,
         "smart_brain_lib_fabric_version"      : project.smart_brain_lib_fabric_version,
@@ -151,8 +138,8 @@ processResources {
         "geckolib_neoforge_version"           : project.geckolib_neoforge_version,
         "geckolib_fabric_version"             : project.geckolib_fabric_version,
 
-        "resourceful_config_neoforge_version" : project.resourceful_config_neoforge_version,
-        "resourceful_config_fabric_version"   : project.resourceful_config_fabric_version,
+        //"resourceful_config_neoforge_version" : project.resourceful_config_neoforge_version,
+        //"resourceful_config_fabric_version"   : project.resourceful_config_fabric_version,
 
         "terrablender_neoforge_version"       : project.terrablender_neoforge_version,
         "terrablender_fabric_version"         : project.terrablender_fabric_version
@@ -194,17 +181,16 @@ tasks.named("assemble").configure{dependsOn "licenseFormat"}
 publishing {
     publications {
         "mavenJava${project.name}"(MavenPublication) {
-            artifactId "${rootProject.name}-${project.name}"
             from components.java
         }
     }
     repositories {
-        if (ENV.MAVEN_UPLOAD_URL) {
+        if (providers.environmentVariable("MAVEN_UPLOAD_URL").isPresent()) {
             maven {
-                url = ENV.MAVEN_UPLOAD_URL
+                url = providers.environmentVariable("MAVEN_UPLOAD_URL").get()
                 credentials {
-                    username = ENV.MAVEN_UPLOAD_USERNAME
-                    password = ENV.MAVEN_UPLOAD_PASSWORD
+                    username = providers.environmentVariable("MAVEN_UPLOAD_USERNAME").get()
+                    password = providers.environmentVariable("MAVEN_UPLOAD_PASSWORD").get()
                 }
             }
         }

@@ -14,19 +14,24 @@ pluginManagement {
                 }
             }
             filter {
-                includeGroup("net.fabricmc")
+                includeGroupAndSubgroups("net.fabricmc")
                 includeGroup("fabric-loom")
             }
         }
     }
+
+    includeBuild("build-logic")
 }
 
 plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.9.0'
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 }
 
-// This should match the folder name of the project, or else IDEA may complain (see https://youtrack.jetbrains.com/issue/IDEA-317606)
-rootProject.name = "mysterious-biomes"
-include("common")
-include("fabric")
-include("neoforge")
+// This should match the mod ID so that the published coordinates can be sensible
+rootProject.name = "mysteriousbiomes"
+include(":${rootProject.name}-common")
+project(":${rootProject.name}-common").projectDir = file("common")
+include(":${rootProject.name}-fabric")
+project(":${rootProject.name}-fabric").projectDir = file("fabric")
+include(":${rootProject.name}-neoforge")
+project(":${rootProject.name}-neoforge").projectDir = file("neoforge")

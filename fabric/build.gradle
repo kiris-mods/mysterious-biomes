@@ -15,7 +15,7 @@ dependencies {
     // Dependencies we use for this mod to run as we expect it to.
     modImplementation "net.tslat.smartbrainlib:SmartBrainLib-fabric-${minecraft_version}:${smart_brain_lib_fabric_version}"
     modImplementation "software.bernie.geckolib:geckolib-fabric-${minecraft_version}:${geckolib_fabric_version}"
-    modImplementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.21:${resourceful_config_fabric_version}"
+    // modImplementation "com.teamresourceful.resourcefulconfig:resourcefulconfig-fabric-1.21:${resourceful_config_fabric_version}"
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_fabric_version}"
     // Optional
     modImplementation "maven.modrinth:jade:${jade_fabric_version}+fabric"
@@ -23,7 +23,7 @@ dependencies {
 }
 
 loom {
-    def aw = project(":common").file("src/main/resources/META-INF/${mod_id}.accesswidener")
+    def aw = project(":${project.rootProject.name}-common").file("src/main/resources/META-INF/${mod_id}.accesswidener")
     if (aw.exists()) {
         accessWidenerPath.set(aw)
     }
