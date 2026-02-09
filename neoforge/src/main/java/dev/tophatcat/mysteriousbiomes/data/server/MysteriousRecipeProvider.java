@@ -20,9 +20,9 @@
  */
 package dev.tophatcat.mysteriousbiomes.data.server;
 
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
-import dev.tophatcat.mysteriousbiomes.utils.MysteriousTags;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.ItemRegistry;
+import dev.tophatcat.mysteriouslands.utils.MysteriousTags;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

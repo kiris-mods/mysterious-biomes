@@ -22,6 +22,8 @@ package dev.tophatcat.mysteriousbiomes.platform;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import java.util.function.Supplier;
+
+import dev.tophatcat.mysteriouslands.platform.IPlatform;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Holder;
@@ -88,9 +90,8 @@ public class PlatformFabric implements IPlatform {
     }
 
     @Override
-    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEgg(
-        Supplier<EntityType<E>> entityType, int primaryColor, int secondaryColor, Item.Properties itemProperties) {
-        return () -> new SpawnEggItem(entityType.get(), primaryColor, secondaryColor, itemProperties);
+    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEgg(Item.Properties itemProperties) {
+        return () -> new SpawnEggItem(itemProperties);
     }
 
     @Override

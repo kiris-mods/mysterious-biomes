@@ -18,16 +18,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  * USA
  */
-package dev.tophatcat.mysteriousbiomes.registries;
+package dev.tophatcat.mysteriouslands.registry;
 
-import com.google.common.base.Suppliers;
-import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.blocks.BloodSoakedGrass;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
-import dev.tophatcat.mysteriousbiomes.utils.RegistryTools;
-import java.util.function.Supplier;
+import dev.tophatcat.mysteriouslands.MysteriousLandsCommon;
+import dev.tophatcat.mysteriouslands.utils.RegistryTools;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.DoorBlock;
@@ -37,7 +33,6 @@ import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.TrapDoorBlock;
@@ -45,18 +40,13 @@ import net.minecraft.world.level.block.WallHangingSignBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 
+import java.util.function.Supplier;
+
 public class BlockRegistry {
 
     public static void init() {
-        MysteriousCommon.LOG.debug("Registering blocks...");
+        MysteriousLandsCommon.LOGGER.debug("Registering blocks for Mysterious Lands...");
     }
-
-    //Grass
-    public static final Supplier<Block> BLOOD_SOAKED_GRASS = RegistryTools.registerBlock(
-        "blood_soaked_grass", BloodSoakedGrass::new);
-    public static final Supplier<Block> BLOOD_SOAKED_DIRT = RegistryTools.registerBlock(
-        "blood_soaked_dirt", Suppliers.memoize(() -> new Block(Block.Properties.ofFullCopy(Blocks.DIRT)
-            .strength(0.5F).sound(SoundType.ROOTED_DIRT))));
 
     // Logs
     public static final Supplier<RotatedPillarBlock> BLOOD_SOAKED_LOG
@@ -115,15 +105,15 @@ public class BlockRegistry {
 
     // Stairs
     public static final Supplier<StairBlock> BLOOD_SOAKED_STAIRS = RegistryTools.createStairsBlock(
-        "blood_soaked_stairs", () -> BLOOD_SOAKED_PLANKS.get().defaultBlockState());
+        "blood_soaked_stairs", BLOOD_SOAKED_PLANKS);
     public static final Supplier<StairBlock> GHOSTLY_STAIRS = RegistryTools.createStairsBlock(
-        "ghostly_stairs", () -> GHOSTLY_PLANKS.get().defaultBlockState());
+        "ghostly_stairs", GHOSTLY_PLANKS);
     public static final Supplier<StairBlock> SEEPING_STAIRS = RegistryTools.createStairsBlock(
-        "seeping_stairs", () -> SEEPING_PLANKS.get().defaultBlockState());
+        "seeping_stairs", SEEPING_PLANKS);
     public static final Supplier<StairBlock> SORBUS_STAIRS = RegistryTools.createStairsBlock(
-        "sorbus_stairs", () -> SORBUS_PLANKS.get().defaultBlockState());
+        "sorbus_stairs", SORBUS_PLANKS);
     public static final Supplier<StairBlock> WALNUT_STAIRS = RegistryTools.createStairsBlock(
-        "walnut_stairs", () -> WALNUT_PLANKS.get().defaultBlockState());
+        "walnut_stairs", WALNUT_PLANKS);
 
     // Leaves
     public static final Supplier<Block> BLOOD_SOAKED_LEAVES = RegistryTools.createLeavesBlock("blood_soaked_leaves");

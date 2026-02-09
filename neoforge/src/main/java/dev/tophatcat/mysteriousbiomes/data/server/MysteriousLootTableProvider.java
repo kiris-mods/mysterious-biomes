@@ -21,8 +21,8 @@
 package dev.tophatcat.mysteriousbiomes.data.server;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.ItemRegistry;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;

@@ -86,7 +86,7 @@ public class TheForgottenWarlockEntity extends Monster implements RangedAttackMo
     @Override
     public void tick() {
         super.tick();
-        if (!level().isClientSide) {
+        if (!level().isClientSide()) {
             setClimbingWall(horizontalCollision);
         }
     }
@@ -94,7 +94,7 @@ public class TheForgottenWarlockEntity extends Monster implements RangedAttackMo
     @Override
     public void aiStep() {
         super.aiStep();
-        if (level().isClientSide) {
+        if (level().isClientSide()) {
             for (int i = 0; i < 2; ++i) {
                 level().addParticle(ParticleTypes.PORTAL,
                         getX() + (random.nextDouble() - 0.5D) * (double) getBbWidth(),
@@ -106,8 +106,7 @@ public class TheForgottenWarlockEntity extends Monster implements RangedAttackMo
         }
     }
 
-    //TODO Change it from an arrow to a blue fireball that doesn't burn flammable in world blocks,
-    // only entities.
+    //TODO Change it from an arrow to a blue fireball that doesn't burn flammable in world blocks, only entities.
     @Override
     public void performRangedAttack(LivingEntity target, float pullProgress) {
         ItemStack weapon = getItemInHand(ProjectileUtil.getWeaponHoldingHand(this, Items.BOW));

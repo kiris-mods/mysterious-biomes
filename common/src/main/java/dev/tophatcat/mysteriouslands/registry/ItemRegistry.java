@@ -18,33 +18,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  * USA
  */
-package dev.tophatcat.mysteriousbiomes.registries;
+package dev.tophatcat.mysteriouslands.registry;
 
-import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.utils.RegistryTools;
+import dev.tophatcat.mysteriouslands.MysteriousLandsCommon;
+import dev.tophatcat.mysteriouslands.utils.RegistryTools;
 import java.util.function.Supplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.item.SpawnEggItem;
 
 public class ItemRegistry {
 
     public static void init() {
-        MysteriousCommon.LOG.debug("Registering items...");
+        MysteriousLandsCommon.LOGGER.debug("Registering items for Mysterious Lands...");
     }
 
     //Spawn eggs
-    public static final Supplier<SpawnEggItem> THE_FORGOTTEN_WARLOCK_SPAWN_EGG = RegistryTools.registerItem(
-        "the_forgotten_warlock_spawn_egg", MysteriousCommon.COMMON_PLATFORM.makeSpawnEgg(
-        EntityRegistry.THE_FORGOTTEN_WARLOCK, 0x00127A, 0x702700, new SpawnEggItem.Properties()));
-
-    //Grass
-    public static final Supplier<Item> BLOOD_SOAKED_GRASS = RegistryTools.registerItem(
-        "blood_soaked_grass", () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_GRASS.get(), new Item.Properties()));
-    public static final Supplier<Item> BLOOD_SOAKED_DIRT = RegistryTools.registerItem(
-        "blood_soaked_dirt", () -> new BlockItem(BlockRegistry.BLOOD_SOAKED_DIRT.get(), new Item.Properties()));
+    //public static final Supplier<SpawnEggItem> THE_FORGOTTEN_WARLOCK_SPAWN_EGG = RegistryTools.registerItem(
+    //    "the_forgotten_warlock_spawn_egg", MysteriousCommon.COMMON_PLATFORM.makeSpawnEgg(
+    //        new SpawnEggItem.Properties().spawnEgg(EntityRegistry.THE_FORGOTTEN_WARLOCK.get())));
 
     // Logs
     public static final Supplier<Item> BLOOD_SOAKED_LOG = RegistryTools.registerItem("blood_soaked_log",

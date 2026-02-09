@@ -23,6 +23,8 @@ package dev.tophatcat.mysteriousbiomes.platform;
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import dev.tophatcat.mysteriousbiomes.MysteriousNeo;
 import java.util.function.Supplier;
+
+import dev.tophatcat.mysteriouslands.platform.IPlatform;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -35,7 +37,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLEnvironment;
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 
 public class PlatformNeoForge implements IPlatform {
 
@@ -51,7 +52,7 @@ public class PlatformNeoForge implements IPlatform {
 
     @Override
     public boolean isDevelopmentEnvironment() {
-        return !FMLEnvironment.production;
+        return !FMLEnvironment.isProduction();
     }
 
     @Override
@@ -86,9 +87,8 @@ public class PlatformNeoForge implements IPlatform {
     }
 
     @Override
-    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEgg(
-        Supplier<EntityType<E>> entityType, int primaryColor, int secondaryColor, Item.Properties itemProperties) {
-        return () -> new DeferredSpawnEggItem(entityType, primaryColor, secondaryColor, itemProperties);
+    public <E extends Mob> Supplier<SpawnEggItem> makeSpawnEgg(Item.Properties itemProperties) {
+        return () -> new SpawnEggItem(itemProperties);
     }
 
     @Override

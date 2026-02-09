@@ -20,25 +20,27 @@
  */
 package dev.tophatcat.mysteriousbiomes.data.client;
 
-import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
+import dev.tophatcat.mysteriouslands.MysteriousLandsCommon;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.ItemRegistry;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CeilingHangingSignBlock;
 import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
 import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class MysteriousBlockStateProvider extends BlockStateProvider {
 
-    public MysteriousBlockStateProvider(PackOutput output, ExistingFileHelper existingHelper) {
-        super(output, MysteriousCommon.MOD_ID, existingHelper);
+    public MysteriousBlockStateProvider(PackOutput output) {
     }
 
     protected String getName(Block item) {
@@ -57,35 +59,6 @@ public class MysteriousBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        getVariantBuilder(BlockRegistry.BLOOD_SOAKED_GRASS.get())
-            .partialState()
-            .with(BlockStateProperties.SNOWY, true)
-            .modelForState()
-            .modelFile(
-                models()
-                    .withExistingParent(
-                        getName(BlockRegistry.BLOOD_SOAKED_GRASS.get()) + "_snow",
-                        "minecraft:block/cube_bottom_top")
-                    .texture("bottom", modLoc("block/blood_soaked_dirt"))
-                    .texture("side", modLoc("block/blood_soaked_grass_snow"))
-                    .texture("top", modLoc("block/blood_soaked_grass_top"))
-                    .texture("particle", modLoc("block/blood_soaked_dirt")))
-            .addModel()
-            .partialState()
-            .with(BlockStateProperties.SNOWY, false)
-            .modelForState()
-            .modelFile(
-                models()
-                    .withExistingParent(
-                        getName(BlockRegistry.BLOOD_SOAKED_GRASS.get()),
-                        "minecraft:block/cube_bottom_top")
-                    .texture("bottom", modLoc("block/blood_soaked_dirt"))
-                    .texture("side", modLoc("block/blood_soaked_grass_side"))
-                    .texture("top", modLoc("block/blood_soaked_grass_top"))
-                    .texture("particle", modLoc("block/blood_soaked_dirt")))
-            .addModel();
-        simpleBlock(BlockRegistry.BLOOD_SOAKED_DIRT.get());
-
         // Logs
         logBlock(BlockRegistry.BLOOD_SOAKED_LOG.get());
         logBlock(BlockRegistry.GHOSTLY_LOG.get());
@@ -251,5 +224,15 @@ public class MysteriousBlockStateProvider extends BlockStateProvider {
         itemModels().basicItem(ItemRegistry.SEEPING_SIGN.get());
         itemModels().basicItem(ItemRegistry.SORBUS_SIGN.get());
         itemModels().basicItem(ItemRegistry.WALNUT_SIGN.get());
+    }
+
+    @Override
+    protected BlockStateProviderType<?> type() {
+        return null;
+    }
+
+    @Override
+    public BlockState getState(RandomSource randomSource, BlockPos blockPos) {
+        return null;
     }
 }

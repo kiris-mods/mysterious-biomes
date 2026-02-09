@@ -22,8 +22,8 @@ package dev.tophatcat.mysteriousbiomes.client.models;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
+import dev.tophatcat.mysteriouslands.MysteriousLandsCommon;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -38,7 +38,7 @@ import net.minecraft.resources.ResourceLocation;
 public class TheForgottenWarlockModel<T extends TheForgottenWarlockEntity> extends EntityModel<T> {
 
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-        ResourceLocation.fromNamespaceAndPath(MysteriousCommon.MOD_ID, "the_forgotten_warlock"), "main");
+        ResourceLocation.fromNamespaceAndPath(MysteriousLandsCommon.MOD_ID, "the_forgotten_warlock"), "main");
     private final ModelPart head;
     private final ModelPart rightArm;
     private final ModelPart leftArm;

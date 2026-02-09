@@ -18,7 +18,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  * USA
  */
-package dev.tophatcat.mysteriousbiomes.utils;
+package dev.tophatcat.mysteriouslands.utils;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import net.minecraft.core.registries.Registries;

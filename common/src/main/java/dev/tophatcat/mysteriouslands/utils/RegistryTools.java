@@ -18,11 +18,17 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  * USA
  */
-package dev.tophatcat.mysteriousbiomes.utils;
+package dev.tophatcat.mysteriouslands.utils;
 
 import com.google.common.base.Suppliers;
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
 import java.util.function.Supplier;
+
+import dev.tophatcat.mysteriouslands.MysteriousLandsCommon;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -30,34 +36,17 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ButtonBlock;
-import net.minecraft.world.level.block.CeilingHangingSignBlock;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.FenceBlock;
-import net.minecraft.world.level.block.FenceGateBlock;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.PressurePlateBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SaplingBlock;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.StairBlock;
-import net.minecraft.world.level.block.StandingSignBlock;
-import net.minecraft.world.level.block.TrapDoorBlock;
-import net.minecraft.world.level.block.WallHangingSignBlock;
-import net.minecraft.world.level.block.WallSignBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
 /**
  * A collection of methods or tools I use to help clean up code duplication and make things easier to set up.
- * The first 7 "register" methods are used to help register things like items and blocks to the game.
+ * The first collection of "register" methods are used to help register things like items and blocks to the game.
  * The rest of "create" methods are to help set up things like items and blocks. More specifically blocks in my case.
  */
 public final class RegistryTools {
@@ -92,7 +81,8 @@ public final class RegistryTools {
     public static <T extends Mob> Supplier<EntityType<T>> registerEntity(
         String name, EntityType.EntityFactory<T> entity, float width, float height, MobCategory category) {
         return MysteriousCommon.COMMON_PLATFORM.registerEntity(name, () -> EntityType.Builder.of(
-            entity, category).sized(width, height).build(name));
+            entity, category).sized(width, height).build(ResourceKey.create(Registries.ENTITY_TYPE,
+            ResourceLocation.fromNamespaceAndPath(MysteriousLandsCommon.MOD_ID, name))));
     }
 
     /**
@@ -135,8 +125,8 @@ public final class RegistryTools {
      * @param name The name of the stairs being registered.
      * @param blockState The default block state of the planks that these stairs are to be made of.
      */
-    public static Supplier<StairBlock> createStairsBlock(String name, Supplier<BlockState> blockState) {
-        return registerBlock(name, Suppliers.memoize(() -> new StairBlock(blockState.get(),
+    public static Supplier<StairBlock> createStairsBlock(String name, Supplier<Block> blockState) {
+        return registerBlock(name, Suppliers.memoize(() -> new StairBlock(blockState.get().defaultBlockState(),
             Block.Properties.ofFullCopy(Blocks.OAK_STAIRS))));
     }
 
@@ -145,8 +135,8 @@ public final class RegistryTools {
      * @param name The name of the leaves being registered.
      */
     public static Supplier<Block> createLeavesBlock(String name) {
-        return registerBlock(name, Suppliers.memoize(() -> new LeavesBlock(
-            Block.Properties.ofFullCopy(Blocks.OAK_LEAVES))));
+        return registerBlock(name, Suppliers.memoize(() -> new UntintedParticleLeavesBlock(
+            0.5F , ParticleTypes.ASH, Block.Properties.ofFullCopy(Blocks.OAK_LEAVES))));
     }
 
     /**
@@ -231,8 +221,8 @@ public final class RegistryTools {
      */
     public static Supplier<SignItem> createSign(String name, Supplier<StandingSignBlock> signBlock,
                                                 Supplier<WallSignBlock> wallSignBlock) {
-        return registerItem(name, Suppliers.memoize(() -> new SignItem(new Item.Properties()
-            .stacksTo(16), signBlock.get(), wallSignBlock.get())));
+        return registerItem(name, Suppliers.memoize(() -> new SignItem(signBlock.get(), wallSignBlock.get(), new Item.Properties()
+            .stacksTo(16))));
     }
 
     /**

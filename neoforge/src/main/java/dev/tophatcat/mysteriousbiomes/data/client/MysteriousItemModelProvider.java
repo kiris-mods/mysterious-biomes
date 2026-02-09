@@ -21,8 +21,8 @@
 package dev.tophatcat.mysteriousbiomes.data.client;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.ItemRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;

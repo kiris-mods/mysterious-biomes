@@ -21,7 +21,7 @@
 package dev.tophatcat.mysteriousbiomes.data;
 
 import dev.tophatcat.mysteriousbiomes.MysteriousCommon;
-import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
+import dev.tophatcat.mysteriouslands.registry.EntityRegistry;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import net.minecraft.core.HolderLookup;

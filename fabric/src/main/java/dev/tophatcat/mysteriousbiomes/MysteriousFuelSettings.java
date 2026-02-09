@@ -20,8 +20,8 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.ItemRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 
 public class MysteriousFuelSettings {

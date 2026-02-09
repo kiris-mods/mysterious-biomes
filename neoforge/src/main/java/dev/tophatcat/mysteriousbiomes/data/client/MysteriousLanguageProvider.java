@@ -20,32 +20,23 @@
  */
 package dev.tophatcat.mysteriousbiomes.data.client;
 
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
+import dev.tophatcat.mysteriouslands.MysteriousLandsCommon;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.EntityRegistry;
+import dev.tophatcat.mysteriouslands.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
 public class MysteriousLanguageProvider extends LanguageProvider {
 
-    public MysteriousLanguageProvider(PackOutput output, String modId, String locale) {
-        super(output, modId, locale);
+    public MysteriousLanguageProvider(PackOutput output) {
+        super(output, MysteriousLandsCommon.MOD_ID, "en_us");
     }
 
     @Override
     protected void addTranslations() {
         // Creative tab.
-        add("item_group.mysteriousbiomes.mysterious_tab", "Mysterious Biomes");
-
-        // Entities
-        addEntityType(EntityRegistry.THE_FORGOTTEN_WARLOCK, "The Forgotten Warlock");
-
-        // Spawn eggs
-        addItem(ItemRegistry.THE_FORGOTTEN_WARLOCK_SPAWN_EGG, "The Forgotten Warlock Spawn Egg");
-
-        // Misc blocks
-        addBlock(BlockRegistry.BLOOD_SOAKED_DIRT, "Blood Soaked Dirt");
-        addBlock(BlockRegistry.BLOOD_SOAKED_GRASS, "Blood Soaked Grass");
+        add("item_group.mysteriousbiomes.mysterious_tab", "Mysterious Lands");
 
         // Logs
         addBlock(BlockRegistry.BLOOD_SOAKED_LOG, "Blood Soaked Log");

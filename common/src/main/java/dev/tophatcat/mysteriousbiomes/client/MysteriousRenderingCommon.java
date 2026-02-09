@@ -22,7 +22,7 @@ package dev.tophatcat.mysteriousbiomes.client;
 
 import dev.tophatcat.mysteriousbiomes.client.models.TheForgottenWarlockModel;
 import dev.tophatcat.mysteriousbiomes.client.renderers.TheForgottenWarlockRenderer;
-import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
+import dev.tophatcat.mysteriouslands.registry.EntityRegistry;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;

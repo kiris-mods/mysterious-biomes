@@ -20,11 +20,11 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.mysteriousbiomes.platform.IPlatform;
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.CreativeTabRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
-import dev.tophatcat.mysteriousbiomes.registries.ItemRegistry;
+import dev.tophatcat.mysteriouslands.platform.IPlatform;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.CreativeTabRegistry;
+import dev.tophatcat.mysteriouslands.registry.EntityRegistry;
+import dev.tophatcat.mysteriouslands.registry.ItemRegistry;
 import dev.tophatcat.mysteriousbiomes.utils.MysteriousWoodType;
 import java.util.HashSet;
 import java.util.ServiceLoader;
@@ -38,6 +38,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Deprecated
 public class MysteriousCommon {
 
     public static final String MOD_ID = "mysteriousbiomes";
@@ -60,14 +61,6 @@ public class MysteriousCommon {
         LOG.debug("We are currently loaded via the {} mod loader in a {} environment!",
             COMMON_PLATFORM.getPlatformName(),
             COMMON_PLATFORM.getEnvironmentName());
-
-        MysteriousWoodType.init();
-        //Block Entities
-        BlockRegistry.init();
-        EntityRegistry.init();
-        ItemRegistry.init();
-        //Sounds
-        CreativeTabRegistry.init();
     }
 
     public static void setupBlockEntities() {

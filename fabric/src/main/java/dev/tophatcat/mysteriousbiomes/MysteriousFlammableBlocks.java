@@ -20,7 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.mysteriousbiomes.registries.BlockRegistry;
+import dev.tophatcat.mysteriouslands.registry.BlockRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 
 public class MysteriousFlammableBlocks {

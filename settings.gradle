@@ -28,7 +28,7 @@ plugins {
 }
 
 // This should match the mod ID so that the published coordinates can be sensible
-rootProject.name = "mysteriousbiomes"
+rootProject.name = "mysteriouslands"
 include(":${rootProject.name}-common")
 project(":${rootProject.name}-common").projectDir = file("common")
 include(":${rootProject.name}-fabric")

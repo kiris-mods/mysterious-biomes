@@ -20,8 +20,7 @@
  */
 package dev.tophatcat.mysteriousbiomes;
 
-import dev.tophatcat.mysteriousbiomes.entity.TheForgottenWarlockEntity;
-import dev.tophatcat.mysteriousbiomes.registries.EntityRegistry;
+import dev.tophatcat.mysteriouslands.registry.EntityRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.world.entity.SpawnPlacementTypes;
@@ -32,13 +31,17 @@ public class MysteriousFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
+
+
+
+
         MysteriousCommon.init();
         EntityRegistry.registerEntityAttributes(FabricDefaultAttributeRegistry::register);
         SpawnPlacements.register(
             EntityRegistry.THE_FORGOTTEN_WARLOCK.get(),
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            TheForgottenWarlockEntity::checkSpawnRules);
+            TheForgottenWarlockEnity::checkSpawnRules);
 
         new MysteriousFlammableBlocks();
         new MysteriousFuelSettings();
